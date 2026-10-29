@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shelter Secure | A look behind the place we call home</title>
+<meta name="description" content="Run the free Shelter Scan, get the free Starter Kit, learn the Grid-Adjacent approach, then see your own household clearly with the Shelter Report System.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<style>
+/* Shelter Scan radar (Step 1) */
+{{SCAN_STYLE}}
+</style>
+</head>
+<body>
+<!--
+  LINKS — change here if a page address changes.
+  App sign-in:   https://app.sheltersecurenow.com
+  SRS page:      https://flighttowerbook.mysamcart.com/shelter-secure-shelter-report-system
+  Bundle page:   https://flighttowerbook.mysamcart.com/grid-adjacent-shelter-secure-bundle
+  GA course:     https://flighttowerbook.mysamcart.com/grid-adjacent-course
+  Manual:        https://app.loquy.ai/c/paulburgesshomes-6akeao/shelter-secure-instruction-manual
+  Starter Kit:   /starter-kit.html (on this site)
+  Bookstore:     https://flighttowerbooks.com
+-->
+<header class="top" id="top">
+  <a class="brand" href="/"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg></span><span>SHELTER <strong>SECURE</strong></span></a>
+  <nav>
+    <a href="#scan">Free scan</a>
+    <a href="#kit">Starter kit</a>
+    <a href="#journey">How it works</a>
+    <a href="#p-course">Course</a>
+    <a href="#p-report">Report</a>
+    <a class="signin" href="https://app.sheltersecurenow.com">Sign in</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero cine s0" id="cine">
+  <div class="sky sky-night"></div><div class="sky sky-dusk"></div><div class="sky sky-storm"></div><div class="sky sky-dawn"></div>
+  <div class="sun"></div>
+  <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+  <div class="rain"></div><div class="flash"></div>
+  <svg class="hills" viewBox="0 0 1600 260" preserveAspectRatio="none" aria-hidden="true">
+    <path class="h1" d="M0 120 C 220 60, 420 70, 640 110 S 1080 40, 1320 80 S 1560 90, 1600 70 V260 H0Z"/>
+    <path class="h2" d="M0 180 C 260 140, 520 150, 760 170 S 1200 130, 1600 150 V260 H0Z"/>
+  </svg>
+  <div class="scrim"></div>
+
+  <div class="home-scene" aria-hidden="true">
+    <div class="ok-chip">&#10003; You know what holds it up</div>
+    <svg class="house" viewBox="0 0 440 330">
+      <defs><linearGradient id="winG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1c2"/><stop offset="1" stop-color="#f3b54a"/></linearGradient>
+      <radialGradient id="homeGlow" cx="50%" cy="55%" r="55%"><stop offset="0" stop-color="#ffd27a" stop-opacity=".55"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/></radialGradient></defs>
+      <ellipse class="hglow" cx="220" cy="200" rx="215" ry="150" fill="url(#homeGlow)"/>
+      <rect class="pline" x="22" y="18" width="396" height="300" rx="14" fill="none" stroke="#ff6b55" stroke-width="3" stroke-dasharray="10 9"/>
+      <g class="tree" fill="#0f1a16"><path d="M44 300 L74 190 L104 300Z"/><path d="M52 250 L74 160 L96 250Z"/><path d="M340 300 L372 200 L404 300Z"/></g>
+      <path d="M220 52 L352 150 L88 150 Z" fill="#1f3442" stroke="#e8c15a" stroke-width="4" stroke-linejoin="round" class="roof"/>
+      <rect x="296" y="78" width="22" height="44" fill="#1f3442" stroke="#e8c15a" stroke-width="4"/>
+      <rect x="104" y="148" width="232" height="146" fill="#182b37" stroke="#e8c15a" stroke-width="4"/>
+      <circle cx="220" cy="112" r="15" fill="#13222c" stroke="#e8c15a" stroke-width="3"/>
+      <circle class="lit attic" cx="220" cy="112" r="12" fill="url(#winG)"/>
+      <rect x="128" y="176" width="60" height="50" rx="4" fill="#13222c"/><rect x="252" y="176" width="60" height="50" rx="4" fill="#13222c"/>
+      <g class="lit wins"><rect x="128" y="176" width="60" height="50" rx="4" fill="url(#winG)"/><rect x="252" y="176" width="60" height="50" rx="4" fill="url(#winG)"/></g>
+      <g fill="#0f1c24"><circle cx="148" cy="194" r="7"/><rect x="140" y="202" width="16" height="24" rx="6"/><circle cx="168" cy="199" r="5.5"/><rect x="162" y="205" width="12" height="21" rx="5"/>
+        <circle cx="272" cy="194" r="7"/><rect x="264" y="202" width="16" height="24" rx="6"/><g class="kid"><circle cx="292" cy="204" r="4.5"/><rect x="287" y="209" width="10" height="17" rx="4"/></g></g>
+      <rect x="202" y="222" width="36" height="72" rx="4" fill="#e9b85a"/>
+      <circle class="lit porch" cx="246" cy="232" r="4" fill="#fff1c2"/>
+      <rect x="80" y="292" width="280" height="8" rx="4" fill="#0f1a16"/>
+    </svg>
+    <div class="supports">
+      <span class="sp" data-k="water"><i></i>Water</span>
+      <span class="sp" data-k="energy"><i></i>Energy</span>
+      <span class="sp" data-k="food"><i></i>Food</span>
+      <span class="sp" data-k="income"><i></i>Income</span>
+    </div>
+  </div>
+
+  <div class="wrap cine-copy">
+    <p class="tagline"><span class="tl-line"></span>A look behind the place we call home.</p>
+    <h1>What happens to everything you've built when <span class="rot"><span class="rot-w" id="rotW">life changes?</span></span></h1>
+    <p class="lead">You've worked for years to build a home, a family and a life that matters. But life doesn't stand still. Income changes, families grow, needs shift, and even your property can face risks you never expected.</p>
+    <p class="pull">What you've built deserves more than hope that it will all work out.</p>
+    <p class="triad">Protect what you've built. Strengthen what supports you. Plan for what comes next.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#scan">Start your free 90-second Shelter Scan</a>
+      <a class="btn ghost" href="#journey">See how Shelter Secure works</a>
+    </div>
+    <p class="small">Discover what your household depends on, and where a closer look may help. No email needed.</p>
+  </div>
+</section>
+
+<section id="scan" class="section step-section">
+  <div class="wrap">
+    <span class="eyebrow">FREE · SHELTER SCAN</span>
+{{SCAN_MARKUP}}
+  </div>
+</section>
+
+<section id="kit" class="section kit2">
+  <div class="wrap">
+    <div class="kit2-head">
+      <div>
+        <span class="eyebrow">FREE · STARTER KIT</span>
+        <h2>Your scan showed where to look.<br><em>This kit shows you what to do.</em></h2>
+        <p class="kit2-lead">Three free, fill-in tools that turn your scan results into a written plan for your household. Nothing to install. They open in your browser, save on your device, and print.</p>
+        <ul class="kit2-get">
+          <li><b>&#10003;</b>A 72-hour plan your whole household can follow</li>
+          <li><b>&#10003;</b>An honest read on how tied you are to the grid and a paycheck</li>
+          <li><b>&#10003;</b>Where your home stands today, and a realistic next step up</li>
+        </ul>
+        <ol class="kit2-steps">
+          <li><i>1</i><span><strong>Enter your email</strong>Right here, in the box</span></li>
+          <li><i>2</i><span><strong>Your kit opens</strong>Instantly, on this site</span></li>
+          <li><i>3</i><span><strong>Fill it in</strong>Save it and print it</span></li>
+        </ol>
+      </div>
+      <div class="kit-form kit2-form">
+        <span class="kit2-badge">FREE · 3 TOOLS · $0</span>
+        <h3>Get your free Starter Kit</h3>
+        <p>Enter your email and all three tools open right away.</p>
+        <!-- HOSTINGER REACH FORM: paste the two Reach snippets here. -->
+        <div class="reach-slot">Hostinger Reach email form goes here</div>
+        <p class="small">No purchase, no spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+
+    <div class="kit2-tools">
+      <article class="tool">
+        <div class="mock m-plan" aria-hidden="true">
+          <div class="mh">72-HOUR PLAN</div>
+          <div class="cols"><span>DAY 1</span><span>DAY 2</span><span>DAY 3</span></div>
+          <div class="row"><em>Water</em><b class="y" style="--d:0.00s"></b><b class="y" style="--d:0.22s"></b><b class="n" style="--d:0.44s"></b></div>
+          <div class="row"><em>Light &amp; power</em><b class="y" style="--d:0.66s"></b><b class="n" style="--d:0.88s"></b><b class="n" style="--d:1.10s"></b></div>
+          <div class="row"><em>Meals</em><b class="y" style="--d:1.32s"></b><b class="y" style="--d:1.54s"></b><b class="y" style="--d:1.76s"></b></div>
+          <div class="row"><em>Who calls whom</em><b class="y" style="--d:1.98s"></b><b class="n" style="--d:2.20s"></b><b class="n" style="--d:2.42s"></b></div>
+        </div>
+        <span class="tool-n">TOOL 1 · WATER · ENERGY · FOOD</span>
+        <h3>72-Hour Emergency Plan</h3>
+        <p>A simple three-day plan so your household rides out short outages without panic.</p>
+        <p class="walk"><strong>You walk away with:</strong> a printed plan on the fridge that everyone in the house can follow.</p>
+      </article>
+      <article class="tool">
+        <div class="mock m-gauge" aria-hidden="true">
+          <div class="mh">MARRIED TO THE GRID</div>
+          <svg viewBox="0 0 200 110"><path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="#2f5b6d" stroke-width="16"/>
+            <path class="g-arc" d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="url(#gg)" stroke-width="16" stroke-dasharray="251" stroke-dashoffset="80"/>
+            <defs><linearGradient id="gg"><stop offset="0" stop-color="#4fd18b"/><stop offset=".55" stop-color="#f5b83d"/><stop offset="1" stop-color="#ff6b55"/></linearGradient></defs>
+            <g class="needle"><line x1="100" y1="100" x2="146" y2="52" stroke="#fff" stroke-width="4" stroke-linecap="round"/></g><circle cx="100" cy="100" r="7" fill="#fff"/></svg>
+          <div class="gl"><span>Independent</span><span>Fully tied</span></div>
+        </div>
+        <span class="tool-n">TOOL 2 · INCOME · DEPENDENCE</span>
+        <h3>Married to the Grid</h3>
+        <p>Ten honest questions about how tightly your life is tied to power, money and systems you don't control.</p>
+        <p class="walk"><strong>You walk away with:</strong> your score, and the few ties worth loosening first.</p>
+      </article>
+      <article class="tool">
+        <div class="mock m-pyr" aria-hidden="true">
+          <div class="mh">HOUSING HIERARCHY</div>
+          <div class="pyr"><span style="--w:40%;width:40%">Mostly Self-Carried</span><span class="here" style="--w:54%;width:54%">Grid-Adjacent <small>&larr; you are here</small></span><span style="--w:68%;width:68%">Grid-Dependent</span></div>
+        </div>
+        <span class="tool-n">TOOL 3 · SHELTER · OPTIONS</span>
+        <h3>Housing Hierarchy</h3>
+        <p>Where your home sits on the resilience pyramid today, and a realistic path up from here.</p>
+        <p class="walk"><strong>You walk away with:</strong> your level today, and the realistic next step up from there.</p>
+      </article>
+    </div>
+
+    <div class="kit2-next">
+      <span><strong>Finished your kit?</strong> The Grid-Adjacent course shows how energy, water, food, shelter and money work together, and how to build on your plan.</span>
+      <a class="btn ghost" href="#journey">See what comes next &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section id="journey" class="section prods">
+  <div class="wrap">
+    <div class="prods-head">
+      <span class="eyebrow">HOW SHELTER SECURE WORKS</span>
+      <h2>A Stronger Home. A More Secure Future. One Step at a Time.</h2>
+      <p class="intro">The free scan and starter kit show you where to look. From there, start wherever fits you. Each part stands on its own, and together they build on one another.</p>
+    </div>
+    <ol class="journey-strip" aria-label="The Shelter Secure journey">
+      <li><a href="#scan"><b>Discover</b><small>Free Shelter Scan</small></a></li>
+      <li><a href="#p-course"><b>Learn</b><small>Grid-Adjacent course</small></a></li>
+      <li><a href="#p-report"><b>Understand</b><small>Shelter Report System</small></a></li>
+      <li class="later"><a href="#notify"><b>Plan</b><small>Continuity Passport &middot; 2027</small></a></li>
+      <li class="later"><a href="#notify"><b>Seal</b><small>Document Seal &middot; 2027</small></a></li>
+      <li class="later"><a href="#notify"><b>Protect</b><small>Title Integrity Guard &middot; 2027</small></a></li>
+    </ol>
+    <div class="chooser">
+      <span class="chooser-q">Not sure where to start?</span>
+      <a href="#p-report"><small>Took the scan and want answers for your own home?</small><strong>Shelter Report &darr;</strong></a>
+      <a href="#p-course"><small>Want to understand the ideas first?</small><strong>Grid-Adjacent course &darr;</strong></a>
+      <a href="#p-bundle" class="hot"><small>Want both, and save $47?</small><strong>The bundle &darr;</strong></a>
+    </div>
+
+    <article class="prod" id="p-report">
+      <figure class="prod-img"><img src="/images/report.webp" alt="Shelter Secure Shelter Report System: a homeowner reviewing her report on a tablet, with an apartment, a house and a small solar home behind them" loading="lazy" width="900" height="900"></figure>
+      <div class="prod-body">
+        <span class="stage">UNDERSTAND · SHELTER REPORT SYSTEM</span>
+        <h3>See exactly where your household stands.</h3>
+        <p class="kitchen">Like sitting down with someone who knows housing, at your own kitchen table.</p>
+        <p>Answer short questions about your home, your money and your essentials. Get a personal report that shows what's strong, what needs attention, and what to do first.</p>
+        <ul class="checks">
+          <li>Clear, watch and priority ratings for every area</li>
+          <li>Your monthly money picture: income, home costs, debts and reserves</li>
+          <li>Your first 30 days, a 90-day plan and a five-year outlook</li>
+          <li>Update anytime, plus a bonus report for a second property or to give</li>
+          <li>A free video instruction manual: 22 short lessons that walk you through it</li>
+        </ul>
+        <ol class="mini-steps">
+          <li><b>1</b><span><strong>Quick View</strong>About ten minutes to your first report</span></li>
+          <li><b>2</b><span><strong>Deep Dive</strong>Each section unlocks more of your report</span></li>
+          <li><b>3</b><span><strong>Keep it current</strong>Update as life changes</span></li>
+        </ol>
+        <p class="fine">Private by design: labels like "Savings One" are all it needs. No account numbers or documents. We do not sell your information.</p>
+        <div class="buy">
+          <div class="price">$179</div>
+          <a class="btn primary" href="https://flighttowerbook.mysamcart.com/shelter-secure-shelter-report-system">Get your Shelter Report</a>
+          <a class="alt" href="#p-bundle">or get it with the course for $199 &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="prod feature flip" id="p-bundle">
+      <figure class="prod-img"><img src="/images/bundle.webp" alt="Shelter Secure and Grid-Adjacent bundle: the course and the Shelter Report System together for $199" loading="lazy" width="900" height="900"></figure>
+      <div class="prod-body">
+        <span class="stage">LEARN + UNDERSTAND · THE BUNDLE</span>
+        <h3>Learn the approach, then apply it to your own home.</h3>
+        <p>The course gives you the ideas. The Shelter Report puts real numbers to your household. Together they take you from "I should look at this" to a plan you can act on.</p>
+        <ul class="checks">
+          <li>Everything in the Shelter Report System</li>
+          <li>The full Grid-Adjacent course: six guided sections, workbook and audio</li>
+          <li>The full-color digital edition of <em>Grid-Adjacent: The Exit Strategy</em></li>
+        </ul>
+        <div class="buy">
+          <div class="price">$199 <s>$246</s> <span class="save">Save $47</span></div>
+          <a class="btn primary" href="https://flighttowerbook.mysamcart.com/grid-adjacent-shelter-secure-bundle">Get the bundle</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="prod" id="p-course">
+      <figure class="prod-img"><img src="/images/course.webp" alt="Grid-Adjacent: The Exit Strategy book and the Shelter Awareness: Grid-Adjacent course" loading="lazy" width="900" height="900"></figure>
+      <div class="prod-body">
+        <span class="stage">LEARN · GRID-ADJACENT COURSE</span>
+        <h3>Understand how your home really works.</h3>
+        <p>How energy, water, food, shelter and money work together in a household, and how to build more independence without going off-grid. The thinking behind Shelter Secure, in plain language.</p>
+        <ul class="checks">
+          <li>Six guided sections</li>
+          <li>Workbook and audio</li>
+          <li>The full-color digital edition of <em>Grid-Adjacent: The Exit Strategy</em></li>
+        </ul>
+        <p class="fine">Best if you like to understand the ideas before you run your own numbers.</p>
+        <div class="buy">
+          <div class="price">$67 <small>introductory price</small></div>
+          <a class="btn primary" href="https://flighttowerbook.mysamcart.com/grid-adjacent-course">Get the course</a>
+          <a class="alt" href="#p-bundle">or add the Shelter Report for $132 more &rarr;</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="sample" class="section sample">
+  <div class="wrap sample-grid">
+    <div class="sample-art" aria-hidden="true">
+      <div class="pg pg3"><span class="pg-h">FIVE-YEAR OUTLOOK</span><i></i><i></i><i class="s"></i><div class="pg-line"><b></b></div></div>
+      <div class="pg pg2"><span class="pg-h">YOUR 90-DAY PLAN</span><div class="todo-row"><em></em><i></i></div><div class="todo-row"><em></em><i></i></div><div class="todo-row"><em></em><i class="s"></i></div><div class="todo-row"><em></em><i></i></div></div>
+      <div class="pg pg1">
+        <span class="pg-h">SHELTER REPORT</span><span class="pg-ex">Example household</span>
+        <div class="rr"><span>Water</span><b class="r clear">Clear</b></div>
+        <div class="rr"><span>Energy</span><b class="r watch">Watch</b></div>
+        <div class="rr"><span>Food</span><b class="r clear">Clear</b></div>
+        <div class="rr"><span>Income</span><b class="r prio">Priority</b></div>
+        <div class="rr"><span>Home costs</span><b class="r watch">Watch</b></div>
+        <div class="rr"><span>Reserves</span><b class="r prio">Priority</b></div>
+        <div class="pg-foot"><span>Your first 30 days</span><span class="bar"><b></b></span></div>
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow">SEE IT BEFORE YOU BUY</span>
+      <h2>See What Your Shelter Report Reveals.</h2>
+      <p class="intro">Preview a sample household report with strengths, areas needing attention, financial measures, a 90-day plan and a five-year outlook.</p>
+      <ul class="checks">
+        <li>Clear, watch and priority ratings for each area</li>
+        <li>Monthly money picture and reserve measures</li>
+        <li>Your first 30 days, a 90-day plan and a five-year outlook</li>
+      </ul>
+      <!-- TODO: when the approved sample report PDF is ready, replace this span with:
+           <a class="btn primary big" href="/samples/shelter-report-sample.pdf" target="_blank" rel="noopener">See a sample report</a> -->
+      <span class="btn big soon-btn" aria-disabled="true">Sample report coming soon</span>
+      <p class="small">An example household, not a real customer.</p>
+    </div>
+  </div>
+</section>
+
+<section id="notify" class="section nextup">
+  <div class="wrap">
+    <div class="nextup-head">
+      <span class="eyebrow">COMING NEXT · PLAN · SEAL · PROTECT</span>
+      <h2>Your Report Is the Beginning.<br><em>What Comes Next Matters.</em></h2>
+      <p class="intro">Understanding your household is the first step. Continuity planning, document sealing and property safeguards help you prepare for the changes ahead.</p>
+    </div>
+    <div class="svc-row three">
+      <article class="svc svc-pass">
+        <img class="svc-art" src="/images/passport.webp" alt="A home continuity passport beside a house, a checklist and a path forward" width="560" height="552" loading="lazy">
+        <div class="svc-top"><span class="svc-step">PLAN</span><span class="soon">Coming in 2027</span></div>
+        <h3>Home Continuity Passport</h3>
+        <p>Put household plans, responsibilities and arrangements in place for when life changes.</p>
+        <span class="svc-tie">Plan for what comes next</span>
+      </article>
+      <article class="svc svc-seal">
+        <img class="svc-art" src="/images/document-seal.webp" alt="A document with a gold fingerprint seal and a shield" width="560" height="501" loading="lazy">
+        <div class="svc-top"><span class="svc-step">SEAL</span><span class="soon">Coming in 2027</span></div>
+        <h3>Document Seal</h3>
+        <p>Create a verifiable integrity record for important documents, and help detect later changes. For family, business and personal records, not just your home.</p>
+        <span class="svc-tie">Strengthen what supports you</span>
+      </article>
+      <article class="svc svc-guard">
+        <img class="svc-art" src="/images/title-guard.webp" alt="A house with a property record and a shield" width="560" height="552" loading="lazy">
+        <div class="svc-top"><span class="svc-step">PROTECT</span><span class="soon">Coming in 2027</span></div>
+        <h3>Title Integrity Guard</h3>
+        <p>Strengthen awareness of your property's ownership records and take informed protective action.</p>
+        <span class="svc-tie">Protect what you've built</span>
+      </article>
+    </div>
+    <p class="svc-note">A document seal records whether a document has changed since it was sealed. On its own it does not prove a document is authentic, legally valid or signed by an authorized person. Features and availability of all three services are still being finalized.</p>
+    <div class="kit-form nextup-form wide">
+      <div>
+        <span class="kit2-badge">STAY IN THE LOOP</span>
+        <h3>Keep Building Your Protection.</h3>
+        <p>Your household's needs will change. The next Shelter Secure services will help you take your planning further.</p>
+        <p class="nf-strong">Get notified when the Continuity Passport, Document Seal and Title Integrity Guard become available.</p>
+      </div>
+      <div>
+        <!-- HOSTINGER REACH FORM: same list as the Starter Kit. Add the tag "continue-protect" to signups from this form. -->
+        <div class="reach-slot">Hostinger Reach email form goes here</div>
+        <p class="small">Occasional product updates. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section alt founder">
+  <div class="wrap founder-grid">
+    <figure class="founder-photo">
+      <div class="photo-frame"><img src="/images/paul-burgess.webp" alt="Paul Burgess, founder of Shelter Secure" width="213" height="272" loading="lazy"></div>
+      <figcaption>Paul Burgess<br><small>Founder, Shelter Secure</small></figcaption>
+    </figure>
+    <div>
+      <span class="eyebrow">WHO IS BEHIND IT</span>
+      <h2>Built on More Than 30 Years of Real Estate Experience</h2>
+      <p>Shelter Secure was developed by Paul Burgess, a California real estate broker and Oregon principal broker with more than three decades of experience helping people navigate housing and financial decisions.</p>
+      <p>After years of seeing how changing circumstances affect households, he developed Shelter Secure to help people understand what supports their homes, recognize vulnerabilities, and make more informed plans for the future.</p>
+      <p class="founder-quote">Because protecting what you've built begins with understanding what holds it together.</p>
+      <p class="small">California Real Estate Broker DRE #01117841 · Oregon Principal Broker License #2012586129</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="section faq">
+  <div class="wrap faq-wrap">
+    <div class="faq-head">
+      <span class="eyebrow">QUESTIONS</span>
+      <h2>Frequently Asked Questions</h2>
+      <p class="small">Something else? Email <a href="mailto:support@sheltersecurenow.com">support@sheltersecurenow.com</a>.</p>
+    </div>
+    <div class="faq-list">
+      <details open><summary>What exactly is Shelter Secure?</summary><p>Shelter Secure provides education and personalized household reporting to help you understand your home's essential dependencies, financial picture, and opportunities to improve readiness and continuity.</p></details>
+      <details><summary>Do I need to own a home?</summary><p>No. Shelter Secure is for homeowners and renters, in town or rural. Your bonus report can even be used for a property you're interested in, or given to someone else.</p></details>
+      <details><summary>What's the difference between Grid-Adjacent and the Shelter Report System?</summary><p>The Grid-Adjacent course ($67) teaches the ideas: how energy, water, food, shelter and money work together in a household. It includes six guided sections, a workbook and audio, and the full-color digital book. The Shelter Report System ($179) applies those ideas to your own household with personalized reports and plans. You can buy either one on its own, or both together for $199.</p></details>
+      <details><summary>Can I update my information later?</summary><p>Yes. Come back whenever life changes, update your answers and generate a fresh report. Earlier reports stay in your library so you can see your progress.</p></details>
+      <details><summary>Will someone inspect my home?</summary><p>No. The Shelter Report System is automated and educational, based on the information you provide. It is not an inspection, an appraisal, or financial, lending, insurance or legal advice. Professional consultation is separate and not included.</p></details>
+      <details><summary>What happens after I purchase?</summary><p>Checkout is handled securely through SamCart. For the course, your access link arrives in your purchase email. For the Shelter Report System, you receive an email invitation to set your own password, then sign in at app.sheltersecurenow.com and start with Quick View. A free video instruction manual walks you through each section.</p></details>
+      <details><summary>What if it isn't right for me?</summary><p>Every purchase comes with a 14-day guarantee. If the course, the Shelter Report System or the bundle isn't right for you, email <a href="mailto:support@sheltersecurenow.com">support@sheltersecurenow.com</a> within 14 days of purchase for a full refund. <a href="/refund.html">See the full Refund Policy</a>.</p></details>
+      <details><summary>Is my information private?</summary><p>Your answers belong to your account alone. Labels like "Savings One" are all the portal needs: no account numbers, employer or bank names, or documents. Estimates are fine. We do not sell your information. <a href="/privacy.html">Read our Privacy Policy</a>.</p></details>
+      <details><summary>When will the Continuity Passport, Document Seal and Title Integrity Guard be available?</summary><p>All three are planned for 2027, and their features are still being finalized. Sign up above and we'll let you know when each one opens.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="signin-bar">
+  <div class="wrap signin-row">
+    <span><strong>Already have an account?</strong> Sign in to update your answers or open your reports.</span>
+    <a class="btn ghost" href="https://app.sheltersecurenow.com">Sign in to your portal &rarr;</a>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-cols">
+    <div class="fc-brand">
+      <a class="brand" href="#top"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg></span><span>SHELTER <strong>SECURE</strong></span></a>
+      <p class="fc-tag">A look behind the place we call home.</p>
+      <p class="fc-small">Books by the same team: <a href="https://flighttowerbooks.com">Flight Tower Books</a></p>
+      <div class="socials">
+        <span class="soc-label">Follow along at Flight Tower Books</span>
+        <div class="soc-row"><a href="https://www.facebook.com/FlightTowerBooks" target="_blank" rel="noopener" aria-label="Flight Tower Books on Facebook" title="Flight Tower Books on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9H17l.5-4h-4V8.9c0-.6.3-.9.9-.9z"/></svg></a><a href="https://www.tiktok.com/@flighttowerbooks" target="_blank" rel="noopener" aria-label="Flight Tower Books on TikTok" title="Flight Tower Books on TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 3c.4 2.3 1.9 3.9 4.2 4.1v3.6c-1.6 0-3-.5-4.2-1.3v6.3c0 3.6-2.9 6.3-6.4 6.3S3.8 19.3 3.8 15.8s2.9-6.3 6.4-6.3c.4 0 .7 0 1 .1v3.7c-.3-.1-.6-.2-1-.2-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7V3z"/></svg></a><a href="https://www.instagram.com/flighttowerpublishing/" target="_blank" rel="noopener" aria-label="Flight Tower Publishing on Instagram" title="Flight Tower Publishing on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zM17 5.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 2c-2.7 0-3 0-4.1.1C4.4 2.2 2.2 4.4 2.1 7.9 2 9 2 9.3 2 12s0 3 .1 4.1c.1 3.5 2.3 5.7 5.8 5.8 1.1.1 1.4.1 4.1.1s3 0 4.1-.1c3.5-.1 5.7-2.3 5.8-5.8.1-1.1.1-1.4.1-4.1s0-3-.1-4.1c-.1-3.5-2.3-5.7-5.8-5.8C15 2 14.7 2 12 2zm0 1.8c2.7 0 3 0 4 .1 2.5.1 3.9 1.5 4 4 .1 1 .1 1.3.1 4s0 3-.1 4c-.1 2.5-1.5 3.9-4 4-1 .1-1.3.1-4 .1s-3 0-4-.1c-2.5-.1-3.9-1.5-4-4-.1-1-.1-1.3-.1-4s0-3 .1-4c.1-2.5 1.5-3.9 4-4 1-.1 1.3-.1 4-.1z"/></svg></a><a href="https://www.youtube.com/@FlightTowerBooks" target="_blank" rel="noopener" aria-label="Flight Tower Books on YouTube" title="Flight Tower Books on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.5 7.2a2.8 2.8 0 0 0-2-2C18.8 4.7 12 4.7 12 4.7s-6.8 0-8.5.5a2.8 2.8 0 0 0-2 2C1 8.9 1 12 1 12s0 3.1.5 4.8a2.8 2.8 0 0 0 2 2c1.7.5 8.5.5 8.5.5s6.8 0 8.5-.5a2.8 2.8 0 0 0 2-2c.5-1.7.5-4.8.5-4.8s0-3.1-.5-4.8zM9.8 15.1V8.9l5.6 3.1z"/></svg></a><a href="https://www.linkedin.com/in/paulburgess11/" target="_blank" rel="noopener" aria-label="Paul Burgess on LinkedIn" title="Paul Burgess on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg></a></div>
+      </div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="#top">Home</a><a href="#scan">Free Shelter Scan</a><a href="#kit">Free Starter Kit</a><a href="#p-course">Grid-Adjacent Course</a><a href="#p-report">Shelter Report System</a><a href="#notify">Upcoming Services</a>
+    </div>
+    <div>
+      <h4>Help &amp; Information</h4>
+      <a href="mailto:support@sheltersecurenow.com">Contact &amp; Support</a><a href="#faq">Frequently Asked Questions</a>
+      <!-- TODO: real URLs for these three pages -->
+      <a href="/privacy.html">Privacy Policy</a><a href="https://app.sheltersecurenow.com/?terms">Terms of Service</a><a href="/refund.html">Refund Policy</a>
+      <a href="https://app.sheltersecurenow.com">Sign in</a>
+    </div>
+  </div>
+  <div class="wrap foot-legal">
+    <p>&copy; 2026 Flight Tower Publishing LLC. Shelter Secure is a Flight Tower Publishing product; sales and payments are processed by Flight Tower Publishing LLC through SamCart.</p>
+    <p>Educational and planning information only: not a home inspection, appraisal, or guarantee of protection, and not financial, lending, insurance or legal advice. Professional consultation is separate and not included. Developed by Paul Burgess, California Real Estate Broker DRE #01117841 · Oregon Principal Broker License #2012586129.</p>
+  </div>
+</footer>
+<script>
+{{SCAN_SCRIPT}}
+</script>
+<script>
+(function(){
+  var els=document.querySelectorAll('.kit2-head,.tool,.chooser,.prod,.svc,.nextup-form,.journey-strip,.sample-grid>div,.founder-grid>*,.faq-list details');
+  if(!('IntersectionObserver' in window)){ return; }
+  document.documentElement.classList.add('rv');
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); },{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(el,i){ el.classList.add('reveal'); io.observe(el); });
+})();
+</script>
+<script>
+(function(){
+  var hero=document.getElementById('cine'); if(!hero) return;
+  var w=document.getElementById('rotW'), sps={};
+  hero.querySelectorAll('.sp').forEach(function(el){ sps[el.getAttribute('data-k')]=el; });
+  // scene: [headline ending, water, energy, food, income, ms]
+  var S=[
+    ['life changes?',        '','','','',3200],
+    ['the family grows?',    '','','','',2600],
+    ['the income changes?',  '','','','warn',2600],
+    ['the lights go out?',   '','warn','','warn',2800],
+    ['the unexpected hits?', '','risk','warn','risk',3000],
+    ['life changes?',        'ok','ok','ok','ok',4800]
+  ];
+  var i=0;
+  function set(k,swap){
+    var sc=S[k];
+    hero.className='hero cine s'+k;
+    ['water','energy','food','income'].forEach(function(n,j){ sps[n].className='sp '+sc[j+1]; });
+    if(!swap){ w.textContent=sc[0]; return; }
+    if(w.textContent===sc[0]) return;
+    w.classList.add('out');
+    setTimeout(function(){ w.textContent=sc[0]; w.classList.remove('out'); w.classList.add('in');
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ w.classList.remove('in'); }); }); },320);
+  }
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches){ set(5,false); return; }
+  (function run(){ set(i,true); setTimeout(function(){ i=(i+1)%S.length; run(); }, S[i][5]); })();
+})();
+</script>
+</body>
+</html>

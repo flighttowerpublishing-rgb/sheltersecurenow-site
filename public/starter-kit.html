@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shelter Starter Kit | Shelter Secure</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0d1b2a;
+  --navy2: #162336;
+  --navy3: #1e2f44;
+  --gold: #c9a84c;
+  --gold2: #e2c06a;
+  --gold3: #f5d98a;
+  --cream: #faf8f3;
+  --cream2: #f2efe6;
+  --ink: #1a1a2e;
+  --ink2: #3d3d5c;
+  --ink3: #6b6b8a;
+  --border: #ddd8cc;
+  --card: #ffffff;
+  --green: #2d6a4f;
+  --rust: #c1440e;
+  --mono-red: #ed1b24;
+  --mono-green: #1fb25a;
+  --mono-blue: #0072bb;
+  --radius: 3px;
+  --shadow: 0 2px 16px rgba(13,27,42,0.10);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'DM Sans',sans-serif; background:transparent; color:var(--ink); }
+
+.bg-photo { position:relative; background:transparent; padding:48px 20px 40px; }
+
+.page-wrap { max-width:1000px; margin:0 auto; }
+
+/* NAV */
+.top-nav { display:inline-flex; align-items:center; gap:8px; margin-bottom:36px; background:var(--navy); padding:12px 22px; border-radius:24px; box-shadow:0 4px 16px rgba(0,0,0,.2); }
+.top-nav .brand { font-family:'Playfair Display',serif; font-size:15px; color:#fff; }
+.top-nav .sep { color:#8aa0bb; }
+.top-nav .tag { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold2); font-weight:500; }
+
+/* HERO — translucent header box */
+.hub-hero { background:rgba(250,248,243,.96); border-radius:8px; padding:40px 40px 34px; text-align:center; max-width:640px; margin:0 auto 8px; box-shadow:0 8px 32px rgba(0,0,0,.25); border:3px solid var(--gold); outline:1px solid rgba(201,168,76,.5); outline-offset:-10px; position:relative; }
+.hub-hero::before, .hub-hero::after { content:'✦'; position:absolute; top:14px; color:var(--gold); font-size:14px; }
+.hub-hero::before { left:16px; }
+.hub-hero::after { right:16px; }
+.hub-eyebrow { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink3); font-weight:600; margin-bottom:12px; }
+.hub-hero h1 { font-family:'Playfair Display',serif; font-size:34px; font-weight:700; line-height:1.18; margin-bottom:12px; color:var(--ink); }
+.hub-sub { font-size:14px; color:#5c6b85; line-height:1.65; max-width:500px; margin:0 auto 26px; }
+
+.hub-teaser-label { text-align:center; color:#fff; font-size:13px; letter-spacing:.1em; text-transform:uppercase; font-weight:600; margin:44px 0 22px; opacity:.85; }
+
+/* VAULT CARDS — deed-card style with badge + rent-table rows */
+.vaults-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+@media(max-width:680px){ .vaults-grid{ grid-template-columns:1fr; } }
+.vault-card { position:relative; background:var(--card); border-radius:18px; overflow:visible; box-shadow:0 8px 26px rgba(0,0,0,.24); text-decoration:none; display:flex; flex-direction:column; transition:transform .15s; border:2px solid var(--card-color, var(--gold)); margin-top:22px; }
+.vault-card:hover { transform:translateY(-3px) scale(1.01); }
+
+.vault-badge { position:absolute; top:-22px; left:20px; width:44px; height:44px; border-radius:50%; background:var(--card-color, var(--gold)); border:3px solid #fff; box-shadow:0 3px 10px rgba(0,0,0,.25); display:flex; align-items:center; justify-content:center; font-size:20px; z-index:2; }
+
+.vault-band { background:var(--card-color, var(--gold)); padding:22px 22px 12px 78px; border-radius:16px 16px 0 0; }
+.vault-eyebrow-card { font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.85); font-weight:700; margin-bottom:3px; }
+.vault-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:#fff; letter-spacing:.01em; }
+
+.vault-inner { padding:18px 22px 22px; flex:1; display:flex; flex-direction:column; }
+.vault-rows { margin-bottom:16px; }
+.vault-row { display:flex; align-items:center; gap:10px; padding:7px 0; border-bottom:1px dashed var(--border); text-decoration:none; color:inherit; transition:opacity .15s; cursor:pointer; background:none; border-top:none; border-left:none; border-right:none; width:100%; text-align:left; font-family:'DM Sans',sans-serif; }
+.vault-row:hover { opacity:.65; }
+.vault-row:last-child { border-bottom:none; }
+.row-num { width:20px; height:20px; border-radius:50%; background:var(--cream2, #f2efe6); border:1px solid var(--card-color, var(--gold)); color:var(--ink); font-size:10px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.row-label { flex:1; font-size:12.5px; color:var(--ink); font-weight:500; }
+.row-icon { font-size:13px; }
+.vault-row.pending { cursor:default; opacity:.55; }
+.vault-row.pending:hover { opacity:.55; }
+.row-pending-tag { font-size:9px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ink3); background:var(--cream2, #f2efe6); border:1px solid var(--border); border-radius:10px; padding:2px 8px; margin-right:2px; white-space:nowrap; }
+
+.vault-status-badge { display:inline-flex; align-items:center; justify-content:center; gap:7px; background:rgba(0,0,0,.035); color:var(--ink); font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:10px 18px; border-radius:20px; border:1.5px solid var(--card-color, var(--gold)); margin-top:auto; }
+.vault-status-badge .dot { width:7px; height:7px; border-radius:50%; background:var(--card-color, var(--gold)); flex-shrink:0; }
+.vault-status-badge.pending-badge { border-color:var(--border); color:var(--ink3); }
+.vault-status-badge.pending-badge .dot { background:#b8b8b8; }
+
+.vault-card.locked { pointer-events:none; filter:saturate(.5); opacity:.82; }
+.lock-overlay { position:absolute; top:12px; right:12px; background:rgba(13,27,42,.85); color:#fff; font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:5px 10px; border-radius:12px; display:flex; align-items:center; gap:4px; z-index:3; }
+
+footer.page-footer { text-align:center; padding:32px 20px 0; font-size:12px; color:#8aa0bb; }
+
+/* TOOL VIEWS (inline, SPA-style — like the GA/TRE toolkits) */
+#home { display:block; }
+.tool-view { display:none; }
+.tool-view.active { display:block; }
+.tool-wrap { max-width:820px; margin:0 auto; }
+
+.back-btn { display:inline-flex; align-items:center; gap:6px; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink2); cursor:pointer; background:rgba(250,248,243,.95); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border:1px solid var(--border); border-radius:20px; padding:7px 16px; margin-bottom:18px; transition:color .15s; box-shadow:var(--shadow); font-family:'DM Sans',sans-serif; }
+.back-btn:hover { color:var(--gold); }
+
+.tool-hero { background:linear-gradient(160deg, var(--navy) 0%, #0a2240 60%, #0d1f3c 100%); color:#fff; padding:52px 24px 44px; text-align:center; position:relative; overflow:hidden; border-radius:8px; margin-bottom:0; }
+.tool-hero::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(201,168,76,.025) 60px,rgba(201,168,76,.025) 61px); }
+.tool-hero::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:600px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+.tool-hero-eyebrow { font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold2); font-weight:500; margin-bottom:14px; position:relative; }
+.tool-hero h1 { font-family:'Playfair Display',serif; font-size:clamp(26px,5vw,40px); font-weight:700; line-height:1.15; margin-bottom:12px; position:relative; }
+.tool-hero-sub { max-width:520px; margin:0 auto; color:#8aa0bb; font-size:13px; position:relative; }
+
+.sec { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; margin-bottom:20px; box-shadow:var(--shadow); }
+.sec h3 { font-family:'Playfair Display',serif; font-size:17px; font-weight:600; margin-bottom:6px; }
+.sec .sec-note { font-size:12.5px; color:var(--ink3); line-height:1.6; margin-bottom:18px; }
+
+.aud-table { width:100%; border-collapse:collapse; font-size:13.5px; }
+.aud-table th { background:var(--cream2); text-align:left; padding:8px 10px; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink3); border-bottom:1px solid var(--border); }
+.aud-table td { padding:8px 10px; border-bottom:1px solid var(--cream2); vertical-align:middle; }
+.aud-table td.cat-name { font-weight:500; color:var(--ink); }
+.aud-table input[type=number] { width:80px; border:1px solid var(--border); border-radius:var(--radius); padding:6px 8px; font-family:'DM Sans',sans-serif; font-size:13px; color:var(--ink); outline:none; transition:border-color .15s; text-align:center; }
+.aud-table input:focus { border-color:var(--gold); }
+.gap-cell { font-family:'DM Mono',monospace; font-size:12px; font-weight:600; text-align:center; }
+
+.totals-row { display:flex; justify-content:space-between; align-items:center; margin-top:14px; padding-top:14px; border-top:1px solid var(--border); font-size:12.5px; color:var(--ink3); }
+.totals-row strong { color:var(--ink); font-family:'DM Mono',monospace; }
+
+.bars { margin-top:8px; }
+.bar-row { margin-bottom:14px; }
+.bar-label { display:flex; justify-content:space-between; font-size:12px; color:var(--ink2); margin-bottom:4px; }
+.bar-track { position:relative; height:20px; background:var(--cream2); border-radius:2px; overflow:hidden; }
+.bar-fill { position:absolute; top:0; left:0; height:100%; border-radius:2px; transition:width .3s ease; }
+.bar-fill.guess { background:var(--ink3); opacity:.35; }
+.bar-fill.actual { background:var(--gold); }
+
+.insight-box { padding:14px 16px; border-radius:var(--radius); font-size:13px; line-height:1.6; margin-top:16px; }
+.insight-box.warn { background:rgba(193,68,14,.07); border:1px solid rgba(193,68,14,.25); color:var(--rust); }
+.insight-box.good { background:rgba(45,106,79,.07); border:1px solid rgba(45,106,79,.25); color:var(--green); }
+.insight-box.neutral { background:var(--cream2); border:1px solid var(--border); color:var(--ink2); }
+
+.tool-btn-row { display:flex; gap:12px; margin-top:6px; flex-wrap:wrap; }
+.tool-btn { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; padding:9px 18px; border-radius:2px; cursor:pointer; font-family:'DM Sans',sans-serif; transition:all .15s; border:1px solid var(--gold); background:transparent; color:var(--gold); }
+.tool-btn:hover { background:var(--gold); color:var(--navy); }
+.tool-btn.primary { background:var(--gold); color:var(--navy); }
+.tool-btn.primary:hover { background:var(--gold2); }
+
+.legend { display:flex; gap:20px; font-size:11px; color:var(--ink3); margin-bottom:16px; }
+.legend-dot { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:6px; vertical-align:middle; }
+
+.tool-footer { text-align:center; padding:24px 0 0; font-size:11px; color:#fff; background:rgba(13,27,42,.55); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-radius:8px; margin-top:4px; }
+
+/* ENERGY AUDIT */
+.entry-row { display:grid; grid-template-columns:1fr 130px 40px; gap:10px; align-items:center; margin-bottom:10px; }
+.entry-row input[type=text] { width:100%; border:1px solid var(--border); border-radius:var(--radius); padding:8px 10px; font-family:'DM Sans',sans-serif; font-size:13.5px; color:var(--ink); outline:none; transition:border-color .15s; }
+.entry-row input[type=text]:focus { border-color:var(--gold); }
+.tag-toggle { display:flex; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+.tag-btn { flex:1; padding:7px 0; font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; cursor:pointer; background:#fff; color:var(--ink3); border:none; font-family:'DM Sans',sans-serif; transition:all .15s; }
+.tag-btn.fuel.active { background:var(--green); color:#fff; }
+.tag-btn.drain.active { background:var(--rust); color:#fff; }
+.del-btn { background:none; border:none; cursor:pointer; color:var(--ink3); font-size:18px; line-height:1; }
+.del-btn:hover { color:var(--rust); }
+.add-row-btn { margin-top:4px; font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; border:1px dashed var(--border); border-radius:var(--radius); padding:8px 14px; background:none; color:var(--ink3); font-family:'DM Sans',sans-serif; transition:all .15s; }
+.add-row-btn:hover { border-color:var(--gold); color:var(--gold); }
+.balance-wrap { display:flex; align-items:center; gap:24px; margin-bottom:8px; }
+.balance-num { font-family:'Playfair Display',serif; font-size:40px; font-weight:700; }
+.balance-num.pos { color:var(--green); }
+.balance-num.neg { color:var(--rust); }
+.balance-num.zero { color:var(--ink3); }
+.balance-label { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink3); margin-top:4px; }
+.balance-track { flex:1; height:14px; background:var(--cream2); border-radius:8px; overflow:hidden; display:flex; }
+.balance-fuel { background:var(--green); height:100%; }
+.balance-drain { background:var(--rust); height:100%; }
+.tally-row { display:flex; justify-content:space-between; font-size:12.5px; color:var(--ink3); margin-top:10px; }
+.tally-row span strong { font-family:'DM Mono',monospace; }
+.list-heading { font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink3); font-weight:600; margin:18px 0 8px; }
+
+/* DECISION DEBT AUDIT */
+.debt-item { border:1px solid var(--border); border-radius:var(--radius); margin-bottom:10px; overflow:hidden; transition:border-color .15s; }
+.debt-item.checked { border-color:var(--rust); }
+.debt-row { display:flex; align-items:center; gap:12px; padding:12px 14px; }
+.check-box { width:20px; height:20px; border:2px solid var(--border); border-radius:3px; flex-shrink:0; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:13px; color:transparent; transition:all .15s; }
+.check-box.on { background:var(--rust); border-color:var(--rust); color:#fff; }
+.debt-text { flex:1; }
+.debt-text input[type=text] { width:100%; border:none; background:none; font-family:'DM Sans',sans-serif; font-size:13.5px; color:var(--ink); outline:none; padding:2px 0; }
+.debt-del { background:none; border:none; cursor:pointer; color:var(--ink3); font-size:18px; line-height:1; }
+.debt-del:hover { color:var(--rust); }
+.reflect-wrap { display:none; padding:0 14px 14px 46px; }
+.reflect-wrap.show { display:block; }
+.reflect-wrap label { display:block; font-size:10.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--ink3); margin-bottom:6px; }
+.reflect-wrap textarea { width:100%; border:1px solid var(--border); border-radius:var(--radius); padding:8px 10px; font-family:'DM Sans',sans-serif; font-size:13px; color:var(--ink); outline:none; resize:vertical; min-height:56px; }
+.reflect-wrap textarea:focus { border-color:var(--gold); }
+.debt-total-wrap { display:flex; align-items:center; gap:20px; }
+.debt-num { font-family:'Playfair Display',serif; font-size:44px; font-weight:700; color:var(--rust); line-height:1; }
+.debt-num.zero { color:var(--green); }
+.debt-label { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink3); }
+
+/* GENERIC FORM FIELDS (used by 72-Hour Plan, Married to the Grid, Housing Hierarchy) */
+.field { margin-bottom:14px; }
+label.lbl { display:block; font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink2); margin-bottom:5px; }
+.field input[type=text], .field textarea { width:100%; background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:9px 12px; font-family:'DM Sans',sans-serif; font-size:14px; color:var(--ink); outline:none; transition:border-color .15s; }
+.field input[type=text]:focus, .field textarea:focus { border-color:var(--gold); }
+.field textarea { resize:vertical; min-height:56px; }
+.row2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+@media(max-width:560px){ .row2,.row3{ grid-template-columns:1fr; } }
+
+/* CHOICE CHIPS (Yes/No/Not-sure, housing type, own/rent, next-step) */
+.choice-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+.choice-chip { padding:8px 14px; border:1px solid var(--border); border-radius:20px; font-size:12px; font-weight:600; cursor:pointer; background:#fff; color:var(--ink2); transition:all .15s; font-family:'DM Sans',sans-serif; }
+.choice-chip:hover { border-color:var(--gold); }
+.choice-chip.active { background:var(--navy); border-color:var(--navy); color:#fff; }
+
+/* MARRIED TO THE GRID — question rows */
+.mq-item { padding:16px 0; border-bottom:1px solid var(--cream2); }
+.mq-item:last-child { border-bottom:none; }
+.mq-question { font-size:13.5px; color:var(--ink); font-weight:500; margin-bottom:2px; }
+.mq-note { margin-top:8px; }
+.mq-tally { display:flex; gap:20px; font-size:12.5px; color:var(--ink3); margin:12px 0; flex-wrap:wrap; }
+.mq-tally strong { font-family:'DM Mono',monospace; color:var(--ink); }
+
+/* HOUSING HIERARCHY — level cards & sliders */
+.level-card { border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px; margin-bottom:10px; cursor:pointer; transition:all .15s; }
+.level-card:hover { border-color:var(--gold); }
+.level-card.active { border-color:var(--navy); background:rgba(13,27,42,.04); }
+.level-card .level-num { font-family:'DM Mono',monospace; font-size:11px; color:var(--gold); font-weight:700; }
+.level-card .level-title { font-family:'Playfair Display',serif; font-size:15px; font-weight:600; margin:2px 0 4px; }
+.level-card .level-desc { font-size:12.5px; color:var(--ink3); }
+.slider-wrap { margin:14px 0; }
+input[type=range] { width:100%; accent-color:var(--gold); }
+.slider-labels { display:flex; justify-content:space-between; font-size:10px; color:var(--ink3); letter-spacing:.04em; margin-top:4px; }
+.slider-display { font-family:'DM Mono',monospace; font-size:28px; font-weight:600; color:var(--gold); text-align:center; margin:6px 0; }
+
+/* 72-HOUR PLAN — 3-day grid */
+.plan-grid-wrap { overflow-x:auto; }
+.plan-grid { width:100%; border-collapse:collapse; font-size:12.5px; min-width:600px; }
+.plan-grid th { background:var(--cream2); padding:8px 10px; font-size:9.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink3); border-bottom:1px solid var(--border); text-align:left; white-space:nowrap; }
+.plan-grid td { border:1px solid var(--cream2); padding:4px; vertical-align:top; }
+.plan-grid td.row-label-cell { background:var(--cream2); font-weight:600; font-size:11.5px; color:var(--ink2); padding:8px 10px; white-space:nowrap; }
+.plan-grid textarea { border:none; width:100%; min-height:60px; font-size:12px; padding:6px; font-family:'DM Sans',sans-serif; color:var(--ink); outline:none; resize:vertical; }
+.plan-grid textarea:focus { background:rgba(201,168,76,.04); }
+
+/* Shared checklist item (reused across new tools) */
+.plain-check-item { display:flex; align-items:flex-start; gap:10px; padding:8px 0; font-size:13px; color:var(--ink); }
+
+/* SCORE DISPLAY (Married to the Grid, Housing Hierarchy) */
+.score-wrap { display:flex; align-items:center; gap:20px; margin-bottom:6px; }
+.score-num { font-family:'Playfair Display',serif; font-size:44px; font-weight:700; color:var(--ink); line-height:1; display:inline-block; }
+.score-num.low { color:var(--green); }
+.score-num.mid { color:#7b4f12; }
+.score-num.high { color:var(--rust); }
+.score-max { font-size:12px; color:var(--ink3); display:inline-block; margin-left:2px; }
+.score-tier { font-size:13px; color:var(--ink2); line-height:1.5; flex:1; }
+.score-tier strong { color:var(--ink); }
+
+/* SUMMARY / COMPILED CARDS */
+.summary-card { background:var(--cream2); border:1px solid var(--border); border-radius:var(--radius); padding:16px 18px; margin-top:12px; }
+.summary-card-title { font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink3); font-weight:700; margin-bottom:10px; }
+.summary-row { display:flex; gap:10px; padding:6px 0; border-bottom:1px dashed var(--border); font-size:13px; }
+.summary-row:last-child { border-bottom:none; }
+.summary-row .s-label { font-weight:600; color:var(--ink2); min-width:150px; flex-shrink:0; }
+.summary-row .s-val { color:var(--ink); }
+.exposure-item { padding:10px 0; border-bottom:1px solid var(--cream2); font-size:13px; }
+.exposure-item:last-child { border-bottom:none; }
+.exposure-item .exp-q { color:var(--ink2); margin-bottom:3px; }
+.exposure-item .exp-tag { display:inline-block; font-size:9px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:2px 7px; border-radius:8px; margin-right:6px; }
+.exposure-item .exp-tag.no { background:rgba(193,68,14,.12); color:var(--rust); }
+.exposure-item .exp-tag.unsure { background:rgba(201,168,76,.18); color:#7b4f12; }
+.exposure-item .exp-note { color:var(--ink3); font-style:italic; font-size:12.5px; margin-top:2px; }
+
+/* CLIMB PATH (Housing Hierarchy) */
+.climb-path-card { background:linear-gradient(160deg, var(--navy) 0%, #0a2240 100%); border-radius:var(--radius); padding:20px 22px; color:#fff; }
+.climb-path-target { font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold2); font-weight:700; margin-bottom:4px; }
+.climb-path-headline { font-family:'Playfair Display',serif; font-size:19px; font-weight:700; margin-bottom:14px; }
+.climb-priority { background:rgba(201,168,76,.15); border:1px solid rgba(201,168,76,.35); border-radius:2px; padding:10px 14px; font-size:12.5px; color:var(--gold3); margin-bottom:14px; }
+.climb-move { display:flex; gap:10px; padding:9px 0; border-bottom:1px solid rgba(255,255,255,.1); font-size:13px; color:#dbe4f0; line-height:1.5; }
+.climb-move:last-child { border-bottom:none; }
+.climb-move .move-num { font-family:'DM Mono',monospace; font-size:11px; color:var(--gold2); flex-shrink:0; width:18px; }
+.climb-path-empty { text-align:center; padding:20px; color:var(--ink3); font-size:13px; }
+.climb-path-done { padding:16px; background:rgba(45,106,79,.08); border:1px solid rgba(45,106,79,.25); border-radius:var(--radius); color:var(--green); font-size:13px; line-height:1.6; }
+
+/* SHELTER STARTER KIT (home + toast + print) */
+.kit-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+@media(max-width:760px){ .kit-grid{ grid-template-columns:1fr; } }
+.kit-card { display:flex; flex-direction:column; gap:6px; text-align:left; background:#fff; border:2px solid var(--gold); border-radius:16px; padding:20px 18px; cursor:pointer; box-shadow:0 8px 24px rgba(13,27,42,.12); font-family:'DM Sans',sans-serif; transition:transform .15s; }
+.kit-card:hover { transform:translateY(-3px); }
+.kit-icon { font-size:26px; }
+.kit-fits { font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#7b4f12; font-weight:700; }
+.kit-title { font-family:'Playfair Display',serif; font-size:19px; font-weight:700; color:var(--ink); }
+.kit-desc { font-size:13px; color:var(--ink2); line-height:1.55; flex:1; }
+.kit-open { font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--navy); margin-top:6px; }
+.kit-next { margin-top:30px; background:linear-gradient(160deg,var(--navy) 0%,#0a2240 100%); border-radius:14px; padding:24px; color:#fff; }
+.kit-next-eyebrow { font-size:10px; letter-spacing:.18em; color:var(--gold2); font-weight:700; margin-bottom:6px; }
+.kit-next-title { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; margin-bottom:6px; }
+.kit-next-text { font-size:14px; color:#c3d0de; line-height:1.6; margin-bottom:16px; max-width:640px; }
+.kit-next-btn { display:inline-block; background:var(--gold2); color:var(--navy); font-weight:700; font-size:14px; padding:12px 20px; border-radius:24px; text-decoration:none; }
+#ftpToast { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:var(--navy); color:#fff; padding:12px 18px; border-radius:24px; font-size:13px; box-shadow:0 6px 20px rgba(0,0,0,.3); z-index:99; opacity:0; transition:opacity .25s; pointer-events:none; max-width:90%; text-align:center; }
+#ftpToast.show { opacity:1; }
+@media print { .back-btn, .tool-btn-row, .tool-footer, #ftpToast { display:none !important; } .tool-hero { -webkit-print-color-adjust:exact; print-color-adjust:exact; } }
+</style>
+</head>
+<body>
+
+<div class="bg-photo">
+<div class="page-wrap">
+
+  <div id="home">
+
+    <div class="top-nav">
+      <span class="brand">Shelter Secure</span>
+      <span class="sep">·</span>
+      <span class="tag">SHELTER STARTER KIT</span>
+    </div>
+
+    <div class="hub-hero">
+      <div class="hub-eyebrow">YOU'RE IN · STEP 2 OF 4</div>
+      <h1>Your Shelter Starter Kit</h1>
+      <div class="hub-sub">Three free tools that pick up where the Shelter Scan left off. Each one saves on this device as you go, and you can print or save any of them as a PDF. Bookmark this page and come back anytime.</div>
+    </div>
+
+    <div class="hub-teaser-label" style="color:var(--ink3);opacity:1">Pick a tool to open it</div>
+
+    <div class="kit-grid">
+      <button class="kit-card" onclick="openTool('emergencyplan')">
+        <span class="kit-icon">🔋</span>
+        <span class="kit-fits">Water · Energy · Food</span>
+        <span class="kit-title">72-Hour Emergency Plan</span>
+        <span class="kit-desc">A simple three-day plan so your household rides out short outages without panic.</span>
+        <span class="kit-open">Open the plan →</span>
+      </button>
+      <button class="kit-card" onclick="openTool('marriedgrid')">
+        <span class="kit-icon">🔌</span>
+        <span class="kit-fits">Income · Dependence</span>
+        <span class="kit-title">Married to the Grid</span>
+        <span class="kit-desc">Ten honest questions about how tightly your life is tied to power, money and systems you don't control.</span>
+        <span class="kit-open">Take the audit →</span>
+      </button>
+      <button class="kit-card" onclick="openTool('housinghierarchy')">
+        <span class="kit-icon">🏠</span>
+        <span class="kit-fits">Shelter · Options</span>
+        <span class="kit-title">Housing Hierarchy</span>
+        <span class="kit-desc">Where your home sits on the resilience pyramid today, and a realistic path up from here.</span>
+        <span class="kit-open">Find your level →</span>
+      </button>
+    </div>
+
+    <div class="kit-next">
+      <div class="kit-next-eyebrow">STEP 3 · WHEN YOU'RE READY</div>
+      <div class="kit-next-title">Want the thinking behind these tools?</div>
+      <div class="kit-next-text">The Grid-Adjacent course walks you through how your home, money and essential systems connect, and what to actually do about it. Includes the full-color digital book.</div>
+      <a class="kit-next-btn" href="/#course">Explore the Grid-Adjacent course →</a>
+    </div>
+
+    <footer class="page-footer">Shelter Secure · Free tools, no purchase required. <a href="/" style="color:inherit">Back to sheltersecurenow.com</a></footer>
+
+  </div>
+
+
+  <div id="tool-emergencyplan" class="tool-view">
+    <div class="tool-wrap">
+      <button class="back-btn" onclick="goHome()">← Your Starter Kit</button>
+
+      <div class="tool-hero">
+        <div class="tool-hero-eyebrow">HOUSEHOLD QUICKSTART</div>
+        <h1>72-Hour Emergency Plan</h1>
+        <div class="tool-hero-sub">A simple three-day plan so your household can ride out short disruptions without panic.</div>
+      </div>
+
+      <div style="padding:36px 0 8px;">
+
+        <div class="sec">
+          <h3>Household Snapshot</h3>
+          <div class="sec-note">Fill this out once so nobody has to guess under pressure.</div>
+          <div class="field"><label class="lbl">Household Name</label><input type="text" id="ep-name"></div>
+          <div class="field"><label class="lbl">Address</label><textarea id="ep-address"></textarea></div>
+          <div class="row2">
+            <div class="field"><label class="lbl">Main Contact (phone/text)</label><input type="text" id="ep-main-contact"></div>
+            <div class="field"><label class="lbl">Backup Contact (phone/text)</label><input type="text" id="ep-backup-contact"></div>
+          </div>
+          <div class="field"><label class="lbl">Where This Plan Is Kept (binder, drawer, wall)</label><input type="text" id="ep-plan-location"></div>
+        </div>
+
+        <div class="sec">
+          <h3>Your 72-Hour Priorities</h3>
+          <div class="sec-note">Check items that matter most for your household in a short disruption.</div>
+          <div id="epPriorities"></div>
+          <div class="field" style="margin-top:12px;">
+            <label class="lbl">One-Sentence Goal for This Plan</label>
+            <input type="text" id="ep-goal" placeholder="For the first 72 hours, we must be able to …">
+          </div>
+        </div>
+
+        <div class="sec">
+          <h3>Simple 3-Day Grid</h3>
+          <div class="sec-note">Use this grid to answer one question for each box: "What will we actually do in this area on this day?" Keep it realistic and based on what you already own.</div>
+          <div class="plan-grid-wrap">
+            <table class="plan-grid">
+              <thead><tr><th></th><th>Today / Setup</th><th>Day 1 (0–24 hrs)</th><th>Day 2 (24–48 hrs)</th><th>Day 3 (48–72 hrs)</th></tr></thead>
+              <tbody id="epGridBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sec">
+          <h3>Roles &amp; Locations</h3>
+          <div class="sec-note">Who does what when things wobble?</div>
+          <div class="row2">
+            <div class="field"><label class="lbl">Plan Owner / Coordinator</label><input type="text" id="ep-owner"></div>
+            <div class="field"><label class="lbl">Backup / Second Adult</label><input type="text" id="ep-backup-adult"></div>
+          </div>
+          <div class="field"><label class="lbl">Emergency Kit Lives Here</label><input type="text" id="ep-kit-location"></div>
+          <div class="row2">
+            <div class="field"><label class="lbl">Flashlights &amp; Batteries</label><input type="text" id="ep-flashlights"></div>
+            <div class="field"><label class="lbl">Water Storage</label><input type="text" id="ep-water"></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label class="lbl">Meds &amp; Go-Bag</label><input type="text" id="ep-meds"></div>
+            <div class="field"><label class="lbl">Printed Contact List</label><input type="text" id="ep-contact-list"></div>
+          </div>
+        </div>
+
+        <div class="sec">
+          <h3>Communication Plan</h3>
+          <div class="row2">
+            <div class="field"><label class="lbl">Primary Group Text / Chat Name</label><input type="text" id="ep-group-text"></div>
+            <div class="field"><label class="lbl">Out-of-Area Contact (name &amp; phone)</label><input type="text" id="ep-out-of-area"></div>
+          </div>
+          <label class="lbl" style="margin-top:8px;">If Cell Service Is Out, We Will:</label>
+          <div id="epCommOptions"></div>
+          <div class="field" style="margin-top:8px;"><label class="lbl">Pre-Agreed Meetup Spot</label><input type="text" id="ep-meetup"></div>
+          <div class="field" style="margin-top:12px;">
+            <label class="lbl">Check-In Rule</label>
+            <div class="row2">
+              <input type="text" id="ep-checkin-hours" placeholder="If a disruption lasts longer than ___ hours">
+              <input type="text" id="ep-checkin-freq" placeholder="we will check in every ___ hours by ___">
+            </div>
+          </div>
+        </div>
+
+        <div class="sec">
+          <h3>10-Minute Drill</h3>
+          <div class="sec-note">Once this plan is filled out, do one 10-minute drill.</div>
+          <div id="epDrill"></div>
+          <div class="row2" style="margin-top:12px;">
+            <div class="field"><label class="lbl">One Thing That Worked</label><textarea id="ep-worked"></textarea></div>
+            <div class="field"><label class="lbl">One Thing to Fix or Move</label><textarea id="ep-fix"></textarea></div>
+          </div>
+        </div>
+
+        <div class="tool-btn-row">
+          <button class="tool-btn primary" onclick="saveEmergencyPlan()">Save My Plan</button>
+          <button class="tool-btn" onclick="window.print()">Print / Save as PDF</button>
+          <button class="tool-btn" onclick="resetEmergencyPlan()">Start Over</button>
+        </div>
+
+      </div>
+
+      <footer class="tool-footer">Shelter Secure · Starter Kit — built to be used, not filed away.</footer>
+    </div>
+  </div>
+
+  <div id="tool-marriedgrid" class="tool-view">
+    <div class="tool-wrap">
+      <button class="back-btn" onclick="goHome()">← Your Starter Kit</button>
+
+      <div class="tool-hero">
+        <div class="tool-hero-eyebrow">10 QUESTIONS ABOUT WHO'S REALLY IN CHARGE</div>
+        <h1>Married to the Grid</h1>
+        <div class="tool-hero-sub">This isn't about guilt or going off into the woods. It's a ten-minute look at how tightly your life is tied to the grid — power, logistics, money, and systems you don't control. Use these questions as a mirror, not a verdict.</div>
+      </div>
+
+      <div style="padding:36px 0 8px;">
+
+        <div class="sec">
+          <h3>The 10 Questions</h3>
+          <div class="sec-note">For each one, choose Yes / No / Not sure and jot a quick note if something hits a nerve.</div>
+          <div id="mqQuestions"></div>
+          <div class="mq-tally">
+            <span>Yes: <strong id="mqYesCount">0</strong></span>
+            <span>No: <strong id="mqNoCount">0</strong></span>
+            <span>Not sure: <strong id="mqUnsureCount">0</strong></span>
+          </div>
+        </div>
+
+        <div class="sec">
+          <h3>Your Grid Dependency Score</h3>
+          <div class="sec-note">Weighted from your answers — "No" counts full, "Not sure" counts half. Higher means more tightly tied to the grid right now.</div>
+          <div class="score-wrap">
+            <div>
+              <div class="score-num" id="mqScoreNum">0.0</div>
+              <div class="score-max">/ 10</div>
+            </div>
+            <div class="score-tier" id="mqScoreTier">Answer the questions above to see your score.</div>
+          </div>
+          <div id="mqInsight"></div>
+
+          <div id="mqExposureWrap" style="display:none;">
+            <div class="list-heading">Your Biggest Exposure Points</div>
+            <div id="mqExposureList"></div>
+          </div>
+        </div>
+
+        <div class="sec">
+          <h3>Reading Your Answers</h3>
+          <div class="sec-note">You don't need a score; just patterns. Lots of "No" answers → you're very "married to the grid." That's normal — but now it's visible. Lots of "Not sure" answers → that's your early warning. Confusion is fragility you can't see clearly.</div>
+          <div class="field"><label class="lbl">One thing I'd like to be less dependent on</label><input type="text" id="mq-less-dependent" oninput="updateMqNextMove()"></div>
+          <div class="field"><label class="lbl">One thing I'd like to build at home (Planted income)</label><input type="text" id="mq-planted" oninput="updateMqNextMove()"></div>
+          <div class="field"><label class="lbl">One skill or income stream I'd like to be able to take with me (Portable)</label><input type="text" id="mq-portable" oninput="updateMqNextMove()"></div>
+
+          <div id="mqNextMoveWrap" style="display:none;">
+            <div class="summary-card">
+              <div class="summary-card-title">Your Next Move</div>
+              <div id="mqNextMoveBody"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec">
+          <h3>What to Do With This</h3>
+          <div class="sec-note">You don't fix this in a weekend — but you can:</div>
+          <div class="plain-check-item">— Pick one "Yes and that scares me" answer and design a small change around it.</div>
+          <div class="plain-check-item">— Use the <a href="#" onclick="openTool('emergencyplan'); return false;" style="color:var(--gold);font-weight:600;">72-Hour Emergency Plan</a> to cover the next wobble.</div>
+          <div class="plain-check-item">— Use Grid-Adjacent: The Exit Strategy to sketch a realistic plan to loosen the grip over time.</div>
+          <div class="field-note-static" style="margin-top:16px;padding:14px 16px;background:var(--cream2);border-left:3px solid var(--gold);border-radius:2px;font-size:13px;color:var(--ink2);font-style:italic;">You don't have to divorce the grid. You just don't have to let it own every decision you make.</div>
+        </div>
+
+        <div class="tool-btn-row">
+          <button class="tool-btn primary" onclick="saveMarriedGrid()">Save My Audit</button>
+          <button class="tool-btn" onclick="window.print()">Print / Save as PDF</button>
+          <button class="tool-btn" onclick="resetMarriedGrid()">Start Over</button>
+        </div>
+
+      </div>
+
+      <footer class="tool-footer">Shelter Secure · Starter Kit — built to be used, not filed away.</footer>
+    </div>
+  </div>
+
+  <div id="tool-housinghierarchy" class="tool-view">
+    <div class="tool-wrap">
+      <button class="back-btn" onclick="goHome()">← Your Starter Kit</button>
+
+      <div class="tool-hero">
+        <div class="tool-hero-eyebrow">THE HOUSING PYRAMID</div>
+        <h1>Housing Hierarchy</h1>
+        <div class="tool-hero-sub">Different homes don't just look different — they behave differently when money tightens, the grid wobbles, or you need to move. You're not picking your "forever home" here. You're just seeing where you live now — and where you might want to move on the pyramid over time.</div>
+      </div>
+
+      <div style="padding:36px 0 8px;">
+
+        <div class="sec">
+          <h3>What Are You Living In Right Now?</h3>
+          <div class="sec-note">Step 1: Circle your current housing type (or the closest match).</div>
+          <div class="choice-row" id="hhTypeChips"></div>
+          <div class="row2" style="margin-top:14px;">
+            <div class="field"><label class="lbl">Where Is It? (city / suburb / small town / rural)</label><input type="text" id="hh-location" oninput="computeHousingScore()"></div>
+            <div class="field">
+              <label class="lbl">Own or Rent?</label>
+              <div class="choice-row" id="hhOwnRentChips"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec">
+          <h3>Pick Your Level on the Pyramid</h3>
+          <div class="sec-note">Circle the one that feels most like you today.</div>
+          <div id="hhLevelCards"></div>
+          <div class="field" style="margin-top:12px;"><label class="lbl">Why Did You Pick That One? (one line)</label><input type="text" id="hh-why" oninput="updateHousingActionPlan(); saveHousingHierarchySilent();"></div>
+        </div>
+
+        <div class="sec">
+          <h3>Quick Resiliency Score</h3>
+          <div class="sec-note">On a 1–5 scale.</div>
+          <label class="lbl">Grid Dependence — "How much does my life fall apart if the grid glitches for 3 days?"</label>
+          <div class="slider-wrap">
+            <input type="range" min="1" max="5" value="3" id="hh-grid-dep" oninput="updateHousingSliders()">
+            <div class="slider-display" id="hh-grid-dep-val">3</div>
+            <div class="slider-labels"><span>1 = we bend, not break</span><span>5 = we're toast in 72 hours</span></div>
+          </div>
+          <label class="lbl" style="margin-top:16px;">Resiliency — "How many good options do I have if things change (job, rent, grid, neighbors)?"</label>
+          <div class="slider-wrap">
+            <input type="range" min="1" max="5" value="3" id="hh-resiliency" oninput="updateHousingSliders()">
+            <div class="slider-display" id="hh-resiliency-val">3</div>
+            <div class="slider-labels"><span>1 = I'm stuck</span><span>5 = I can pivot</span></div>
+          </div>
+        </div>
+
+        <div class="sec">
+          <h3>Your Housing Resiliency Score</h3>
+          <div class="sec-note">Combines your pyramid level pick with both sliders into one read on where you actually stand.</div>
+          <div class="score-wrap">
+            <div>
+              <div class="score-num" id="hhScoreNum">—</div>
+              <div class="score-max">/ 10</div>
+            </div>
+            <div class="score-tier" id="hhScoreTier">Pick your pyramid level and set both sliders above.</div>
+          </div>
+          <div id="hhScoreInsight"></div>
+
+          <div id="hhProfileWrap" style="display:none;">
+            <div class="list-heading">Your Housing Profile</div>
+            <div class="summary-card">
+              <div id="hhProfileBody"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec">
+          <h3>Your Path Up the Pyramid</h3>
+          <div class="sec-note">Not just where you stand — what it would actually take to climb, given your specific situation.</div>
+          <div id="hhClimbPath"></div>
+        </div>
+
+        <div class="sec">
+          <h3>Graduating Up the Pyramid</h3>
+          <div class="sec-note">You don't "win" by jumping straight from Grid-Dependent to Off-Grid. You win by lowering your Survival Cost, improving your Resiliency Score, and moving from housing that traps you to housing that gives you options.</div>
+          <label class="lbl">Next Step For Me Might Be</label>
+          <div id="hhNextSteps"></div>
+          <div class="field-note-static" style="margin-top:16px;padding:14px 16px;background:var(--cream2);border-left:3px solid var(--gold);border-radius:2px;font-size:13px;color:var(--ink2);font-style:italic;">Goal: To become resilient and grid-adjacent capable — where my housing works with me instead of against me.</div>
+
+          <div id="hhActionPlanWrap" style="display:none;">
+            <div class="list-heading">Your Action Plan</div>
+            <div class="summary-card">
+              <div id="hhActionPlanBody"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-btn-row">
+          <button class="tool-btn primary" onclick="saveHousingHierarchy()">Save My Answers</button>
+          <button class="tool-btn" onclick="window.print()">Print / Save as PDF</button>
+          <button class="tool-btn" onclick="resetHousingHierarchy()">Start Over</button>
+        </div>
+
+      </div>
+
+      <footer class="tool-footer">Shelter Secure · Starter Kit — built to be used, not filed away.</footer>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+function notify(msg){ var t=document.getElementById('ftpToast'); if(!t){ t=document.createElement('div'); t.id='ftpToast'; document.body.appendChild(t); } t.textContent=msg; t.classList.add('show'); clearTimeout(window.__ftpT); window.__ftpT=setTimeout(function(){ t.classList.remove('show'); },3200); }
+document.addEventListener('click',function(e){ var a=e.target.closest&&e.target.closest('a[data-top]'); if(!a) return; e.preventDefault(); try{ window.top.location.href=a.href; }catch(err){ window.open(a.href,'_blank'); } });
+
+const tools = ['emergencyplan','marriedgrid','housinghierarchy'];
+let initialized = {};
+
+function openTool(id) {
+  document.getElementById('home').style.display = 'none';
+  tools.forEach(t => document.getElementById('tool-'+t).classList.remove('active'));
+  document.getElementById('tool-'+id).classList.add('active');
+  window.scrollTo(0,0);
+  if (!initialized[id]) {
+    initialized[id] = true;
+    if (id === 'timeaudit') { buildTables(); loadAudit(); calc(); }
+    if (id === 'energyaudit') { loadEnergyAudit(); }
+    if (id === 'decisiondebtaudit') { loadDebtAudit(); }
+    if (id === 'emergencyplan') { initEmergencyPlan(); loadEmergencyPlan(); }
+    if (id === 'marriedgrid') { initMarriedGrid(); loadMarriedGrid(); }
+    if (id === 'housinghierarchy') { initHousingHierarchy(); loadHousingHierarchy(); }
+  }
+}
+function goHome() {
+  tools.forEach(t => document.getElementById('tool-'+t).classList.remove('active'));
+  document.getElementById('home').style.display = 'block';
+  window.scrollTo(0,0);
+}
+
+const categories = [
+  {id:'work', label:'Work / Job'},
+  {id:'sleep', label:'Sleep'},
+  {id:'family', label:'Family & Relationships'},
+  {id:'screen', label:'Screens & Entertainment'},
+  {id:'health', label:'Health & Exercise'},
+  {id:'chores', label:'Chores & Errands'},
+  {id:'personal', label:'Personal Time & Hobbies'},
+  {id:'commute', label:'Commute & In-Between'},
+];
+
+function buildTables() {
+  const gBody = document.getElementById('guessBody');
+  const aBody = document.getElementById('actualBody');
+  categories.forEach(c => {
+    gBody.innerHTML += `<tr>
+      <td class="cat-name">${c.label}</td>
+      <td style="text-align:center"><input type="number" min="0" max="168" id="guess-${c.id}" placeholder="0" oninput="calc()"></td>
+    </tr>`;
+    aBody.innerHTML += `<tr>
+      <td class="cat-name">${c.label}</td>
+      <td style="text-align:center"><input type="number" min="0" max="24" step="0.5" id="actual-${c.id}" placeholder="0" oninput="calc()"></td>
+      <td style="text-align:center" class="gap-cell" id="wk-${c.id}">0</td>
+    </tr>`;
+  });
+}
+
+function calc() {
+  const bars = document.getElementById('barsWrap');
+  bars.innerHTML = '';
+  let dayTotal = 0;
+  let biggestGap = {cat:null, diff:0, dir:''};
+  let allZero = true;
+
+  categories.forEach(c => {
+    const guess = parseFloat(document.getElementById('guess-'+c.id).value) || 0;
+    const actualDay = parseFloat(document.getElementById('actual-'+c.id).value) || 0;
+    const actualWk = actualDay * 7;
+    dayTotal += actualDay;
+    document.getElementById('wk-'+c.id).textContent = actualWk.toFixed(0);
+
+    if (guess > 0 || actualDay > 0) allZero = false;
+
+    const diff = actualWk - guess;
+    if (Math.abs(diff) > Math.abs(biggestGap.diff)) {
+      biggestGap = {cat:c.label, diff:diff, dir: diff > 0 ? 'more' : 'less'};
+    }
+
+    const maxScale = Math.max(guess, actualWk, 20);
+    const guessPct = (guess/maxScale)*100;
+    const actualPct = (actualWk/maxScale)*100;
+
+    bars.innerHTML += `
+      <div class="bar-row">
+        <div class="bar-label"><span>${c.label}</span><span>${guess.toFixed(0)} guessed &nbsp;→&nbsp; ${actualWk.toFixed(0)} actual /wk</span></div>
+        <div class="bar-track"><div class="bar-fill guess" style="width:${guessPct}%"></div></div>
+        <div class="bar-track" style="margin-top:3px"><div class="bar-fill actual" style="width:${actualPct}%"></div></div>
+      </div>`;
+  });
+
+  document.getElementById('dayTotal').textContent = (dayTotal).toFixed(1) + ' hrs/day · ' + (dayTotal*7).toFixed(0) + ' hrs/wk';
+
+  const insightOut = document.getElementById('insightOut');
+  if (allZero) {
+    insightOut.innerHTML = '';
+  } else if (Math.abs(biggestGap.diff) < 3) {
+    insightOut.innerHTML = `<div class="insight-box good">Your instincts are solid — your guesses were within a few hours of reality across the board. Most people aren't this calibrated.</div>`;
+  } else {
+    const verb = biggestGap.dir === 'more' ? 'eating more of your week than you realized' : 'getting less of your week than you think it is';
+    insightOut.innerHTML = `<div class="insight-box warn"><strong>${biggestGap.cat}</strong> is ${verb} — a gap of about <strong>${Math.abs(biggestGap.diff).toFixed(0)} hours a week</strong>. That's not a guess anymore. That's the number.</div>`;
+  }
+
+  if (dayTotal > 24.5) {
+    insightOut.innerHTML += `<div class="insight-box neutral" style="margin-top:10px">Your day adds up to more than 24 hours — a few categories are probably overlapping (e.g. commuting while listening to something, working while eating). Worth a second pass.</div>`;
+  }
+}
+
+function saveAudit() {
+  const data = {};
+  categories.forEach(c => {
+    data[c.id] = {
+      guess: document.getElementById('guess-'+c.id).value,
+      actual: document.getElementById('actual-'+c.id).value
+    };
+  });
+  try {
+    localStorage.setItem('ftp_time_audit', JSON.stringify(data));
+    notify('Saved. Come back anytime — your numbers will be right where you left them.');
+  } catch(e) {
+    notify('Could not save on this device. You can still take a screenshot of your results.');
+  }
+}
+
+function loadAudit() {
+  try {
+    const raw = localStorage.getItem('ftp_time_audit');
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    categories.forEach(c => {
+      if (data[c.id]) {
+        document.getElementById('guess-'+c.id).value = data[c.id].guess || '';
+        document.getElementById('actual-'+c.id).value = data[c.id].actual || '';
+      }
+    });
+    calc();
+  } catch(e) {}
+}
+
+function resetAudit() {
+  if (!confirm('Clear all entries and start over?')) return;
+  categories.forEach(c => {
+    document.getElementById('guess-'+c.id).value = '';
+    document.getElementById('actual-'+c.id).value = '';
+  });
+  try { localStorage.removeItem('ftp_time_audit'); } catch(e) {}
+  calc();
+}
+
+// ═══ ENERGY AUDIT ═══
+let energyRowCount = 0;
+
+function addEnergyRow(text='', tag='') {
+  energyRowCount++;
+  const id = 'erow-' + energyRowCount;
+  const list = document.getElementById('entryList');
+  const div = document.createElement('div');
+  div.className = 'entry-row';
+  div.id = id;
+  div.innerHTML = `
+    <input type="text" placeholder="e.g. Morning workout, my commute, Sunday calls with Mom…" value="${text}" oninput="calcEnergy()">
+    <div class="tag-toggle">
+      <button type="button" class="tag-btn fuel ${tag==='fuel'?'active':''}" onclick="setEnergyTag('${id}','fuel',this)">Fuel</button>
+      <button type="button" class="tag-btn drain ${tag==='drain'?'active':''}" onclick="setEnergyTag('${id}','drain',this)">Drain</button>
+    </div>
+    <button class="del-btn" onclick="delEnergyRow('${id}')">×</button>`;
+  div.dataset.tag = tag;
+  list.appendChild(div);
+}
+
+function setEnergyTag(rowId, tag, btn) {
+  const row = document.getElementById(rowId);
+  row.dataset.tag = row.dataset.tag === tag ? '' : tag;
+  row.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+  if (row.dataset.tag === tag) btn.classList.add('active');
+  calcEnergy();
+}
+
+function delEnergyRow(rowId) {
+  document.getElementById(rowId).remove();
+  calcEnergy();
+}
+
+function calcEnergy() {
+  const rows = document.querySelectorAll('.entry-row');
+  let fuel = 0, drain = 0, untagged = 0;
+  const fuels = [], drains = [];
+
+  rows.forEach(row => {
+    const text = row.querySelector('input[type=text]').value.trim();
+    const tag = row.dataset.tag;
+    if (!text) return;
+    if (tag === 'fuel') { fuel++; fuels.push(text); }
+    else if (tag === 'drain') { drain++; drains.push(text); }
+    else untagged++;
+  });
+
+  document.getElementById('fuelCount').textContent = fuel;
+  document.getElementById('drainCount').textContent = drain;
+  document.getElementById('untaggedCount').textContent = untagged;
+
+  const total = fuel + drain;
+  const fuelPct = total ? (fuel/total)*100 : 0;
+  const drainPct = total ? (drain/total)*100 : 0;
+  document.getElementById('fuelBar').style.width = fuelPct + '%';
+  document.getElementById('drainBar').style.width = drainPct + '%';
+
+  const balance = fuel - drain;
+  const balEl = document.getElementById('balanceNum');
+  balEl.textContent = (balance > 0 ? '+' : '') + balance;
+  balEl.className = 'balance-num ' + (balance > 0 ? 'pos' : balance < 0 ? 'neg' : 'zero');
+
+  const insightOut = document.getElementById('insightOutEnergy');
+  if (total === 0) {
+    insightOut.innerHTML = '';
+  } else if (balance <= -3) {
+    insightOut.innerHTML = `<div class="insight-box warn">Drains are outnumbering fuel by a wide margin. This isn't a willpower problem — it's a ratio problem. Worth asking which drains are actually optional.</div>`;
+  } else if (balance < 0) {
+    insightOut.innerHTML = `<div class="insight-box warn">You've got slightly more drains than fuel right now. Not a crisis, but worth watching which side keeps growing.</div>`;
+  } else if (balance === 0 && total > 0) {
+    insightOut.innerHTML = `<div class="insight-box neutral">Dead even. Whether that feels sustainable or exhausting probably depends on how big each item is — a balance list treats all items equally, your life doesn't.</div>`;
+  } else {
+    insightOut.innerHTML = `<div class="insight-box good">Fuel is outweighing drain. Worth noticing what's on the fuel list — more of that is rarely a bad move.</div>`;
+  }
+
+  const topDrainsWrap = document.getElementById('topDrainsWrap');
+  const topFuelsWrap = document.getElementById('topFuelsWrap');
+  if (drains.length) {
+    topDrainsWrap.style.display = 'block';
+    document.getElementById('topDrainsList').innerHTML = drains.map(d => `<div style="font-size:13px;color:var(--ink2);padding:4px 0;border-bottom:1px solid var(--cream2)">— ${d}</div>`).join('');
+  } else {
+    topDrainsWrap.style.display = 'none';
+  }
+  if (fuels.length) {
+    topFuelsWrap.style.display = 'block';
+    document.getElementById('topFuelsList').innerHTML = fuels.map(f => `<div style="font-size:13px;color:var(--ink2);padding:4px 0;border-bottom:1px solid var(--cream2)">— ${f}</div>`).join('');
+  } else {
+    topFuelsWrap.style.display = 'none';
+  }
+}
+
+function saveEnergyAudit() {
+  const rows = [];
+  document.querySelectorAll('.entry-row').forEach(row => {
+    const text = row.querySelector('input[type=text]').value.trim();
+    if (text) rows.push({text, tag: row.dataset.tag || ''});
+  });
+  try {
+    localStorage.setItem('ftp_energy_audit', JSON.stringify(rows));
+    notify('Saved. Come back anytime — your list will be right where you left it.');
+  } catch(e) {
+    notify('Could not save on this device. You can still take a screenshot of your results.');
+  }
+}
+
+function loadEnergyAudit() {
+  try {
+    const raw = localStorage.getItem('ftp_energy_audit');
+    if (!raw) { seedEnergyDefault(); return; }
+    const rows = JSON.parse(raw);
+    if (!rows.length) { seedEnergyDefault(); return; }
+    rows.forEach(r => addEnergyRow(r.text, r.tag));
+    calcEnergy();
+  } catch(e) { seedEnergyDefault(); }
+}
+
+function seedEnergyDefault() {
+  for (let i = 0; i < 5; i++) addEnergyRow();
+}
+
+function resetEnergyAudit() {
+  if (!confirm('Clear all entries and start over?')) return;
+  document.getElementById('entryList').innerHTML = '';
+  try { localStorage.removeItem('ftp_energy_audit'); } catch(e) {}
+  seedEnergyDefault();
+  calcEnergy();
+}
+
+// ═══ DECISION DEBT AUDIT ═══
+let debtRowCount = 0;
+
+const defaultDebtItems = [
+  'A money decision you keep putting off',
+  'A conversation with someone you love',
+  "Something about your health you're not looking at",
+  'A conversation you need to have at work',
+  'A commitment you know you need to end',
+];
+
+function addDebtRow(text='', checked=false, reflection='') {
+  debtRowCount++;
+  const id = 'drow-' + debtRowCount;
+  const list = document.getElementById('debtList');
+  const div = document.createElement('div');
+  div.className = 'debt-item' + (checked ? ' checked' : '');
+  div.id = id;
+  div.innerHTML = `
+    <div class="debt-row">
+      <div class="check-box ${checked?'on':''}" onclick="toggleDebtCheck('${id}')">✓</div>
+      <div class="debt-text"><input type="text" placeholder="Name it…" value="${text}" oninput="calcDebt()"></div>
+      <button class="debt-del" onclick="delDebtRow('${id}')">×</button>
+    </div>
+    <div class="reflect-wrap ${checked?'show':''}">
+      <label>Why is it still sitting here?</label>
+      <textarea placeholder="A sentence or two is enough…" oninput="calcDebt()">${reflection}</textarea>
+    </div>`;
+  list.appendChild(div);
+}
+
+function toggleDebtCheck(id) {
+  const item = document.getElementById(id);
+  const box = item.querySelector('.check-box');
+  const reflectWrap = item.querySelector('.reflect-wrap');
+  const isOn = box.classList.toggle('on');
+  item.classList.toggle('checked', isOn);
+  reflectWrap.classList.toggle('show', isOn);
+  calcDebt();
+}
+
+function delDebtRow(id) {
+  document.getElementById(id).remove();
+  calcDebt();
+}
+
+function calcDebt() {
+  const items = document.querySelectorAll('.debt-item');
+  let debtCount = 0;
+  items.forEach(item => {
+    if (item.querySelector('.check-box').classList.contains('on')) debtCount++;
+  });
+
+  const debtNumEl = document.getElementById('debtNum');
+  debtNumEl.textContent = debtCount;
+  debtNumEl.className = 'debt-num' + (debtCount === 0 ? ' zero' : '');
+
+  const insightOut = document.getElementById('insightOutDebt');
+  if (debtCount === 0) {
+    insightOut.innerHTML = `<div class="insight-box good">Nothing checked — either you're genuinely clear, or nothing on this list felt honest yet. Worth a second look before you close the tab.</div>`;
+  } else if (debtCount <= 2) {
+    insightOut.innerHTML = `<div class="insight-box neutral">A couple of things are sitting unresolved. Small debt is still debt — it doesn't need to be urgent to be worth clearing.</div>`;
+  } else if (debtCount <= 4) {
+    insightOut.innerHTML = `<div class="insight-box warn">Several things are sitting unresolved at once. That's likely more background noise than you realize — decision debt has a way of compounding quietly.</div>`;
+  } else {
+    insightOut.innerHTML = `<div class="insight-box warn">This is a lot to be carrying at once. Pick the one item that, if resolved, would make the others easier — and start there.</div>`;
+  }
+}
+
+function saveDebtAudit() {
+  const items = [];
+  document.querySelectorAll('.debt-item').forEach(item => {
+    const text = item.querySelector('input[type=text]').value.trim();
+    const checked = item.querySelector('.check-box').classList.contains('on');
+    const reflection = item.querySelector('textarea').value.trim();
+    if (text) items.push({text, checked, reflection});
+  });
+  try {
+    localStorage.setItem('ftp_decision_debt_audit', JSON.stringify(items));
+    notify('Saved. Come back anytime — your list will be right where you left it.');
+  } catch(e) {
+    notify('Could not save on this device. You can still take a screenshot of your results.');
+  }
+}
+
+function loadDebtAudit() {
+  try {
+    const raw = localStorage.getItem('ftp_decision_debt_audit');
+    if (!raw) { seedDebtDefault(); return; }
+    const items = JSON.parse(raw);
+    if (!items.length) { seedDebtDefault(); return; }
+    items.forEach(i => addDebtRow(i.text, i.checked, i.reflection));
+    calcDebt();
+  } catch(e) { seedDebtDefault(); }
+}
+
+function seedDebtDefault() {
+  defaultDebtItems.forEach(text => addDebtRow(text));
+  calcDebt();
+}
+
+function resetDebtAudit() {
+  if (!confirm('Clear all entries and start over?')) return;
+  document.getElementById('debtList').innerHTML = '';
+  try { localStorage.removeItem('ftp_decision_debt_audit'); } catch(e) {}
+  seedDebtDefault();
+}
+
+// ═══ 72-HOUR EMERGENCY PLAN ═══
+const epPrioritiesList = [
+  'Keeping food safe',
+  'Keeping water available',
+  'Keeping meds and medical devices stable',
+  'Keeping basic heat/cooling',
+  'Staying in contact with key people',
+  'Being able to leave quickly if needed'
+];
+const epDrillList = [
+  'Everyone finds a light source in under 60 seconds.',
+  'Everyone knows where the water is.',
+  'Everyone can point to the emergency kit and printed plan.',
+  'One adult walks through how to shut off main power / water / gas (if needed in your area).'
+];
+const epCommOptionsList = ['Use landline', 'Use radios'];
+const epGridRows = ['Food & Water', 'Power & Light', 'Home, Meds & Money', 'People & Check-Ins'];
+
+function initEmergencyPlan() {
+  const pWrap = document.getElementById('epPriorities');
+  epPrioritiesList.forEach((label, i) => {
+    pWrap.innerHTML += `<div class="plain-check-item"><div class="check-box" id="ep-pri-${i}" onclick="this.classList.toggle('on'); this.textContent=this.classList.contains('on')?'✓':'';">✓</div><div>${label}</div></div>`;
+  });
+
+  const commWrap = document.getElementById('epCommOptions');
+  epCommOptionsList.forEach((label, i) => {
+    commWrap.innerHTML += `<div class="plain-check-item"><div class="check-box" id="ep-comm-${i}" onclick="this.classList.toggle('on'); this.textContent=this.classList.contains('on')?'✓':'';">✓</div><div>${label}</div></div>`;
+  });
+
+  const drillWrap = document.getElementById('epDrill');
+  epDrillList.forEach((label, i) => {
+    drillWrap.innerHTML += `<div class="plain-check-item"><div class="check-box" id="ep-drill-${i}" onclick="this.classList.toggle('on'); this.textContent=this.classList.contains('on')?'✓':'';">✓</div><div>${label}</div></div>`;
+  });
+
+  const gridBody = document.getElementById('epGridBody');
+  epGridRows.forEach((label, r) => {
+    let cells = `<td class="row-label-cell">${label}</td>`;
+    for (let c = 0; c < 4; c++) {
+      cells += `<td><textarea id="ep-grid-${r}-${c}"></textarea></td>`;
+    }
+    gridBody.innerHTML += `<tr>${cells}</tr>`;
+  });
+
+  const epContainer = document.getElementById('tool-emergencyplan');
+  epContainer.addEventListener('input', saveEmergencyPlanSilent);
+  epContainer.addEventListener('click', (e) => {
+    if (e.target.classList.contains('check-box')) setTimeout(saveEmergencyPlanSilent, 0);
+  });
+}
+
+function collectEmergencyPlanState() {
+  const state = { fields: {}, priorities: {}, comm: {}, drill: {}, grid: {} };
+  ['ep-name','ep-address','ep-main-contact','ep-backup-contact','ep-plan-location','ep-goal','ep-owner','ep-backup-adult','ep-kit-location','ep-flashlights','ep-water','ep-meds','ep-contact-list','ep-group-text','ep-out-of-area','ep-meetup','ep-checkin-hours','ep-checkin-freq','ep-worked','ep-fix'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) state.fields[id] = el.value;
+  });
+  epPrioritiesList.forEach((_, i) => { state.priorities[i] = document.getElementById('ep-pri-'+i).classList.contains('on'); });
+  epCommOptionsList.forEach((_, i) => { state.comm[i] = document.getElementById('ep-comm-'+i).classList.contains('on'); });
+  epDrillList.forEach((_, i) => { state.drill[i] = document.getElementById('ep-drill-'+i).classList.contains('on'); });
+  epGridRows.forEach((_, r) => {
+    for (let c = 0; c < 4; c++) {
+      const el = document.getElementById(`ep-grid-${r}-${c}`);
+      if (el) state.grid[`${r}-${c}`] = el.value;
+    }
+  });
+  return state;
+}
+
+function saveEmergencyPlanSilent() {
+  try { localStorage.setItem('ftp_emergency_plan', JSON.stringify(collectEmergencyPlanState())); } catch(e) {}
+}
+
+function saveEmergencyPlan() {
+  saveEmergencyPlanSilent();
+  notify('Saved. Come back anytime — your plan will be right where you left it.');
+}
+
+function loadEmergencyPlan() {
+  try {
+    const raw = localStorage.getItem('ftp_emergency_plan');
+    if (!raw) return;
+    const state = JSON.parse(raw);
+    Object.keys(state.fields || {}).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = state.fields[id];
+    });
+    Object.keys(state.priorities || {}).forEach(i => {
+      if (state.priorities[i]) { const el = document.getElementById('ep-pri-'+i); el.classList.add('on'); el.textContent='✓'; }
+    });
+    Object.keys(state.comm || {}).forEach(i => {
+      if (state.comm[i]) { const el = document.getElementById('ep-comm-'+i); el.classList.add('on'); el.textContent='✓'; }
+    });
+    Object.keys(state.drill || {}).forEach(i => {
+      if (state.drill[i]) { const el = document.getElementById('ep-drill-'+i); el.classList.add('on'); el.textContent='✓'; }
+    });
+    Object.keys(state.grid || {}).forEach(key => {
+      const el = document.getElementById('ep-grid-'+key);
+      if (el) el.value = state.grid[key];
+    });
+  } catch(e) {}
+}
+
+function resetEmergencyPlan() {
+  if (!confirm('Clear this entire plan and start over?')) return;
+  try { localStorage.removeItem('ftp_emergency_plan'); } catch(e) {}
+  document.getElementById('tool-emergencyplan').querySelectorAll('input[type=text], textarea').forEach(el => el.value = '');
+  document.getElementById('tool-emergencyplan').querySelectorAll('.check-box').forEach(el => { el.classList.remove('on'); el.textContent=''; });
+}
+
+// ═══ MARRIED TO THE GRID ═══
+const mqQuestionsList = [
+  'If power was out for 24 hours, could you stay in your home comfortably?',
+  'If your internet died for 24 hours, would your income stop completely?',
+  'If the nearest big store closed for 3 days, would your pantry hold?',
+  'Does almost every bill you pay depend on one employer, one client, or one platform?',
+  'If your bank card failed for one weekend, do you have any backup (cash, second card, local tab)?',
+  "Do you rent or own a place where you're forbidden (or practically blocked) from growing/selling anything from home?",
+  'If you had to move in six months, would any of your current income come with you?',
+  'If your neighborhood had a bad week (storm, fire, unrest), do you know even 2–3 neighbors well enough to coordinate with?',
+  'Is there any part of your monthly life load (bills + obligations) that actually gets lighter if the grid hiccups — or does it all get heavier?',
+  'Do you have even one small income stream that starts at your address (room, space, garden, service)?'
+];
+
+function initMarriedGrid() {
+  const wrap = document.getElementById('mqQuestions');
+  mqQuestionsList.forEach((q, i) => {
+    wrap.innerHTML += `
+      <div class="mq-item">
+        <div class="mq-question">${i+1}. ${q}</div>
+        <div class="choice-row">
+          <div class="choice-chip" id="mq-${i}-yes" onclick="setMqAnswer(${i},'yes')">Yes</div>
+          <div class="choice-chip" id="mq-${i}-no" onclick="setMqAnswer(${i},'no')">No</div>
+          <div class="choice-chip" id="mq-${i}-unsure" onclick="setMqAnswer(${i},'unsure')">Not sure</div>
+        </div>
+        <input type="text" class="mq-note" id="mq-${i}-note" placeholder="Note (optional)…" oninput="saveMarriedGridSilent()">
+      </div>`;
+  });
+}
+
+function setMqAnswer(i, val) {
+  ['yes','no','unsure'].forEach(v => document.getElementById(`mq-${i}-${v}`).classList.remove('active'));
+  const el = document.getElementById(`mq-${i}-${val}`);
+  const wasActive = el.dataset.selected === '1';
+  if (wasActive) {
+    el.dataset.selected = '0';
+  } else {
+    ['yes','no','unsure'].forEach(v => document.getElementById(`mq-${i}-${v}`).dataset.selected = '0');
+    el.dataset.selected = '1';
+    el.classList.add('active');
+  }
+  calcMarriedGrid();
+  saveMarriedGridSilent();
+}
+
+function calcMarriedGrid() {
+  let yes=0, no=0, unsure=0;
+  const exposures = [];
+  mqQuestionsList.forEach((q, i) => {
+    const isYes = document.getElementById(`mq-${i}-yes`).dataset.selected === '1';
+    const isNo = document.getElementById(`mq-${i}-no`).dataset.selected === '1';
+    const isUnsure = document.getElementById(`mq-${i}-unsure`).dataset.selected === '1';
+    if (isYes) yes++;
+    if (isNo) no++;
+    if (isUnsure) unsure++;
+    if (isNo || isUnsure) {
+      exposures.push({ q, tag: isNo ? 'no' : 'unsure', note: document.getElementById(`mq-${i}-note`).value.trim() });
+    }
+  });
+  document.getElementById('mqYesCount').textContent = yes;
+  document.getElementById('mqNoCount').textContent = no;
+  document.getElementById('mqUnsureCount').textContent = unsure;
+
+  const answered = yes + no + unsure;
+  const score = no * 1 + unsure * 0.5;
+  const scoreEl = document.getElementById('mqScoreNum');
+  const tierEl = document.getElementById('mqScoreTier');
+  const insightOut = document.getElementById('mqInsight');
+
+  if (answered === 0) {
+    scoreEl.textContent = '0.0';
+    scoreEl.className = 'score-num';
+    tierEl.textContent = 'Answer the questions above to see your score.';
+    insightOut.innerHTML = '';
+  } else {
+    scoreEl.textContent = score.toFixed(1);
+    let tierLabel, tierClass, insightHtml;
+    if (score <= 3) {
+      tierClass = 'low'; tierLabel = 'Grid-Adjacent Already';
+      insightHtml = `<div class="insight-box good">You've already got real slack built in. Worth noting which answers came easiest — that's where your resilience already lives.</div>`;
+    } else if (score <= 6.5) {
+      tierClass = 'mid'; tierLabel = 'Moderately Dependent';
+      insightHtml = `<div class="insight-box neutral">A mixed picture — some slack, some tight spots. The list below is your highest-leverage gaps.</div>`;
+    } else {
+      tierClass = 'high'; tierLabel = 'Highly Grid-Dependent';
+      insightHtml = `<div class="insight-box warn">You're very "married to the grid" right now. That's normal — but now it's visible, which is the whole point of this audit.</div>`;
+    }
+    scoreEl.className = 'score-num ' + tierClass;
+    tierEl.innerHTML = `<strong>${tierLabel}</strong> — based on ${answered} of 10 questions answered.`;
+    insightOut.innerHTML = insightHtml;
+  }
+
+  const expWrap = document.getElementById('mqExposureWrap');
+  const expList = document.getElementById('mqExposureList');
+  if (exposures.length) {
+    expWrap.style.display = 'block';
+    expList.innerHTML = exposures.map(e => `
+      <div class="exposure-item">
+        <div class="exp-q"><span class="exp-tag ${e.tag}">${e.tag === 'no' ? 'No' : 'Not Sure'}</span>${e.q}</div>
+        ${e.note ? `<div class="exp-note">"${e.note}"</div>` : ''}
+      </div>`).join('');
+  } else {
+    expWrap.style.display = 'none';
+  }
+}
+
+function updateMqNextMove() {
+  const lessDep = document.getElementById('mq-less-dependent').value.trim();
+  const planted = document.getElementById('mq-planted').value.trim();
+  const portable = document.getElementById('mq-portable').value.trim();
+  const wrap = document.getElementById('mqNextMoveWrap');
+  const body = document.getElementById('mqNextMoveBody');
+
+  if (!lessDep && !planted && !portable) {
+    wrap.style.display = 'none';
+    return;
+  }
+  wrap.style.display = 'block';
+  body.innerHTML = `
+    ${lessDep ? `<div class="summary-row"><div class="s-label">Less dependent on:</div><div class="s-val">${lessDep}</div></div>` : ''}
+    ${planted ? `<div class="summary-row"><div class="s-label">Build at home:</div><div class="s-val">${planted}</div></div>` : ''}
+    ${portable ? `<div class="summary-row"><div class="s-label">Take with me:</div><div class="s-val">${portable}</div></div>` : ''}
+  `;
+}
+
+function collectMarriedGridState() {
+  const answers = {};
+  mqQuestionsList.forEach((_, i) => {
+    let val = '';
+    ['yes','no','unsure'].forEach(v => { if (document.getElementById(`mq-${i}-${v}`).dataset.selected === '1') val = v; });
+    answers[i] = { val, note: document.getElementById(`mq-${i}-note`).value };
+  });
+  const prompts = {};
+  ['mq-less-dependent','mq-planted','mq-portable'].forEach(id => { prompts[id] = document.getElementById(id).value; });
+  return { answers, prompts };
+}
+
+function saveMarriedGridSilent() {
+  try { localStorage.setItem('ftp_married_grid', JSON.stringify(collectMarriedGridState())); } catch(e) {}
+}
+
+function saveMarriedGrid() {
+  saveMarriedGridSilent();
+  notify('Saved. Come back anytime — your answers will be right where you left them.');
+}
+
+function loadMarriedGrid() {
+  try {
+    const raw = localStorage.getItem('ftp_married_grid');
+    if (!raw) return;
+    const state = JSON.parse(raw);
+    Object.keys(state.answers || {}).forEach(i => {
+      const a = state.answers[i];
+      if (a.val) { document.getElementById(`mq-${i}-${a.val}`).dataset.selected='1'; document.getElementById(`mq-${i}-${a.val}`).classList.add('active'); }
+      if (a.note) document.getElementById(`mq-${i}-note`).value = a.note;
+    });
+    Object.keys(state.prompts || {}).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = state.prompts[id];
+    });
+    calcMarriedGrid();
+    updateMqNextMove();
+  } catch(e) {}
+}
+
+function resetMarriedGrid() {
+  if (!confirm('Clear all answers and start over?')) return;
+  try { localStorage.removeItem('ftp_married_grid'); } catch(e) {}
+  document.getElementById('tool-marriedgrid').querySelectorAll('.choice-chip').forEach(el => { el.classList.remove('active'); el.dataset.selected='0'; });
+  document.getElementById('tool-marriedgrid').querySelectorAll('input[type=text]').forEach(el => el.value = '');
+  calcMarriedGrid();
+  updateMqNextMove();
+}
+
+// ═══ HOUSING HIERARCHY ═══
+const hhHousingTypes = ['SFH (Single-Family Home)','Condo','Townhome','Duplex / Triplex','High-Rise Apartment','Modular Home','Mobile Home','ADU (Accessory Dwelling Unit)','Trailer / RV','Cabin','Temporary / Short-Term / Hotel','Smart Micro-Mod / Small Home on Land'];
+// Classifies each housing type's realistic capacity for backup infrastructure / food production
+const hhTypeSpace = ['spacious','compact','compact','spacious','compact','spacious','spacious','compact','compact','spacious','compact','spacious'];
+const hhOwnRentOptions = ['Own','Rent','Something in between'];
+const hhLevels = [
+  {id:1, title:'Grid-Dependent', desc:'If the grid hiccups, I feel it fast.'},
+  {id:2, title:'Grid-Adjacent', desc:"I still use the grid, but I've got some backup and options."},
+  {id:3, title:'Mostly Self-Carried', desc:'A big chunk of my power/water/food/income is under my control.'}
+];
+const hhNextStepsList = [
+  'Make this place more grid-adjacent (storage, backup power, planted income).',
+  'Change how I live here (rooms, roommates, ADU, rental strategy).',
+  'Plan a move to a better spot on the pyramid in the next 1–3 years.'
+];
+
+function initHousingHierarchy() {
+  const typeWrap = document.getElementById('hhTypeChips');
+  hhHousingTypes.forEach((t, i) => {
+    typeWrap.innerHTML += `<div class="choice-chip" id="hh-type-${i}" onclick="selectSingleChoice('hh-type', ${i})">${t}</div>`;
+  });
+
+  const ownRentWrap = document.getElementById('hhOwnRentChips');
+  hhOwnRentOptions.forEach((t, i) => {
+    ownRentWrap.innerHTML += `<div class="choice-chip" id="hh-ownrent-${i}" onclick="selectSingleChoice('hh-ownrent', ${i})">${t}</div>`;
+  });
+
+  const levelWrap = document.getElementById('hhLevelCards');
+  hhLevels.forEach((lvl, i) => {
+    levelWrap.innerHTML += `
+      <div class="level-card" id="hh-level-${i}" onclick="selectSingleChoice('hh-level', ${i})">
+        <div class="level-num">LEVEL ${lvl.id}</div>
+        <div class="level-title">${lvl.title}</div>
+        <div class="level-desc">${lvl.desc}</div>
+      </div>`;
+  });
+
+  const nextWrap = document.getElementById('hhNextSteps');
+  hhNextStepsList.forEach((label, i) => {
+    nextWrap.innerHTML += `<div class="plain-check-item"><div class="check-box" id="hh-next-${i}" onclick="toggleHhNextStep(${i}, this)">✓</div><div>${label}</div></div>`;
+  });
+}
+
+function toggleHhNextStep(i, el) {
+  el.classList.toggle('on');
+  el.textContent = el.classList.contains('on') ? '✓' : '';
+  computeHousingScore();
+}
+
+function selectSingleChoice(prefix, index) {
+  const groupSize = prefix === 'hh-type' ? hhHousingTypes.length : prefix === 'hh-ownrent' ? hhOwnRentOptions.length : hhLevels.length;
+  for (let i = 0; i < groupSize; i++) {
+    document.getElementById(`${prefix}-${i}`).classList.remove('active');
+  }
+  document.getElementById(`${prefix}-${index}`).classList.add('active');
+  computeHousingScore();
+}
+
+function updateHousingSliders() {
+  document.getElementById('hh-grid-dep-val').textContent = document.getElementById('hh-grid-dep').value;
+  document.getElementById('hh-resiliency-val').textContent = document.getElementById('hh-resiliency').value;
+  computeHousingScore();
+}
+
+function computeHousingScore() {
+  let levelIdx = -1;
+  hhLevels.forEach((_, i) => { if (document.getElementById('hh-level-'+i).classList.contains('active')) levelIdx = i; });
+
+  const gd = parseInt(document.getElementById('hh-grid-dep').value);
+  const res = parseInt(document.getElementById('hh-resiliency').value);
+
+  const scoreEl = document.getElementById('hhScoreNum');
+  const tierEl = document.getElementById('hhScoreTier');
+  const insightOut = document.getElementById('hhScoreInsight');
+
+  if (levelIdx === -1) {
+    scoreEl.textContent = '—';
+    scoreEl.className = 'score-num';
+    tierEl.textContent = 'Pick your pyramid level above to see your combined score.';
+    insightOut.innerHTML = '';
+  } else {
+    const levelScore = ((levelIdx + 1) / 3) * 10;
+    const depScore = ((6 - gd) / 5) * 10;
+    const resScore = (res / 5) * 10;
+    const overall = (levelScore + depScore + resScore) / 3;
+
+    scoreEl.textContent = overall.toFixed(1);
+    let tierClass, tierLabel, insightHtml;
+    if (overall >= 7) {
+      tierClass = 'low'; tierLabel = 'Strong Position';
+      insightHtml = `<div class="insight-box good">Low dependence, real options, solid spot on the pyramid. Worth noticing what's working here.</div>`;
+    } else if (overall >= 4) {
+      tierClass = 'mid'; tierLabel = 'Middle of the Pyramid';
+      insightHtml = `<div class="insight-box neutral">Some slack, some exposure. Decide which is the faster win — lowering grid dependence or raising resiliency.</div>`;
+    } else {
+      tierClass = 'high'; tierLabel = 'Housing Puts You At Risk';
+      insightHtml = `<div class="insight-box warn">High dependence, low resiliency — this combination is worth working on first, before anything else on this pyramid.</div>`;
+    }
+    scoreEl.className = 'score-num ' + tierClass;
+    tierEl.innerHTML = `<strong>${tierLabel}</strong> — ${hhLevels[levelIdx].title}, Grid Dependence ${gd}/5, Resiliency ${res}/5.`;
+    insightOut.innerHTML = insightHtml;
+  }
+
+  updateHousingProfile(levelIdx, gd, res);
+  updateHousingActionPlan();
+  generateClimbPath(levelIdx, gd, res);
+  saveHousingHierarchySilent();
+}
+
+function generateClimbPath(levelIdx, gd, res) {
+  const wrap = document.getElementById('hhClimbPath');
+  let typeIdx = -1, ownRentIdx = -1;
+  hhHousingTypes.forEach((_, i) => { if (document.getElementById('hh-type-'+i).classList.contains('active')) typeIdx = i; });
+  hhOwnRentOptions.forEach((_, i) => { if (document.getElementById('hh-ownrent-'+i).classList.contains('active')) ownRentIdx = i; });
+
+  if (levelIdx === -1) {
+    wrap.innerHTML = `<div class="climb-path-empty">Pick your housing type, own/rent status, and pyramid level above to see your specific path up.</div>`;
+    return;
+  }
+
+  if (levelIdx === 2) {
+    wrap.innerHTML = `<div class="climb-path-done">You're already at the top of this pyramid — Mostly Self-Carried. From here it's less about climbing and more about maintaining: keep your backup systems current, and don't let one dependency quietly creep back in.</div>`;
+    return;
+  }
+
+  const space = typeIdx > -1 ? hhTypeSpace[typeIdx] : null;
+  const isRent = ownRentIdx === 1;
+  const isOwn = ownRentIdx === 0;
+  const moves = [];
+
+  // Priority lever: which score is weaker
+  if (gd >= res) {
+    moves.push(`<strong>Priority:</strong> your Grid Dependence score (${gd}/5) is the weaker one — start by lowering how hard the grid glitching would hit you, before worrying about options elsewhere.`);
+  } else {
+    moves.push(`<strong>Priority:</strong> your Resiliency score (${res}/5) is the weaker one — start by building more options (skills, income, contacts), not just backup gear.`);
+  }
+
+  if (levelIdx === 0) {
+    // Grid-Dependent → Grid-Adjacent
+    moves.push(`Build a real 48–72 hour buffer for water, food, and power — the <a href="#" onclick="openTool('emergencyplan'); return false;" style="color:var(--gold2);font-weight:600;">72-Hour Emergency Plan</a> is the fastest way to start.`);
+    if (isOwn) {
+      moves.push(`Since you own this place, backup systems (solar, generator, water storage) are yours to install without asking anyone — that's your fastest lever.`);
+    } else if (isRent) {
+      moves.push(`Since you're renting, check your lease for what's actually allowed. A portable battery bank and stored water don't need permission — start there regardless of what else is possible.`);
+    } else {
+      moves.push(`Figure out what your living situation actually allows before investing in bigger systems — that answer changes everything else on this list.`);
+    }
+    if (space === 'spacious') {
+      moves.push(`Your home has room for real backup infrastructure — a small solar setup, extra water storage, or a backup generator are realistic here.`);
+    } else if (space === 'compact') {
+      moves.push(`Space is tight, so lean on portable and communal options — power banks, water bricks, and knowing 2–3 neighbors you could coordinate with matter more here than large equipment.`);
+    }
+  } else {
+    // Grid-Adjacent → Mostly Self-Carried
+    moves.push(`This jump is about income and production, not just backup — the goal is at least one income stream or resource that starts at your address.`);
+    if (isOwn) {
+      moves.push(`Ownership means you can commit to bigger infrastructure — a real garden, a solar system, or rentable space — without a landlord's approval.`);
+    } else if (isRent) {
+      moves.push(`Renting limits how much you can build into the property itself. The realistic move here is often building <em>portable</em> skills or income — something you carry with you to your next address — rather than fixed infrastructure.`);
+    }
+    if (space === 'spacious') {
+      moves.push(`You likely have room for food production or a rentable space (room, storage, ADU) — that's your fastest path to a Planted income stream.`);
+    } else if (space === 'compact') {
+      moves.push(`Limited space makes Planted income harder here — a Portable skill or income stream (something you could do from anywhere) is probably your more realistic lever.`);
+    }
+    moves.push(`Use <a href="#" onclick="openTool('marriedgrid'); return false;" style="color:var(--gold2);font-weight:600;">Married to the Grid</a> to pinpoint exactly which dependencies to target first.`);
+  }
+
+  const nextLevel = hhLevels[levelIdx + 1];
+  wrap.innerHTML = `
+    <div class="climb-path-card">
+      <div class="climb-path-target">Next Level: ${nextLevel.title}</div>
+      <div class="climb-path-headline">${nextLevel.desc}</div>
+      ${moves.map((m, i) => `<div class="climb-move"><span class="move-num">${String(i+1).padStart(2,'0')}</span><span>${m}</span></div>`).join('')}
+    </div>`;
+}
+
+function updateHousingProfile(levelIdx, gd, res) {
+  let typeIdx = -1, ownRentIdx = -1;
+  hhHousingTypes.forEach((_, i) => { if (document.getElementById('hh-type-'+i).classList.contains('active')) typeIdx = i; });
+  hhOwnRentOptions.forEach((_, i) => { if (document.getElementById('hh-ownrent-'+i).classList.contains('active')) ownRentIdx = i; });
+  const location = document.getElementById('hh-location').value.trim();
+
+  const wrap = document.getElementById('hhProfileWrap');
+  const body = document.getElementById('hhProfileBody');
+
+  if (typeIdx === -1 && ownRentIdx === -1 && levelIdx === -1 && !location) {
+    wrap.style.display = 'none';
+    return;
+  }
+  wrap.style.display = 'block';
+  body.innerHTML = `
+    ${typeIdx > -1 ? `<div class="summary-row"><div class="s-label">Housing Type:</div><div class="s-val">${hhHousingTypes[typeIdx]}</div></div>` : ''}
+    ${location ? `<div class="summary-row"><div class="s-label">Location:</div><div class="s-val">${location}</div></div>` : ''}
+    ${ownRentIdx > -1 ? `<div class="summary-row"><div class="s-label">Own / Rent:</div><div class="s-val">${hhOwnRentOptions[ownRentIdx]}</div></div>` : ''}
+    ${levelIdx > -1 ? `<div class="summary-row"><div class="s-label">Pyramid Level:</div><div class="s-val">${hhLevels[levelIdx].title}</div></div>` : ''}
+    <div class="summary-row"><div class="s-label">Grid Dependence:</div><div class="s-val">${gd} / 5</div></div>
+    <div class="summary-row"><div class="s-label">Resiliency:</div><div class="s-val">${res} / 5</div></div>
+  `;
+}
+
+function updateHousingActionPlan() {
+  const checked = [];
+  hhNextStepsList.forEach((label, i) => {
+    if (document.getElementById('hh-next-'+i).classList.contains('on')) checked.push(label);
+  });
+  const why = document.getElementById('hh-why').value.trim();
+
+  const wrap = document.getElementById('hhActionPlanWrap');
+  const body = document.getElementById('hhActionPlanBody');
+
+  if (!checked.length) {
+    wrap.style.display = 'none';
+    return;
+  }
+  wrap.style.display = 'block';
+  body.innerHTML = `
+    ${why ? `<div class="summary-row"><div class="s-label">Because:</div><div class="s-val">${why}</div></div>` : ''}
+    ${checked.map(c => `<div class="summary-row"><div class="s-label">Next step:</div><div class="s-val">${c}</div></div>`).join('')}
+  `;
+}
+
+function collectHousingHierarchyState() {
+  const state = { fields:{}, typeIdx:-1, ownRentIdx:-1, levelIdx:-1, next:{}, sliders:{} };
+  ['hh-location','hh-why'].forEach(id => { const el = document.getElementById(id); if (el) state.fields[id] = el.value; });
+  hhHousingTypes.forEach((_, i) => { if (document.getElementById('hh-type-'+i).classList.contains('active')) state.typeIdx = i; });
+  hhOwnRentOptions.forEach((_, i) => { if (document.getElementById('hh-ownrent-'+i).classList.contains('active')) state.ownRentIdx = i; });
+  hhLevels.forEach((_, i) => { if (document.getElementById('hh-level-'+i).classList.contains('active')) state.levelIdx = i; });
+  hhNextStepsList.forEach((_, i) => { state.next[i] = document.getElementById('hh-next-'+i).classList.contains('on'); });
+  state.sliders.gridDep = document.getElementById('hh-grid-dep').value;
+  state.sliders.resiliency = document.getElementById('hh-resiliency').value;
+  return state;
+}
+
+function saveHousingHierarchySilent() {
+  try { localStorage.setItem('ftp_housing_hierarchy', JSON.stringify(collectHousingHierarchyState())); } catch(e) {}
+}
+
+function saveHousingHierarchy() {
+  saveHousingHierarchySilent();
+  notify('Saved. Come back anytime — your answers will be right where you left them.');
+}
+
+function loadHousingHierarchy() {
+  try {
+    const raw = localStorage.getItem('ftp_housing_hierarchy');
+    if (!raw) { updateHousingSliders(); return; }
+    const state = JSON.parse(raw);
+    Object.keys(state.fields || {}).forEach(id => { const el = document.getElementById(id); if (el) el.value = state.fields[id]; });
+    if (state.typeIdx >= 0) document.getElementById('hh-type-'+state.typeIdx).classList.add('active');
+    if (state.ownRentIdx >= 0) document.getElementById('hh-ownrent-'+state.ownRentIdx).classList.add('active');
+    if (state.levelIdx >= 0) document.getElementById('hh-level-'+state.levelIdx).classList.add('active');
+    Object.keys(state.next || {}).forEach(i => {
+      if (state.next[i]) { const el = document.getElementById('hh-next-'+i); el.classList.add('on'); el.textContent='✓'; }
+    });
+    if (state.sliders) {
+      if (state.sliders.gridDep) document.getElementById('hh-grid-dep').value = state.sliders.gridDep;
+      if (state.sliders.resiliency) document.getElementById('hh-resiliency').value = state.sliders.resiliency;
+    }
+    updateHousingSliders();
+  } catch(e) { updateHousingSliders(); }
+}
+
+function resetHousingHierarchy() {
+  if (!confirm('Clear all answers and start over?')) return;
+  try { localStorage.removeItem('ftp_housing_hierarchy'); } catch(e) {}
+  document.getElementById('tool-housinghierarchy').querySelectorAll('.choice-chip, .level-card').forEach(el => el.classList.remove('active'));
+  document.getElementById('tool-housinghierarchy').querySelectorAll('.check-box').forEach(el => { el.classList.remove('on'); el.textContent=''; });
+  document.getElementById('tool-housinghierarchy').querySelectorAll('input[type=text]').forEach(el => el.value = '');
+  document.getElementById('hh-grid-dep').value = 3;
+  document.getElementById('hh-resiliency').value = 3;
+  updateHousingSliders();
+}
+</script>
+
+</body>
+</html>
