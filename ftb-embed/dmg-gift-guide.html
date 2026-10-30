@@ -87,6 +87,38 @@
 #dmgg .mistake{font-style:italic;color:var(--ink);margin:0}
 #dmgg .src{font:12px/1 Arial,sans-serif;color:var(--muted)}
 #dmgg .empty{font:15px/1.5 Arial,sans-serif;color:var(--muted);padding:20px 0}
+
+#dmgg .hero{align-items:center}
+#dmgg .finder{background:#fff;border:2px solid var(--ink);border-radius:18px;padding:24px;margin:18px 0 6px;box-shadow:6px 6px 0 var(--ink)}
+#dmgg .fq{font:700 clamp(24px,3.2vw,32px)/1.15 Georgia,serif;margin:0 0 8px;text-wrap:balance}
+#dmgg .fintro{font:15px/1.5 Arial,sans-serif;color:var(--muted);margin:0 0 16px}
+#dmgg .fbtns{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:6px}
+#dmgg .btn.big{font-size:18px;padding:16px 26px}
+#dmgg .flink{background:none;border:0;padding:0;font:700 14px/1 Arial,sans-serif;color:var(--red);text-decoration:underline;cursor:pointer}
+#dmgg .fhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+#dmgg .fcount{font:700 12px/1 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+#dmgg .fopts{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin:14px 0 16px}
+#dmgg .fopt{font:700 15px/1.25 Arial,sans-serif;text-align:left;padding:14px 16px;border-radius:12px;border:2px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:border-color .15s,transform .1s}
+#dmgg .fopt:hover{border-color:var(--red);transform:translateY(-1px)}
+#dmgg .fopt:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+#dmgg .fopt small{display:block;font-weight:400;font-size:12px;color:var(--muted);margin-top:3px}
+#dmgg .mishap{display:flex;align-items:center;gap:14px;background:#fdf0f1;border-radius:12px;padding:10px 14px;min-height:76px}
+#dmgg .mprop{width:64px;height:56px;flex:none}
+#dmgg .mprop svg{width:100%;height:100%;display:block;overflow:visible}
+#dmgg .mcap{font:italic 15px/1.4 Georgia,serif;color:var(--ink)}
+#dmgg .fres .grid{margin:6px 0 18px}
+#dmgg .fres .mishap{margin-bottom:16px}
+#dmgg .mk{animation:mkWiggle 1.2s ease-in-out infinite;transform-origin:32px 40px;transform-box:view-box}
+#dmgg .mc{stroke-dasharray:140;animation:mcTangle 2.4s ease-in-out infinite}
+#dmgg .ms{animation:msSmoke 1.8s ease-out infinite;transform-box:view-box}
+#dmgg .ms2{animation-delay:.6s}#dmgg .ms3{animation-delay:1.2s}
+#dmgg .mt{animation:mtTada 1.6s ease-in-out infinite;transform-origin:32px 50px;transform-box:view-box}
+@keyframes mkWiggle{0%,100%{transform:rotate(-10deg) translateY(0)}30%{transform:rotate(14deg) translateY(-6px)}60%{transform:rotate(-6deg) translateY(2px)}}
+@keyframes mcTangle{0%{stroke-dashoffset:140}60%,100%{stroke-dashoffset:0}}
+@keyframes msSmoke{0%{transform:translateY(0);opacity:0}20%{opacity:.8}100%{transform:translateY(-22px);opacity:0}}
+@keyframes mtTada{0%,100%{transform:scale(1) rotate(0)}25%{transform:scale(1.12) rotate(-6deg)}50%{transform:scale(1.12) rotate(6deg)}}
+@media(prefers-reduced-motion:reduce){#dmgg .mk,#dmgg .mc,#dmgg .ms,#dmgg .mt{animation:none!important;stroke-dashoffset:0;opacity:1}}
+@media(max-width:640px){#dmgg .finder{padding:18px 16px;box-shadow:4px 4px 0 var(--ink)}#dmgg .fopts{grid-template-columns:1fr 1fr}}
 </style>
 
 <div id="dmgg">
@@ -94,8 +126,8 @@
     <path id="dmgPath" fill="none" stroke="#c8202f" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round" opacity=".35"/>
     <g id="dmgPlane" filter="url(#dmgSh)" style="opacity:0"><path d="M30 0 L-3 -10 L9 1 Z" fill="#1f3346" stroke="#c6343a" stroke-width="1.3" stroke-linejoin="round"/><path d="M30 0 L9 1 L4 12 Z" fill="#ffffff" stroke="#c6343a" stroke-width="1.3" stroke-linejoin="round"/><path d="M30 0 L9 1 L12 7 Z" fill="#e3e9ee"/><path d="M14 1 L8 1.3 L6 8 Z" fill="#0d1a26"/></g>
   </svg>
-  <div class="top">
-    <div>
+  <div class="top hero">
+    <div class="herotext">
       <p class="kick">The D-Minus Genius Gift Guide · Holiday 2026</p>
       <h2>Gifts You <span class="dm">Should</span> Have Thought of First</h2>
       <p class="sub">A laugh when they open it. A reason to keep it.</p>
@@ -127,7 +159,31 @@
       </svg>
     </div>
   </div>
-  <p class="note">D-Minus makes the mistake. The gift is the fix. Funny, useful gifts under $40 for the people who are hardest to shop for.</p>
+
+  <section class="finder" id="dmggFinder" aria-live="polite">
+    <div class="fstart" id="dmggStart">
+      <h3 class="fq">Who are you shopping for?</h3>
+      <p class="fintro">Tell D-Minus a little about them. Find something they&rsquo;ll love. Three quick questions.</p>
+      <div class="fbtns"><button type="button" class="btn big" id="dmggGo">Help Me Find Their Gift &rarr;</button>
+      <a class="flink" href="#dmggStore">or browse the whole store &darr;</a></div>
+    </div>
+    <div class="fstep hide" id="dmggStep">
+      <div class="fhead"><span class="fcount" id="dmggCount"></span><button type="button" class="flink" id="dmggBack">&larr; Back</button></div>
+      <h3 class="fq" id="dmggQ"></h3>
+      <div class="fopts" id="dmggOpts"></div>
+      <div class="mishap"><span class="mprop" id="dmggProp" aria-hidden="true"></span><span class="mcap" id="dmggCap"></span></div>
+    </div>
+    <div class="fres hide" id="dmggRes">
+      <div class="mishap"><span class="mprop" id="dmggPropR" aria-hidden="true"></span><span class="mcap" id="dmggCapR"></span></div>
+      <h3 class="fq" id="dmggResT">Three gifts D-Minus picked</h3>
+      <p class="fintro" id="dmggResNote"></p>
+      <div class="grid" id="dmggResGrid"></div>
+      <div class="fbtns"><button type="button" class="btn ghost" id="dmggAgain">Change my answers</button><a class="flink" href="#dmggStore">Browse the whole store &darr;</a></div>
+    </div>
+  </section>
+
+  <h3 class="sec" id="dmggStore" style="margin-top:34px">The whole store</h3>
+  <p class="shelfnote">D-Minus makes the mistake. The gift is the fix. D-Minus originals first on every shelf.</p>
   <div class="controls">
     <div class="tabs" role="group" aria-label="Choose a shelf" id="dmggTabs"></div>
     <div class="chips" role="group" aria-label="Shop for someone" id="dmggChips"><span class="chiplab">Shop for</span></div>
@@ -151,29 +207,30 @@
      own:true = Flight Tower shop item [handle, price, image]; own:false = Amazon (url, no price, no photo).
      Each card: lesson, the D-Minus mistake, the fix. Keep every story true to what the product does. ===== */
   var G=[
-    {s:'laugh',own:1,who:['Has Everything'],name:'D-Minus Genius Christmas 2026 Ornament',lesson:'Know when to stop',mistake:'Just one more plate.',fix:'Double-sided ceramic: the mistake on the front, "Stuffed like the turkey" on the back.',price:'$19.99',h:'d-minus-genius-christmas-2026-ornament',img:'17374467230662539272_2048_800x.jpg'},
-    {s:'laugh',own:1,who:['Has Everything'],name:'D-Minus Genius Funny Christmas Snow Globe',lesson:'Check the forecast',mistake:'He ordered a peaceful winter scene.',fix:'He got a blizzard with his name on it. A two-sided snow globe for the desk or shelf.',price:'$19.99',h:'d-minus-genius-funny-christmas-snow-globe-the-globe-was-festive-the-blizzard-personal',img:'1392701047376987738_2048_800x.jpg'},
-    {s:'laugh',own:1,who:['Outdoor Optimist','Has Everything'],name:'D-Minus Genius Pocket T-Shirt',lesson:'Plan the landing too',mistake:'The plan was solid.',fix:'The landing, not so much. A white pocket tee, sizes S to 6XL.',price:'$27.99',h:'d-minus-genius-pocket-t-shirt-the-plan-was-solid-the-landing-not-so-much',img:'3245806149320397933_2048_800x.jpg'},
-    {s:'laugh',own:1,who:['Reader','Has Everything'],name:'Life Lessons: The D-Minus Genius Guide',lesson:'Read the manual first',mistake:'Nobody handed him an owner\'s manual for life.',fix:'So he learned it the hard way: spotting a liar, asking for what you want, making hard decisions.',price:'$12.99',h:'d-minus-genius',img:'D-MGFrontCover_c336f895-18f5-4662-aa54-7e09ece73f53_800x.png'},
+    {s:'laugh',own:1,who:['Has Everything'],p:19.99,i:['everything'],r:['laugh'],name:'D-Minus Genius Christmas 2026 Ornament',lesson:'Know when to stop',mistake:'Just one more plate.',fix:'Double-sided ceramic: the mistake on the front, "Stuffed like the turkey" on the back.',price:'$19.99',h:'d-minus-genius-christmas-2026-ornament',img:'17374467230662539272_2048_800x.jpg'},
+    {s:'laugh',own:1,who:['Has Everything'],p:19.99,i:['everything'],r:['laugh'],name:'D-Minus Genius Funny Christmas Snow Globe',lesson:'Check the forecast',mistake:'He ordered a peaceful winter scene.',fix:'He got a blizzard with his name on it. A two-sided snow globe for the desk or shelf.',price:'$19.99',h:'d-minus-genius-funny-christmas-snow-globe-the-globe-was-festive-the-blizzard-personal',img:'1392701047376987738_2048_800x.jpg'},
+    {s:'laugh',own:1,who:['Outdoor Optimist','Has Everything'],p:27.99,i:['outdoors', 'everything'],r:['laugh', 'me'],name:'D-Minus Genius Pocket T-Shirt',lesson:'Plan the landing too',mistake:'The plan was solid.',fix:'The landing, not so much. A white pocket tee, sizes S to 6XL.',price:'$27.99',h:'d-minus-genius-pocket-t-shirt-the-plan-was-solid-the-landing-not-so-much',img:'3245806149320397933_2048_800x.jpg'},
+    {s:'laugh',own:1,who:['Reader','Has Everything'],p:12.99,i:['books', 'everything'],r:['laugh'],name:'Life Lessons: The D-Minus Genius Guide',lesson:'Read the manual first',mistake:'Nobody handed him an owner\'s manual for life.',fix:'So he learned it the hard way: spotting a liar, asking for what you want, making hard decisions.',price:'$12.99',h:'d-minus-genius',img:'D-MGFrontCover_c336f895-18f5-4662-aa54-7e09ece73f53_800x.png'},
 
-    {s:'wish',own:0,who:['Road-Tripper','Has Everything'],name:'Tile Mate Bluetooth Tracker (Life360)',lesson:'Know where you put it',mistake:'Searched the house for 40 minutes. The keys were in the truck.',fix:'Ring your keys from your phone, or see where they were last.',url:AMZ+'dp/B0D635KHVH?'+T},
-    {s:'wish',own:0,who:['Road-Tripper','Outdoor Optimist'],name:'Anker Zolo Power Bank, Built-In USB-C Cable',lesson:'Charge before you go',mistake:'Phone died at 2%, halfway through the directions.',fix:'A pocket battery with its own cable attached, so there is no cable to forget.',url:AMZ+'s?k=Anker+Zolo+A1688&'+T},
-    {s:'wish',own:0,who:['Grill Boss'],name:'ThermoPro Lightning Instant-Read Thermometer',lesson:'Check, don\'t guess',mistake:'He said it was probably done. It was not done.',fix:'An instant-read meat thermometer. A real answer in seconds, before the guests notice.',url:AMZ+'dp/B0BBR2RL6X?'+T},
-    {s:'wish',own:0,who:['Outdoor Optimist'],name:'Rechargeable Motion-Sensor Headlamp',lesson:'Bring a light',mistake:'Started the quick hike at 4:30 in November.',fix:'A rechargeable headlamp you switch on with a wave of your hand. Both hands stay free.',url:AMZ+'dp/B0B4KK73NB?'+T},
-    {s:'wish',own:0,who:['Outdoor Optimist','Sports Fan','Gardener'],name:'OCOOPA Rechargeable Hand Warmers',lesson:'Dress for the weather',mistake:'Dressed for the forecast, not the weather.',fix:'Pocket-size hand warmers that charge by USB. Heat on demand, no disposable packets.',url:AMZ+'dp/B0FHWCNXML?'+T},
+    {s:'wish',own:0,who:['Road-Tripper','Has Everything'],p:25,i:['road', 'fix', 'everything'],r:['clever'],name:'Tile Mate Bluetooth Tracker (Life360)',lesson:'Know where you put it',mistake:'Searched the house for 40 minutes. The keys were in the truck.',fix:'Ring your keys from your phone, or see where they were last.',url:AMZ+'dp/B0D635KHVH?'+T},
+    {s:'wish',own:0,who:['Road-Tripper','Outdoor Optimist'],p:20,i:['road', 'outdoors', 'music'],r:['clever'],name:'Anker Zolo Power Bank, Built-In USB-C Cable',lesson:'Charge before you go',mistake:'Phone died at 2%, halfway through the directions.',fix:'A pocket battery with its own cable attached, so there is no cable to forget.',url:AMZ+'s?k=Anker+Zolo+A1688&'+T},
+    {s:'wish',own:0,who:['Grill Boss'],p:40,i:['grill'],r:['clever'],name:'ThermoPro Lightning Instant-Read Thermometer',lesson:'Check, don\'t guess',mistake:'He said it was probably done. It was not done.',fix:'An instant-read meat thermometer. A real answer in seconds, before the guests notice.',url:AMZ+'dp/B0BBR2RL6X?'+T},
+    {s:'wish',own:0,who:['Outdoor Optimist'],p:20,i:['outdoors', 'fix'],r:['clever'],name:'Rechargeable Motion-Sensor Headlamp',lesson:'Bring a light',mistake:'Started the quick hike at 4:30 in November.',fix:'A rechargeable headlamp you switch on with a wave of your hand. Both hands stay free.',url:AMZ+'dp/B0B4KK73NB?'+T},
+    {s:'wish',own:0,who:['Outdoor Optimist','Sports Fan','Gardener'],p:25,i:['outdoors', 'garden'],r:['clever'],name:'OCOOPA Rechargeable Hand Warmers',lesson:'Dress for the weather',mistake:'Dressed for the forecast, not the weather.',fix:'Pocket-size hand warmers that charge by USB. Heat on demand, no disposable packets.',url:AMZ+'dp/B0FHWCNXML?'+T},
 
-    {s:'them',own:1,who:['Gardener','Homesteader'],name:'WWII Victory Garden Hacks',lesson:'Plant what you\'ll eat',mistake:'Planted 40 zucchini plants. For two people.',fix:'Wartime garden tricks for a backyard that actually feeds the family.',price:'$14.99',h:'wwii-victory-garden-hacks',img:'VGH_A2_Rt_Cover_800x.png'},
-    {s:'them',own:1,who:['Sports Fan','Reader'],name:'Welcome to the Pitch, America!',lesson:'Learn the rules first',mistake:'Cheered when the other team scored.',fix:'Soccer explained for Americans, so they can follow the game, not just the crowd.',price:'$14.99',h:'welcome-to-the-pitch-america',img:'WTTP-A_corrected_cover1_800x.jpg'},
-    {s:'them',own:1,who:['Road-Tripper','Outdoor Optimist'],name:'The Hidden Northern California',lesson:'Keep driving',mistake:'Drove 300 miles and only saw the freeway.',fix:'A guide to the places 300 miles past the point where most people stop.',price:'$9.99',h:'the-hidden-northern-california',img:'ChatGPTImageJul7_2026_06_46_08PM_800x.png'},
-    {s:'them',own:1,who:['Homesteader','Reader'],name:'Grid-Adjacent: The Exit Strategy',lesson:'Know what your home runs on',mistake:'Learned the well pump needs power when the power went out.',fix:'How to cut a household\'s dependence on outside systems without moving off-grid.',price:'$14.99',h:'grid-adjacent-the-exit-strategy',img:'2_13e23f9a-55e4-4de3-b42c-e362bde98fde_800x.png'},
-    {s:'them',own:1,who:['Homesteader','Reader'],name:'The Resilience Experiment',lesson:'Count the real cost',mistake:'Moved to the country to save money. Then priced a tractor.',fix:'Money and meaning in the middle of nowhere, from people living it.',price:'$14.99',h:'the-resilience-experiment',img:'bookcoverTRE_30b67847-5c48-4469-8de9-c78cf2fa7b0c_800x.png'},
-    {s:'them',own:1,who:['Outdoor Optimist'],name:'Mountain Adventure Baseball Cap',lesson:'Dress for the mountain',mistake:'Headed uphill with total confidence.',fix:'A soft cotton cap with a small alpine skier. Pairs with the D-Minus tee. One size, adjustable.',price:'$29.99',h:'mountain-adventure-baseball-cap-alpine-skiing-outdoor-lifestyle-hat',img:'6300688255357752300_2048_800x.jpg'},
+    {s:'them',own:1,who:['Gardener','Homesteader'],p:14.99,i:['garden', 'books'],r:['me'],name:'WWII Victory Garden Hacks',lesson:'Plant what you\'ll eat',mistake:'Planted 40 zucchini plants. For two people.',fix:'Wartime garden tricks for a backyard that actually feeds the family.',price:'$14.99',h:'wwii-victory-garden-hacks',img:'VGH_A2_Rt_Cover_800x.png'},
+    {s:'them',own:1,who:['Sports Fan','Reader'],p:14.99,i:['books'],r:['me', 'laugh'],name:'Welcome to the Pitch, America!',lesson:'Learn the rules first',mistake:'Cheered when the other team scored.',fix:'Soccer explained for Americans, so they can follow the game, not just the crowd.',price:'$14.99',h:'welcome-to-the-pitch-america',img:'WTTP-A_corrected_cover1_800x.jpg'},
+    {s:'them',own:1,who:['Road-Tripper','Outdoor Optimist'],p:9.99,i:['road', 'outdoors', 'books'],r:['me'],name:'The Hidden Northern California',lesson:'Keep driving',mistake:'Drove 300 miles and only saw the freeway.',fix:'A guide to the places 300 miles past the point where most people stop.',price:'$9.99',h:'the-hidden-northern-california',img:'ChatGPTImageJul7_2026_06_46_08PM_800x.png'},
+    {s:'them',own:1,who:['Homesteader','Reader'],p:14.99,i:['fix', 'garden', 'books'],r:['me', 'clever'],name:'Grid-Adjacent: The Exit Strategy',lesson:'Know what your home runs on',mistake:'Learned the well pump needs power when the power went out.',fix:'How to cut a household\'s dependence on outside systems without moving off-grid.',price:'$14.99',h:'grid-adjacent-the-exit-strategy',img:'2_13e23f9a-55e4-4de3-b42c-e362bde98fde_800x.png'},
+    {s:'them',own:1,who:['Homesteader','Reader'],p:14.99,i:['books'],r:['me'],name:'The Resilience Experiment',lesson:'Count the real cost',mistake:'Moved to the country to save money. Then priced a tractor.',fix:'Money and meaning in the middle of nowhere, from people living it.',price:'$14.99',h:'the-resilience-experiment',img:'bookcoverTRE_30b67847-5c48-4469-8de9-c78cf2fa7b0c_800x.png'},
+    {s:'them',own:1,who:['Outdoor Optimist'],p:29.99,i:['outdoors'],r:['me'],name:'Mountain Adventure Baseball Cap',lesson:'Dress for the mountain',mistake:'Headed uphill with total confidence.',fix:'A soft cotton cap with a small alpine skier. Pairs with the D-Minus tee. One size, adjustable.',price:'$29.99',h:'mountain-adventure-baseball-cap-alpine-skiing-outdoor-lifestyle-hat',img:'6300688255357752300_2048_800x.jpg'},
 
-    {s:'together',own:1,who:['Kids & Family'],name:'Finish the Outfit: Cherry Flats Farm',lesson:'Make it together',mistake:'Gave the kids a tablet. Got a very quiet winter.',fix:'Color, cut and dress three cowgirls on a real Northern California farm. Screen-free.',price:'$14.99',h:'finish-the-outfit-cherry-flats-farm',img:'FCFTO4_800x.png'},
-    {s:'together',own:1,who:['Has Everything','Kids & Family'],name:'Finish the Scene: Mandala Farm Coloring Book',lesson:'Slow down',mistake:'Tried to relax by checking his phone 80 times.',fix:'Mandala farm scenes to color on a quiet evening, alone or side by side.',price:'$14.99',h:'finish-the-scene-mandala-farm-coloring-book',img:'digital_cover_1600x2560_a67e2927-7f68-48fa-8913-0ec00c1fb1fe_800x.png'},
-    {s:'together',own:1,who:['Kids & Family'],name:'Bigfoot Your BIG Friend: Search and Rescue',lesson:'Call for help',mistake:'Got lost on a trail he knew "by heart."',fix:'A search-and-rescue coloring and activity book for ages 4 to 8.',price:'$12.99',h:'bigfoot-your-big-friend-search-rescue',img:'BF_Cover4_1224x1584_99a7d275-af11-41ea-b816-cad6fcd7553e_800x.png'},
-    {s:'together',own:1,who:['Kids & Family'],name:'Christmas Creative Collection: 3 Printable Activity Books',lesson:'Plan the snow day',mistake:'Snow day. Zero plans. Three bored kids.',fix:'Three printable Christmas activity books. Print as many copies as the day needs.',price:'$19.99',h:'christmas-creative-collection',img:'ChristmasCreativeActivityBookBundle_f28a9680-1ded-4661-b9b0-0b9a27ca967c_800x.png'}
+    {s:'together',own:1,who:['Kids & Family'],p:14.99,i:['kids'],r:['laugh', 'me'],name:'Finish the Outfit: Cherry Flats Farm',lesson:'Make it together',mistake:'Gave the kids a tablet. Got a very quiet winter.',fix:'Color, cut and dress three cowgirls on a real Northern California farm. Screen-free.',price:'$14.99',h:'finish-the-outfit-cherry-flats-farm',img:'FCFTO4_800x.png'},
+    {s:'together',own:1,who:['Has Everything','Kids & Family'],p:14.99,i:['everything', 'kids'],r:['me'],name:'Finish the Scene: Mandala Farm Coloring Book',lesson:'Slow down',mistake:'Tried to relax by checking his phone 80 times.',fix:'Mandala farm scenes to color on a quiet evening, alone or side by side.',price:'$14.99',h:'finish-the-scene-mandala-farm-coloring-book',img:'digital_cover_1600x2560_a67e2927-7f68-48fa-8913-0ec00c1fb1fe_800x.png'},
+    {s:'together',own:1,who:['Kids & Family'],p:12.99,i:['kids', 'outdoors'],r:['laugh'],name:'Bigfoot Your BIG Friend: Search and Rescue',lesson:'Call for help',mistake:'Got lost on a trail he knew "by heart."',fix:'A search-and-rescue coloring and activity book for ages 4 to 8.',price:'$12.99',h:'bigfoot-your-big-friend-search-rescue',img:'BF_Cover4_1224x1584_99a7d275-af11-41ea-b816-cad6fcd7553e_800x.png'},
+    {s:'together',own:1,who:['Kids & Family'],p:19.99,i:['kids', 'everything'],r:['laugh'],name:'Christmas Creative Collection: 3 Printable Activity Books',lesson:'Plan the snow day',mistake:'Snow day. Zero plans. Three bored kids.',fix:'Three printable Christmas activity books. Print as many copies as the day needs.',price:'$19.99',h:'christmas-creative-collection',img:'ChristmasCreativeActivityBookBundle_f28a9680-1ded-4661-b9b0-0b9a27ca967c_800x.png'}
   ];
+  /* p = price for the budget step. Amazon items are estimates as of Oct 30, 2026: check and adjust. i = interests, r = reactions (laugh / clever / me). */
   /* ===== end gifts ===== */
 
   var shelf='all', who='';
@@ -214,6 +271,52 @@
     b.onclick=function(){ var on=who!==w; who=on?w:''; [].forEach.call(chips.querySelectorAll('.chip'),function(x){x.setAttribute('aria-pressed','false');}); if(on) b.setAttribute('aria-pressed','true'); render(); };
     chips.appendChild(b);
   });
+
+  /* ===== GIFT FINDER ===== */
+  var PROPS={
+    cords:'<svg viewBox="0 0 64 56" fill="none" stroke-linecap="round"><rect x="4" y="16" width="14" height="24" rx="3" fill="#fff" stroke="#1d1b19" stroke-width="2.5"/><path class="mc" d="M18 28 C30 4,40 50,28 34 S50 10,46 30 S28 52,60 44" stroke="#1d1b19" stroke-width="3"/><path class="mc" d="M18 34 C34 52,24 10,44 22 S38 50,58 18" stroke="#c8202f" stroke-width="3" style="animation-delay:.4s"/></svg>',
+    keys:'<svg viewBox="0 0 64 56" fill="none"><g class="mk"><circle cx="22" cy="22" r="10" stroke="#1d1b19" stroke-width="3" fill="#fff"/><path d="M30 28 L50 44 M42 37 L46 33 M46 41 L50 37" stroke="#1d1b19" stroke-width="3" stroke-linecap="round"/><circle cx="22" cy="22" r="3.5" fill="#c8202f"/></g><text x="50" y="16" font-family="Georgia,serif" font-weight="700" font-size="18" fill="#c8202f">?</text></svg>',
+    burger:'<svg viewBox="0 0 64 56" fill="none"><path class="ms" d="M24 18 q-4 -6 0 -12" stroke="#7a7068" stroke-width="3" stroke-linecap="round"/><path class="ms ms2" d="M34 18 q4 -6 0 -12" stroke="#7a7068" stroke-width="3" stroke-linecap="round"/><path class="ms ms3" d="M44 18 q-4 -6 0 -12" stroke="#7a7068" stroke-width="3" stroke-linecap="round"/><path d="M12 32 Q34 14 56 32 Z" fill="#c98a3c" stroke="#1d1b19" stroke-width="2.5"/><rect x="10" y="32" width="48" height="8" rx="3" fill="#2b1d16" stroke="#1d1b19" stroke-width="2.5"/><path d="M12 40 H56 Q56 48 46 48 H22 Q12 48 12 40 Z" fill="#c98a3c" stroke="#1d1b19" stroke-width="2.5"/></svg>',
+    tada:'<svg viewBox="0 0 64 56" fill="none"><g class="mt"><rect x="16" y="22" width="32" height="28" rx="3" fill="#c8202f" stroke="#1d1b19" stroke-width="2.5"/><rect x="12" y="16" width="40" height="9" rx="2" fill="#c8202f" stroke="#1d1b19" stroke-width="2.5"/><path d="M32 16 V50" stroke="#e9b949" stroke-width="4"/><path d="M32 16 C24 4,14 10,22 16 M32 16 C40 4,50 10,42 16" stroke="#e9b949" stroke-width="3.5"/></g></svg>'
+  };
+  var STEPS=[
+    {key:'int',q:'What are they into?',prop:'cords',cap:'D-Minus is untangling his charging cords. One of them is plugged into the toaster.',
+     opts:[['outdoors','Outdoors','Hikes, camping, cold mornings'],['garden','Gardening','Seeds, soil, too much zucchini'],['fix','Fixing things','Tools, projects, the house'],['books','Books','Readers and learners'],['music','Music','Players and listeners'],['road','Road trips','Maps, snacks, long drives'],['grill','Grilling','Fire, meat, confidence'],['kids','Kids &amp; family','Something to do together'],['everything','They already have everything','The hard one']]},
+    {key:'bud',q:'What\'s your budget?',prop:'keys',cap:'D-Minus checks his wallet. And his pockets. Where did he put his keys?',
+     opts:[['15','Under $15',''],['25','Under $25',''],['40','Under $40',''],['all','Show me everything','']]},
+    {key:'rx',q:'What reaction are you after?',prop:'burger',cap:'D-Minus is grilling while you decide. Very confidently.',
+     opts:[['laugh','A good laugh','They\'ll read it twice'],['clever','"That\'s clever"','They\'ll use it every week'],['me','"That\'s so me"','It fits them exactly']]}
+  ];
+  var ans={}, step=0;
+  function $(id){return document.getElementById(id);}
+  function showF(which){['dmggStart','dmggStep','dmggRes'].forEach(function(x){$(x).classList.toggle('hide',x!==which);});
+    var f=$('dmggFinder'); if(f.getBoundingClientRect().top<0){ try{f.scrollIntoView({block:'start',behavior:'smooth'});}catch(e){f.scrollIntoView();} } }
+  function ask(){
+    var st=STEPS[step]; showF('dmggStep');
+    $('dmggCount').textContent='Question '+(step+1)+' of 3';
+    $('dmggQ').textContent=st.q; $('dmggProp').innerHTML=PROPS[st.prop]; $('dmggCap').textContent=st.cap;
+    $('dmggBack').style.visibility='visible';
+    $('dmggOpts').innerHTML=st.opts.map(function(o){return '<button type="button" class="fopt" data-v="'+o[0]+'">'+o[1]+(o[2]?'<small>'+o[2]+'</small>':'')+'</button>';}).join('');
+    [].forEach.call($('dmggOpts').querySelectorAll('.fopt'),function(b){b.onclick=function(){ans[st.key]=b.getAttribute('data-v'); if(step<2){step++;ask();}else results();};});
+    var f=$('dmggOpts').querySelector('.fopt'); if(f) f.focus({preventScroll:true});
+  }
+  function results(){
+    var lim=ans.bud==='all'?1e9:+ans.bud;
+    var pool=G.filter(function(g){return g.p<=lim;});
+    pool.forEach(function(g){g._sc=(g.i.indexOf(ans.int)>-1?10:0)+(g.r.indexOf(ans.rx)>-1?5:0)+(g.own?1:0);});
+    pool.sort(function(a,b){return b._sc-a._sc;});
+    var pick=pool.slice(0,3), matched=pick.filter(function(g){return g._sc>=10;}).length;
+    var labels={}; STEPS[0].opts.forEach(function(o){labels[o[0]]=o[1].replace('&amp;','&');});
+    $('dmggResNote').textContent = matched===3 ? 'Each one comes with the D-Minus mistake it fixes.' :
+      matched===0 ? 'D-Minus is still stocking the '+labels[ans.int].toLowerCase()+' shelf. These are his best picks for your budget and the reaction you want.' :
+      'D-Minus found '+matched+' for '+labels[ans.int].toLowerCase()+'. The rest fit your budget and the reaction you want.';
+    $('dmggResGrid').innerHTML=pick.map(card).join('');
+    $('dmggPropR').innerHTML=PROPS.tada; $('dmggCapR').textContent='D-Minus found three. He is very proud of himself.';
+    showF('dmggRes');
+  }
+  $('dmggGo').onclick=function(){ans={};step=0;ask();};
+  $('dmggBack').onclick=function(){ if(step>0){step--;ask();} else showF('dmggStart'); };
+  $('dmggAgain').onclick=function(){ans={};step=0;ask();};
   render();
 })();
 </script>
