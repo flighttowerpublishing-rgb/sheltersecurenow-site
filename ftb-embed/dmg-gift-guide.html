@@ -5,6 +5,24 @@
   font:16px/1.55 Georgia,"Times New Roman",serif;color:var(--ink);background:var(--paper);border-radius:20px;
   padding:36px 32px 28px;max-width:1120px;margin:0 auto;box-sizing:border-box;border:1px solid var(--line)}
 #dmgg *{box-sizing:border-box}
+#dmgg{position:relative;overflow:hidden}
+#dmgg>*:not(.trail){position:relative;z-index:2}
+#dmgg .trail{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+#dmgg .dancer{width:150px;height:170px;flex:none}
+#dmgg .dancer svg{width:100%;height:100%;overflow:visible}
+#dmgg .dancer .fig{animation:dmBounce .9s ease-in-out infinite;transform-origin:75px 160px}
+#dmgg .dancer .armL{animation:dmArmL .9s ease-in-out infinite;transform-origin:68px 102px}
+#dmgg .dancer .armR{animation:dmArmR .9s ease-in-out infinite;transform-origin:82px 102px}
+#dmgg .dancer .legL{animation:dmLegL .9s ease-in-out infinite;transform-origin:72px 128px}
+#dmgg .dancer .legR{animation:dmLegR .9s ease-in-out infinite;transform-origin:78px 128px}
+#dmgg .dancer .cap{animation:dmCap .9s ease-in-out infinite;transform-origin:75px 52px}
+@keyframes dmBounce{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-10px) rotate(4deg)}}
+@keyframes dmArmL{0%,100%{transform:rotate(20deg)}50%{transform:rotate(-35deg)}}
+@keyframes dmArmR{0%,100%{transform:rotate(-30deg)}50%{transform:rotate(25deg)}}
+@keyframes dmLegL{0%,100%{transform:rotate(12deg)}50%{transform:rotate(-8deg)}}
+@keyframes dmLegR{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(14deg)}}
+@keyframes dmCap{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(8deg)}}
+@media(prefers-reduced-motion:reduce){#dmgg .dancer *{animation:none!important}}
 #dmgg .top{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:8px}
 #dmgg .kick{font:700 12px/1 Arial,sans-serif;letter-spacing:.18em;color:var(--red);text-transform:uppercase;margin:0 0 10px}
 #dmgg h2{font:700 clamp(32px,5vw,54px)/1.02 Georgia,serif;margin:0;letter-spacing:-.01em;text-wrap:balance}
@@ -42,18 +60,42 @@
 @media(max-width:640px){
   #dmgg{padding:24px 16px 20px;border-radius:14px}
   #dmgg .top{grid-template-columns:1fr}
-  #dmgg .grade{width:72px;height:72px;font-size:30px;order:-1}
+  #dmgg .dancer{width:110px;height:125px;order:-1}
 }
 </style>
 
 <div id="dmgg">
+  <svg class="trail" aria-hidden="true"><defs><filter id="dmgSh" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="1.5" dy="3" stdDeviation="1.6" flood-color="#000" flood-opacity=".3"/></filter></defs>
+    <path id="dmgPath" fill="none" stroke="#c8202f" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round" opacity=".35"/>
+    <g id="dmgPlane" filter="url(#dmgSh)" style="opacity:0"><path d="M30 0 L-3 -10 L9 1 Z" fill="#1f3346" stroke="#c6343a" stroke-width="1.3" stroke-linejoin="round"/><path d="M30 0 L9 1 L4 12 Z" fill="#ffffff" stroke="#c6343a" stroke-width="1.3" stroke-linejoin="round"/><path d="M30 0 L9 1 L12 7 Z" fill="#e3e9ee"/><path d="M14 1 L8 1.3 L6 8 Z" fill="#0d1a26"/></g>
+  </svg>
   <div class="top">
     <div>
       <p class="kick">Flight Tower Books · Holiday 2026</p>
       <h2>The <span class="dm">D-Minus Genius</span> Gift Guide</h2>
       <p class="sub">Gifts for people whose plans were solid. The landings, less so.</p>
     </div>
-    <div class="grade" aria-hidden="true">D&minus;<small>APPROVED</small></div>
+    <div class="dancer" role="img" aria-label="D-Minus Genius doing a happy dance">
+      <svg viewBox="0 0 150 170" fill="none" stroke="#1d1b19" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <g class="fig">
+          <g class="legL"><path d="M72 128 L58 146 L62 160"/><path d="M62 160 L52 162"/></g>
+          <g class="legR"><path d="M78 128 L94 144 L90 160"/><path d="M90 160 L101 161"/></g>
+          <path d="M75 92 L75 128"/>
+          <g class="armL"><path d="M68 102 L48 92 L38 76"/></g>
+          <g class="armR"><path d="M82 102 L104 96 L120 84"/><circle cx="121" cy="83" r="3" fill="#1d1b19"/></g>
+          <circle cx="75" cy="64" r="28" fill="#fff"/>
+          <ellipse cx="66" cy="57" rx="8" ry="10" fill="#fff" stroke-width="3.5"/><ellipse cx="84" cy="57" rx="8" ry="10" fill="#fff" stroke-width="3.5"/>
+          <circle cx="69" cy="53" r="3.6" fill="#1d1b19" stroke="none"/><circle cx="87" cy="53" r="3.6" fill="#1d1b19" stroke="none"/>
+          <path d="M60 71 Q75 92 91 70 Z" fill="#c8202f" stroke-width="4"/><path d="M68 80 Q75 86 82 79" stroke="#f08a8a" stroke-width="3"/>
+          <g class="cap">
+            <path d="M52 44 L80 2 L98 40 Z" fill="#fff" stroke-width="4.5"/>
+            <text x="76" y="31" fill="#c8202f" stroke="none" font-family="Arial,sans-serif" font-weight="700" font-size="15" text-anchor="middle" transform="rotate(-8 76 31)">D-</text>
+            <path d="M48 46 Q75 34 102 42" stroke-width="10" stroke="#1d1b19"/><path d="M48 46 Q75 34 102 42" stroke-width="5" stroke="#fff" stroke-dasharray="1 5"/>
+            <circle cx="81" cy="3" r="7" fill="#fff" stroke-width="3.5"/>
+          </g>
+        </g>
+      </svg>
+    </div>
   </div>
   <p class="note">Every pick comes with the lesson D-Minus learned the hard way, so you don't have to.</p>
 
@@ -118,5 +160,28 @@
         '<a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="'+a[3]+'">Check price on Amazon &rarr;</a>');
     }).join('');
   }
+})();
+</script>
+<script>
+(function(){
+  var sec=document.getElementById('dmgg'); if(!sec) return;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var svg=sec.querySelector('.trail'), path=document.getElementById('dmgPath'), plane=document.getElementById('dmgPlane');
+  var P=[[.98,.03],[.80,.07],[.55,.05],[.30,.12],[.08,.22],[.20,.38],[.55,.45],[.85,.55],[.70,.70],[.35,.78],[.10,.90],[.45,.98]];
+  var len=0,t0=null,dur=26000,started=false;
+  function build(){var w=sec.clientWidth,h=sec.clientHeight;if(!w||!h)return false;svg.setAttribute('viewBox','0 0 '+w+' '+h);
+    var pts=P.map(function(p){return [p[0]*w,p[1]*h];}),d='M'+pts[0][0]+' '+pts[0][1];
+    for(var i=0;i<pts.length-1;i++){var p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
+      d+=' C'+(p1[0]+(p2[0]-p0[0])/6)+' '+(p1[1]+(p2[1]-p0[1])/6)+','+(p2[0]-(p3[0]-p1[0])/6)+' '+(p2[1]-(p3[1]-p1[1])/6)+','+p2[0]+' '+p2[1];}
+    path.setAttribute('d',d);len=path.getTotalLength();return true;}
+  function frame(ts){if(!t0)t0=ts;var f=Math.min(1,(ts-t0)/dur),at=Math.max(0,Math.min(f*len,len-2));
+    var a=path.getPointAtLength(at),b=path.getPointAtLength(Math.min(len,at+2));
+    plane.setAttribute('transform','translate('+a.x+' '+a.y+') rotate('+(Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI)+') translate(-15 0)');
+    if((ts-t0)<dur)requestAnimationFrame(frame);}
+  function go(){if(started)return;if(!build()){setTimeout(go,300);return;}started=true;plane.style.opacity=1;requestAnimationFrame(frame);}
+  if('ResizeObserver' in window){new ResizeObserver(function(){build();}).observe(sec);}
+  window.addEventListener('resize',build);
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();go();}},{threshold:.15});io.observe(sec);}else go();
+  setTimeout(go,4000);
 })();
 </script>
