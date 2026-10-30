@@ -119,8 +119,7 @@
       </div>
       <div class="kit-form kit2-form">
         <span class="kit2-badge">FREE · 3 TOOLS · $0</span>
-        <!-- Hostinger Reach form "SRS Starter Kit" (heading and intro line live inside the form; redirects to /starter-kit.html after signup). The embed.js script below loads once for every Reach form on this page. -->
-        <script src="https://cdn-reach.hostinger.com/js/embed.js"></script>
+        <!-- Hostinger Reach form "SRS Starter Kit" (heading and intro line live inside the form; redirects to /starter-kit.html after signup). The Reach embed.js script loads once, at the end of the page, for both forms. -->
         <div data-reach-form="1bc392ce-9ef7-4811-a9c6-8d6f13aded87"></div>
         <p class="small">No purchase, no spam. Unsubscribe anytime.</p>
       </div>
@@ -338,8 +337,8 @@
         <p class="nf-strong">Get notified when the Continuity Passport, Document Seal and Title Integrity Guard become available.</p>
       </div>
       <div>
-        <!-- HOSTINGER REACH FORM: same list as the Starter Kit. Add the tag "continue-protect" to signups from this form. -->
-        <div class="reach-slot">Hostinger Reach email form goes here</div>
+        <!-- Hostinger Reach form "SRS Coming Next" (tag continue-protect; shows a thank-you message after signup). -->
+        <div data-reach-form="b4c6ec45-db7f-425c-ae47-5f8aa3adce23"></div>
         <p class="small">Occasional product updates. Unsubscribe anytime.</p>
       </div>
     </div>
@@ -461,5 +460,7 @@
   (function run(){ set(i,true); setTimeout(function(){ i=(i+1)%S.length; run(); }, S[i][5]); })();
 })();
 </script>
+<!-- Hostinger Reach: renders both signup forms on this page -->
+<script src="https://cdn-reach.hostinger.com/js/embed.js"></script>
 </body>
 </html>

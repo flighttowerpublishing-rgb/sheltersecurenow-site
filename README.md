@@ -19,10 +19,12 @@ Settings: framework **Vite**, Node **22.x**, defaults. No environment variables 
 - Support: support@sheltersecurenow.com
 
 ## Still to finish
-1. **Hostinger Reach forms** — paste the Reach snippets where index.html says
-   `HOSTINGER REACH FORM` (two places: Starter Kit, and Coming next). Tag Coming-next signups `continue-protect`.
-2. **Starter Kit step 2** says "Your kit opens instantly, on this site." Keep only if Reach can redirect to /starter-kit.html after signup.
-3. **Sample report** — the button reads "Sample report coming soon" until an approved sample PDF is added (instructions in a comment next to it).
+1. **Sample report** — the button reads "Sample report coming soon" until an approved sample PDF is added (instructions in a comment next to it).
+
+Done: Hostinger Reach forms are live — "SRS Starter Kit" (redirects to /starter-kit.html) and "SRS Coming Next" (tag `continue-protect`). The Reach `embed.js` script loads once at the end of index.html.
+
+## Deploying
+Hostinger does not pull from GitHub for this site. After changes, download a zip of the repo and upload it in Hostinger: Deployments → Settings and redeploy → Upload new files → Redeploy.
 
 ## Editing
 `index.html` is generated from `index.template.html` plus the Shelter Scan parts. Small text edits can be made directly in `index.html`.
