@@ -1,0 +1,300 @@
+<!-- Flight Tower Books Resources page, Section 2: Shelter Scan radar (from Shelter Secure). Paste into a Hostinger Embed Code element; replaces the old Shelter Scan code. Updated Oct 29, 2026: Amazon Associates products for all 7 areas (tag flighttower-20) + books in "Strengthen" cards; archived Shopify gear links removed. -->
+<style>
+#ssr{--navy:#0d2433;--navy2:#123447;--gold:#e2b84a;--gold2:#f4d77f;--ink:#eaf2f4;--muted:#a9bec6;--teal:#7fe0d0;--c:#4fbf8b;--a:#f0b43c;--p:#e8604c;
+  font:15px/1.5 Arial,Helvetica,sans-serif;color:var(--ink);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center;
+  padding:30px 48px;border-radius:22px;background:radial-gradient(120% 140% at 85% 20%,#1d4f66 0%,#0d2433 55%,#081a25 100%);
+  box-shadow:0 18px 50px rgba(8,26,37,.35);border:1px solid #2b5568;position:relative;overflow:hidden;max-width:1180px;margin:0 auto}
+#ssr *{box-sizing:border-box}
+#ssr .kick{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+#ssr h2{font:400 clamp(30px,3.8vw,46px)/1.1 Georgia,serif;margin:0 0 12px;color:#fff}
+#ssr h3{font:400 23px/1.25 Georgia,serif;margin:6px 0 14px;color:#fff}
+#ssr #qt{min-height:2.5em;display:flex;align-items:flex-end}
+#ssr>main,#ssr>aside{position:relative;z-index:2}
+#ssr .trail{position:absolute;left:0;top:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:visible}
+#ssr #h,#ssr #q{min-height:320px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+#ssr #q>.bar,#ssr #q>#o{align-self:stretch}
+#ssr #q{justify-content:flex-start;padding-top:20px}
+#ssr #r{height:430px;overflow-y:auto;padding-right:10px;scrollbar-width:thin;scrollbar-color:#e2b84a #123447}
+#ssr #r::-webkit-scrollbar{width:6px}#ssr #r::-webkit-scrollbar-thumb{background:#e2b84a;border-radius:3px}
+@media(max-width:760px){#ssr #h,#ssr #q,#ssr #r{height:340px;min-height:0}}
+#ssr p{margin:0 0 14px;color:var(--muted)}
+#ssr .lead{font-size:17px;color:#cfe0e5;max-width:580px}
+#ssr .btn{display:inline-block;border:0;border-radius:999px;padding:13px 24px;background:linear-gradient(180deg,var(--gold2),var(--gold));color:#1b2a33;font:700 15px Arial,sans-serif;cursor:pointer;text-decoration:none;box-shadow:0 6px 18px rgba(226,184,74,.35);transition:transform .15s}
+#ssr .btn:hover{transform:translateY(-1px)}
+#ssr .fine{display:block;font-size:12px;color:#8aa3ad;margin-top:12px}
+#ssr .ssn{display:inline-block;margin-top:10px;color:var(--gold2);font:700 13.5px Arial;text-decoration:none;border-bottom:1px solid rgba(244,215,127,.5)}
+#ssr .ssn:hover{border-color:var(--gold2)}
+#ssr .hide{display:none!important}
+#ssr .radwrap{display:flex;flex-direction:column;align-items:center;gap:10px}
+#ssr .rad{position:relative;width:360px;height:360px;border-radius:50%;
+  background:radial-gradient(circle,#0f3a4c 0%,#0a2a39 60%,#071c27 100%);
+  border:3px solid var(--gold);box-shadow:0 0 0 6px rgba(226,184,74,.12),0 0 40px rgba(127,224,208,.18) inset}
+#ssr .ring{position:absolute;border:1px solid rgba(127,224,208,.22);border-radius:50%}
+#ssr .r1{inset:12%}#ssr .r2{inset:26%}#ssr .r3{inset:40%}
+#ssr .cross{position:absolute;inset:0}
+#ssr .cross:before,#ssr .cross:after{content:'';position:absolute;background:rgba(127,224,208,.16)}
+#ssr .cross:before{left:50%;top:4%;bottom:4%;width:1px}
+#ssr .cross:after{top:50%;left:4%;right:4%;height:1px}
+#ssr .sweep{position:absolute;inset:3px;border-radius:50%;
+  background:conic-gradient(from 0deg,rgba(127,224,208,0) 0deg,rgba(127,224,208,0) 290deg,rgba(127,224,208,.07) 315deg,rgba(127,224,208,.32) 352deg,rgba(190,255,240,.85) 359.5deg,rgba(127,224,208,0) 360deg);
+  will-change:transform}
+#ssr .home{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;display:grid;place-items:center;
+  background:#0d2433;border:2px solid var(--gold);color:var(--gold2);font:700 10px Arial;letter-spacing:.12em;z-index:3}
+#ssr .home svg{width:22px;height:22px;display:block;margin:0 auto 2px}
+#ssr .node{position:absolute;width:66px;height:66px;margin:-33px 0 0 -33px;border-radius:50%;display:grid;place-content:center;text-align:center;z-index:4;
+  background:#0d2c3b;border:2px solid #4c8796;color:#fff;font:700 9.5px/1.1 Arial;letter-spacing:.04em;transition:box-shadow .3s,border-color .3s,background .3s,transform .3s}
+#ssr .node small{display:block;font-size:7px;font-weight:700;letter-spacing:.06em;margin-top:3px;color:#9fc3cc}
+#ssr .node.ping{border-color:var(--teal);box-shadow:0 0 0 4px rgba(127,224,208,.25),0 0 22px rgba(127,224,208,.7);transform:scale(1.08)}
+#ssr .node.target{border-color:var(--gold2);box-shadow:0 0 0 5px rgba(244,215,127,.25),0 0 26px rgba(244,215,127,.6);animation:ssrPulse 1.2s ease-in-out infinite}
+#ssr .node.c{border-color:var(--c);background:#103d33;box-shadow:0 0 16px rgba(79,191,139,.55)}
+#ssr .node.a{border-color:var(--a);background:#3d3313;box-shadow:0 0 16px rgba(240,180,60,.55)}
+#ssr .node.p{border-color:var(--p);background:#40201b;box-shadow:0 0 18px rgba(232,96,76,.65)}
+#ssr .node.c small{color:#9be3c1}#ssr .node.a small{color:#f6d38a}#ssr .node.p small{color:#f5a99c}
+@keyframes ssrPulse{50%{transform:scale(1.1)}}
+#ssr .readout{width:360px;height:72px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;padding:9px 14px;border-radius:12px;background:rgba(5,20,28,.75);border:1px solid #275063;font:12.5px/1.4 'Courier New',monospace;color:var(--teal)}
+#ssr .readout b{display:block;color:var(--gold2);font:700 10px Arial;letter-spacing:.14em;margin-bottom:2px}
+#ssr .legend{display:flex;gap:14px;font-size:12px;color:#b7cbd2}
+#ssr .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+#ssr #q{padding:4px 0}
+#ssr .bar{height:5px;background:#21465a;border-radius:3px;overflow:hidden;margin-bottom:14px}
+#ssr .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .35s}
+#ssr #num{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--gold)}
+#ssr #o{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+#ssr #o button{background:#f6f9fa;color:#14303f;border:2px solid transparent;border-radius:12px;padding:13px 14px;font:700 15px Arial;cursor:pointer;text-align:left;transition:border-color .15s,transform .1s}
+#ssr #o button:hover{border-color:var(--gold);transform:translateY(-1px)}
+#ssr #o button.sel{border-color:var(--gold)}
+#ssr .link{background:none;border:0;color:#b7cbd2;font:700 13px Arial;text-decoration:underline;cursor:pointer;padding:0;margin-top:14px}
+#ssr #bk{display:grid;gap:6px;margin:4px 0 12px}
+#ssr .row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid #2a5264;font-size:13.5px}
+#ssr .pill{font:700 10px Arial;letter-spacing:.06em;padding:3px 9px;border-radius:999px;color:#fff}
+#ssr .pill.c{background:var(--c)}#ssr .pill.a{background:#c9932c}#ssr .pill.p{background:var(--p)}
+#ssr #extra{font-size:13px}
+#ssr .next{margin:14px 0 4px;padding:14px;border-radius:14px;background:rgba(226,184,74,.1);border:1px solid rgba(226,184,74,.45)}
+#ssr .next p{color:#e3ecef;margin-bottom:10px}
+#ssr #gear{margin-top:12px}
+#ssr #gear details{background:rgba(0,0,0,.25);border:1px solid #2a4a58;border-radius:10px;margin-bottom:8px;padding:10px 12px}
+#ssr #gear summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;color:var(--gold2);font-weight:700;font-size:13.5px}
+#ssr #gear summary::-webkit-details-marker{display:none}
+#ssr #gear p{font-size:13px;color:#c9d8dd;margin:8px 0 6px}
+#ssr #gear a{display:block;color:var(--gold2);font-size:13px;text-decoration:none;padding:2px 0}
+#ssr #gear a:hover{text-decoration:underline}
+#ssr #gear a.bk{color:#fff;font-weight:700;margin:4px 0 2px}
+#ssr #gear a.bk:before{content:'BOOK';display:inline-block;font:700 9px Arial;letter-spacing:.1em;color:#1b2a33;background:var(--gold2);border-radius:4px;padding:2px 5px;margin-right:7px;vertical-align:1px}
+#ssr #gear .why{display:block;font-size:12px;color:#9fb4bc;margin:0 0 7px}
+#ssr #gear p.disc{font-size:11px;color:#8aa3ad;margin:0 0 8px}
+#ssrLegal{font:10px/1.4 Arial;color:#6b7f87;margin:8px auto 0;max-width:1180px;padding:0 4px}
+@media(max-width:760px){
+  #ssr{grid-template-columns:1fr;padding:22px 16px;gap:22px}
+  #ssr .radwrap{order:-1}
+  #ssr .rad{width:280px;height:280px}
+  #ssr .readout{width:280px}
+  #ssr .node{width:58px;height:58px;margin:-29px 0 0 -29px;font-size:8.5px}
+}
+@media(prefers-reduced-motion:reduce){#ssr .node.target{animation:none}}
+</style>
+
+<div id="ssr">
+  <svg class="trail" aria-hidden="true"><defs><filter id="ssrSh" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="1.5" dy="3" stdDeviation="1.6" flood-color="#000" flood-opacity=".4"/></filter></defs>
+    <path id="ssrPath" fill="none" stroke="#f4d77f" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round" opacity=".4"/>
+    <g id="ssrPlane" filter="url(#ssrSh)" style="opacity:0"><path d="M30 0 L-3 -10 L9 1 Z" fill="#1f3346" stroke="#c6343a" stroke-width="1.3" stroke-linejoin="round"/><path d="M30 0 L9 1 L4 12 Z" fill="#ffffff" stroke="#c6343a" stroke-width="1.3" stroke-linejoin="round"/><path d="M30 0 L9 1 L12 7 Z" fill="#e3e9ee"/><path d="M14 1 L8 1.3 L6 8 Z" fill="#0d1a26"/></g>
+  </svg>
+  <main>
+    <div id="h">
+      <span class="kick">Free from Shelter Secure · 90-second scan</span>
+      <h2>See What Your Home Depends On.</h2>
+      <p class="lead">Seven quick questions. Watch the radar light up what looks steady and what deserves a closer look: water, power, food, income, repairs and your backup plan.</p>
+      <button class="btn" id="go">Run the Shelter Scan &rarr;</button>
+      <span class="fine">Educational self-check, not a property inspection. No email required.</span>
+      <a class="ssn" data-new href="https://sheltersecurenow.com/?utm_source=flighttowerbooks&amp;utm_medium=resources&amp;utm_campaign=shelter-scan">Visit Shelter Secure &rarr;</a>
+    </div>
+    <div id="q" class="hide">
+      <div class="bar"><i id="fill"></i></div>
+      <span id="num"></span>
+      <h3 id="qt"></h3>
+      <div id="o"></div>
+      <button class="link hide" id="back">&larr; Back</button>
+    </div>
+    <div id="r" class="hide">
+      <span class="kick">Scan complete</span>
+      <h3>Your Shelter Snapshot</h3>
+      <p id="sum" class="lead"></p>
+      <div id="bk"></div>
+      <p id="extra"></p>
+      <div class="next">
+        <p><strong style="color:#fff">Want the full picture?</strong> The Shelter Report System turns these seven signals into a private report: your monthly money picture, a rating for every area and your first 30 days.</p>
+        <a class="btn" data-top href="https://flighttowerbook.mysamcart.com/shelter-secure-shelter-report-system">Get Your Shelter Report &rarr;</a>
+      </div>
+      <div id="gear"></div>
+      <button class="link" id="again">Retake the scan</button>
+    </div>
+  </main>
+  <aside class="radwrap">
+    <div class="rad" id="rad" aria-hidden="true">
+      <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+      <div class="cross"></div>
+      <div class="sweep" id="sweep"></div>
+      <div class="home"><div><svg viewBox="0 0 24 24" fill="none" stroke="#f4d77f" stroke-width="1.8" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>HOME</div></div>
+    </div>
+    <div class="readout" id="readout" aria-live="polite"><b>SCANNING</b><span id="rtext">Is there water if the power goes out?</span></div>
+    <div class="legend"><span><i style="background:#4fbf8b"></i>Clear</span><span><i style="background:#f0b43c"></i>Watch</span><span><i style="background:#e8604c"></i>Priority</span></div>
+  </aside>
+</div>
+<div id="ssrLegal">Educational self-check only; not an appraisal, inspection, or financial, legal or tax advice. No advisory or brokerage relationship. Paul Burgess, CA DRE 01117841; OR Principal Broker 2012586129. As an Amazon Associate, Flight Tower Books earns from qualifying purchases.</div>
+
+<script>
+(function(){
+  var root=document.getElementById('ssr'); if(!root) return;
+  var $=function(id){return document.getElementById(id);};
+  var Q=[
+    ['Water','Do you have a safe water backup?','Is there water if the power goes out?'],
+    ['Energy','Can you manage a three-day outage?','What still runs when the grid goes down?'],
+    ['Food','Can you manage two weeks without stores?','Two weeks without a grocery run?'],
+    ['Income','Can you cover costs if income stopped?','One paycheck away from a problem?'],
+    ['Shelter','Will this home fit in five years?','Will this home still fit in five years?'],
+    ['Repairs','Are major repairs planned for?','Roof, well, septic: is the money set aside?'],
+    ['Options','Do you have an alternative plan?','If you had to leave, where would you go?']
+  ];
+  var O=['Yes','Partly','No','Unsure'], CLS=['c','a','p','p'], LBL=['CLEAR','WATCH','PRIORITY','PRIORITY'], SEV=[1,2,3,3];
+
+  /* ===== PRODUCTS — edit here. Each gear item: [name, tagged Amazon link, one-line reason]. Book: [title, tagged Amazon link]. ===== */
+  var T='?tag=flighttower-20', AMZ='https://www.amazon.com/dp/';
+  var BOOK={
+    GA:['Grid-Adjacent: The Exit Strategy',AMZ+'B0H9651HNJ'+T],
+    WWII:['WWII Victory Garden Hacks',AMZ+'B0GTVWQJHQ'+T],
+    TRE:['The Resilience Experiment: Money & Meaning in the Middle of Nowhere',AMZ+'B0GKQR9MGF'+T]
+  };
+  var GEAR={
+    Water:{note:'Your household may not have enough stored water, or a reliable way to purify more, if the normal supply stops.',book:BOOK.GA,gear:[
+      ['Saratoga Farms 5-Gallon Stackable Water Containers',AMZ+'B092FYPZ55'+T,'Stackable stored water for homes with room to keep it.'],
+      ['Nilight Collapsible Water Containers',AMZ+'B0G58V3Q7Q'+T,'Fold flat when empty: a fit for renters and small spaces.'],
+      ['Waterdrop Portable Gravity Water Filter',AMZ+'B086QNLBB4'+T,'Treats stored or well water with no power needed.']]},
+    Energy:{note:'Your household may have limited backup power for refrigeration, communications or essential equipment.',book:BOOK.GA,gear:[
+      ['Jackery Portable Power Station',AMZ+'B0G429L5B4'+T,'Quiet battery backup for phones, lights and small appliances. Safe indoors.'],
+      ['Champion 4000-Watt Inverter Generator',AMZ+'B0D6SQR1L1'+T,'Runs bigger loads like a refrigerator or freezer through longer outages. Outdoor use only.']]},
+    Food:{note:'Your household may depend on the store for food, with no way to grow or preserve your own if normal access were disrupted.',book:BOOK.WWII,gear:[
+      ['Heirloom Survival Garden Seed Kit (Non-GMO)',AMZ+'B0DT9B5SN3'+T,'Open-pollinated seeds you can grow, save and replant.'],
+      ['COSORI Food Dehydrator',AMZ+'B0CHRWLM5Z'+T,'Turns garden surplus into shelf-stable food.'],
+      ['Canning Pot Starter Kit',AMZ+'B0BC5FKBHX'+T,'A starter set for water-bath canning at home.']]},
+    Income:{note:'Knowing which income lanes you actually have (Planted, Portable and Professional) changes what is worth protecting first.',book:BOOK.TRE,gear:[
+      ['Buryeah Portable Farm-Stand Display',AMZ+'B0F5WHWHHH'+T,'For selling produce and goods at a stand or market.'],
+      ['FRESKO Compact Vacuum Sealer',AMZ+'B0DQ7K9HHB'+T,'Packages dried herbs, jerky and bulk goods to sell or store.'],
+      ['Soap & Candle Making Kit',AMZ+'B0H1WPNRN7'+T,'Start a small handmade product line you can sell anywhere.']]},
+    Shelter:{note:'Your home may not fit the way you expect to live in five years. It is worth planning before it becomes forced.',book:BOOK.GA,gear:[
+      ['Kidde Basic 110 Fire Extinguisher, 2-Pack',AMZ+'B07D6QGQYB'+T,'Protect the home you have while you plan the next one.'],
+      ['Kidde Smoke & Carbon Monoxide Detector, 10-Year Battery',AMZ+'B0DDWS7Z3S'+T,'No wiring needed: works for owners and renters.']]},
+    Repairs:{note:'Deferred maintenance becomes an emergency expense. A repair reserve and a written priority list keep it from catching you off guard.',book:BOOK.GA,gear:[
+      ['KingTool 276-Piece Tool Set with 12V Cordless Drill',AMZ+'B0D7HC5DZQ'+T,'Handle the everyday fixes yourself before they become contractor bills.'],
+      ['GoveeLife Water Leak Detectors',AMZ+'B0DQLDBXWF'+T,'Alarms under sinks, water heaters and washers catch leaks early. Renter-friendly.']]},
+    Options:{note:'A tested backup plan, not just an idea of one, is what makes a move manageable instead of a scramble.',book:BOOK.GA,gear:[
+      ['DocSafe Fireproof Document Organizer',AMZ+'B0DTJWWDQZ'+T,'Deeds, IDs and insurance papers in one grab-and-go case.'],
+      ['Midland Emergency Weather Radio',AMZ+'B015QIC1PW'+T,'Weather alerts and news when phones and power are down.']]}
+  };
+  /* ===== end products ===== */
+
+  var rad=$('rad'), nodes=[], N=Q.length;
+  Q.forEach(function(q,k){
+    var ang=k*360/N, rr=(ang-90)*Math.PI/180, R=39;
+    var el=document.createElement('span');
+    el.className='node'; el.style.left=(50+R*Math.cos(rr))+'%'; el.style.top=(50+R*Math.sin(rr))+'%';
+    el.innerHTML=q[0].toUpperCase()+'<small>NOT SCANNED</small>';
+    rad.appendChild(el); nodes.push({el:el,ang:ang,state:''});
+  });
+  var sweep=$('sweep'), period=4500, t0=performance.now(), last=-1, mode='idle';
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function ping(k){
+    var n=nodes[k]; if(n.state) return;
+    n.el.classList.add('ping'); setTimeout(function(){n.el.classList.remove('ping');},700);
+    if(mode==='idle') setRead('SCANNING · '+Q[k][0].toUpperCase(),Q[k][2]);
+  }
+  function setRead(h,t){ $('readout').firstChild.textContent=h; $('rtext').textContent=t; }
+  function frame(now){
+    var a=((now-t0)/period*360)%360;
+    sweep.style.transform='rotate('+a+'deg)';
+    nodes.forEach(function(n,k){ var d=(a-n.ang+360)%360; if(d<8 && last!==k){ last=k; ping(k); } });
+    requestAnimationFrame(frame);
+  }
+  if(reduce){ var i=0; setInterval(function(){ if(mode==='idle'){ ping(i%N); i++; } },2200); }
+  else requestAnimationFrame(frame);
+  var A=[], n=0;
+  function show(id){ ['h','q','r'].forEach(function(x){ $(x).classList.toggle('hide',x!==id); }); }
+  function target(k){ nodes.forEach(function(nd,j){ nd.el.classList.toggle('target',j===k&&!nd.state); }); }
+  function ask(){
+    mode='quiz';
+    $('fill').style.width=Math.round(n/N*100)+'%';
+    $('num').textContent='QUESTION '+(n+1)+' OF '+N+' · '+Q[n][0].toUpperCase();
+    $('qt').textContent=Q[n][1];
+    $('back').classList.toggle('hide',n===0);
+    setRead('LOCKED ON · '+Q[n][0].toUpperCase(),Q[n][2]);
+    target(n);
+    $('o').innerHTML='';
+    O.forEach(function(t,j){
+      var b=document.createElement('button'); b.type='button'; b.textContent=t;
+      if(A[n]===j) b.className='sel';
+      b.onclick=function(){ A[n]=j; mark(n,j); if(n<N-1){ n++; ask(); } else finish(); };
+      $('o').appendChild(b);
+    });
+  }
+  function mark(k,j){ var nd=nodes[k]; nd.state=CLS[j]; nd.el.className='node '+CLS[j]; nd.el.innerHTML=Q[k][0].toUpperCase()+'<small>'+LBL[j]+'</small>'; }
+  var REL=' data-new rel="sponsored nofollow noopener" ';
+  function finish(){
+    mode='done'; target(-1); $('fill').style.width='100%';
+    var list=Q.map(function(q,i){return {name:q[0],cls:CLS[A[i]],label:LBL[A[i]],sev:SEV[A[i]]};});
+    var sorted=list.slice().sort(function(x,y){return y.sev-x.sev;});
+    var allClear=sorted.every(function(f){return f.sev===1;});
+    $('sum').textContent=allClear?'Safeguards appear present across everything you checked. A full report shows how much room that gives you.':'Begin with '+sorted[0].name+'. It deserves the closest look.';
+    var pr=sorted.filter(function(f){return f.sev===3&&f.name!==sorted[0].name;}).map(function(f){return f.name;});
+    var wa=sorted.filter(function(f){return f.sev===2;}).map(function(f){return f.name;});
+    $('extra').textContent=(pr.length?'Also priority: '+pr.join(', ')+'. ':'')+(wa.length?'Worth watching: '+wa.join(', ')+'.':'');
+    $('bk').innerHTML=list.map(function(f){return '<div class="row"><b>'+f.name+'</b><span class="pill '+f.cls+'">'+f.label+'</span></div>';}).join('');
+    var flagged=sorted.filter(function(f){return f.cls!=='c';}), hasAmz=false;
+    var html=flagged.map(function(f,i){
+      var g=GEAR[f.name]; if(!g) return '';
+      var items='';
+      if(g.book){ hasAmz=true; items+='<a class="bk"'+REL+'href="'+g.book[1]+'">'+g.book[0]+' &rarr;</a>'; }
+      g.gear.forEach(function(x){ hasAmz=true; items+='<a'+REL+'href="'+x[1]+'">'+x[0]+' &rarr;</a>'+(x[2]?'<span class="why">'+x[2]+'</span>':''); });
+      return '<details'+(i===0?' open':'')+'><summary><span>Strengthen: '+f.name+'</span><span>'+f.label+'</span></summary><p>'+g.note+'</p>'+items+'</details>';
+    }).join('');
+    $('gear').innerHTML=(hasAmz?'<p class="disc">Links open Amazon in a new tab. As an Amazon Associate, Flight Tower Books earns from qualifying purchases.</p>':'')+html;
+    var p=sorted.filter(function(f){return f.sev===3;}).length;
+    setRead('SCAN COMPLETE',allClear?'All seven systems read clear.':p+' priority, '+wa.length+' watch, '+(N-p-wa.length)+' clear.');
+    show('r');
+  }
+  function reset(){
+    A=[]; n=0;
+    nodes.forEach(function(nd,k){ nd.state=''; nd.el.className='node'; nd.el.innerHTML=Q[k][0].toUpperCase()+'<small>NOT SCANNED</small>'; });
+    show('q'); ask();
+  }
+  $('go').onclick=function(){ show('q'); ask(); };
+  $('back').onclick=function(){ if(n>0){ n--; ask(); } };
+  $('again').onclick=reset;
+  root.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a'); if(!a) return;
+    e.preventDefault();
+    if(a.hasAttribute('data-top')){ try{ window.top.location.href=a.href; }catch(err){ window.open(a.href,'_blank'); } }
+    else { var w=window.open(a.href,'_blank'); if(!w){ try{ window.top.location.href=a.href; }catch(err){} } }
+  });
+})();
+</script>
+<script>
+(function(){
+  var sec=document.getElementById('ssr'); if(!sec) return;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var svg=sec.querySelector('.trail'), path=document.getElementById('ssrPath'), plane=document.getElementById('ssrPlane');
+  var P=[[.02,.10],[.18,.04],[.36,.12],[.48,.30],[.40,.55],[.26,.75],[.42,.92],[.60,.97],[.70,1.0]];
+  var len=0,t0=null,dur=18000,started=false;
+  function build(){var w=sec.clientWidth,h=sec.clientHeight;if(!w||!h)return false;svg.setAttribute('viewBox','0 0 '+w+' '+h);
+    var pts=P.map(function(p){return [p[0]*w,p[1]*h];}),d='M'+pts[0][0]+' '+pts[0][1];
+    for(var i=0;i<pts.length-1;i++){var p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
+      d+=' C'+(p1[0]+(p2[0]-p0[0])/6)+' '+(p1[1]+(p2[1]-p0[1])/6)+','+(p2[0]-(p3[0]-p1[0])/6)+' '+(p2[1]-(p3[1]-p1[1])/6)+','+p2[0]+' '+p2[1];}
+    path.setAttribute('d',d);len=path.getTotalLength();return true;}
+  function frame(ts){if(!t0)t0=ts;var f=Math.min(1,(ts-t0)/dur),at=Math.max(0,Math.min(f*len,len-2));
+    var a=path.getPointAtLength(at),b=path.getPointAtLength(Math.min(len,at+2));
+    plane.setAttribute('transform','translate('+a.x+' '+a.y+') rotate('+(Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI)+') translate(-15 0)');
+    if((ts-t0)<dur)requestAnimationFrame(frame);}
+  function go(){if(started)return;if(!build()){setTimeout(go,300);return;}started=true;plane.style.opacity=1;requestAnimationFrame(frame);}
+  if('ResizeObserver' in window){new ResizeObserver(function(){build();}).observe(sec);}
+  window.addEventListener('resize',build);
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();go();}},{threshold:.2});io.observe(sec);}else go();
+  setTimeout(go,4000);
+})();
+</script>
