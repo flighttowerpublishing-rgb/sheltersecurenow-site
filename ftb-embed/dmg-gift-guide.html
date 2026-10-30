@@ -8,21 +8,32 @@
 #dmgg{position:relative;overflow:hidden}
 #dmgg>*:not(.trail){position:relative;z-index:2}
 #dmgg .trail{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
-#dmgg .dancer{width:150px;height:170px;flex:none}
-#dmgg .dancer svg{width:100%;height:100%;overflow:visible}
-#dmgg .dancer .fig{animation:dmBounce .9s ease-in-out infinite;transform-origin:75px 160px}
-#dmgg .dancer .armL{animation:dmArmL .9s ease-in-out infinite;transform-origin:68px 102px}
-#dmgg .dancer .armR{animation:dmArmR .9s ease-in-out infinite;transform-origin:82px 102px}
-#dmgg .dancer .legL{animation:dmLegL .9s ease-in-out infinite;transform-origin:72px 128px}
-#dmgg .dancer .legR{animation:dmLegR .9s ease-in-out infinite;transform-origin:78px 128px}
-#dmgg .dancer .cap{animation:dmCap .9s ease-in-out infinite;transform-origin:75px 52px}
-@keyframes dmBounce{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-10px) rotate(4deg)}}
-@keyframes dmArmL{0%,100%{transform:rotate(20deg)}50%{transform:rotate(-35deg)}}
-@keyframes dmArmR{0%,100%{transform:rotate(-30deg)}50%{transform:rotate(25deg)}}
-@keyframes dmLegL{0%,100%{transform:rotate(12deg)}50%{transform:rotate(-8deg)}}
-@keyframes dmLegR{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(14deg)}}
-@keyframes dmCap{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(8deg)}}
-@media(prefers-reduced-motion:reduce){#dmgg .dancer *{animation:none!important}}
+#dmgg .dancer{width:124px;height:140px;flex:none;align-self:end;justify-self:end}
+#dmgg .dancer svg{width:100%;height:100%;overflow:visible;display:block}
+#dmgg .dancer g{transform-box:view-box}
+#dmgg .dm-body{animation:dmBounce 2.5s ease-in-out infinite;transform-origin:75px 160px}
+#dmgg .dm-head{animation:dmHead 2.5s ease-in-out infinite;transform-origin:75px 86px}
+#dmgg .dm-hat{animation:dmHat 2.5s ease-in-out infinite;transform-origin:76px 37px}
+#dmgg .dm-uaL{animation:dmUaL 2.5s ease-in-out infinite;transform-origin:75px 96px}
+#dmgg .dm-faL{animation:dmFaL 2.5s ease-in-out infinite;transform-origin:55px 106px}
+#dmgg .dm-uaR{animation:dmUaR 2.5s ease-in-out infinite;transform-origin:75px 96px}
+#dmgg .dm-faR{animation:dmFaR 2.5s ease-in-out infinite;transform-origin:95px 106px}
+#dmgg .dm-thL{animation:dmThL 2.5s ease-in-out infinite;transform-origin:75px 120px}
+#dmgg .dm-shL{animation:dmShL 2.5s ease-in-out infinite;transform-origin:64px 139px}
+#dmgg .dm-thR{animation:dmThR 2.5s ease-in-out infinite;transform-origin:75px 120px}
+#dmgg .dm-shR{animation:dmShR 2.5s ease-in-out infinite;transform-origin:86px 139px}
+@keyframes dmBounce{0%,50%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-11px) rotate(-4deg)}75%{transform:translateY(-11px) rotate(4deg)}}
+@keyframes dmHead{0%,100%{transform:rotate(-9deg)}25%{transform:rotate(4deg)}50%{transform:rotate(10deg)}75%{transform:rotate(-3deg)}}
+@keyframes dmHat{0%,100%{transform:rotate(0)}30%{transform:rotate(-7deg)}60%{transform:rotate(6deg)}}
+@keyframes dmUaL{0%,100%{transform:rotate(25deg)}20%{transform:rotate(-70deg)}45%{transform:rotate(-20deg)}70%{transform:rotate(-95deg)}85%{transform:rotate(10deg)}}
+@keyframes dmFaL{0%,100%{transform:rotate(-15deg)}20%{transform:rotate(-55deg)}45%{transform:rotate(20deg)}70%{transform:rotate(-30deg)}}
+@keyframes dmUaR{0%,100%{transform:rotate(-80deg)}30%{transform:rotate(15deg)}55%{transform:rotate(-40deg)}80%{transform:rotate(30deg)}}
+@keyframes dmFaR{0%,100%{transform:rotate(-40deg)}30%{transform:rotate(25deg)}55%{transform:rotate(-60deg)}80%{transform:rotate(10deg)}}
+@keyframes dmThL{0%,50%,100%{transform:rotate(0)}25%{transform:rotate(55deg)}75%{transform:rotate(-12deg)}}
+@keyframes dmShL{0%,50%,100%{transform:rotate(0)}25%{transform:rotate(-20deg)}75%{transform:rotate(45deg)}}
+@keyframes dmThR{0%,50%,100%{transform:rotate(0)}25%{transform:rotate(12deg)}75%{transform:rotate(-55deg)}}
+@keyframes dmShR{0%,50%,100%{transform:rotate(0)}25%{transform:rotate(-45deg)}75%{transform:rotate(20deg)}}
+@media(prefers-reduced-motion:reduce){#dmgg .dancer g{animation:none!important}}
 #dmgg .top{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:8px}
 #dmgg .kick{font:700 12px/1 Arial,sans-serif;letter-spacing:.18em;color:var(--red);text-transform:uppercase;margin:0 0 10px}
 #dmgg h2{font:700 clamp(32px,5vw,54px)/1.02 Georgia,serif;margin:0;letter-spacing:-.01em;text-wrap:balance}
@@ -60,7 +71,7 @@
 @media(max-width:640px){
   #dmgg{padding:24px 16px 20px;border-radius:14px}
   #dmgg .top{grid-template-columns:1fr}
-  #dmgg .dancer{width:110px;height:125px;order:-1}
+  #dmgg .dancer{width:88px;height:100px;order:-1;justify-self:end;align-self:start;margin-bottom:-8px}
 }
 </style>
 
@@ -75,23 +86,28 @@
       <h2>The <span class="dm">D-Minus Genius</span> Gift Guide</h2>
       <p class="sub">Gifts for people whose plans were solid. The landings, less so.</p>
     </div>
-    <div class="dancer" role="img" aria-label="D-Minus Genius doing a happy dance">
+    <div class="dancer" role="img" aria-label="D-Minus Genius in a Santa hat, dancing">
       <svg viewBox="0 0 150 170" fill="none" stroke="#1d1b19" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-        <g class="fig">
-          <g class="legL"><path d="M72 128 L58 146 L62 160"/><path d="M62 160 L52 162"/></g>
-          <g class="legR"><path d="M78 128 L94 144 L90 160"/><path d="M90 160 L101 161"/></g>
-          <path d="M75 92 L75 128"/>
-          <g class="armL"><path d="M68 102 L48 92 L38 76"/></g>
-          <g class="armR"><path d="M82 102 L104 96 L120 84"/><circle cx="121" cy="83" r="3" fill="#1d1b19"/></g>
-          <circle cx="75" cy="64" r="28" fill="#fff"/>
-          <ellipse cx="66" cy="57" rx="8" ry="10" fill="#fff" stroke-width="3.5"/><ellipse cx="84" cy="57" rx="8" ry="10" fill="#fff" stroke-width="3.5"/>
-          <circle cx="69" cy="53" r="3.6" fill="#1d1b19" stroke="none"/><circle cx="87" cy="53" r="3.6" fill="#1d1b19" stroke="none"/>
-          <path d="M60 71 Q75 92 91 70 Z" fill="#c8202f" stroke-width="4"/><path d="M68 80 Q75 86 82 79" stroke="#f08a8a" stroke-width="3"/>
-          <g class="cap">
-            <path d="M52 44 L80 2 L98 40 Z" fill="#fff" stroke-width="4.5"/>
-            <text x="76" y="31" fill="#c8202f" stroke="none" font-family="Arial,sans-serif" font-weight="700" font-size="15" text-anchor="middle" transform="rotate(-8 76 31)">D-</text>
-            <path d="M48 46 Q75 34 102 42" stroke-width="10" stroke="#1d1b19"/><path d="M48 46 Q75 34 102 42" stroke-width="5" stroke="#fff" stroke-dasharray="1 5"/>
-            <circle cx="81" cy="3" r="7" fill="#fff" stroke-width="3.5"/>
+        <g class="dm-body">
+          <g class="dm-thL"><path d="M75 120 L64 139"/><g class="dm-shL"><path d="M64 139 L60 158 L50 160"/></g></g>
+          <g class="dm-thR"><path d="M75 120 L86 139"/><g class="dm-shR"><path d="M86 139 L90 158 L100 160"/></g></g>
+          <path d="M75 86 L75 120"/>
+          <g class="dm-uaL"><path d="M75 96 L55 106"/><g class="dm-faL"><path d="M55 106 L38 100"/><circle cx="37" cy="100" r="3" fill="#1d1b19"/></g></g>
+          <g class="dm-uaR"><path d="M75 96 L95 106"/><g class="dm-faR"><path d="M95 106 L112 100"/><circle cx="113" cy="100" r="3" fill="#1d1b19"/></g></g>
+          <g class="dm-head">
+            <circle cx="75" cy="62" r="25" fill="#fff" stroke-width="4.5"/>
+            <ellipse cx="66" cy="58" rx="8" ry="10" fill="#fff" stroke-width="3.5"/>
+            <ellipse cx="84" cy="58" rx="8" ry="10" fill="#fff" stroke-width="3.5"/>
+            <circle cx="69" cy="54.5" r="3.8" fill="#1d1b19" stroke="none"/>
+            <circle cx="87" cy="54.5" r="3.8" fill="#1d1b19" stroke="none"/>
+            <path d="M56 70 Q75 94 94 69 Q75 76 56 70 Z" fill="#c8202f" stroke-width="3.5"/>
+            <path d="M68 80 Q75 85 82 79" stroke="#f3a3a3" stroke-width="3"/>
+            <g class="dm-hat"><g transform="translate(0 -9)">
+              <path d="M52 44 Q66 10 92 8 Q110 10 116 30 L104 34 Q99 22 90 22 Q96 32 98 42 Z" fill="#c8202f" stroke-width="4"/>
+              <circle cx="114" cy="34" r="7" fill="#fff" stroke-width="3.5"/>
+              <rect x="47" y="38" width="56" height="13" rx="6.5" fill="#fff" stroke-width="3.5"/>
+              <text x="75" y="48.5" fill="#c8202f" stroke="none" font-family="Arial,sans-serif" font-weight="700" font-size="12" text-anchor="middle">D-</text>
+            </g></g>
           </g>
         </g>
       </svg>
