@@ -19,9 +19,10 @@ Settings: framework **Vite**, Node **22.x**, defaults. No environment variables 
 - Support: support@sheltersecurenow.com
 
 ## Still to finish
-1. **Sample report** — the button reads "Sample report coming soon" until an approved sample PDF is added (instructions in a comment next to it).
+Nothing outstanding on the public site.
 
 Done: Hostinger Reach forms are live — "SRS Starter Kit" (redirects to /starter-kit.html) and "SRS Coming Next" (tag `continue-protect`). The Reach `embed.js` script loads once at the end of index.html.
+Done: Sample reports are live at `/samples/shelter-report-sample-full.pdf` and `/samples/shelter-report-sample-quick-view.pdf` (fictional household Alex & Jordan, in-town renter). The preview card and wording match the report engine: Low / Moderate / High concern across 11 areas.
 
 ## Deploying
 Hostinger does not pull from GitHub for this site. After changes, download a zip of the repo and upload it in Hostinger: Deployments → Settings and redeploy → Upload new files → Redeploy.
