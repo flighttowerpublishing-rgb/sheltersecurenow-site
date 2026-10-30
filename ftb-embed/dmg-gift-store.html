@@ -1,0 +1,282 @@
+<!-- Flight Tower Books: THE WHOLE STORE — four shelves + "Shop for" filters. Paste into a Hostinger Embed Code element on the page https://flighttowerbooks.com/dmg-gift-store.
+     The "Help Me Find Their Gift" button links to the gift finder at https://flighttowerbooks.com/dmg-gifts.
+     The gift list (G) is shared with dmg-gift-finder.html: when you add or change a gift, change it in both files. Amazon links carry tag flighttower-20. -->
+<style>
+#dmgg{--ink:#1d1b19;--paper:#fbf7ef;--card:#ffffff;--red:#c8202f;--red2:#9e1622;--muted:#5f5850;--line:#e6ddcc;--gold:#e9b949;
+  font:16px/1.55 Georgia,"Times New Roman",serif;color:var(--ink);background:var(--paper);border-radius:20px;
+  padding:36px 32px 28px;max-width:1120px;margin:0 auto;box-sizing:border-box;border:1px solid var(--line)}
+#dmgg *{box-sizing:border-box}
+#dmgg{position:relative;overflow:hidden}
+#dmgg>*:not(.trail){position:relative;z-index:2}
+#dmgg .trail{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+#dmgg .dancer{width:124px;height:140px;flex:none;align-self:end;justify-self:end}
+#dmgg .dancer svg{width:100%;height:100%;overflow:visible;display:block}
+#dmgg .dancer g{transform-box:view-box}
+#dmgg .dm-body{animation:dmBounce 2.5s ease-in-out infinite;transform-origin:75px 160px}
+#dmgg .dm-head{animation:dmHead 2.5s ease-in-out infinite;transform-origin:75px 86px}
+#dmgg .dm-hat{animation:dmHat 2.5s ease-in-out infinite;transform-origin:76px 37px}
+#dmgg .dm-uaL{animation:dmUaL 2.5s ease-in-out infinite;transform-origin:75px 96px}
+#dmgg .dm-faL{animation:dmFaL 2.5s ease-in-out infinite;transform-origin:55px 106px}
+#dmgg .dm-uaR{animation:dmUaR 2.5s ease-in-out infinite;transform-origin:75px 96px}
+#dmgg .dm-faR{animation:dmFaR 2.5s ease-in-out infinite;transform-origin:95px 106px}
+#dmgg .dm-thL{animation:dmThL 2.5s ease-in-out infinite;transform-origin:75px 120px}
+#dmgg .dm-shL{animation:dmShL 2.5s ease-in-out infinite;transform-origin:64px 139px}
+#dmgg .dm-thR{animation:dmThR 2.5s ease-in-out infinite;transform-origin:75px 120px}
+#dmgg .dm-shR{animation:dmShR 2.5s ease-in-out infinite;transform-origin:86px 139px}
+@keyframes dmBounce{0%,50%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-11px) rotate(-4deg)}75%{transform:translateY(-11px) rotate(4deg)}}
+@keyframes dmHead{0%,100%{transform:rotate(-9deg)}25%{transform:rotate(4deg)}50%{transform:rotate(10deg)}75%{transform:rotate(-3deg)}}
+@keyframes dmHat{0%,100%{transform:rotate(0)}30%{transform:rotate(-7deg)}60%{transform:rotate(6deg)}}
+@keyframes dmUaL{0%,100%{transform:rotate(25deg)}20%{transform:rotate(-70deg)}45%{transform:rotate(-20deg)}70%{transform:rotate(-95deg)}85%{transform:rotate(10deg)}}
+@keyframes dmFaL{0%,100%{transform:rotate(-15deg)}20%{transform:rotate(-55deg)}45%{transform:rotate(20deg)}70%{transform:rotate(-30deg)}}
+@keyframes dmUaR{0%,100%{transform:rotate(-80deg)}30%{transform:rotate(15deg)}55%{transform:rotate(-40deg)}80%{transform:rotate(30deg)}}
+@keyframes dmFaR{0%,100%{transform:rotate(-40deg)}30%{transform:rotate(25deg)}55%{transform:rotate(-60deg)}80%{transform:rotate(10deg)}}
+@keyframes dmThL{0%,50%,100%{transform:rotate(0)}25%{transform:rotate(55deg)}75%{transform:rotate(-12deg)}}
+@keyframes dmShL{0%,50%,100%{transform:rotate(0)}25%{transform:rotate(-20deg)}75%{transform:rotate(45deg)}}
+@keyframes dmThR{0%,50%,100%{transform:rotate(0)}25%{transform:rotate(12deg)}75%{transform:rotate(-55deg)}}
+@keyframes dmShR{0%,50%,100%{transform:rotate(0)}25%{transform:rotate(-45deg)}75%{transform:rotate(20deg)}}
+@media(prefers-reduced-motion:reduce){#dmgg .dancer g{animation:none!important}}
+#dmgg .top{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:8px}
+#dmgg .kick{font:700 12px/1 Arial,sans-serif;letter-spacing:.18em;color:var(--red);text-transform:uppercase;margin:0 0 10px}
+#dmgg h2{font:700 clamp(32px,5vw,54px)/1.02 Georgia,serif;margin:0;letter-spacing:-.01em;text-wrap:balance}
+#dmgg h2 .dm{color:var(--red)}
+#dmgg .sub{font-style:italic;font-size:18px;color:var(--muted);margin:10px 0 0;max-width:620px}
+#dmgg .note{font:13px/1.5 Arial,sans-serif;color:var(--muted);margin:14px 0 22px}
+#dmgg h3.sec{font:700 13px/1 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin:26px 0 14px;display:flex;align-items:center;gap:12px}
+#dmgg h3.sec:after{content:'';flex:1;height:1px;background:var(--line)}
+#dmgg .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+#dmgg .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+#dmgg .img{aspect-ratio:1/1;background:#f2ece0;display:block;max-width:100%}
+#dmgg .img img{width:100%;height:100%;object-fit:cover;display:block}
+#dmgg .body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+#dmgg .lesson{font:700 11px/1.3 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+#dmgg .name{font:700 19px/1.25 Georgia,serif;margin:0}
+#dmgg .joke{font-size:15px;color:var(--muted);margin:0;flex:1}
+#dmgg .price{font:700 15px/1 Arial,sans-serif}
+#dmgg .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+#dmgg .btn{display:inline-block;padding:10px 16px;border-radius:999px;font:700 14px/1 Arial,sans-serif;text-decoration:none;background:var(--red);color:#fff;border:2px solid var(--red)}
+#dmgg .btn:hover,#dmgg .btn:focus-visible{background:var(--red2);border-color:var(--red2);outline:none}
+#dmgg .btn.ghost{background:transparent;color:var(--red)}
+#dmgg .btn.ghost:hover,#dmgg .btn.ghost:focus-visible{background:var(--red);color:#fff}
+#dmgg .book{display:grid;grid-template-columns:1fr;gap:26px;align-items:center;background:var(--ink);color:#f5efe3;border-radius:16px;padding:24px;margin-top:6px}
+#dmgg .book .lesson{color:var(--gold)}
+#dmgg .book .name{font-size:26px;color:#fff}
+#dmgg .book .joke{color:#d8cfbf;font-size:16px}
+#dmgg .book .btn{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+#dmgg .book .btn.ghost{background:transparent;color:var(--gold)}
+#dmgg .book .btn:hover,#dmgg .book .btn:focus-visible{background:#fff;border-color:#fff;color:var(--ink)}
+#dmgg .disc{font:12px/1.5 Arial,sans-serif;color:var(--muted);margin:22px 0 0;border-top:1px solid var(--line);padding-top:12px}
+#dmgg .hide{display:none}
+@media(max-width:640px){
+  #dmgg{padding:24px 16px 20px;border-radius:14px}
+  #dmgg .top{grid-template-columns:1fr}
+  #dmgg .dancer{width:88px;height:100px;order:-1;justify-self:end;align-self:start;margin-bottom:-8px}
+}
+
+#dmgg .controls{display:flex;flex-direction:column;gap:10px;margin:6px 0 4px}
+#dmgg .tabs,#dmgg .chips{display:flex;flex-wrap:wrap;gap:8px}
+#dmgg .tab{font:700 13px/1 Arial,sans-serif;padding:10px 14px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+#dmgg .tab[aria-pressed="true"]{background:var(--ink);color:#fff}
+#dmgg .chip{font:600 12px/1 Arial,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer}
+#dmgg .chip[aria-pressed="true"]{border-color:var(--red);color:var(--red);background:#fdf0f1}
+#dmgg .tab:focus-visible,#dmgg .chip:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+#dmgg .chiplab{font:700 11px/1 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);align-self:center;margin-right:2px}
+#dmgg .shelfnote{font:13px/1.5 Arial,sans-serif;color:var(--muted);margin:-6px 0 14px}
+#dmgg .moment{aspect-ratio:1/1;background:repeating-linear-gradient(0deg,#fbf7ef 0 27px,#efe6d3 27px 28px);display:flex;flex-direction:column;justify-content:center;padding:22px;position:relative;max-width:100%}
+#dmgg .moment:before{content:'D\2212';position:absolute;top:12px;right:14px;font:700 22px/1 Georgia,serif;color:var(--red);border:3px solid var(--red);border-radius:50%;width:46px;height:46px;display:grid;place-content:center;transform:rotate(-12deg)}
+#dmgg .moment small{font:700 11px/1 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+#dmgg .moment q{font:italic 700 22px/1.3 Georgia,serif;color:var(--ink);quotes:"\201C" "\201D"}
+#dmgg .mistake{font-style:italic;color:var(--ink);margin:0}
+#dmgg .src{font:12px/1 Arial,sans-serif;color:var(--muted)}
+#dmgg .empty{font:15px/1.5 Arial,sans-serif;color:var(--muted);padding:20px 0}
+
+#dmgg .hero{align-items:center}
+#dmgg .backbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;font:15px/1.4 Arial,sans-serif;padding:16px 20px}
+#dmgg .finder{background:#fff;border:2px solid var(--ink);border-radius:18px;padding:24px;margin:18px 0 6px;box-shadow:6px 6px 0 var(--ink)}
+#dmgg .fq{font:700 clamp(24px,3.2vw,32px)/1.15 Georgia,serif;margin:0 0 8px;text-wrap:balance}
+#dmgg .fintro{font:15px/1.5 Arial,sans-serif;color:var(--muted);margin:0 0 16px}
+#dmgg .fbtns{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:6px}
+#dmgg .btn.big{font-size:18px;padding:16px 26px}
+#dmgg .flink{background:none;border:0;padding:0;font:700 14px/1 Arial,sans-serif;color:var(--red);text-decoration:underline;cursor:pointer}
+#dmgg .fhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+#dmgg .fcount{font:700 12px/1 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+#dmgg .fopts{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin:14px 0 16px}
+#dmgg .fopt{font:700 15px/1.25 Arial,sans-serif;text-align:left;padding:14px 16px;border-radius:12px;border:2px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:border-color .15s,transform .1s}
+#dmgg .fopt:hover{border-color:var(--red);transform:translateY(-1px)}
+#dmgg .fopt:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+#dmgg .fopt small{display:block;font-weight:400;font-size:12px;color:var(--muted);margin-top:3px}
+#dmgg .mishap{display:flex;align-items:center;gap:14px;background:#fdf0f1;border-radius:12px;padding:10px 14px;min-height:76px}
+#dmgg .mprop{width:64px;height:56px;flex:none}
+#dmgg .mprop svg{width:100%;height:100%;display:block;overflow:visible}
+#dmgg .mcap{font:italic 15px/1.4 Georgia,serif;color:var(--ink)}
+#dmgg .fres .grid{margin:6px 0 18px}
+#dmgg .fres .mishap{margin-bottom:16px}
+#dmgg .mk{animation:mkWiggle 1.2s ease-in-out infinite;transform-origin:32px 40px;transform-box:view-box}
+#dmgg .mc{stroke-dasharray:140;animation:mcTangle 2.4s ease-in-out infinite}
+#dmgg .ms{animation:msSmoke 1.8s ease-out infinite;transform-box:view-box}
+#dmgg .ms2{animation-delay:.6s}#dmgg .ms3{animation-delay:1.2s}
+#dmgg .mt{animation:mtTada 1.6s ease-in-out infinite;transform-origin:32px 50px;transform-box:view-box}
+@keyframes mkWiggle{0%,100%{transform:rotate(-10deg) translateY(0)}30%{transform:rotate(14deg) translateY(-6px)}60%{transform:rotate(-6deg) translateY(2px)}}
+@keyframes mcTangle{0%{stroke-dashoffset:140}60%,100%{stroke-dashoffset:0}}
+@keyframes msSmoke{0%{transform:translateY(0);opacity:0}20%{opacity:.8}100%{transform:translateY(-22px);opacity:0}}
+@keyframes mtTada{0%,100%{transform:scale(1) rotate(0)}25%{transform:scale(1.12) rotate(-6deg)}50%{transform:scale(1.12) rotate(6deg)}}
+@media(prefers-reduced-motion:reduce){#dmgg .mk,#dmgg .mc,#dmgg .ms,#dmgg .mt{animation:none!important;stroke-dashoffset:0;opacity:1}}
+@media(max-width:640px){#dmgg .finder{padding:18px 16px;box-shadow:4px 4px 0 var(--ink)}#dmgg .fopts{grid-template-columns:1fr 1fr}}
+</style>
+
+<div id="dmgg">
+  <svg class="trail" aria-hidden="true"><defs><filter id="dmgSh" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="1.5" dy="3" stdDeviation="1.6" flood-color="#000" flood-opacity=".3"/></filter></defs>
+    <path id="dmgPath" fill="none" stroke="#c8202f" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round" opacity=".35"/>
+    <g id="dmgPlane" filter="url(#dmgSh)" style="opacity:0"><path d="M30 0 L-3 -10 L9 1 Z" fill="#1f3346" stroke="#c6343a" stroke-width="1.3" stroke-linejoin="round"/><path d="M30 0 L9 1 L4 12 Z" fill="#ffffff" stroke="#c6343a" stroke-width="1.3" stroke-linejoin="round"/><path d="M30 0 L9 1 L12 7 Z" fill="#e3e9ee"/><path d="M14 1 L8 1.3 L6 8 Z" fill="#0d1a26"/></g>
+  </svg>
+  <div class="top hero">
+    <div class="herotext">
+      <p class="kick">The D-Minus Genius Gift Guide · The Whole Store</p>
+      <h2>Gifts You <span class="dm">Should</span> Have Thought of First</h2>
+      <p class="sub">A laugh when they open it. A reason to keep it.</p>
+    </div>
+    <div class="dancer" role="img" aria-label="D-Minus Genius in a Santa hat, dancing">
+      <svg viewBox="0 0 150 170" fill="none" stroke="#1d1b19" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <g class="dm-body">
+          <g class="dm-thL"><path d="M75 120 L64 139"/><g class="dm-shL"><path d="M64 139 L60 158 L50 160"/></g></g>
+          <g class="dm-thR"><path d="M75 120 L86 139"/><g class="dm-shR"><path d="M86 139 L90 158 L100 160"/></g></g>
+          <path d="M75 86 L75 120"/>
+          <g class="dm-uaL"><path d="M75 96 L55 106"/><g class="dm-faL"><path d="M55 106 L38 100"/><circle cx="37" cy="100" r="3" fill="#1d1b19"/></g></g>
+          <g class="dm-uaR"><path d="M75 96 L95 106"/><g class="dm-faR"><path d="M95 106 L112 100"/><circle cx="113" cy="100" r="3" fill="#1d1b19"/></g></g>
+          <g class="dm-head">
+            <circle cx="75" cy="62" r="25" fill="#fff" stroke-width="4.5"/>
+            <ellipse cx="66" cy="58" rx="8" ry="10" fill="#fff" stroke-width="3.5"/>
+            <ellipse cx="84" cy="58" rx="8" ry="10" fill="#fff" stroke-width="3.5"/>
+            <circle cx="69" cy="54.5" r="3.8" fill="#1d1b19" stroke="none"/>
+            <circle cx="87" cy="54.5" r="3.8" fill="#1d1b19" stroke="none"/>
+            <path d="M56 70 Q75 94 94 69 Q75 76 56 70 Z" fill="#c8202f" stroke-width="3.5"/>
+            <path d="M68 80 Q75 85 82 79" stroke="#f3a3a3" stroke-width="3"/>
+            <g class="dm-hat"><g transform="translate(0 -9)">
+              <path d="M52 44 Q66 10 92 8 Q110 10 116 30 L104 34 Q99 22 90 22 Q96 32 98 42 Z" fill="#c8202f" stroke-width="4"/>
+              <circle cx="114" cy="34" r="7" fill="#fff" stroke-width="3.5"/>
+              <rect x="47" y="38" width="56" height="13" rx="6.5" fill="#fff" stroke-width="3.5"/>
+              <text x="75" y="48.5" fill="#c8202f" stroke="none" font-family="Arial,sans-serif" font-weight="700" font-size="12" text-anchor="middle">D-</text>
+            </g></g>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="finder backbar"><span>Not sure what to get? <b>Tell D-Minus a little about them.</b> Three quick questions.</span><a class="btn" href="https://flighttowerbooks.com/dmg-gifts" target="_top">Help Me Find Their Gift &rarr;</a></div>
+
+  <h3 class="sec" id="dmggStore" style="margin-top:34px">The whole store</h3>
+  <p class="shelfnote">D-Minus makes the mistake. The gift is the fix. D-Minus originals first on every shelf.</p>
+  <div class="controls">
+    <div class="tabs" role="group" aria-label="Choose a shelf" id="dmggTabs"></div>
+    <div class="chips" role="group" aria-label="Shop for someone" id="dmggChips"><span class="chiplab">Shop for</span></div>
+  </div>
+  <div id="dmggList"></div>
+  <p class="disc">D-Minus originals and Flight Tower books ship from the Flight Tower Books shop. Amazon prices change, so check the current price there. As an Amazon Associate, Flight Tower Books earns from qualifying purchases.</p>
+</div>
+
+<script>
+(function(){
+  var root=document.getElementById('dmgg'); if(!root) return;
+  var SHOP='https://shop.flighttowerbooks.com/products/', IMG='https://shop.flighttowerbooks.com/cdn/shop/files/', AMZ='https://www.amazon.com/', T='tag=flighttower-20';
+  var SHELVES=[
+    ['laugh','Good for a Laugh','Gifts with a clear joke, straight from D-Minus himself.'],
+    ['wish','Wish I\'d Thought of That','Clever fixes for the everyday annoyances D-Minus keeps running into.'],
+    ['them','That\'s So Them','Gifts for one specific interest. You know exactly who.'],
+    ['together','A Little Fun Together','Things to do with someone, not just give them.']
+  ];
+  var WHO=['Outdoor Optimist','Road-Tripper','Grill Boss','Gardener','Homesteader','Reader','Sports Fan','Kids & Family','Has Everything'];
+  /* ===== GIFTS — edit here.
+     own:true = Flight Tower shop item [handle, price, image]; own:false = Amazon (url, no price, no photo).
+     Each card: lesson, the D-Minus mistake, the fix. Keep every story true to what the product does. ===== */
+  var G=[
+    {s:'laugh',own:1,who:['Has Everything'],p:19.99,i:['everything'],r:['laugh'],name:'D-Minus Genius Christmas 2026 Ornament',lesson:'Know when to stop',mistake:'Just one more plate.',fix:'Double-sided ceramic: the mistake on the front, "Stuffed like the turkey" on the back.',price:'$19.99',h:'d-minus-genius-christmas-2026-ornament',img:'17374467230662539272_2048_800x.jpg'},
+    {s:'laugh',own:1,who:['Has Everything'],p:19.99,i:['everything'],r:['laugh'],name:'D-Minus Genius Funny Christmas Snow Globe',lesson:'Check the forecast',mistake:'He ordered a peaceful winter scene.',fix:'He got a blizzard with his name on it. A two-sided snow globe for the desk or shelf.',price:'$19.99',h:'d-minus-genius-funny-christmas-snow-globe-the-globe-was-festive-the-blizzard-personal',img:'1392701047376987738_2048_800x.jpg'},
+    {s:'laugh',own:1,who:['Outdoor Optimist','Has Everything'],p:27.99,i:['outdoors', 'everything'],r:['laugh', 'me'],name:'D-Minus Genius Pocket T-Shirt',lesson:'Plan the landing too',mistake:'The plan was solid.',fix:'The landing, not so much. A white pocket tee, sizes S to 6XL.',price:'$27.99',h:'d-minus-genius-pocket-t-shirt-the-plan-was-solid-the-landing-not-so-much',img:'3245806149320397933_2048_800x.jpg'},
+    {s:'laugh',own:1,who:['Reader','Has Everything'],p:12.99,i:['books', 'everything'],r:['laugh'],name:'Life Lessons: The D-Minus Genius Guide',lesson:'Read the manual first',mistake:'Nobody handed him an owner\'s manual for life.',fix:'So he learned it the hard way: spotting a liar, asking for what you want, making hard decisions.',price:'$12.99',h:'d-minus-genius',img:'D-MGFrontCover_c336f895-18f5-4662-aa54-7e09ece73f53_800x.png'},
+
+    {s:'wish',own:0,who:['Road-Tripper','Has Everything'],p:25,i:['road', 'fix', 'everything'],r:['clever'],name:'Tile Mate Bluetooth Tracker (Life360)',lesson:'Know where you put it',mistake:'Searched the house for 40 minutes. The keys were in the truck.',fix:'Ring your keys from your phone, or see where they were last.',url:AMZ+'dp/B0D635KHVH?'+T},
+    {s:'wish',own:0,who:['Road-Tripper','Outdoor Optimist'],p:20,i:['road', 'outdoors', 'music'],r:['clever'],name:'Anker Zolo Power Bank, Built-In USB-C Cable',lesson:'Charge before you go',mistake:'Phone died at 2%, halfway through the directions.',fix:'A pocket battery with its own cable attached, so there is no cable to forget.',url:AMZ+'s?k=Anker+Zolo+A1688&'+T},
+    {s:'wish',own:0,who:['Grill Boss'],p:40,i:['grill'],r:['clever'],name:'ThermoPro Lightning Instant-Read Thermometer',lesson:'Check, don\'t guess',mistake:'He said it was probably done. It was not done.',fix:'An instant-read meat thermometer. A real answer in seconds, before the guests notice.',url:AMZ+'dp/B0BBR2RL6X?'+T},
+    {s:'wish',own:0,who:['Outdoor Optimist'],p:20,i:['outdoors', 'fix'],r:['clever'],name:'Rechargeable Motion-Sensor Headlamp',lesson:'Bring a light',mistake:'Started the quick hike at 4:30 in November.',fix:'A rechargeable headlamp you switch on with a wave of your hand. Both hands stay free.',url:AMZ+'dp/B0B4KK73NB?'+T},
+    {s:'wish',own:0,who:['Outdoor Optimist','Sports Fan','Gardener'],p:25,i:['outdoors', 'garden'],r:['clever'],name:'OCOOPA Rechargeable Hand Warmers',lesson:'Dress for the weather',mistake:'Dressed for the forecast, not the weather.',fix:'Pocket-size hand warmers that charge by USB. Heat on demand, no disposable packets.',url:AMZ+'dp/B0FHWCNXML?'+T},
+
+    {s:'them',own:1,who:['Gardener','Homesteader'],p:14.99,i:['garden', 'books'],r:['me'],name:'WWII Victory Garden Hacks',lesson:'Plant what you\'ll eat',mistake:'Planted 40 zucchini plants. For two people.',fix:'Wartime garden tricks for a backyard that actually feeds the family.',price:'$14.99',h:'wwii-victory-garden-hacks',img:'VGH_A2_Rt_Cover_800x.png'},
+    {s:'them',own:1,who:['Sports Fan','Reader'],p:14.99,i:['books'],r:['me', 'laugh'],name:'Welcome to the Pitch, America!',lesson:'Learn the rules first',mistake:'Cheered when the other team scored.',fix:'Soccer explained for Americans, so they can follow the game, not just the crowd.',price:'$14.99',h:'welcome-to-the-pitch-america',img:'WTTP-A_corrected_cover1_800x.jpg'},
+    {s:'them',own:1,who:['Road-Tripper','Outdoor Optimist'],p:9.99,i:['road', 'outdoors', 'books'],r:['me'],name:'The Hidden Northern California',lesson:'Keep driving',mistake:'Drove 300 miles and only saw the freeway.',fix:'A guide to the places 300 miles past the point where most people stop.',price:'$9.99',h:'the-hidden-northern-california',img:'ChatGPTImageJul7_2026_06_46_08PM_800x.png'},
+    {s:'them',own:1,who:['Homesteader','Reader'],p:14.99,i:['fix', 'garden', 'books'],r:['me', 'clever'],name:'Grid-Adjacent: The Exit Strategy',lesson:'Know what your home runs on',mistake:'Learned the well pump needs power when the power went out.',fix:'How to cut a household\'s dependence on outside systems without moving off-grid.',price:'$14.99',h:'grid-adjacent-the-exit-strategy',img:'2_13e23f9a-55e4-4de3-b42c-e362bde98fde_800x.png'},
+    {s:'them',own:1,who:['Homesteader','Reader'],p:14.99,i:['books'],r:['me'],name:'The Resilience Experiment',lesson:'Count the real cost',mistake:'Moved to the country to save money. Then priced a tractor.',fix:'Money and meaning in the middle of nowhere, from people living it.',price:'$14.99',h:'the-resilience-experiment',img:'bookcoverTRE_30b67847-5c48-4469-8de9-c78cf2fa7b0c_800x.png'},
+    {s:'them',own:1,who:['Outdoor Optimist'],p:29.99,i:['outdoors'],r:['me'],name:'Mountain Adventure Baseball Cap',lesson:'Dress for the mountain',mistake:'Headed uphill with total confidence.',fix:'A soft cotton cap with a small alpine skier. Pairs with the D-Minus tee. One size, adjustable.',price:'$29.99',h:'mountain-adventure-baseball-cap-alpine-skiing-outdoor-lifestyle-hat',img:'6300688255357752300_2048_800x.jpg'},
+
+    {s:'together',own:1,who:['Kids & Family'],p:14.99,i:['kids'],r:['laugh', 'me'],name:'Finish the Outfit: Cherry Flats Farm',lesson:'Make it together',mistake:'Gave the kids a tablet. Got a very quiet winter.',fix:'Color, cut and dress three cowgirls on a real Northern California farm. Screen-free.',price:'$14.99',h:'finish-the-outfit-cherry-flats-farm',img:'FCFTO4_800x.png'},
+    {s:'together',own:1,who:['Has Everything','Kids & Family'],p:14.99,i:['everything', 'kids'],r:['me'],name:'Finish the Scene: Mandala Farm Coloring Book',lesson:'Slow down',mistake:'Tried to relax by checking his phone 80 times.',fix:'Mandala farm scenes to color on a quiet evening, alone or side by side.',price:'$14.99',h:'finish-the-scene-mandala-farm-coloring-book',img:'digital_cover_1600x2560_a67e2927-7f68-48fa-8913-0ec00c1fb1fe_800x.png'},
+    {s:'together',own:1,who:['Kids & Family'],p:12.99,i:['kids', 'outdoors'],r:['laugh'],name:'Bigfoot Your BIG Friend: Search and Rescue',lesson:'Call for help',mistake:'Got lost on a trail he knew "by heart."',fix:'A search-and-rescue coloring and activity book for ages 4 to 8.',price:'$12.99',h:'bigfoot-your-big-friend-search-rescue',img:'BF_Cover4_1224x1584_99a7d275-af11-41ea-b816-cad6fcd7553e_800x.png'},
+    {s:'together',own:1,who:['Kids & Family'],p:19.99,i:['kids', 'everything'],r:['laugh'],name:'Christmas Creative Collection: 3 Printable Activity Books',lesson:'Plan the snow day',mistake:'Snow day. Zero plans. Three bored kids.',fix:'Three printable Christmas activity books. Print as many copies as the day needs.',price:'$19.99',h:'christmas-creative-collection',img:'ChristmasCreativeActivityBookBundle_f28a9680-1ded-4661-b9b0-0b9a27ca967c_800x.png'}
+  ];
+  /* p = price for the budget step. Amazon items are estimates as of Oct 30, 2026: check and adjust. i = interests, r = reactions (laugh / clever / me). */
+  /* ===== end gifts ===== */
+
+  var shelf='all', who='';
+  function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+  function card(g){
+    var top=g.own
+      ? '<div class="img"><img loading="lazy" src="'+IMG+g.img+'" alt="'+esc(g.name)+'"></div>'
+      : '<div class="moment"><small>The D-Minus moment</small><q>'+esc(g.mistake)+'</q></div>';
+    var btn=g.own
+      ? '<a class="btn" target="_blank" rel="noopener" href="'+SHOP+g.h+'">See it in the shop &rarr;</a>'
+      : '<a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="'+g.url+'">Check price on Amazon &rarr;</a>';
+    return '<article class="card"><div>'+top+'</div><div class="body"><span class="lesson">Lesson: '+esc(g.lesson)+'</span>'+
+      '<h4 class="name">'+esc(g.name)+'</h4>'+(g.own?'<p class="joke mistake">&ldquo;'+esc(g.mistake)+'&rdquo;</p>':'')+
+      '<p class="joke">'+esc(g.fix)+'</p>'+(g.own?'<span class="price">'+g.price+'</span>':'<span class="src">Sold on Amazon</span>')+
+      '<div class="btns">'+btn+'</div></div></article>';
+  }
+  function render(){
+    var html='';
+    SHELVES.forEach(function(sh){
+      if(shelf!=='all'&&shelf!==sh[0]) return;
+      var items=G.filter(function(g){return g.s===sh[0]&&(!who||g.who.indexOf(who)>-1);});
+      items.sort(function(a,b){return b.own-a.own;});
+      if(!items.length) return;
+      html+='<h3 class="sec">'+sh[1]+'</h3><p class="shelfnote">'+sh[2]+'</p><div class="grid">'+items.map(card).join('')+'</div>';
+    });
+    document.getElementById('dmggList').innerHTML=html||'<p class="empty">Nothing on this shelf for that person yet. Try another shelf or "All gifts."</p>';
+  }
+  var tabs=document.getElementById('dmggTabs');
+  [['all','All gifts']].concat(SHELVES).forEach(function(sh){
+    var b=document.createElement('button'); b.type='button'; b.className='tab'; b.textContent=sh[1];
+    b.setAttribute('aria-pressed',sh[0]==='all'?'true':'false');
+    b.onclick=function(){ shelf=sh[0]; [].forEach.call(tabs.children,function(x){x.setAttribute('aria-pressed','false');}); b.setAttribute('aria-pressed','true'); render(); };
+    tabs.appendChild(b);
+  });
+  var chips=document.getElementById('dmggChips');
+  WHO.forEach(function(w){
+    var b=document.createElement('button'); b.type='button'; b.className='chip'; b.textContent=w; b.setAttribute('aria-pressed','false');
+    b.onclick=function(){ var on=who!==w; who=on?w:''; [].forEach.call(chips.querySelectorAll('.chip'),function(x){x.setAttribute('aria-pressed','false');}); if(on) b.setAttribute('aria-pressed','true'); render(); };
+    chips.appendChild(b);
+  });
+
+  render();
+})();
+</script>
+<script>
+(function(){
+  var sec=document.getElementById('dmgg'); if(!sec) return;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var svg=sec.querySelector('.trail'), path=document.getElementById('dmgPath'), plane=document.getElementById('dmgPlane');
+  var P=[[.98,.03],[.80,.07],[.55,.05],[.30,.12],[.08,.22],[.20,.38],[.55,.45],[.85,.55],[.70,.70],[.35,.78],[.10,.90],[.45,.98]];
+  var len=0,t0=null,dur=26000,started=false;
+  function build(){var w=sec.clientWidth,h=sec.clientHeight;if(!w||!h)return false;svg.setAttribute('viewBox','0 0 '+w+' '+h);
+    var pts=P.map(function(p){return [p[0]*w,p[1]*h];}),d='M'+pts[0][0]+' '+pts[0][1];
+    for(var i=0;i<pts.length-1;i++){var p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
+      d+=' C'+(p1[0]+(p2[0]-p0[0])/6)+' '+(p1[1]+(p2[1]-p0[1])/6)+','+(p2[0]-(p3[0]-p1[0])/6)+' '+(p2[1]-(p3[1]-p1[1])/6)+','+p2[0]+' '+p2[1];}
+    path.setAttribute('d',d);len=path.getTotalLength();return true;}
+  function frame(ts){if(!t0)t0=ts;var f=Math.min(1,(ts-t0)/dur),at=Math.max(0,Math.min(f*len,len-2));
+    var a=path.getPointAtLength(at),b=path.getPointAtLength(Math.min(len,at+2));
+    plane.setAttribute('transform','translate('+a.x+' '+a.y+') rotate('+(Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI)+') translate(-15 0)');
+    if((ts-t0)<dur)requestAnimationFrame(frame);}
+  function go(){if(started)return;if(!build()){setTimeout(go,300);return;}started=true;plane.style.opacity=1;requestAnimationFrame(frame);}
+  if('ResizeObserver' in window){new ResizeObserver(function(){build();}).observe(sec);}
+  window.addEventListener('resize',build);
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();go();}},{threshold:.15});io.observe(sec);}else go();
+  setTimeout(go,4000);
+})();
+</script>

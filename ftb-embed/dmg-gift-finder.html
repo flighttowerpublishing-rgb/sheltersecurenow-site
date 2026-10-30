@@ -1,5 +1,6 @@
-<!-- Flight Tower Books: "Gifts You Should Have Thought of First" (The D-Minus Genius Gift Guide). Paste into a Hostinger Embed Code element on its own page.
-     Four shelves + "Shop for" filters. Edit gifts in the GIFTS list in the first script. Amazon links carry tag flighttower-20. -->
+<!-- Flight Tower Books: GIFT FINDER (front door) — "Who are you shopping for?" Paste into a Hostinger Embed Code element on the page https://flighttowerbooks.com/dmg-gifts.
+     "Browse the whole store" links to https://flighttowerbooks.com/dmg-gift-store (change both addresses here if your page addresses differ).
+     The gift list (G) is shared with dmg-gift-store.html: when you add or change a gift, change it in both files. Amazon links carry tag flighttower-20. -->
 <style>
 #dmgg{--ink:#1d1b19;--paper:#fbf7ef;--card:#ffffff;--red:#c8202f;--red2:#9e1622;--muted:#5f5850;--line:#e6ddcc;--gold:#e9b949;
   font:16px/1.55 Georgia,"Times New Roman",serif;color:var(--ink);background:var(--paper);border-radius:20px;
@@ -165,7 +166,7 @@
       <h3 class="fq">Who are you shopping for?</h3>
       <p class="fintro">Tell D-Minus a little about them. Find something they&rsquo;ll love. Three quick questions.</p>
       <div class="fbtns"><button type="button" class="btn big" id="dmggGo">Help Me Find Their Gift &rarr;</button>
-      <a class="flink" href="#dmggStore">or browse the whole store &darr;</a></div>
+      <a class="flink" href="https://flighttowerbooks.com/dmg-gift-store" target="_top">or browse the whole store &rarr;</a></div>
     </div>
     <div class="fstep hide" id="dmggStep">
       <div class="fhead"><span class="fcount" id="dmggCount"></span><button type="button" class="flink" id="dmggBack">&larr; Back</button></div>
@@ -178,18 +179,11 @@
       <h3 class="fq" id="dmggResT">Three gifts D-Minus picked</h3>
       <p class="fintro" id="dmggResNote"></p>
       <div class="grid" id="dmggResGrid"></div>
-      <div class="fbtns"><button type="button" class="btn ghost" id="dmggAgain">Change my answers</button><a class="flink" href="#dmggStore">Browse the whole store &darr;</a></div>
+      <div class="fbtns"><button type="button" class="btn ghost" id="dmggAgain">Change my answers</button><a class="flink" href="https://flighttowerbooks.com/dmg-gift-store" target="_top">Browse the whole store &rarr;</a></div>
     </div>
   </section>
 
-  <h3 class="sec" id="dmggStore" style="margin-top:34px">The whole store</h3>
-  <p class="shelfnote">D-Minus makes the mistake. The gift is the fix. D-Minus originals first on every shelf.</p>
-  <div class="controls">
-    <div class="tabs" role="group" aria-label="Choose a shelf" id="dmggTabs"></div>
-    <div class="chips" role="group" aria-label="Shop for someone" id="dmggChips"><span class="chiplab">Shop for</span></div>
-  </div>
-  <div id="dmggList"></div>
-  <p class="disc">D-Minus originals and Flight Tower books ship from the Flight Tower Books shop. Amazon prices change, so check the current price there. As an Amazon Associate, Flight Tower Books earns from qualifying purchases.</p>
+  <p class="disc">Gift finder results come from the D-Minus Genius Gift Guide store. D-Minus originals and Flight Tower books ship from the Flight Tower Books shop. Amazon prices change, so check the current price there. As an Amazon Associate, Flight Tower Books earns from qualifying purchases.</p>
 </div>
 
 <script>
@@ -247,31 +241,6 @@
       '<p class="joke">'+esc(g.fix)+'</p>'+(g.own?'<span class="price">'+g.price+'</span>':'<span class="src">Sold on Amazon</span>')+
       '<div class="btns">'+btn+'</div></div></article>';
   }
-  function render(){
-    var html='';
-    SHELVES.forEach(function(sh){
-      if(shelf!=='all'&&shelf!==sh[0]) return;
-      var items=G.filter(function(g){return g.s===sh[0]&&(!who||g.who.indexOf(who)>-1);});
-      items.sort(function(a,b){return b.own-a.own;});
-      if(!items.length) return;
-      html+='<h3 class="sec">'+sh[1]+'</h3><p class="shelfnote">'+sh[2]+'</p><div class="grid">'+items.map(card).join('')+'</div>';
-    });
-    document.getElementById('dmggList').innerHTML=html||'<p class="empty">Nothing on this shelf for that person yet. Try another shelf or "All gifts."</p>';
-  }
-  var tabs=document.getElementById('dmggTabs');
-  [['all','All gifts']].concat(SHELVES).forEach(function(sh){
-    var b=document.createElement('button'); b.type='button'; b.className='tab'; b.textContent=sh[1];
-    b.setAttribute('aria-pressed',sh[0]==='all'?'true':'false');
-    b.onclick=function(){ shelf=sh[0]; [].forEach.call(tabs.children,function(x){x.setAttribute('aria-pressed','false');}); b.setAttribute('aria-pressed','true'); render(); };
-    tabs.appendChild(b);
-  });
-  var chips=document.getElementById('dmggChips');
-  WHO.forEach(function(w){
-    var b=document.createElement('button'); b.type='button'; b.className='chip'; b.textContent=w; b.setAttribute('aria-pressed','false');
-    b.onclick=function(){ var on=who!==w; who=on?w:''; [].forEach.call(chips.querySelectorAll('.chip'),function(x){x.setAttribute('aria-pressed','false');}); if(on) b.setAttribute('aria-pressed','true'); render(); };
-    chips.appendChild(b);
-  });
-
   /* ===== GIFT FINDER ===== */
   var PROPS={
     cords:'<svg viewBox="0 0 64 56" fill="none" stroke-linecap="round"><rect x="4" y="16" width="14" height="24" rx="3" fill="#fff" stroke="#1d1b19" stroke-width="2.5"/><path class="mc" d="M18 28 C30 4,40 50,28 34 S50 10,46 30 S28 52,60 44" stroke="#1d1b19" stroke-width="3"/><path class="mc" d="M18 34 C34 52,24 10,44 22 S38 50,58 18" stroke="#c8202f" stroke-width="3" style="animation-delay:.4s"/></svg>',
@@ -317,7 +286,6 @@
   $('dmggGo').onclick=function(){ans={};step=0;ask();};
   $('dmggBack').onclick=function(){ if(step>0){step--;ask();} else showF('dmggStart'); };
   $('dmggAgain').onclick=function(){ans={};step=0;ask();};
-  render();
 })();
 </script>
 <script>
