@@ -124,6 +124,9 @@
 #dmgg .ml .mistake{font:italic 15px/1.45 Georgia,serif;color:var(--ink)}
 #dmgg .ml .lsn{font:700 15px/1.4 Georgia,serif;color:var(--ink)}
 #dmgg .body .joke{font-size:14px}
+#dmgg .card.amz{position:relative}
+#dmgg .stamp{position:absolute;top:12px;right:12px;width:34px;height:34px;border:2px solid var(--red);border-radius:50%;display:grid;place-content:center;font:700 15px/1 Georgia,serif;color:var(--red);transform:rotate(-12deg);background:#fff}
+#dmgg .card.amz .name{padding-right:40px}
 
 /* ===== BRIGHT IDEA DISTRICT (city front door) ===== */
 #dmgg .city{margin:22px 0 8px}
@@ -395,12 +398,12 @@
   function card(g){
     var top=g.own
       ? '<div class="img"><img loading="lazy" src="'+(g.src||IMG+g.img)+'" alt="'+esc(g.name)+'"></div>'
-      : '<div class="moment"><small>The D-Minus mistake</small><q>'+esc(g.mistake)+'</q></div>';
+      : '<span class="stamp" aria-hidden="true">D&minus;</span>';
     var btn=g.own
       ? '<a class="btn" target="_blank" rel="noopener" href="'+(g.link||SHOP+g.h)+'">See it in the shop &rarr;</a>'
       : '<a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="'+g.url+'">Check price on Amazon &rarr;</a>';
-    return '<article class="card"><div>'+top+'</div><div class="body"><h4 class="name">'+esc(g.name)+'</h4>'+
-      (g.own?'<p class="ml"><span class="lesson">Mistake</span><span class="mistake">&ldquo;'+esc(g.mistake)+'&rdquo;</span></p>':'')+
+    return '<article class="card'+(g.own?'':' amz')+'"><div>'+top+'</div><div class="body"><h4 class="name">'+esc(g.name)+'</h4>'+
+      '<p class="ml"><span class="lesson">Mistake</span><span class="mistake">&ldquo;'+esc(g.mistake)+'&rdquo;</span></p>'+
       '<p class="ml"><span class="lesson">Lesson</span><span class="lsn">'+esc(g.lesson)+'</span></p>'+
       '<p class="joke">'+esc(g.fix)+'</p>'+(g.own?'<span class="price">'+g.price+'</span>':'<span class="src">Sold on Amazon</span>')+
       '<div class="btns">'+btn+'</div></div></article>';
