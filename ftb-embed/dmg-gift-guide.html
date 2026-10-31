@@ -297,17 +297,28 @@
     });
     document.getElementById('dmggList').innerHTML=html||'<p class="empty">Nothing on this shelf for that person yet. Try another shelf or "All gifts."</p>';
   }
+  function has(sh,w){return G.some(function(g){return (sh==='all'||g.s===sh)&&(!w||g.who.indexOf(w)>-1);});}
+  function sync(){
+    [].forEach.call(document.querySelectorAll('#dmggChips .chip'),function(b){
+      var ok=has(shelf,b.textContent); b.style.display=ok?'':'none';
+      if(!ok&&who===b.textContent){who='';b.setAttribute('aria-pressed','false');}
+    });
+    [].forEach.call(document.querySelectorAll('#dmggTabs .tab'),function(b){
+      b.style.display=has(b.getAttribute('data-s'),who)?'':'none';
+    });
+    render();
+  }
   var tabs=document.getElementById('dmggTabs');
   [['all','All gifts']].concat(SHELVES.filter(function(sh){return G.some(function(g){return g.s===sh[0];});})).forEach(function(sh){
-    var b=document.createElement('button'); b.type='button'; b.className='tab'; b.textContent=sh[1];
+    var b=document.createElement('button'); b.type='button'; b.className='tab'; b.textContent=sh[1]; b.setAttribute('data-s',sh[0]);
     b.setAttribute('aria-pressed',sh[0]==='all'?'true':'false');
-    b.onclick=function(){ shelf=sh[0]; [].forEach.call(tabs.children,function(x){x.setAttribute('aria-pressed','false');}); b.setAttribute('aria-pressed','true'); render(); };
+    b.onclick=function(){ shelf=sh[0]; [].forEach.call(tabs.children,function(x){x.setAttribute('aria-pressed','false');}); b.setAttribute('aria-pressed','true'); sync(); };
     tabs.appendChild(b);
   });
   var chips=document.getElementById('dmggChips');
   WHO.filter(function(w){return G.some(function(g){return g.who.indexOf(w)>-1;});}).forEach(function(w){
     var b=document.createElement('button'); b.type='button'; b.className='chip'; b.textContent=w; b.setAttribute('aria-pressed','false');
-    b.onclick=function(){ var on=who!==w; who=on?w:''; [].forEach.call(chips.querySelectorAll('.chip'),function(x){x.setAttribute('aria-pressed','false');}); if(on) b.setAttribute('aria-pressed','true'); render(); };
+    b.onclick=function(){ var on=who!==w; who=on?w:''; [].forEach.call(chips.querySelectorAll('.chip'),function(x){x.setAttribute('aria-pressed','false');}); if(on) b.setAttribute('aria-pressed','true'); sync(); };
     chips.appendChild(b);
   });
 
