@@ -4,11 +4,11 @@
      unfinished destinations and empty placeholders hide automatically.
      Edit content in the DEST, RECIPES, TIPS and PRODUCTS lists near the top of the script.
      Built from the DMG Bright Idea District pattern (ftb-embed/dmg-gift-guide.html). -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,600&family=Lato:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,600&family=Lato:wght@400;700&family=Rye&family=Caveat:wght@600;700&display=swap">
 <style>
 /* Layout: one column; header → question + search → Rachel's welcome → farm map (setting) → this week → store behind. */
 #cffd{--cream:#f5eee0;--paper:#fbf8f1;--card:#fffdf8;--cherry:#8f2426;--cherry2:#6e1a1c;--green:#2f5a3c;--brown:#4a3426;--ink:#2a2018;--muted:#6b5d4f;--line:#e2d6c0;--gold:#d39b2e;
-  --disp:"Lora",Georgia,"Times New Roman",serif;--body:"Lato","Helvetica Neue",Arial,sans-serif;
+  --disp:"Lora",Georgia,"Times New Roman",serif;--body:"Lato","Helvetica Neue",Arial,sans-serif;--west:"Rye","Lora",Georgia,serif;--hand:"Caveat","Segoe Print","Bradley Hand",cursive;
   font:16px/1.6 var(--body);color:var(--ink);background:var(--paper);max-width:1120px;margin:0 auto;box-sizing:border-box;border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative}
 #cffd *{box-sizing:border-box}
 #cffd .wrap{padding:0 32px}
@@ -19,6 +19,7 @@
 #cffd .hide{display:none!important}
 #cffd :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 
+#cffd .gingham{height:12px;background-color:#fbf8f1;background-image:linear-gradient(90deg,rgba(168,38,42,.55) 50%,transparent 50%),linear-gradient(rgba(168,38,42,.55) 50%,transparent 50%);background-size:14px 14px}
 /* preview ribbon */
 #cffd .prevbar{background:var(--brown);color:#f5eee0;font:13px/1.45 var(--body);padding:9px 32px}
 #cffd .prevbar b{color:#ffd88a}
@@ -27,8 +28,8 @@
 #cffd .hdr{display:flex;align-items:center;justify-content:space-between;gap:14px 24px;flex-wrap:wrap;padding:16px 32px;border-bottom:1px solid var(--line);background:var(--cream)}
 #cffd .brand{display:flex;align-items:center;gap:10px;background:none;border:0;padding:0;cursor:pointer;text-align:left}
 #cffd .brand svg{width:40px;height:40px;flex:none}
-#cffd .bname{font:700 20px/1.1 var(--disp);color:var(--cherry);letter-spacing:.02em}
-#cffd .btag{display:block;font:700 10.5px/1.2 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-top:3px}
+#cffd .bname{font:400 22px/1.1 var(--west);color:var(--cherry);letter-spacing:.01em}
+#cffd .btag{display:block;font:700 19px/1 var(--hand);color:var(--green);margin-top:2px}
 #cffd .nav{display:flex;flex-wrap:wrap;gap:6px}
 #cffd .nav button{background:none;border:0;padding:8px 10px;border-radius:6px;font:700 14px/1 var(--body);color:var(--brown);cursor:pointer}
 #cffd .nav button:hover{background:#ebe0ca}
@@ -47,16 +48,23 @@
 /* hero */
 #cffd .hero{padding:34px 32px 8px}
 #cffd .kick{font:700 12px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
-#cffd .hero h1{font-size:clamp(34px,5.4vw,58px);line-height:1.04;font-weight:700}
-#cffd .hero h1 em{font-style:italic;color:var(--cherry);font-weight:600}
+#cffd .herogrid{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:28px;align-items:center}
+#cffd .hero h1{font-size:clamp(26px,3.4vw,38px);line-height:1.1;font-weight:700}
+#cffd .hero h1 .big{display:block;font:400 clamp(44px,7.2vw,82px)/.98 var(--west);color:var(--cherry);text-transform:uppercase;margin:6px 0 4px;text-shadow:3px 3px 0 #ead9b8}
+#cffd .art{margin:0;justify-self:center;width:100%;max-width:290px}
+#cffd .art img{width:100%;height:auto;display:block;filter:drop-shadow(3px 6px 8px rgba(74,52,38,.28));animation:cfSway 7s ease-in-out infinite;transform-origin:50% 60%}
+@keyframes cfSway{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg)}}
 #cffd .tagline{font:italic 600 19px/1.45 var(--disp);color:var(--muted);margin-top:12px;max-width:640px}
 #cffd .search{display:flex;gap:8px;margin-top:22px;max-width:680px}
 #cffd .search input{flex:1;min-width:0;font:17px/1.2 var(--body);padding:15px 16px;border:2px solid var(--brown);border-radius:10px;background:#fff;color:var(--ink)}
 #cffd .search input::placeholder{color:#9a8b78}
-#cffd .quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-#cffd .qb{display:inline-flex;align-items:center;gap:7px;font:700 14px/1 var(--body);padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--brown);cursor:pointer}
-#cffd .qb:hover{border-color:var(--cherry);color:var(--cherry)}
-#cffd .qb i{width:9px;height:9px;border-radius:50%;background:var(--c,var(--cherry));display:inline-block}
+#cffd .quick{display:flex;flex-wrap:wrap;gap:10px 8px;margin-top:16px}
+#cffd .qb{position:relative;font:700 13px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;padding:13px 32px 13px 22px;border:0;background:linear-gradient(#e2c08e,#c99a5e);color:#3b2a1f;cursor:pointer;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%);box-shadow:inset 0 -3px 0 rgba(74,52,38,.28),inset 0 2px 0 rgba(255,255,255,.3)}
+#cffd .qb:before{content:'';position:absolute;left:9px;top:50%;width:5px;height:5px;margin-top:-2.5px;border-radius:50%;background:#5b3b28}
+#cffd .qb:hover{background:linear-gradient(#ead0a4,#d5aa70)}
+#cffd .qb[aria-pressed="true"]{background:var(--cherry);color:#fff}
+#cffd .qb[aria-pressed="true"]:before{background:#fff}
+#cffd .qb:focus-visible{outline:none;background:var(--gold);color:#2a2018}
 #cffd .results{margin-top:16px;max-width:680px}
 #cffd .rlist{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
 #cffd .ritem{display:flex;gap:12px;align-items:baseline;justify-content:space-between;text-align:left;padding:12px 16px;background:none;border:0;border-top:1px solid var(--line);cursor:pointer;width:100%}
@@ -67,17 +75,33 @@
 #cffd .none{border:1.5px dashed var(--line);border-radius:12px;padding:16px;background:var(--card);font-size:15px}
 #cffd .none code{font:13px/1 var(--body);background:#f1e8d6;padding:3px 6px;border-radius:4px;user-select:all}
 
+/* answers shelf */
+#cffd .shelf{margin-top:24px}
+#cffd .shelfhead{display:flex;justify-content:space-between;align-items:baseline;gap:6px 14px;flex-wrap:wrap;margin-bottom:12px}
+#cffd .shelfhead h2{font:400 26px/1.1 var(--west);color:var(--brown)}
+#cffd .shelfhead p{font-size:14px;color:var(--muted)}
+#cffd .agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+#cffd .acard{display:flex;flex-direction:column;gap:6px;text-align:left;padding:14px 16px 15px;border-radius:12px;border:1.5px solid var(--line);border-top:5px solid var(--c);background:var(--card);cursor:pointer;min-width:0}
+#cffd .acard:hover{border-color:var(--c)}
+#cffd .acard small{font:700 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--c)}
+#cffd .acard b{font:700 18px/1.3 var(--disp);color:var(--ink)}
+#cffd .short{font:600 19px/1.5 var(--disp);max-width:68ch}
+#cffd .ways{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+#cffd .srcnote{font-size:15px;background:#eef3ea;border-left:4px solid var(--green);padding:11px 14px;border-radius:0 8px 8px 0;max-width:72ch}
+#cffd .pup{animation:cfPup 1.3s ease-in-out infinite alternate}
+#cffd .pup2{animation-delay:-.6s}
+@keyframes cfPup{to{transform:translateY(-2px)}}
 /* welcome */
 #cffd .welcome{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center;margin:30px 32px 0;padding:20px 22px;background:var(--cream);border-radius:16px}
 #cffd .portrait{width:120px;height:120px;border-radius:50%;border:2px dashed var(--cherry);display:grid;place-items:center;text-align:center;font:700 11px/1.3 var(--body);color:var(--cherry);padding:12px;background:var(--card)}
 #cffd .portrait svg{width:34px;height:34px;display:block;margin:0 auto 4px}
-#cffd .bubble{font:600 italic 20px/1.4 var(--disp);color:var(--ink)}
+#cffd .bubble{font:700 30px/1.15 var(--hand);color:var(--ink)}
 #cffd .bubble .dtag{display:inline-block}
 #cffd .bubble>span{display:block;font:15px/1.55 var(--body);font-style:normal;color:var(--muted);margin-top:8px}
 
 /* section heading */
 #cffd .sec{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:38px 32px 14px}
-#cffd .sec h2{font-size:clamp(24px,3vw,31px)}
+#cffd .sec h2{font:400 clamp(24px,3vw,32px)/1.1 var(--west);color:var(--brown)}
 #cffd .sec p{font-size:15px;color:var(--muted)}
 
 /* farm map */
@@ -168,7 +192,7 @@
 #cffd .host{display:flex;gap:14px;align-items:flex-start;margin:0 0 22px}
 #cffd .host .av{width:54px;height:54px;border-radius:50%;flex:none;border:2px dashed var(--cherry);display:grid;place-items:center;background:var(--card)}
 #cffd .host .av svg{width:24px;height:24px}
-#cffd .host .say{background:var(--cream);border-radius:4px 14px 14px 14px;padding:12px 16px;font:600 italic 18px/1.45 var(--disp);flex:1;min-width:0}
+#cffd .host .say{background:var(--cream);border-radius:4px 14px 14px 14px;padding:10px 16px 12px;font:700 26px/1.2 var(--hand);flex:1;min-width:0}
 #cffd .host .say small{display:block;font:700 10px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-style:normal;margin-top:8px}
 #cffd .noprev .host .say small{display:none}
 #cffd .block{margin:0 0 24px}
@@ -209,7 +233,7 @@
 #cffd .meta b{font:700 16px/1.3 var(--body);font-variant-numeric:tabular-nums}
 #cffd .rtwo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px}
 #cffd .rtwo h4{font-size:18px;margin-bottom:8px}
-#cffd .rnote{margin-top:16px;padding:14px 16px;background:var(--cream);border-radius:10px;font:italic 600 17px/1.45 var(--disp)}
+#cffd .rnote{margin-top:16px;padding:14px 16px;background:var(--cream);border-radius:10px;font:700 23px/1.3 var(--hand)}
 #cffd .rnote small{display:block;font:700 10.5px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--cherry);font-style:normal;margin-bottom:6px}
 #cffd .rbtns{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}
 
@@ -223,7 +247,7 @@
 #cffd .chiplab{font:700 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 #cffd .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;align-items:start}
 #cffd .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
-#cffd .card .img{aspect-ratio:1/1;max-width:100%;background:#efe6d3}
+#cffd .card .img{aspect-ratio:4/5;max-width:100%;background:#efe6d3}
 #cffd .card .img img{width:100%;height:100%;object-fit:cover;display:block}
 #cffd .card .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px}
 #cffd .card h4{font-size:18px;line-height:1.25}
@@ -255,7 +279,8 @@
   #cffd .welcome,#cffd .sec,#cffd .mapbox,#cffd .dlist,#cffd .three,#cffd .tiprow{margin-left:16px;margin-right:16px}
   #cffd .maphint{display:block;margin-left:16px}
   #cffd svg.farm{width:860px;max-width:none}
-  #cffd .three,#cffd .tiprow,#cffd .rtwo{grid-template-columns:1fr}
+  #cffd .three,#cffd .tiprow,#cffd .rtwo,#cffd .herogrid{grid-template-columns:1fr}
+  #cffd .art{max-width:220px}
   #cffd .welcome{grid-template-columns:72px 1fr;gap:14px;padding:16px}
   #cffd .portrait{width:72px;height:72px;font-size:0;padding:0}
   #cffd .portrait svg{margin:0}
@@ -271,6 +296,7 @@
 </style>
 
 <div id="cffd">
+  <div class="gingham" aria-hidden="true"></div>
   <p class="prevbar ifprev"><b>Preview for Rachel. Not published.</b> Dashed boxes marked DRAFT are placeholders for Rachel's own words, recipes and photos. Nothing here is live yet.</p>
 
   <header class="hdr">
@@ -288,16 +314,21 @@
   <!-- ===== HOME ===== -->
   <div id="cfHome">
     <section class="hero" id="cfAnswers">
+      <div class="herogrid"><div>
       <p class="kick">Horse Creek · Klamath River</p>
-      <h1>What do you need <em>a hand with</em> today?</h1>
+      <h1>What do you need <span class="big">a hand with</span> today?</h1>
       <p class="tagline">Practical answers for home, garden, and everyday life, with Rachel.</p>
       <form class="search" id="cfSearch" role="search">
         <label for="cfQ" class="hide">What would you like to know?</label>
         <input id="cfQ" type="search" placeholder="What would you like to know?" autocomplete="off">
         <button class="btn" type="submit">Search</button>
       </form>
-      <div class="quick" id="cfQuick"></div>
+      <div class="quick" id="cfQuick" role="group" aria-label="Choose a topic"></div>
       <div class="results hide" id="cfResults" aria-live="polite"></div>
+      </div>
+      <figure class="art"><img id="cfHeroArt" width="560" height="560" alt="Illustration of the Cherry Flats Farm red pickup with two farm dogs, heading down a country road"></figure>
+      </div>
+      <div class="shelf" id="cfShelf"><div class="shelfhead"><h2 id="cfShelfT">Rachel's answers</h2><p id="cfShelfN"></p></div><div class="agrid" id="cfAGrid"></div></div>
     </section>
 
     <section class="welcome" aria-label="Welcome from Rachel">
@@ -345,7 +376,8 @@
         <rect x="-3" y="34" width="10" height="6" fill="#d9d2c3" stroke="#2a2018" stroke-width="1.5"/>
         <circle cx="22" cy="42" r="9" fill="#2a2018"/><circle cx="22" cy="42" r="3.5" fill="#cfc8b8"/>
         <circle cx="118" cy="42" r="9" fill="#2a2018"/><circle cx="118" cy="42" r="3.5" fill="#cfc8b8"/>
-        <rect x="88" y="10" width="22" height="12" rx="2" fill="#4a7aa0" stroke="#2a2018" stroke-width="1.5"/>
+        <g class="pup"><g transform="translate(96 12)"><path d="M-9 -1 l2 -9 6 6z M9 -1 l-2 -9 -6 6z" fill="#1f1a17"/><ellipse cx="0" cy="2" rx="9" ry="8.5" fill="#1f1a17"/><path d="M-1.6 -6.5 h3.2 l2.4 13 h-8z" fill="#fff"/><ellipse cx="0" cy="7" rx="5.2" ry="3.6" fill="#fff"/><circle cx="-4" cy="0" r="1.3" fill="#f2e6d0"/><circle cx="4" cy="0" r="1.3" fill="#f2e6d0"/><circle cx="0" cy="5" r="1.7" fill="#1f1a17"/><path d="M-1.2 9 q1.2 4.5 2.4 0z" fill="#e86a7a"/><ellipse cx="-5" cy="9.5" rx="3" ry="2" fill="#fff" stroke="#1f1a17" stroke-width=".8"/></g></g>
+        <g class="pup pup2"><g transform="translate(122 11)"><ellipse cx="-8.5" cy="3.5" rx="3.6" ry="7.5" fill="#c98a3c"/><ellipse cx="8.5" cy="3.5" rx="3.6" ry="7.5" fill="#c98a3c"/><ellipse cx="0" cy="2" rx="8.5" ry="8.5" fill="#e3ad62"/><ellipse cx="0" cy="7" rx="5.2" ry="3.6" fill="#f1cf94"/><circle cx="-3.5" cy="0" r="1.3" fill="#1f1a17"/><circle cx="3.5" cy="0" r="1.3" fill="#1f1a17"/><circle cx="0" cy="5" r="1.7" fill="#1f1a17"/><path d="M-1.2 9 q1.2 5 2.4 0z" fill="#e86a7a"/><ellipse cx="5" cy="10" rx="3" ry="2" fill="#e3ad62" stroke="#a8743a" stroke-width=".8"/></g></g>
       </g>
       <g transform="translate(762 506)"><rect x="0" y="0" width="64" height="22" rx="3" fill="url(#cfAwn)" stroke="#6e1a1c" stroke-width="1.5" transform="skewX(-20)"/></g>
       <g class="lab" transform="translate(880 576)"><rect x="-96" y="-13" width="192" height="25" rx="5"/><text y="5" text-anchor="middle">Riverbank &amp; Red Pickup</text></g>
@@ -540,6 +572,10 @@
 
     <div class="sec"><h2>Rachel's latest</h2><p>From the Farm Journal on cherryflatsfarm.com.</p></div>
     <div class="three" id="cfLatest"></div>
+
+    <div class="sec"><h2>From the General Store</h2><p>Books, supplies and gifts that go with Rachel's answers.</p></div>
+    <div class="three" id="cfTease"></div>
+    <div class="wrap" style="margin-top:16px"><button type="button" class="btn" data-go="store">Visit the General Store &rarr;</button></div>
   </div>
 
   <!-- ===== DESTINATION ===== -->
@@ -570,6 +606,7 @@
   var PREVIEW=true;          /* false = live: hides drafts, placeholders and unfinished destinations */
   var MIN_RECIPES=3;         /* live: an ingredient appears only once it has this many recipes */
   var U='utm_source=cff-front-door&utm_medium=referral&utm_campaign=family';
+  var ART=root.getAttribute('data-art')||'https://cdn.jsdelivr.net/gh/flighttowerpublishing-rgb/sheltersecurenow-site@main/cff-embed/art/';
   var SHOP='https://shop.flighttowerbooks.com/products/', IMG='https://shop.flighttowerbooks.com/cdn/shop/files/', SC='https://flighttowerbook.mysamcart.com/';
   function q(u){return u+(u.indexOf('?')<0?'?':'&')+U;}
 
@@ -587,7 +624,27 @@
     {id:'animals',name:'The Animal Yard',q:'What have we learned raising these animals?',c:'#7a5a3a',open:false,say:'Come meet the crew.',keys:'chickens chicken ducks duck quail cow sheep animals eggs',plan:['Meet the cow, sheep, chickens, ducks and quail, by name','Routines and farm stories','What raising them has taught us']},
     {id:'store',name:'The General Store',q:'Where can I find the supplies?',c:'#a8783f',open:true,keys:'buy shop store gifts books printables pdf paperback ornaments'}
   ];
-  var QUICK=[['Cook Something','kitchen'],['Grow Something','garden'],['Preserve & Store','stand'],['Fix & Make','workshop'],['Family Fun','river']];
+  /* Topic signs: [id, label, destination, color] */
+  var CATS=[['cook','Cook Something','kitchen','#8f2426'],['grow','Grow Something','garden','#2f5a3c'],['preserve','Preserve & Store','stand','#557050'],['fix','Fix & Make','workshop','#8a5a3b'],['family','Family Fun','river','#3f7f95']];
+
+  /* ===== ANSWERS — the heart of the site: one entry per visitor question.
+     The questions below are SUGGESTIONS for Rachel to keep, reword or drop. Every answer body is hers.
+     draft:1 = waiting on Rachel (hidden when PREVIEW=false). short = her 2–3 sentence answer.
+     ways = "choose what suits you" options. tested = preservation/storage source note (required for those topics).
+     rec = links a Kitchen recipe. rel = extra related answers. ===== */
+  var ANSWERS=[
+    {id:'extra-zucchini',cat:'cook',q:'What can I make with extra zucchini?',ways:['Quick meal','Baking','Preserving'],tags:'zucchini squash summer recipe',rel:['freeze-harvest'],draft:1},
+    {id:'last-pumpkins',cat:'cook',q:'What can I make with the last of the pumpkins?',ways:['Quick meal','Baking'],tags:'pumpkin muffins fall recipe',draft:1},
+    {id:'bake-crowd',cat:'cook',q:'How do I bake for a crowd?',tags:'muffins baking crowd party potluck pecan',rec:'pecan-muffins',draft:1},
+    {id:'before-frost',cat:'grow',q:'What can I still plant before a hard frost?',tags:'plant planting frost fall garlic winter',draft:1},
+    {id:'covered-garden',cat:'grow',q:'What grows well in a covered garden?',tags:'greenhouse hoop house covered garden season',draft:1},
+    {id:'store-potatoes',cat:'preserve',q:'How do I store potatoes at home?',tags:'potatoes storage root cellar keep',tested:'Storage guidance follows the National Center for Home Food Preservation. Rachel adds what works in her own root cellar.',draft:1},
+    {id:'cure-garlic',cat:'preserve',q:'How do I cure and hang garlic?',tags:'garlic harvest cure hang braid storage',tested:'Curing and storage steps follow a university extension guide, named here once Rachel picks it.',draft:1},
+    {id:'freeze-harvest',cat:'preserve',q:'What can I freeze from the garden, and how?',tags:'freeze freezing blanch vegetables harvest zucchini',tested:'Blanching and freezing times come from the National Center for Home Food Preservation. No guessed times.',draft:1},
+    {id:'garden-tools',cat:'fix',q:'How do I clean and sharpen garden tools?',tags:'tools sharpen clean rust shovel pruners',draft:1},
+    {id:'river-day',cat:'family',q:'What should we pack for a day at the river?',tags:'river picnic pack checklist outing kids',draft:1},
+    {id:'long-drive',cat:'family',q:'How do I keep kids happy on a long drive?',tags:'road trip car kids games drive travel',draft:1}
+  ];
 
   /* ===== RECIPES — titles come from Rachel's Farm Stand and Farm Journal. Every field marked "Rachel" is hers to supply.
      ing = ingredients the finder matches on. Add ingredients, time, occasion when Rachel sends each recipe. ===== */
@@ -605,11 +662,7 @@
   var TIPS=[];
 
   /* ===== THIS WEEK — three seasonal questions; each opens a destination ===== */
-  var WEEK=[
-    ['What can I make with the last of the pumpkins?','kitchen'],
-    ['What can I still plant before a hard frost?','garden'],
-    ['How should I store winter squash and potatoes?','cellar']
-  ];
+  var WEEK=['last-pumpkins','before-frost','store-potatoes'];   /* answer ids, change weekly */
   var JOURNAL=[
     ['Pecan streusel muffins for a crowd','Baking for a full table.'],
     ['Let the kids garnish','Bringing the little ones into the kitchen.'],
@@ -621,7 +674,7 @@
   var SHELVES=[['kitchen','Kitchen & Preserving'],['garden','Garden'],['kids','Kids & Family'],['books','Bookshelf'],['holiday','Holiday']];
   var FMTS=[['pdf','Printable PDF'],['paper','Paperback'],['merch','Gifts & Merch'],['amz','Amazon picks']];
   var PRODUCTS=[
-    {id:'rtab',name:'Cherry Flats Farm Road Trip Adventure Book',s:['kids','books'],d:['river','bunk'],img:'CFFActivitybookcover2.png?v=1793455432',blurb:'Road games, mazes, coloring, silly stories and kindness activities from Cherry Flats Farm. Print a copy for every kid in the car.',
+    {id:'rtab',name:'Cherry Flats Farm Road Trip Adventure Book',s:['kids','books'],d:['river','bunk'],art:'road-trip-cover.webp',img:'CFFActivitybookcover2.png?v=1793455432',blurb:'Road games, mazes, coloring, silly stories and kindness activities from Cherry Flats Farm. Print a copy for every kid in the car.',
       f:[{t:'pdf',price:'$9.99',url:SC+'cherry-flats-farm-road-trip-adventure-book'},{t:'paper',price:'$14.99',soon:'Coming to Amazon'}]},
     {id:'fto',name:'Finish the Outfit: Cherry Flats Farm',s:['kids','books'],d:['bunk'],img:'FCFTO4_800x.png',blurb:'Color, cut and dress three cowgirls on a real Northern California farm. Screen-free.',
       f:[{t:'pdf',price:'$9.99',url:SC+'checkout/finish-the-outfit-cherry-flats-farm-cut-out-activity-book'},{t:'paper',price:'$14.99',url:SHOP+'finish-the-outfit-cherry-flats-farm'}]},
@@ -664,6 +717,12 @@
     else if(where==='store'){renderStore(arg);show('store');top();}
     else openDest(where);
   }
+  root.addEventListener('click',function(e){
+    var c=e.target.closest('[data-cat]');
+    if(c&&root.contains(c)){var v=c.getAttribute('data-cat');cat=(cat===v?'':v);if(views.home.classList.contains('hide')){show('home');top($('cfShelf'));}renderShelf();return;}
+    var a=e.target.closest('[data-ans]');
+    if(a&&root.contains(a)){openAnswer(a.getAttribute('data-ans'));}
+  });
   root.addEventListener('click',function(e){var b=e.target.closest('[data-go]');if(!b||!root.contains(b))return;e.preventDefault();go(b.getAttribute('data-go'),b.getAttribute('data-arg'));});
 
   /* ---------- map ---------- */
@@ -681,12 +740,26 @@
   });
 
   /* ---------- home ---------- */
-  $('cfQuick').innerHTML=QUICK.filter(function(x){return shown(dest(x[1]));}).map(function(x){var d=dest(x[1]);return '<button type="button" class="qb" data-go="'+x[1]+'" style="--c:'+d.c+'"><i></i>'+esc(x[0])+'</button>';}).join('');
+  var cat='';
+  function catOf(id){for(var i=0;i<CATS.length;i++) if(CATS[i][0]===id) return CATS[i]; return null;}
+  function liveA(a){return PREVIEW||!a.draft;}
+  function answer(id){for(var i=0;i<ANSWERS.length;i++) if(ANSWERS[i].id===id) return ANSWERS[i]; return null;}
+  function acard(a){var c=catOf(a.cat);return '<button type="button" class="acard" data-ans="'+a.id+'" style="--c:'+c[3]+'"><small>'+esc(c[1])+'</small><b>'+esc(a.q)+'</b>'+(a.draft&&PREVIEW?'<span class="dtag" style="align-self:flex-start">Suggested · Rachel to answer</span>':'')+'</button>';}
+  function renderShelf(){
+    Array.prototype.forEach.call($('cfQuick').children,function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-cat')===cat));});
+    var c=catOf(cat), list=ANSWERS.filter(function(a){return liveA(a)&&(!cat||a.cat===cat);});
+    $('cfShelfT').textContent=c?c[1]:"Rachel's answers";
+    $('cfShelfN').innerHTML=c?'<button type="button" class="lnk" data-cat="">All topics</button> &nbsp;·&nbsp; '+(shown(dest(c[2]))?'<button type="button" class="lnk" data-go="'+c[2]+'">Visit '+esc(dest(c[2]).name)+' &rarr;</button>':''):'Pick a sign above, or search.';
+    $('cfAGrid').innerHTML=list.length?list.map(acard).join(''):'<p class="none">Rachel\'s answers for this topic are on the way.</p>';
+  }
+  $('cfQuick').innerHTML=CATS.map(function(c){return '<button type="button" class="qb" data-cat="'+c[0]+'" aria-pressed="false">'+esc(c[1])+'</button>';}).join('');
+  renderShelf();
+  $('cfHeroArt').src=ART+'pickup-summer.webp';
   $('cfDList').innerHTML=DEST.filter(shown).map(function(d){
     return '<button type="button" class="dbtn'+(d.open?'':' soon')+'" data-go="'+d.id+'" style="--c:'+d.c+'"><b><i></i>'+esc(d.name)+(PREVIEW?'<em class="pill'+(d.open?' open':'')+'">'+(d.open?'Opens first':'Later')+'</em>':'')+'</b><span>'+esc(d.q)+'</span></button>';
   }).join('');
-  $('cfWeek').innerHTML=WEEK.filter(function(w){return shown(dest(w[1]));}).map(function(w){var d=dest(w[1]);
-    return '<button type="button" class="wk" data-go="'+w[1]+'"><div class="ph">Rachel\'s photo</div><div class="in"><small>'+esc(d.name)+'</small><h3>'+esc(w[0])+'</h3>'+(PREVIEW?'<span class="dtag" style="align-self:flex-start">Answer from Rachel</span>':'')+'</div></button>';}).join('');
+  $('cfWeek').innerHTML=WEEK.map(answer).filter(function(a){return a&&liveA(a);}).map(function(a){var c=catOf(a.cat);
+    return '<button type="button" class="wk" data-ans="'+a.id+'"><div class="ph">Rachel\'s photo</div><div class="in"><small style="color:'+c[3]+'">'+esc(c[1])+'</small><h3>'+esc(a.q)+'</h3>'+(PREVIEW?'<span class="dtag" style="align-self:flex-start">Answer from Rachel</span>':'')+'</div></button>';}).join('');
   $('cfLatest').innerHTML=JOURNAL.map(function(j){return '<a class="jr" target="_blank" rel="noopener" href="https://cherryflatsfarm.com/?'+U+'#journal"><b>'+esc(j[0])+'</b><span>'+esc(j[1])+' Read it in the Farm Journal &rarr;</span></a>';}).join('');
   /* tip of the week rotates by ISO-ish week number */
   (function(){
@@ -701,17 +774,18 @@
   /* ---------- search ---------- */
   var INDEX=[];
   DEST.filter(shown).forEach(function(d){INDEX.push({k:'Farm',t:d.name+': '+d.q,x:(d.name+' '+d.q+' '+d.keys).toLowerCase(),go:d.id});});
+  ANSWERS.filter(liveA).forEach(function(a){INDEX.push({k:'Answer',t:a.q,x:(a.q+' '+(a.tags||'')+' '+catOf(a.cat)[1]).toLowerCase(),ans:a.id});});
   RECIPES.forEach(function(r){INDEX.push({k:'Recipe',t:r.title,x:(r.title+' '+r.ing.join(' ')+' recipe').toLowerCase(),go:'kitchen',arg:r.id});});
   PRODUCTS.filter(function(p){return live(p)&&!p.amz;}).forEach(function(p){INDEX.push({k:'Store',t:p.name,x:(p.name+' '+p.blurb+' '+p.s.join(' ')).toLowerCase(),go:'store',arg:p.s[0]});});
   function search(term){
     var words=term.toLowerCase().replace(/[^a-z0-9ñ ]/g,' ').split(/\s+/).filter(function(w){return w.length>2&&['how','what','the','and','for','can','make','with','have','do','does','should','about','from','into'].indexOf(w)<0;});
     var out=$('cfResults');out.classList.remove('hide');
     if(!words.length){out.innerHTML='<div class="none">Try a word like <b>muffins</b>, <b>garden</b>, <b>canning</b> or <b>road trip</b>.</div>';return;}
-    var hits=INDEX.map(function(it){var s=0;words.forEach(function(w){var stem=w.replace(/(ing|es|s)$/,'');if(it.x.indexOf(stem)>=0)s+=(it.k==='Recipe'?3:it.k==='Farm'?2:1);});return {it:it,s:s};})
+    var hits=INDEX.map(function(it){var s=0;words.forEach(function(w){var stem=w.replace(/(ing|es|s)$/,'');if(it.x.indexOf(stem)>=0)s+=(it.k==='Answer'?4:it.k==='Recipe'?3:it.k==='Farm'?2:1);});return {it:it,s:s};})
       .filter(function(h){return h.s>0;}).sort(function(a,b){return b.s-a.s;}).slice(0,6);
     if(!hits.length){
-      out.innerHTML='<div class="none"><b>Rachel hasn\'t answered that one yet.</b> Send her the question and it may become the next answer on the farm: <code>hello@cherryflatsfarm.com</code></div>';return;}
-    out.innerHTML='<div class="rlist">'+hits.map(function(h){return '<button type="button" class="ritem" data-go="'+h.it.go+'"'+(h.it.arg?' data-arg="'+h.it.arg+'"':'')+'><b>'+esc(h.it.t)+'</b><small>'+h.it.k+'</small></button>';}).join('')+'</div>';
+      out.innerHTML='<div class="none"><b>Rachel hasn\'t answered that one yet.</b> Suggest it, and it may become her next answer: <code>hello@cherryflatsfarm.com</code></div>';return;}
+    out.innerHTML='<div class="rlist">'+hits.map(function(h){return '<button type="button" class="ritem" '+(h.it.ans?'data-ans="'+h.it.ans+'"':'data-go="'+h.it.go+'"'+(h.it.arg?' data-arg="'+h.it.arg+'"':''))+'><b>'+esc(h.it.t)+'</b><small>'+h.it.k+'</small></button>';}).join('')+'</div>';
   }
   $('cfSearch').addEventListener('submit',function(e){e.preventDefault();search($('cfQ').value);});
 
@@ -719,12 +793,13 @@
   var FLAB={pdf:'Printable PDF',paper:'Paperback',merch:'Gift'};
   function card(p){
     if(p.amz) return '<article class="card amz"><div class="body"><span class="stamp">Sold on Amazon</span><h4>'+esc(p.name)+'</h4>'+draftBox('Draft · Paul to send','Paul picks this on Amazon and sends the link. Shows the name, why Rachel likes it, and a "Check price on Amazon" button. No Amazon photos or prices.')+'</div></article>';
-    var top=p.img?'<div class="img"><img loading="lazy" src="'+IMG+p.img+'" alt="'+esc(p.name)+' cover" onerror="this.parentNode.classList.add(\'err\');this.remove()"></div>':'<div class="img">'+esc(p.ph||'Photo coming')+'</div>';
+    var src=p.art?ART+p.art:(p.img?IMG+p.img:'');
+    var top=src?'<div class="img"><img loading="lazy" src="'+src+'" alt="'+esc(p.name)+' cover" onerror="this.parentNode.classList.add(\'err\');this.remove()"></div>':'<div class="img">'+esc(p.ph||'Photo coming')+'</div>';
     var fm=p.f.map(function(f){
       var right=f.soon?'<span class="soonnote">'+esc(f.soon)+'</span>':'<a class="btn" target="_blank" rel="noopener" href="'+esc(q(f.url))+'">'+(f.t==='pdf'?'Buy &amp; print':'See it in the shop')+' &rarr;</a>';
       return '<div class="fmt"><span class="fl"><b>'+FLAB[f.t]+'</b>'+(f.price?'<strong>'+f.price+'</strong>':'')+'</span>'+right+'</div>';
     }).join('');
-    return '<article class="card'+(p.img?'':' noimg')+'">'+top+'<div class="body"><h4>'+esc(p.name)+'</h4><p>'+esc(p.blurb)+'</p>'+(p.draft?draftBox('Draft','Details to confirm before launch.'):'')+fm+'</div></article>';
+    return '<article class="card'+(src?'':' noimg')+'">'+top+'<div class="body"><h4>'+esc(p.name)+'</h4><p>'+esc(p.blurb)+'</p>'+(p.draft?draftBox('Draft','Details to confirm before launch.'):'')+fm+'</div></article>';
   }
   function related(ids,shelf){
     var list=PRODUCTS.filter(function(p){return live(p)&&((shelf&&p.s.indexOf(shelf)>=0)||p.d.some(function(x){return ids.indexOf(x)>=0;}));});
@@ -749,6 +824,8 @@
     else if(id==='stand') body=standHTML();
     else if(id==='river') body=riverHTML();
     else body='<div class="block"><h3>Coming to this part of the farm</h3><ul class="plain">'+(d.plan||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul></div>'+draftBox('Draft · hidden when live','This stop stays off the public map until Rachel\'s content for it is ready.');
+    var da=ANSWERS.filter(function(x){return liveA(x)&&catOf(x.cat)[2]===id;});
+    if(da.length) body+='<div class="block"><h3>Rachel\'s answers here</h3><div class="agrid">'+da.map(acard).join('')+'</div></div>';
     views.dest.innerHTML=bar+'<div class="dhead" style="--c:'+d.c+'"><p class="kick">Cherry Flats Farm</p><h2>'+esc(d.name)+'</h2><p class="q">'+esc(d.q)+'</p></div>'+host+body+supplies(d,rel)+'<div class="bar" style="margin-top:24px">'+bar.slice(17);
     show('dest');top();
     if(id==='kitchen'){kstate.ing=null;kstate.recipe=null;if(arg){var r=recipe(arg);if(r){kstate.ing=r.ing[0]||null;kstate.recipe=r.id;}}renderKitchen();}
@@ -814,6 +891,8 @@
     if(r){var el=$('cfRecipe');if(el)top(el);}
   }
   views.dest.addEventListener('click',function(e){
+    var w=e.target.closest('[data-way]');
+    if(w){var i=w.getAttribute('data-way');Array.prototype.forEach.call(views.dest.querySelectorAll('[data-way]'),function(x){x.setAttribute('aria-pressed',String(x===w));});Array.prototype.forEach.call(views.dest.querySelectorAll('[data-wp]'),function(p){p.classList.toggle('hide',p.getAttribute('data-wp')!==i);});return;}
     var b=e.target.closest('[data-ing]');
     if(b){var v=b.getAttribute('data-ing');kstate.ing=(kstate.ing===v?null:v);kstate.recipe=null;renderKitchen();return;}
     b=e.target.closest('[data-rec]');
@@ -836,6 +915,29 @@
   $('cfTabs').addEventListener('click',function(e){var b=e.target.closest('[data-shelf]');if(!b)return;shelf=b.getAttribute('data-shelf');renderStore();});
   $('cfChips').addEventListener('click',function(e){var b=e.target.closest('[data-fmt]');if(!b)return;var v=b.getAttribute('data-fmt');fmt=(fmt===v?'':v);renderStore();});
 
-  window.__cffd={DEST:DEST,PRODUCTS:PRODUCTS,vis:vis,SHELVES:SHELVES,FMTS:FMTS,go:function(w,a){go(w,a);}};
+  /* ---------- answer page ---------- */
+  function openAnswer(id){
+    var a=answer(id); if(!a||!liveA(a)) return;
+    var c=catOf(a.cat), d=dest(c[2]), cook=a.cat==='cook';
+    var bar='<div class="bar"><button type="button" class="lnk" data-go="answers">&larr; All answers</button>'+(shown(d)?'<button type="button" class="btn ghost" data-go="'+d.id+'">'+esc(d.name)+' &rarr;</button>':'')+'</div>';
+    var h=bar+'<div class="dhead" style="--c:'+c[3]+'"><p class="kick">'+esc(c[1])+' · Rachel\'s answer</p><h2>'+esc(a.q)+'</h2></div>';
+    h+='<div class="block"><h3>The short answer</h3>'+(a.short?'<p class="short">'+esc(a.short)+'</p>':draftBox('Draft · Rachel to answer','Two or three sentences that answer the question right away.'))+'</div>';
+    if(a.ways) h+='<div class="block"><h3>Choose what suits you</h3><div class="ways" role="group" aria-label="Choose an option">'+a.ways.map(function(w,i){return '<button type="button" class="tab" data-way="'+i+'" aria-pressed="'+(i===0)+'">'+esc(w)+'</button>';}).join('')+'</div>'+
+      a.ways.map(function(w,i){return '<div class="rgrid'+(i?' hide':'')+'" data-wp="'+i+'" style="margin-top:0">'+[1,2].map(function(){return '<div class="rcard slot"><div class="in"><b>'+esc(w)+'</b>'+draftBox('Draft · Rachel to supply','One of Rachel\'s '+esc(w.toLowerCase())+' options, with its time.')+'</div></div>';}).join('')+'</div>';}).join('')+'</div>';
+    if(a.rec){var r=recipe(a.rec); if(r) h+='<div class="block"><button type="button" class="btn ghost" data-go="kitchen" data-arg="'+r.id+'">Open Rachel\'s recipe: '+esc(r.title)+' &rarr;</button></div>';}
+    var m=cook?['Prep','Cook','Makes']:['Time','Skill level'];
+    h+='<div class="block"><h3>Full instructions</h3><div class="meta">'+m.map(function(x){return '<div><small>'+x+'</small><b>Rachel</b></div>';}).join('')+'</div>'+
+      '<div class="rtwo"><div><h4>'+(cook?'Ingredients':'What you need')+'</h4>'+draftBox('Draft · Rachel to supply',cook?'Each ingredient with its quantity.':'Each item with its amount.')+'</div><div><h4>Steps</h4>'+draftBox('Draft · Rachel to supply','Numbered steps in her words, with pictures where they help.')+'</div></div>'+
+      (PREVIEW?'<p style="margin-top:12px"><span class="pill">Print button on the live site</span></p>':'')+'</div>';
+    if(a.tested) h+='<p class="srcnote block"><b>Tested source.</b> '+esc(a.tested)+'</p>';
+    h+='<div class="rnote block"><small>From Rachel\'s experience</small>'+(PREVIEW?'What she does on the farm, and why. In her own words.':'')+'</div>';
+    var rel=ANSWERS.filter(function(x){return x.id!==a.id&&liveA(x)&&(x.cat===a.cat||(a.rel||[]).indexOf(x.id)>=0);}).slice(0,3);
+    if(rel.length) h+='<div class="block"><h3>Related help</h3><div class="agrid">'+rel.map(acard).join('')+'</div></div>';
+    h+=supplies(d,related([c[2]]))+'<div style="margin-top:24px">'+bar+'</div>';
+    views.dest.innerHTML=h; show('dest'); top();
+  }
+  $('cfTease').innerHTML=['rtab','fto','vgh'].map(function(id){for(var i=0;i<PRODUCTS.length;i++) if(PRODUCTS[i].id===id) return card(PRODUCTS[i]); return '';}).join('');
+
+  window.__cffd={ANSWERS:ANSWERS,openAnswer:openAnswer,DEST:DEST,PRODUCTS:PRODUCTS,vis:vis,SHELVES:SHELVES,FMTS:FMTS,go:function(w,a){go(w,a);}};
 })();
 </script>
