@@ -1,0 +1,840 @@
+<!-- Cherry Flats Farm front door — ONE page, separate site (new domain on Hostinger).
+     Visitor's question → a useful answer → optional supplies. Rachel hosts; the farm map is the setting.
+     PREVIEW = true shows placeholders and unfinished destinations (dashed "DRAFT" boxes). Set PREVIEW = false to go live:
+     unfinished destinations and empty placeholders hide automatically.
+     Edit content in the DEST, RECIPES, TIPS and PRODUCTS lists near the top of the script.
+     Built from the DMG Bright Idea District pattern (ftb-embed/dmg-gift-guide.html). -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,600&family=Lato:wght@400;700&display=swap">
+<style>
+/* Layout: one column; header → question + search → Rachel's welcome → farm map (setting) → this week → store behind. */
+#cffd{--cream:#f5eee0;--paper:#fbf8f1;--card:#fffdf8;--cherry:#8f2426;--cherry2:#6e1a1c;--green:#2f5a3c;--brown:#4a3426;--ink:#2a2018;--muted:#6b5d4f;--line:#e2d6c0;--gold:#d39b2e;
+  --disp:"Lora",Georgia,"Times New Roman",serif;--body:"Lato","Helvetica Neue",Arial,sans-serif;
+  font:16px/1.6 var(--body);color:var(--ink);background:var(--paper);max-width:1120px;margin:0 auto;box-sizing:border-box;border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative}
+#cffd *{box-sizing:border-box}
+#cffd .wrap{padding:0 32px}
+#cffd h1,#cffd h2,#cffd h3,#cffd h4{font-family:var(--disp);color:var(--ink);margin:0;text-wrap:balance}
+#cffd p{margin:0}
+#cffd button{font:inherit;color:inherit}
+#cffd a{color:var(--cherry)}
+#cffd .hide{display:none!important}
+#cffd :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* preview ribbon */
+#cffd .prevbar{background:var(--brown);color:#f5eee0;font:13px/1.45 var(--body);padding:9px 32px}
+#cffd .prevbar b{color:#ffd88a}
+
+/* header */
+#cffd .hdr{display:flex;align-items:center;justify-content:space-between;gap:14px 24px;flex-wrap:wrap;padding:16px 32px;border-bottom:1px solid var(--line);background:var(--cream)}
+#cffd .brand{display:flex;align-items:center;gap:10px;background:none;border:0;padding:0;cursor:pointer;text-align:left}
+#cffd .brand svg{width:40px;height:40px;flex:none}
+#cffd .bname{font:700 20px/1.1 var(--disp);color:var(--cherry);letter-spacing:.02em}
+#cffd .btag{display:block;font:700 10.5px/1.2 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-top:3px}
+#cffd .nav{display:flex;flex-wrap:wrap;gap:6px}
+#cffd .nav button{background:none;border:0;padding:8px 10px;border-radius:6px;font:700 14px/1 var(--body);color:var(--brown);cursor:pointer}
+#cffd .nav button:hover{background:#ebe0ca}
+#cffd .nav button.shop{background:var(--cherry);color:#fff}
+#cffd .nav button.shop:hover{background:var(--cherry2)}
+
+/* buttons */
+#cffd .btn{display:inline-flex;align-items:center;gap:6px;padding:11px 18px;border-radius:8px;font:700 15px/1 var(--body);text-decoration:none;background:var(--cherry);color:#fff;border:2px solid var(--cherry);cursor:pointer}
+#cffd .btn:hover{background:var(--cherry2);border-color:var(--cherry2)}
+#cffd .btn.ghost{background:transparent;color:var(--cherry)}
+#cffd .btn.ghost:hover{background:var(--cherry);color:#fff}
+#cffd .btn.green{background:var(--green);border-color:var(--green)}
+#cffd .btn[disabled]{opacity:.5;cursor:not-allowed}
+#cffd .lnk{background:none;border:0;padding:0;font:700 14px/1.3 var(--body);color:var(--cherry);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+
+/* hero */
+#cffd .hero{padding:34px 32px 8px}
+#cffd .kick{font:700 12px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+#cffd .hero h1{font-size:clamp(34px,5.4vw,58px);line-height:1.04;font-weight:700}
+#cffd .hero h1 em{font-style:italic;color:var(--cherry);font-weight:600}
+#cffd .tagline{font:italic 600 19px/1.45 var(--disp);color:var(--muted);margin-top:12px;max-width:640px}
+#cffd .search{display:flex;gap:8px;margin-top:22px;max-width:680px}
+#cffd .search input{flex:1;min-width:0;font:17px/1.2 var(--body);padding:15px 16px;border:2px solid var(--brown);border-radius:10px;background:#fff;color:var(--ink)}
+#cffd .search input::placeholder{color:#9a8b78}
+#cffd .quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+#cffd .qb{display:inline-flex;align-items:center;gap:7px;font:700 14px/1 var(--body);padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--brown);cursor:pointer}
+#cffd .qb:hover{border-color:var(--cherry);color:var(--cherry)}
+#cffd .qb i{width:9px;height:9px;border-radius:50%;background:var(--c,var(--cherry));display:inline-block}
+#cffd .results{margin-top:16px;max-width:680px}
+#cffd .rlist{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+#cffd .ritem{display:flex;gap:12px;align-items:baseline;justify-content:space-between;text-align:left;padding:12px 16px;background:none;border:0;border-top:1px solid var(--line);cursor:pointer;width:100%}
+#cffd .ritem:first-child{border-top:0}
+#cffd .ritem:hover{background:#f6efe1}
+#cffd .ritem b{font:700 16px/1.3 var(--disp)}
+#cffd .ritem small{font:700 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--green);flex:none}
+#cffd .none{border:1.5px dashed var(--line);border-radius:12px;padding:16px;background:var(--card);font-size:15px}
+#cffd .none code{font:13px/1 var(--body);background:#f1e8d6;padding:3px 6px;border-radius:4px;user-select:all}
+
+/* welcome */
+#cffd .welcome{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center;margin:30px 32px 0;padding:20px 22px;background:var(--cream);border-radius:16px}
+#cffd .portrait{width:120px;height:120px;border-radius:50%;border:2px dashed var(--cherry);display:grid;place-items:center;text-align:center;font:700 11px/1.3 var(--body);color:var(--cherry);padding:12px;background:var(--card)}
+#cffd .portrait svg{width:34px;height:34px;display:block;margin:0 auto 4px}
+#cffd .bubble{font:600 italic 20px/1.4 var(--disp);color:var(--ink)}
+#cffd .bubble .dtag{display:inline-block}
+#cffd .bubble>span{display:block;font:15px/1.55 var(--body);font-style:normal;color:var(--muted);margin-top:8px}
+
+/* section heading */
+#cffd .sec{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:38px 32px 14px}
+#cffd .sec h2{font-size:clamp(24px,3vw,31px)}
+#cffd .sec p{font-size:15px;color:var(--muted)}
+
+/* farm map */
+#cffd .mapbox{margin:0 32px;border:2px solid var(--brown);border-radius:16px;overflow:hidden;background:#d7e7e8;position:relative}
+#cffd .mapscroll{overflow-x:auto;scrollbar-width:thin}
+#cffd svg.farm{display:block;width:100%;height:auto}
+#cffd .maphint{display:none;font:13px/1.3 var(--body);color:var(--muted);margin:8px 32px 0}
+#cffd .spot{cursor:pointer;outline:none}
+#cffd .spot .lift{transition:transform .2s ease}
+#cffd .spot:hover .lift,#cffd .spot:focus-visible .lift{transform:translateY(-4px)}
+#cffd .lab rect{fill:#fffaf0;stroke:var(--brown);stroke-width:2}
+#cffd .lab text{font:700 14px var(--body);fill:var(--ink)}
+#cffd .spot:hover .lab rect,#cffd .spot:focus-visible .lab rect{fill:#fff3d6;stroke:var(--cherry);stroke-width:3}
+#cffd .spot:focus-visible .lab rect{stroke:var(--gold);stroke-width:4}
+#cffd .spot.soon .lab rect{stroke-dasharray:5 4}
+#cffd .spot.soon .lab text{fill:var(--muted)}
+#cffd .spot.locked{cursor:default}
+#cffd .spot.visit .lift{animation:cfVisit .5s ease}
+@keyframes cfVisit{30%{transform:translateY(-10px) scale(1.02)}100%{transform:none}}
+#cffd .smk{animation:cfSmk 3s ease-out infinite;opacity:0}
+#cffd .smk2{animation-delay:1s}#cffd .smk3{animation-delay:2s}
+@keyframes cfSmk{0%{opacity:0;transform:translateY(0)}25%{opacity:.75}100%{opacity:0;transform:translate(8px,-34px)}}
+#cffd .stm{animation:cfSmk 2.4s ease-out infinite;opacity:0}
+#cffd .flow{animation:cfFlow 5s linear infinite}
+#cffd .flow2{animation-duration:7s}
+@keyframes cfFlow{to{stroke-dashoffset:-104}}
+#cffd .cl{animation:cfCloud 60s linear infinite}
+#cffd .cl2{animation-duration:85s;animation-delay:-40s}
+@keyframes cfCloud{from{transform:translateX(-160px)}to{transform:translateX(1100px)}}
+#cffd .peck{animation:cfPeck 1.6s ease-in-out infinite;transform-box:fill-box;transform-origin:20% 90%}
+#cffd .peck2{animation-delay:.7s}
+@keyframes cfPeck{0%,60%,100%{transform:rotate(0)}70%,85%{transform:rotate(38deg)}}
+#cffd .tail{animation:cfTail 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:0 0}
+@keyframes cfTail{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(18deg)}}
+#cffd .flag{animation:cfFlag 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:0 50%}
+@keyframes cfFlag{0%,100%{transform:skewY(0)}50%{transform:skewY(-8deg) scaleX(.9)}}
+#cffd .duck{animation:cfDuck 6s ease-in-out infinite alternate}
+@keyframes cfDuck{to{transform:translateX(16px)}}
+
+/* destination list */
+#cffd .dlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:16px 32px 0}
+#cffd .dbtn{display:flex;flex-direction:column;gap:4px;text-align:left;padding:13px 15px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;min-width:0}
+#cffd .dbtn:hover{border-color:var(--cherry)}
+#cffd .dbtn b{font:700 16px/1.25 var(--disp);color:var(--ink);display:flex;align-items:center;gap:8px}
+#cffd .dbtn b i{width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
+#cffd .dbtn span{font-size:14px;color:var(--muted);line-height:1.4}
+#cffd .dbtn.soon{border-style:dashed}
+#cffd .pill{display:inline-block;font:700 10px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;padding:4px 7px;border-radius:4px;background:#efe5d2;color:var(--brown);margin-left:auto}
+#cffd .pill.open{background:#dcebdc;color:var(--green)}
+
+/* this week / latest */
+#cffd .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 32px}
+#cffd .wk{border:1.5px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);display:flex;flex-direction:column;text-align:left;padding:0;cursor:pointer}
+#cffd .wk:hover{border-color:var(--cherry)}
+#cffd .ph{aspect-ratio:16/10;max-width:100%;background:repeating-linear-gradient(135deg,#efe6d3 0 10px,#f6efe2 10px 20px);display:grid;place-items:center;font:700 11px/1.3 var(--body);letter-spacing:.1em;text-transform:uppercase;color:#a08c70;text-align:center;padding:10px}
+#cffd .wk .in{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px}
+#cffd .wk h3{font-size:18px;line-height:1.3}
+#cffd .wk small{font:700 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+#cffd .jr{display:flex;flex-direction:column;gap:6px;padding:16px;border-left:3px solid var(--cherry);background:var(--card);border-radius:0 12px 12px 0;text-decoration:none}
+#cffd .jr b{font:700 18px/1.3 var(--disp);color:var(--ink)}
+#cffd .jr span{font-size:14px;color:var(--muted)}
+
+/* tip + letter */
+#cffd .tiprow{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin:38px 32px 0}
+#cffd .tip{background:var(--green);color:#f5eee0;border-radius:16px;padding:22px 24px}
+#cffd .tip .kick{color:#cfe3c8}
+#cffd .tip h3{color:#fff;font-size:24px}
+#cffd .tip p{color:#e3eadc;margin-top:8px}
+#cffd .tip .draft{border-color:#9fbf98;background:rgba(255,255,255,.06);color:#e3eadc}
+#cffd .tip .dtag{background:#cfe3c8;color:var(--green)}
+#cffd .letter{background:var(--cream);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:10px}
+#cffd .letter h3{font-size:24px}
+#cffd .letter form{display:flex;gap:8px;flex-wrap:wrap}
+#cffd .letter input{flex:1;min-width:0;font:16px var(--body);padding:12px 14px;border:1.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+
+/* draft placeholders */
+#cffd .draft{border:2px dashed #c9b48f;border-radius:10px;padding:12px 14px;background:#fffaf0;color:var(--muted);font-size:15px;position:relative}
+#cffd .dtag{display:inline-block;font:700 10px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;background:#f1dfb6;color:var(--brown);padding:4px 7px;border-radius:4px;margin-bottom:6px}
+#cffd .noprev .draft,#cffd .noprev .dtag,#cffd .noprev .ifprev{display:none!important}
+
+/* destination view */
+#cffd .dview{padding:20px 32px 30px}
+#cffd .bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+#cffd .dhead{margin:16px 0 20px;border-radius:16px;background:var(--c);color:#fff;padding:24px 24px 26px;position:relative;overflow:hidden}
+#cffd .dhead .kick{color:rgba(255,255,255,.85)}
+#cffd .dhead h2{color:#fff;font-size:clamp(28px,4vw,42px)}
+#cffd .dhead .q{font:italic 600 20px/1.4 var(--disp);color:#fff;margin-top:8px;opacity:.95}
+#cffd .host{display:flex;gap:14px;align-items:flex-start;margin:0 0 22px}
+#cffd .host .av{width:54px;height:54px;border-radius:50%;flex:none;border:2px dashed var(--cherry);display:grid;place-items:center;background:var(--card)}
+#cffd .host .av svg{width:24px;height:24px}
+#cffd .host .say{background:var(--cream);border-radius:4px 14px 14px 14px;padding:12px 16px;font:600 italic 18px/1.45 var(--disp);flex:1;min-width:0}
+#cffd .host .say small{display:block;font:700 10px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-style:normal;margin-top:8px}
+#cffd .noprev .host .say small{display:none}
+#cffd .block{margin:0 0 24px}
+#cffd .block h3{font-size:22px;margin-bottom:10px}
+#cffd .block>p{color:var(--muted);margin-bottom:12px;max-width:68ch}
+#cffd .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+#cffd .areacard{border:1.5px solid var(--line);border-radius:14px;padding:16px;background:var(--card);display:flex;flex-direction:column;gap:8px;min-width:0}
+#cffd .areacard h4{font-size:19px}
+#cffd .areacard p{font-size:15px;color:var(--muted)}
+#cffd ul.plain{margin:0;padding-left:18px;color:var(--muted);font-size:15px}
+#cffd ul.plain li{margin:3px 0}
+#cffd .standitem{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dotted var(--line);padding:7px 0;font-size:15px}
+#cffd .standitem em{font-style:normal;font:700 11px/1.6 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+#cffd .standitem em.out{color:var(--cherry)}
+
+/* kitchen finder */
+#cffd .finder{border:2px solid var(--brown);border-radius:16px;padding:22px;background:var(--card);box-shadow:5px 5px 0 #e5d8bd}
+#cffd .finder h3{font-size:clamp(24px,3vw,30px)}
+#cffd .finder .lead{color:var(--muted);margin:6px 0 16px}
+#cffd .ings{display:flex;flex-wrap:wrap;gap:8px}
+#cffd .ing{font:700 15px/1 var(--body);padding:11px 15px;border-radius:999px;border:2px solid var(--line);background:var(--paper);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+#cffd .ing:hover{border-color:var(--cherry)}
+#cffd .ing[aria-pressed="true"]{border-color:var(--cherry);background:var(--cherry);color:#fff}
+#cffd .ing sup{font-size:11px;opacity:.75}
+#cffd .ing.empty{border-style:dashed;color:var(--muted)}
+#cffd .rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:18px}
+#cffd .rcard{text-align:left;border:1.5px solid var(--line);border-radius:12px;padding:0;background:#fff;cursor:pointer;overflow:hidden;display:flex;flex-direction:column}
+#cffd .rcard:hover{border-color:var(--cherry)}
+#cffd .rcard .in{padding:12px 14px 14px;display:flex;flex-direction:column;gap:5px}
+#cffd .rcard b{font:700 17px/1.3 var(--disp)}
+#cffd .rcard span{font-size:13px;color:var(--muted)}
+#cffd .rcard.slot{border-style:dashed;cursor:default;background:#fffaf0}
+#cffd .recipe{margin-top:18px;border-top:2px solid var(--line);padding-top:18px}
+#cffd .recipe h3{font-size:clamp(26px,3.4vw,34px)}
+#cffd .meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin:12px 0 16px;font-size:14px}
+#cffd .meta div{display:flex;flex-direction:column}
+#cffd .meta small{font:700 10.5px/1.4 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+#cffd .meta b{font:700 16px/1.3 var(--body);font-variant-numeric:tabular-nums}
+#cffd .rtwo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px}
+#cffd .rtwo h4{font-size:18px;margin-bottom:8px}
+#cffd .rnote{margin-top:16px;padding:14px 16px;background:var(--cream);border-radius:10px;font:italic 600 17px/1.45 var(--disp)}
+#cffd .rnote small{display:block;font:700 10.5px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--cherry);font-style:normal;margin-bottom:6px}
+#cffd .rbtns{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}
+
+/* store */
+#cffd .controls{display:flex;flex-direction:column;gap:10px;margin:0 0 16px}
+#cffd .tabs,#cffd .chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#cffd .tab{font:700 14px/1 var(--body);padding:10px 14px;border-radius:8px;border:2px solid var(--brown);background:transparent;color:var(--brown);cursor:pointer}
+#cffd .tab[aria-pressed="true"]{background:var(--brown);color:#fff}
+#cffd .chip{font:700 13px/1 var(--body);padding:8px 12px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--muted);cursor:pointer}
+#cffd .chip[aria-pressed="true"]{border-color:var(--cherry);color:var(--cherry);background:#fbeeee}
+#cffd .chiplab{font:700 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+#cffd .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;align-items:start}
+#cffd .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+#cffd .card .img{aspect-ratio:1/1;max-width:100%;background:#efe6d3}
+#cffd .card .img img{width:100%;height:100%;object-fit:cover;display:block}
+#cffd .card .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px}
+#cffd .card h4{font-size:18px;line-height:1.25}
+#cffd .card p{font-size:14px;color:var(--muted)}
+#cffd .fmt{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:8px}
+#cffd .fmt .fl{display:flex;flex-direction:column;font-size:13px;color:var(--muted)}
+#cffd .fmt .fl b{font:700 12px/1.3 var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--brown)}
+#cffd .fmt .fl strong{font:700 16px/1.2 var(--body);color:var(--ink);font-variant-numeric:tabular-nums}
+#cffd .fmt .btn{padding:9px 13px;font-size:13px}
+#cffd .fmt .soonnote{font:700 12px/1.3 var(--body);color:var(--green)}
+#cffd .card.amz{border-style:dashed;background:#fffaf0}
+#cffd .card.amz .stamp{font:700 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+#cffd .card.ph .img{display:grid;place-items:center;background:repeating-linear-gradient(135deg,#efe6d3 0 10px,#f6efe2 10px 20px);font:700 11px/1.3 var(--body);letter-spacing:.1em;text-transform:uppercase;color:#a08c70;text-align:center;padding:14px}
+#cffd .supplies{margin-top:28px;padding-top:20px;border-top:2px solid var(--line)}
+#cffd .supplies h3{font-size:22px;margin-bottom:4px}
+#cffd .supplies>p{color:var(--muted);font-size:15px;margin-bottom:14px}
+
+/* footer */
+#cffd .foot{margin-top:40px;padding:22px 32px 26px;background:var(--brown);color:#e8dcc6;font-size:14px}
+#cffd .foot a{color:#ffd88a}
+#cffd .fam{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;margin-bottom:10px}
+#cffd .fam b{font:700 11px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:#cdb998}
+#cffd .disc{font-size:12.5px;color:#cdb998;line-height:1.5}
+
+@media(max-width:760px){
+  #cffd .wrap,#cffd .hero,#cffd .dview{padding-left:16px;padding-right:16px}
+  #cffd .hdr,#cffd .prevbar,#cffd .foot{padding-left:16px;padding-right:16px}
+  #cffd .welcome,#cffd .sec,#cffd .mapbox,#cffd .dlist,#cffd .three,#cffd .tiprow{margin-left:16px;margin-right:16px}
+  #cffd .maphint{display:block;margin-left:16px}
+  #cffd svg.farm{width:860px;max-width:none}
+  #cffd .three,#cffd .tiprow,#cffd .rtwo{grid-template-columns:1fr}
+  #cffd .welcome{grid-template-columns:72px 1fr;gap:14px;padding:16px}
+  #cffd .portrait{width:72px;height:72px;font-size:0;padding:0}
+  #cffd .portrait svg{margin:0}
+  #cffd .bubble{font-size:18px}
+  #cffd .search .btn{padding:11px 14px}
+  #cffd .nav button{padding:8px 8px;font-size:13px}
+  #cffd .finder{padding:18px 16px;box-shadow:3px 3px 0 #e5d8bd}
+}
+@media(prefers-reduced-motion:reduce){
+  #cffd *{animation:none!important;transition:none!important}
+  #cffd .smk,#cffd .stm{opacity:.5}
+}
+</style>
+
+<div id="cffd">
+  <p class="prevbar ifprev"><b>Preview for Rachel. Not published.</b> Dashed boxes marked DRAFT are placeholders for Rachel's own words, recipes and photos. Nothing here is live yet.</p>
+
+  <header class="hdr">
+    <button type="button" class="brand" data-go="home" aria-label="Cherry Flats Farm home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 C22 10 25 13 31 14" stroke="#2f5a3c" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M20 4 C18 11 15 15 11 18" stroke="#2f5a3c" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M22 6 C28 3 33 5 35 9 C30 10 25 9 22 6Z" fill="#4f8a55"/><circle cx="11" cy="25" r="8" fill="#8f2426"/><circle cx="29" cy="25" r="8" fill="#a8302f"/><circle cx="8.5" cy="22.5" r="2" fill="#fff" opacity=".45"/><circle cx="26.5" cy="22.5" r="2" fill="#fff" opacity=".45"/></svg>
+      <span><span class="bname">Cherry Flats Farm</span><span class="btag">Good Things Grow Here</span></span>
+    </button>
+    <nav class="nav" aria-label="Main">
+      <button type="button" data-go="answers">Find Answers</button>
+      <button type="button" data-go="map">Explore the Farm</button>
+      <button type="button" class="shop" data-go="store">General Store</button>
+    </nav>
+  </header>
+
+  <!-- ===== HOME ===== -->
+  <div id="cfHome">
+    <section class="hero" id="cfAnswers">
+      <p class="kick">Horse Creek · Klamath River</p>
+      <h1>What do you need <em>a hand with</em> today?</h1>
+      <p class="tagline">Practical answers for home, garden, and everyday life, with Rachel.</p>
+      <form class="search" id="cfSearch" role="search">
+        <label for="cfQ" class="hide">What would you like to know?</label>
+        <input id="cfQ" type="search" placeholder="What would you like to know?" autocomplete="off">
+        <button class="btn" type="submit">Search</button>
+      </form>
+      <div class="quick" id="cfQuick"></div>
+      <div class="results hide" id="cfResults" aria-live="polite"></div>
+    </section>
+
+    <section class="welcome" aria-label="Welcome from Rachel">
+      <div class="portrait"><div><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="5" fill="#8f2426"/><circle cx="17" cy="15" r="5" fill="#a8302f"/><path d="M12 3 C13 7 15 9 19 9 M12 3 C11 7 9 9 7 10" stroke="#2f5a3c" stroke-width="1.8" fill="none"/></svg>Rachel's illustration from her photos</div></div>
+      <p class="bubble">&ldquo;Come on in. There's room at the table.&rdquo;
+        <span><span class="dtag ifprev">Draft · Rachel to write</span> Rachel's short welcome goes here, in her own words: who she is, the farm on Horse Creek, and what visitors can find.</span></p>
+    </section>
+
+    <div class="sec" id="cfMapSec"><h2>Explore the farm</h2><p>Tap a building. Each one answers a different question.</p></div>
+    <div class="mapbox"><div class="mapscroll" id="cfMapScroll">
+<svg class="farm" viewBox="0 0 1000 620" role="group" aria-label="Map of Cherry Flats Farm">
+  <defs>
+    <linearGradient id="cfSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d4e6ea"/><stop offset="1" stop-color="#f3ead6"/></linearGradient>
+    <pattern id="cfGrass" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#d2dcab"/><path d="M5 15l2-5 2 5M14 7l1.5-4 1.5 4" stroke="#b7c588" stroke-width="1.3" fill="none"/></pattern>
+    <pattern id="cfAwn" width="14" height="10" patternUnits="userSpaceOnUse"><rect width="7" height="10" fill="#fffaf0"/><rect x="7" width="7" height="10" fill="#8f2426"/></pattern>
+  </defs>
+  <rect width="1000" height="620" fill="url(#cfSky)"/>
+  <g class="cl"><g fill="#fff" opacity=".9"><ellipse cx="0" cy="58" rx="46" ry="15"/><ellipse cx="26" cy="47" rx="28" ry="15"/><ellipse cx="-20" cy="50" rx="20" ry="11"/></g></g>
+  <g class="cl cl2"><g fill="#fff" opacity=".75"><ellipse cx="0" cy="96" rx="34" ry="11"/><ellipse cx="18" cy="88" rx="20" ry="11"/></g></g>
+  <path d="M0 150 Q130 92 260 128 T520 112 T780 118 T1000 100 V220 H0Z" fill="#b5c9a3"/>
+  <path d="M0 176 Q190 138 370 162 T730 156 T1000 146 V240 H0Z" fill="#a1bb8c"/>
+  <path d="M0 196 Q250 174 500 190 T1000 178 V560 H0Z" fill="url(#cfGrass)"/>
+  <!-- road -->
+  <path d="M-10 478 C150 452 270 338 470 326 S820 304 945 256" stroke="#c9b083" stroke-width="32" fill="none" stroke-linecap="round"/>
+  <path d="M-10 478 C150 452 270 338 470 326 S820 304 945 256" stroke="#e7d4a8" stroke-width="26" fill="none" stroke-linecap="round"/>
+  <!-- trees -->
+  <g><rect x="353" y="176" width="7" height="30" fill="#6b4a32"/><circle cx="356" cy="168" r="24" fill="#5c8a4e"/><g fill="#a8302f"><circle cx="344" cy="162" r="3.2"/><circle cx="360" cy="156" r="3.2"/><circle cx="368" cy="172" r="3.2"/><circle cx="350" cy="178" r="3.2"/><circle cx="341" cy="172" r="3"/></g></g>
+  <g><rect x="612" y="160" width="6" height="26" fill="#6b4a32"/><circle cx="615" cy="152" r="19" fill="#4f7d45"/></g>
+  <g><rect x="24" y="300" width="6" height="22" fill="#6b4a32"/><circle cx="27" cy="292" r="17" fill="#4f7d45"/></g>
+  <g><rect x="414" y="440" width="6" height="22" fill="#6b4a32"/><circle cx="417" cy="432" r="17" fill="#5c8a4e"/></g>
+  <g><rect x="955" y="300" width="6" height="24" fill="#6b4a32"/><circle cx="958" cy="292" r="19" fill="#4f7d45"/></g>
+
+  <!-- RIVERBANK & RED PICKUP -->
+  <g class="spot" data-d="river" tabindex="0" role="button" aria-label="The Riverbank and Red Pickup: What should we bring, and do, on our outing?">
+    <path d="M0 520 C200 500 380 545 560 522 S860 500 1000 515 V620 H0Z" fill="#e3cf9f"/>
+    <path d="M0 546 C200 526 380 571 560 548 S860 526 1000 541 V620 H0Z" fill="#6aa2b5"/>
+    <path class="flow" d="M0 578 C220 563 420 598 620 578 S880 563 1000 575" stroke="#d3ebf1" stroke-width="3" fill="none" stroke-dasharray="22 30" stroke-linecap="round"/>
+    <path class="flow flow2" d="M0 604 C240 590 440 616 660 600 S900 588 1000 598" stroke="#bfe0ea" stroke-width="2.5" fill="none" stroke-dasharray="14 38" stroke-linecap="round"/>
+    <g class="lift">
+      <g transform="translate(842 476)">
+        <rect x="70" y="20" width="76" height="20" rx="2" fill="#b8312d" stroke="#2a2018" stroke-width="2"/>
+        <path d="M24 40 V22 L36 4 H70 V40 Z" fill="#c63a33" stroke="#2a2018" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M40 9 H64 V22 H31 Z" fill="#cfe5ec" stroke="#2a2018" stroke-width="1.5"/>
+        <rect x="0" y="24" width="26" height="16" rx="3" fill="#c63a33" stroke="#2a2018" stroke-width="2"/>
+        <rect x="-3" y="34" width="10" height="6" fill="#d9d2c3" stroke="#2a2018" stroke-width="1.5"/>
+        <circle cx="22" cy="42" r="9" fill="#2a2018"/><circle cx="22" cy="42" r="3.5" fill="#cfc8b8"/>
+        <circle cx="118" cy="42" r="9" fill="#2a2018"/><circle cx="118" cy="42" r="3.5" fill="#cfc8b8"/>
+        <rect x="88" y="10" width="22" height="12" rx="2" fill="#4a7aa0" stroke="#2a2018" stroke-width="1.5"/>
+      </g>
+      <g transform="translate(762 506)"><rect x="0" y="0" width="64" height="22" rx="3" fill="url(#cfAwn)" stroke="#6e1a1c" stroke-width="1.5" transform="skewX(-20)"/></g>
+      <g class="lab" transform="translate(880 576)"><rect x="-96" y="-13" width="192" height="25" rx="5"/><text y="5" text-anchor="middle">Riverbank &amp; Red Pickup</text></g>
+    </g>
+  </g>
+
+  <!-- WORKSHOP -->
+  <g class="spot" data-d="workshop" tabindex="0" role="button" aria-label="The Workshop: How can I fix or make this?">
+    <g class="lift" transform="translate(70 176)">
+      <path d="M-8 34 L75 0 L158 34 Z" fill="#5b3b28" stroke="#2a2018" stroke-width="2.5" stroke-linejoin="round"/>
+      <rect x="0" y="32" width="150" height="80" fill="#8a5a3b" stroke="#2a2018" stroke-width="2.5"/>
+      <rect x="48" y="56" width="54" height="56" fill="#6b4228" stroke="#2a2018" stroke-width="2"/>
+      <path d="M48 56 L102 112 M102 56 L48 112" stroke="#4a2e1c" stroke-width="2.5"/>
+      <rect x="14" y="52" width="22" height="18" fill="#f0dfae" stroke="#2a2018" stroke-width="2"/>
+      <rect x="114" y="52" width="22" height="18" fill="#f0dfae" stroke="#2a2018" stroke-width="2"/>
+      <g class="lab" transform="translate(75 130)"><rect x="-48" y="-13" width="96" height="25" rx="5"/><text y="5" text-anchor="middle">Workshop</text></g>
+    </g>
+  </g>
+
+  <!-- ROOT CELLAR -->
+  <g class="spot" data-d="cellar" tabindex="0" role="button" aria-label="The Root Cellar: How should I prepare and store it?">
+    <g class="lift" transform="translate(262 238)">
+      <path d="M0 62 Q62 -8 124 62 Z" fill="#8aa564" stroke="#2a2018" stroke-width="2.5"/>
+      <path d="M43 62 V40 Q62 20 81 40 V62Z" fill="#b5ab97" stroke="#2a2018" stroke-width="2"/>
+      <path d="M50 62 V42 Q62 30 74 42 V62Z" fill="#6b4a32" stroke="#2a2018" stroke-width="1.5"/>
+      <rect x="92" y="16" width="7" height="20" fill="#7a7368" stroke="#2a2018" stroke-width="1.5"/>
+      <g class="lab" transform="translate(62 82)"><rect x="-55" y="-13" width="110" height="25" rx="5"/><text y="5" text-anchor="middle">Root Cellar</text></g>
+    </g>
+  </g>
+
+  <!-- FARMHOUSE PORCH -->
+  <g class="spot" data-d="porch" tabindex="0" role="button" aria-label="The Farmhouse Porch: How can I make home life easier?">
+    <g class="lift" transform="translate(392 148)">
+      <circle class="smk" cx="130" cy="-10" r="7" fill="#fff"/><circle class="smk smk2" cx="132" cy="-12" r="6" fill="#fff"/><circle class="smk smk3" cx="128" cy="-10" r="5" fill="#fff"/>
+      <rect x="122" y="-4" width="16" height="30" fill="#8b4a3a" stroke="#2a2018" stroke-width="2"/>
+      <path d="M-12 50 L85 0 L182 50 Z" fill="#8f2426" stroke="#2a2018" stroke-width="2.5" stroke-linejoin="round"/>
+      <rect x="0" y="48" width="170" height="92" fill="#f6efe0" stroke="#2a2018" stroke-width="2.5"/>
+      <rect x="18" y="60" width="28" height="26" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/><path d="M32 60 V86 M18 73 H46" stroke="#2a2018" stroke-width="1.5"/>
+      <rect x="124" y="60" width="28" height="26" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/><path d="M138 60 V86 M124 73 H152" stroke="#2a2018" stroke-width="1.5"/>
+      <rect x="72" y="84" width="26" height="56" fill="#6b4a32" stroke="#2a2018" stroke-width="2"/>
+      <path d="M-6 98 H176 L168 88 H2 Z" fill="#6e1a1c" stroke="#2a2018" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M4 98 V140 M60 98 V140 M110 98 V140 M166 98 V140" stroke="#fffaf0" stroke-width="4"/>
+      <rect x="64" y="140" width="42" height="8" fill="#b9a47e" stroke="#2a2018" stroke-width="1.5"/>
+      <g class="lab" transform="translate(85 166)"><rect x="-74" y="-13" width="148" height="25" rx="5"/><text y="5" text-anchor="middle">Farmhouse Porch</text></g>
+    </g>
+  </g>
+
+  <!-- RACHEL'S KITCHEN -->
+  <g class="spot" data-d="kitchen" tabindex="0" role="button" aria-label="Rachel's Kitchen: What can I make with what I have?">
+    <g class="lift" transform="translate(568 178)">
+      <path class="stm" d="M46 66 q-5 -8 0 -16 q5 -8 0 -16" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M-8 34 L54 0 L116 34 Z" fill="#8f2426" stroke="#2a2018" stroke-width="2.5" stroke-linejoin="round"/>
+      <rect x="0" y="32" width="108" height="82" fill="#f6efe0" stroke="#2a2018" stroke-width="2.5"/>
+      <rect x="14" y="48" width="80" height="38" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/>
+      <path d="M41 48 V86 M67 48 V86" stroke="#2a2018" stroke-width="1.5"/>
+      <rect x="10" y="86" width="88" height="6" fill="#b9a47e" stroke="#2a2018" stroke-width="1.5"/>
+      <path d="M38 86 Q54 74 70 86 Z" fill="#d39b2e" stroke="#6b4a32" stroke-width="1.5"/>
+      <path d="M44 82 L50 78 M54 80 L60 77" stroke="#8a5a1e" stroke-width="1.5"/>
+      <g class="lab" transform="translate(54 132)"><rect x="-70" y="-13" width="140" height="25" rx="5"/><text y="5" text-anchor="middle">Rachel's Kitchen</text></g>
+    </g>
+  </g>
+
+  <!-- COVERED GARDEN -->
+  <g class="spot" data-d="garden" tabindex="0" role="button" aria-label="The Covered Garden: What can I grow, and how?">
+    <g class="lift" transform="translate(694 196)">
+      <path d="M0 72 V30 Q0 0 30 0 H156 Q186 0 186 30 V72 Z" fill="#e9f0e3" stroke="#2a2018" stroke-width="2.5"/>
+      <path d="M12 68 H174 M12 54 H174 M12 40 H174" stroke="#4f8a4a" stroke-width="7" stroke-dasharray="7 6" stroke-linecap="round"/>
+      <path d="M0 72 V30 Q0 0 30 0 H156 Q186 0 186 30 V72 Z" fill="#ffffff" fill-opacity=".38" stroke="none"/>
+      <path d="M38 1 V72 M78 1 V72 M118 1 V72 M154 1 V72" stroke="#b6ab95" stroke-width="2"/>
+      <rect x="80" y="44" width="26" height="28" fill="#fffaf0" fill-opacity=".7" stroke="#2a2018" stroke-width="1.5"/>
+      <g class="lab" transform="translate(93 92)"><rect x="-74" y="-13" width="148" height="25" rx="5"/><text y="5" text-anchor="middle">Covered Garden</text></g>
+    </g>
+  </g>
+
+  <!-- GENERAL STORE -->
+  <g class="spot" data-d="store" tabindex="0" role="button" aria-label="The General Store: Where can I find the supplies?">
+    <g class="lift" transform="translate(884 132)">
+      <rect x="0" y="0" width="104" height="30" fill="#a8783f" stroke="#2a2018" stroke-width="2.5"/>
+      <rect x="8" y="6" width="88" height="18" fill="#fffaf0" stroke="#2a2018" stroke-width="1.5"/>
+      <text x="52" y="19" text-anchor="middle" style="font:700 9.5px Lato,Arial,sans-serif;letter-spacing:.08em;fill:#8f2426">GENERAL STORE</text>
+      <rect x="6" y="30" width="92" height="86" fill="#c9a46b" stroke="#2a2018" stroke-width="2.5"/>
+      <rect x="6" y="38" width="92" height="12" fill="url(#cfAwn)" stroke="#2a2018" stroke-width="1.5"/>
+      <rect x="14" y="58" width="24" height="24" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/>
+      <rect x="66" y="58" width="24" height="24" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/>
+      <rect x="40" y="70" width="24" height="46" fill="#6b4a32" stroke="#2a2018" stroke-width="2"/>
+      <g class="lab" transform="translate(52 134)"><rect x="-60" y="-13" width="120" height="25" rx="5"/><text y="5" text-anchor="middle">General Store</text></g>
+    </g>
+  </g>
+
+  <!-- COWBOY CABIN -->
+  <g class="spot" data-d="cabin" tabindex="0" role="button" aria-label="The Cowboy Cabin: What project can I tackle next?">
+    <g class="lift" transform="translate(56 334)">
+      <rect x="102" y="-8" width="15" height="28" fill="#a39b8c" stroke="#2a2018" stroke-width="2"/>
+      <path d="M-10 30 L66 0 L142 30 Z" fill="#4a3426" stroke="#2a2018" stroke-width="2.5" stroke-linejoin="round"/>
+      <rect x="0" y="28" width="132" height="70" fill="#9b6a43" stroke="#2a2018" stroke-width="2.5"/>
+      <path d="M0 42 H132 M0 56 H132 M0 70 H132 M0 84 H132" stroke="#73492c" stroke-width="2"/>
+      <rect x="54" y="54" width="24" height="44" fill="#5b3b28" stroke="#2a2018" stroke-width="2"/>
+      <rect x="14" y="48" width="22" height="18" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/>
+      <path d="M58 50 Q66 42 74 50 Z M54 50 H78" fill="#3b2a1f" stroke="#3b2a1f" stroke-width="2"/>
+      <g class="lab" transform="translate(66 116)"><rect x="-64" y="-13" width="128" height="25" rx="5"/><text y="5" text-anchor="middle">Cowboy Cabin</text></g>
+    </g>
+  </g>
+
+  <!-- BUNKHOUSE -->
+  <g class="spot" data-d="bunk" tabindex="0" role="button" aria-label="The Bunkhouse: What can we do together?">
+    <g class="lift" transform="translate(226 384)">
+      <path d="M174 26 V-22" stroke="#4a3426" stroke-width="2.5"/>
+      <path class="flag" d="M175 -22 L200 -15 L175 -8 Z" fill="#8f2426"/>
+      <path d="M-8 28 L85 0 L178 28 Z" fill="#2f5a3c" stroke="#2a2018" stroke-width="2.5" stroke-linejoin="round"/>
+      <rect x="0" y="26" width="170" height="64" fill="#e0c48f" stroke="#2a2018" stroke-width="2.5"/>
+      <rect x="14" y="40" width="22" height="18" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/>
+      <rect x="48" y="40" width="22" height="18" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/>
+      <rect x="134" y="40" width="22" height="18" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/>
+      <rect x="92" y="48" width="26" height="42" fill="#6b4a32" stroke="#2a2018" stroke-width="2"/>
+      <g class="lab" transform="translate(85 108)"><rect x="-54" y="-13" width="108" height="25" rx="5"/><text y="5" text-anchor="middle">Bunkhouse</text></g>
+    </g>
+  </g>
+
+  <!-- FARM STAND (old Chevy stepside bed) -->
+  <g class="spot" data-d="stand" tabindex="0" role="button" aria-label="The Farm Stand: How can I use or preserve the harvest?">
+    <g class="lift" transform="translate(452 356)">
+      <path d="M12 12 V56 M120 12 V56" stroke="#6b4a32" stroke-width="5"/>
+      <path d="M-8 14 L66 -6 L140 14 Z" fill="#b8b0a1" stroke="#2a2018" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M8 6 L8 12 M24 2 L24 10 M40 -1 L40 8 M92 -1 L92 8 M108 2 L108 10 M124 6 L124 12" stroke="#8f887a" stroke-width="1.5"/>
+      <rect x="38" y="16" width="56" height="15" rx="2" fill="#fffaf0" stroke="#2a2018" stroke-width="1.5"/>
+      <text x="66" y="27" text-anchor="middle" style="font:700 8.5px Lato,Arial,sans-serif;letter-spacing:.08em;fill:#8f2426">FARM STAND</text>
+      <circle cx="30" cy="48" r="8.5" fill="#e0812f" stroke="#7a3f12" stroke-width="1.5"/><circle cx="50" cy="49" r="7" fill="#e88f3a" stroke="#7a3f12" stroke-width="1.5"/>
+      <rect x="66" y="42" width="26" height="14" fill="#b88a55" stroke="#2a2018" stroke-width="1.5"/>
+      <circle cx="73" cy="41" r="3.5" fill="#a8302f"/><circle cx="80" cy="40" r="3.5" fill="#a8302f"/><circle cx="87" cy="41" r="3.5" fill="#a8302f"/>
+      <circle cx="106" cy="49" r="6" fill="#d8c25a" stroke="#6b5d1e" stroke-width="1.5"/>
+      <rect x="4" y="56" width="124" height="26" rx="3" fill="#6c8a66" stroke="#2a2018" stroke-width="2.5"/>
+      <path d="M4 66 H128" stroke="#557050" stroke-width="2"/>
+      <path d="M12 82 a18 15 0 0 1 36 0 Z" fill="#55704f" stroke="#2a2018" stroke-width="2"/>
+      <path d="M84 82 a18 15 0 0 1 36 0 Z" fill="#55704f" stroke="#2a2018" stroke-width="2"/>
+      <circle cx="30" cy="84" r="9" fill="#2a2018"/><circle cx="102" cy="84" r="9" fill="#2a2018"/>
+      <rect x="50" y="76" width="32" height="6" rx="3" fill="#cfc8b8" stroke="#2a2018" stroke-width="1.5"/>
+      <g class="lab" transform="translate(66 112)"><rect x="-52" y="-13" width="104" height="25" rx="5"/><text y="5" text-anchor="middle">Farm Stand</text></g>
+    </g>
+  </g>
+
+  <!-- ANIMAL YARD -->
+  <g class="spot" data-d="animals" tabindex="0" role="button" aria-label="The Animal Yard: What have we learned raising these animals?">
+    <g class="lift" transform="translate(640 336)">
+      <rect x="0" y="0" width="250" height="122" fill="#dbe4b6" stroke="#7a5a3a" stroke-width="3"/>
+      <path d="M0 40 H250 M0 80 H250" stroke="#a07b52" stroke-width="2"/>
+      <path d="M0 0 V122 M50 0 V122 M100 0 V122 M150 0 V122 M200 0 V122 M250 0 V122" stroke="#7a5a3a" stroke-width="3"/>
+      <ellipse cx="208" cy="96" rx="36" ry="14" fill="#8fbfcd" stroke="#5f8f9c" stroke-width="1.5"/>
+      <!-- cow -->
+      <g transform="translate(18 18)">
+        <path class="tail" d="M58 12 q8 10 4 22" stroke="#2a2018" stroke-width="2.5" fill="none"/>
+        <ellipse cx="34" cy="16" rx="26" ry="14" fill="#fffaf0" stroke="#2a2018" stroke-width="2"/>
+        <path d="M24 6 q8 -2 10 8 q-6 6 -12 0Z M42 14 q8 0 8 8 q-8 4 -10 -2Z" fill="#2a2018"/>
+        <rect x="16" y="26" width="5" height="14" fill="#fffaf0" stroke="#2a2018" stroke-width="1.5"/><rect x="44" y="26" width="5" height="14" fill="#fffaf0" stroke="#2a2018" stroke-width="1.5"/>
+        <ellipse cx="6" cy="14" rx="9" ry="8" fill="#fffaf0" stroke="#2a2018" stroke-width="2"/><ellipse cx="1" cy="18" rx="5" ry="3.5" fill="#f2b8b0"/>
+      </g>
+      <!-- sheep -->
+      <g transform="translate(104 20)" fill="#f7f3ea" stroke="#2a2018" stroke-width="1.5">
+        <circle cx="10" cy="14" r="9"/><circle cx="22" cy="10" r="10"/><circle cx="34" cy="14" r="9"/><circle cx="22" cy="20" r="10"/>
+        <ellipse cx="44" cy="12" rx="6" ry="7" fill="#3b2a1f"/><path d="M14 28 v8 M28 28 v8" stroke="#3b2a1f" stroke-width="3"/>
+      </g>
+      <!-- chickens -->
+      <g transform="translate(70 88)"><ellipse cx="10" cy="10" rx="10" ry="8" fill="#c9733b" stroke="#2a2018" stroke-width="1.5"/><g class="peck"><circle cx="20" cy="2" r="5" fill="#c9733b" stroke="#2a2018" stroke-width="1.5"/><path d="M18 -3 l2 -3 2 3" fill="#c62f2f"/><path d="M24 2 l4 1 -4 1" fill="#e0a12f"/></g></g>
+      <g transform="translate(112 96)"><ellipse cx="10" cy="10" rx="10" ry="8" fill="#fffaf0" stroke="#2a2018" stroke-width="1.5"/><g class="peck peck2"><circle cx="20" cy="2" r="5" fill="#fffaf0" stroke="#2a2018" stroke-width="1.5"/><path d="M18 -3 l2 -3 2 3" fill="#c62f2f"/><path d="M24 2 l4 1 -4 1" fill="#e0a12f"/></g></g>
+      <!-- quail -->
+      <g transform="translate(146 104)"><ellipse cx="7" cy="6" rx="8" ry="6" fill="#8a6a4a" stroke="#2a2018" stroke-width="1.2"/><circle cx="14" cy="1" r="3.5" fill="#6b4a32"/><path d="M14 -2 q2 -5 -1 -6" stroke="#2a2018" stroke-width="1.4" fill="none"/></g>
+      <!-- ducks -->
+      <g class="duck" transform="translate(186 84)"><ellipse cx="9" cy="8" rx="10" ry="6" fill="#fff" stroke="#2a2018" stroke-width="1.4"/><circle cx="18" cy="1" r="4.5" fill="#fff" stroke="#2a2018" stroke-width="1.4"/><path d="M22 1 h5 l-5 2z" fill="#e0812f"/></g>
+      <g class="duck" transform="translate(212 96)" style="animation-delay:-3s"><ellipse cx="9" cy="8" rx="10" ry="6" fill="#fff" stroke="#2a2018" stroke-width="1.4"/><circle cx="18" cy="1" r="4.5" fill="#fff" stroke="#2a2018" stroke-width="1.4"/><path d="M22 1 h5 l-5 2z" fill="#e0812f"/></g>
+      <g class="lab" transform="translate(125 142)"><rect x="-58" y="-13" width="116" height="25" rx="5"/><text y="5" text-anchor="middle">Animal Yard</text></g>
+    </g>
+  </g>
+</svg>
+    </div></div>
+    <p class="maphint">Swipe the map sideways to see the whole farm.</p>
+    <nav class="dlist" id="cfDList" aria-label="Farm destinations"></nav>
+
+    <div class="sec"><h2>Useful this week</h2><p>Three seasonal questions to try now.</p></div>
+    <div class="three" id="cfWeek"></div>
+
+    <div class="tiprow">
+      <section class="tip" aria-label="Rachel's Tip of the Week">
+        <p class="kick" id="cfTipWk">Rachel's Tip of the Week</p>
+        <div id="cfTip"></div>
+      </section>
+      <section class="letter" aria-label="Newsletter signup">
+        <h3>A little know-how from Rachel.</h3>
+        <p>New tips, recipes, and seasonal ideas, a few times a month.</p>
+        <form id="cfLetter"><label for="cfEmail" class="hide">Email address</label><input id="cfEmail" type="email" placeholder="Your email address" required><button class="btn green" type="submit">Join</button></form>
+        <p class="draft ifprev"><span class="dtag">Draft</span><br>Connects to Rachel's Kit signup form before launch.</p>
+      </section>
+    </div>
+
+    <div class="sec"><h2>Rachel's latest</h2><p>From the Farm Journal on cherryflatsfarm.com.</p></div>
+    <div class="three" id="cfLatest"></div>
+  </div>
+
+  <!-- ===== DESTINATION ===== -->
+  <div id="cfDest" class="dview hide" aria-live="polite"></div>
+
+  <!-- ===== GENERAL STORE ===== -->
+  <div id="cfStore" class="dview hide">
+    <div class="bar"><button type="button" class="lnk" data-go="map">&larr; Back to the Farm</button><button type="button" class="btn ghost" data-go="answers">Find an Answer</button></div>
+    <div class="dhead" style="--c:#a8783f"><p class="kick">The General Store</p><h2>Where can I find the supplies?</h2><p class="q">Books, printables, gifts, and the tools we use. Cherry Flats Farm originals first.</p></div>
+    <div class="controls">
+      <div class="tabs" role="group" aria-label="Choose a shelf" id="cfTabs"></div>
+      <div class="chips" role="group" aria-label="Choose a format" id="cfChips"><span class="chiplab">Format</span></div>
+    </div>
+    <div class="pgrid" id="cfPGrid"></div>
+    <div class="bar" style="margin-top:22px"><button type="button" class="lnk" data-go="map">&larr; Back to the Farm</button><button type="button" class="btn ghost" data-go="answers">Find an Answer</button></div>
+  </div>
+
+  <footer class="foot">
+    <div class="fam"><b>Our family of brands</b><a href="https://cherryflatsfarm.com/?utm_source=cff-front-door&amp;utm_medium=referral&amp;utm_campaign=family" target="_blank" rel="noopener">Cherry Flats Farm</a><a href="https://flighttowerbooks.com/?utm_source=cff-front-door&amp;utm_medium=referral&amp;utm_campaign=family" target="_blank" rel="noopener">Flight Tower Books</a></div>
+    <p class="disc">Cherry Flats Farm books and printables are sold through the Flight Tower Books shop and SamCart; paperbacks are printed and shipped by Amazon. Amazon prices change, so check the current price there. As an Amazon Associate, we earn from qualifying purchases. Preservation instructions follow tested sources, which are named on each one.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var root=document.getElementById('cffd'); if(!root) return;
+  /* ===== SETTINGS ===== */
+  var PREVIEW=true;          /* false = live: hides drafts, placeholders and unfinished destinations */
+  var MIN_RECIPES=3;         /* live: an ingredient appears only once it has this many recipes */
+  var U='utm_source=cff-front-door&utm_medium=referral&utm_campaign=family';
+  var SHOP='https://shop.flighttowerbooks.com/products/', IMG='https://shop.flighttowerbooks.com/cdn/shop/files/', SC='https://flighttowerbook.mysamcart.com/';
+  function q(u){return u+(u.indexOf('?')<0?'?':'&')+U;}
+
+  /* ===== DESTINATIONS — open:true shows to the public; open:false shows only in PREVIEW ===== */
+  var DEST=[
+    {id:'kitchen',name:"Rachel's Kitchen",q:'What can I make with what I have?',c:'#8f2426',open:true,say:"What have you got? Let's make something.",keys:'recipe recipes cook cooking dinner supper bake baking muffins cookies bagels ingredients meal kitchen'},
+    {id:'garden',name:'The Covered Garden',q:'What can I grow, and how?',c:'#2f5a3c',open:true,say:"Pull up a bucket. Let's talk about what you want to grow.",keys:'grow growing garden plant planting seed seeds vegetables tomatoes greenhouse covered frost season'},
+    {id:'stand',name:'The Farm Stand',q:'How can I use or preserve the harvest?',c:'#557050',open:true,say:'Enjoy some now. Save some for later.',keys:'preserve preserving can canning freeze freezing dry drying pickle pickling harvest season fresh produce jam stand'},
+    {id:'river',name:'The Riverbank & Red Pickup',q:'What should we bring, and do, on our outing?',c:'#3f7f95',open:true,say:"Grab the cooler. We're heading down to the river.",keys:'road trip roadtrip outing nature river picnic checklist car games kids travel pickup'},
+    {id:'porch',name:'The Farmhouse Porch',q:'How can I make home life easier?',c:'#6e1a1c',open:false,say:"Come on in. There's room at the table.",keys:'home household tips story rachel newsletter farm updates porch',plan:['Rachel\'s story and the farm on Horse Creek','Household tips','What\'s happening on the farm','Tip of the Week archive']},
+    {id:'cellar',name:'The Root Cellar',q:'How should I prepare and store it?',c:'#6b6a3a',open:false,say:"Let's get the pantry ready.",keys:'store storage storing pantry potatoes onions squash rotation inventory cellar keep',plan:['Storage conditions for each crop','Pantry planning and inventory lists','Food rotation','Household preparation']},
+    {id:'workshop',name:'The Workshop',q:'How can I fix or make this?',c:'#8a5a3b',open:false,say:"Grab a tool. Let's fix it.",keys:'fix make build repair project tools diy workshop',plan:['Projects with materials, tools, steps, and pictures']},
+    {id:'cabin',name:'The Cowboy Cabin',q:'What project can I tackle next?',c:'#4a3426',open:false,say:'Got a free weekend? Here\'s a project.',keys:'weekend skill skills outdoor project projects men cabin',plan:['Weekend projects and practical skills','Outdoor interests','Useful finds']},
+    {id:'bunk',name:'The Bunkhouse',q:'What can we do together?',c:'#2f5a3c',open:false,say:"There's always room for one more.",keys:'kids family games printables crafts guests activities together coloring',plan:['Activities for guests and kids','Games and creative projects','Printables'],shelf:'kids'},
+    {id:'animals',name:'The Animal Yard',q:'What have we learned raising these animals?',c:'#7a5a3a',open:false,say:'Come meet the crew.',keys:'chickens chicken ducks duck quail cow sheep animals eggs',plan:['Meet the cow, sheep, chickens, ducks and quail, by name','Routines and farm stories','What raising them has taught us']},
+    {id:'store',name:'The General Store',q:'Where can I find the supplies?',c:'#a8783f',open:true,keys:'buy shop store gifts books printables pdf paperback ornaments'}
+  ];
+  var QUICK=[['Cook Something','kitchen'],['Grow Something','garden'],['Preserve & Store','stand'],['Fix & Make','workshop'],['Family Fun','river']];
+
+  /* ===== RECIPES — titles come from Rachel's Farm Stand and Farm Journal. Every field marked "Rachel" is hers to supply.
+     ing = ingredients the finder matches on. Add ingredients, time, occasion when Rachel sends each recipe. ===== */
+  var RECIPES=[
+    {id:'pecan-muffins',title:'Pecan streusel muffins for a crowd',ing:['Pecans'],occ:'For a crowd',src:'Farm Journal'},
+    {id:'pumpkin-muffins',title:'Pumpkin streusel muffins',ing:['Pumpkin'],src:'Farm Stand'},
+    {id:'cheddar-bagels',title:'Cheddar-jalapeño bagels',ing:['Cheddar','Jalapeños'],src:'Farm Stand'},
+    {id:'cc-cookies',title:'Chocolate chip cookies',ing:['Chocolate chips'],src:'Farm Stand'},
+    {id:'heart-cookies',title:'Sugar heart cookies',ing:[],src:'Farm Stand'}
+  ];
+  /* Ingredients we want covered at launch (3+ recipes each). Shown dashed in PREVIEW until Rachel's recipes arrive. */
+  var TARGET_INGS=['Eggs','Potatoes','Apples','Zucchini','Tomatoes','Ground beef'];
+
+  /* ===== TIPS — Rachel's Tip of the Week. Bank ~12 before launch; it rotates weekly. {t:'title', b:'tip in her words'} ===== */
+  var TIPS=[];
+
+  /* ===== THIS WEEK — three seasonal questions; each opens a destination ===== */
+  var WEEK=[
+    ['What can I make with the last of the pumpkins?','kitchen'],
+    ['What can I still plant before a hard frost?','garden'],
+    ['How should I store winter squash and potatoes?','cellar']
+  ];
+  var JOURNAL=[
+    ['Pecan streusel muffins for a crowd','Baking for a full table.'],
+    ['Let the kids garnish','Bringing the little ones into the kitchen.'],
+    ['Hanging the garlic harvest','Curing this year\'s garlic.']
+  ];
+
+  /* ===== PRODUCTS — own products first on every shelf.
+     s = shelves; f = formats [{t:'pdf'|'paper'|'merch', price, url} or {..., soon:'note'}]. amz:1 = Amazon slot (Paul sends the pick). ===== */
+  var SHELVES=[['kitchen','Kitchen & Preserving'],['garden','Garden'],['kids','Kids & Family'],['books','Bookshelf'],['holiday','Holiday']];
+  var FMTS=[['pdf','Printable PDF'],['paper','Paperback'],['merch','Gifts & Merch'],['amz','Amazon picks']];
+  var PRODUCTS=[
+    {id:'rtab',name:'Cherry Flats Farm Road Trip Adventure Book',s:['kids','books'],d:['river','bunk'],img:'CFFActivitybookcover2.png?v=1793455432',blurb:'Road games, mazes, coloring, silly stories and kindness activities from Cherry Flats Farm. Print a copy for every kid in the car.',
+      f:[{t:'pdf',price:'$9.99',url:SC+'cherry-flats-farm-road-trip-adventure-book'},{t:'paper',price:'$14.99',soon:'Coming to Amazon'}]},
+    {id:'fto',name:'Finish the Outfit: Cherry Flats Farm',s:['kids','books'],d:['bunk'],img:'FCFTO4_800x.png',blurb:'Color, cut and dress three cowgirls on a real Northern California farm. Screen-free.',
+      f:[{t:'pdf',price:'$9.99',url:SC+'checkout/finish-the-outfit-cherry-flats-farm-cut-out-activity-book'},{t:'paper',price:'$14.99',url:SHOP+'finish-the-outfit-cherry-flats-farm'}]},
+    {id:'lwyg',name:'Love What You Grow',s:['garden','books'],d:['garden'],ph:'Cover coming',blurb:'Rachel\'s book. Description and price to come from Rachel.',draft:1,
+      f:[{t:'paper',price:'',soon:'Coming soon'}]},
+    {id:'orn',name:'Cherry Flats Farm Christmas Ornaments',s:['holiday'],d:[],ph:'Ornament photos',blurb:'Three Cherry Flats Farm ornament designs, printed to order.',draft:1,
+      f:[{t:'merch',price:'',soon:'Link and price to confirm'}]},
+    {id:'fts',name:'Finish the Scene: Mandala Farm Coloring Book',s:['kids','books'],d:['bunk'],img:'digital_cover_1600x2560_a67e2927-7f68-48fa-8913-0ec00c1fb1fe_800x.png',blurb:'Mandala farm scenes to color on a quiet evening, alone or side by side.',
+      f:[{t:'pdf',price:'$9.99',url:SC+'checkout/finish-the-scene-mandala-challenge-coloring-book'},{t:'paper',price:'$14.99',url:SHOP+'finish-the-scene-mandala-farm-coloring-book'}]},
+    {id:'vgh',name:'WWII Victory Garden Hacks',s:['garden','books'],d:['garden','stand'],img:'VGH_A2_Rt_Cover_800x.png',blurb:'Wartime garden tricks for a backyard that actually feeds the family.',
+      f:[{t:'pdf',price:'$9.99',url:SC+'checkout/wwii-victory-garden-hacks'},{t:'paper',price:'$14.99',url:SHOP+'wwii-victory-garden-hacks'}]},
+    {id:'xmas',name:'Christmas Creative Collection: 3 Printable Activity Books',s:['holiday','kids'],d:['bunk'],img:'ChristmasCreativeActivityBookBundle_f28a9680-1ded-4661-b9b0-0b9a27ca967c_800x.png',blurb:'Three printable Christmas activity books. Print as many copies as the day needs.',
+      f:[{t:'pdf',price:'$19.99',url:SC+'checkout/christmas-creative-collection-3-printable-activity-books'}]},
+    {id:'a-kitchen',amz:1,s:['kitchen'],d:['kitchen'],name:'Kitchen tool pick'},
+    {id:'a-preserve',amz:1,s:['kitchen'],d:['stand'],name:'Canning or preserving pick'},
+    {id:'a-garden',amz:1,s:['garden'],d:['garden'],name:'Garden tool pick'},
+    {id:'a-kids',amz:1,s:['kids'],d:['river','bunk'],name:'Kids outdoors pick'},
+    {id:'a-gift',amz:1,s:['holiday'],d:[],name:'Farm-life gift pick'}
+  ];
+  /* ===== end content ===== */
+
+  if(!PREVIEW) root.classList.add('noprev');
+  function $(id){return document.getElementById(id);}
+  function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+  function dest(id){for(var i=0;i<DEST.length;i++) if(DEST[i].id===id) return DEST[i]; return null;}
+  function shown(d){return d && (d.open||PREVIEW);}
+  function live(p){return PREVIEW || (!p.draft && !p.amz);}
+  var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var CHERRY='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="5" fill="#8f2426"/><circle cx="17" cy="15" r="5" fill="#a8302f"/><path d="M12 3 C13 7 15 9 19 9 M12 3 C11 7 9 9 7 10" stroke="#2f5a3c" stroke-width="1.8" fill="none"/></svg>';
+  function draftBox(label,text){return PREVIEW?'<div class="draft"><span class="dtag">'+esc(label)+'</span><br>'+text+'</div>':'';}
+
+  /* ---------- views ---------- */
+  var views={home:$('cfHome'),dest:$('cfDest'),store:$('cfStore')};
+  function show(v){for(var k in views) views[k].classList.toggle('hide',k!==v);}
+  function top(el){try{(el||root).scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});}catch(e){}}
+  function go(where,arg){
+    if(where==='home'){show('home');top();}
+    else if(where==='answers'){show('home');top($('cfAnswers'));setTimeout(function(){$('cfQ').focus({preventScroll:true});},reduce?0:350);}
+    else if(where==='map'){show('home');top($('cfMapSec'));}
+    else if(where==='store'){renderStore(arg);show('store');top();}
+    else openDest(where);
+  }
+  root.addEventListener('click',function(e){var b=e.target.closest('[data-go]');if(!b||!root.contains(b))return;e.preventDefault();go(b.getAttribute('data-go'),b.getAttribute('data-arg'));});
+
+  /* ---------- map ---------- */
+  Array.prototype.forEach.call(root.querySelectorAll('.spot'),function(s){
+    var d=dest(s.getAttribute('data-d'));
+    if(!d) return;
+    if(!d.open) s.classList.add('soon');
+    if(!shown(d)){s.classList.add('locked');s.setAttribute('aria-disabled','true');s.setAttribute('aria-label',d.name+': opening soon');return;}
+    function open(){
+      if(reduce){go(d.id);return;}
+      s.classList.add('visit');setTimeout(function(){s.classList.remove('visit');go(d.id);},420);
+    }
+    s.addEventListener('click',open);
+    s.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+  });
+
+  /* ---------- home ---------- */
+  $('cfQuick').innerHTML=QUICK.filter(function(x){return shown(dest(x[1]));}).map(function(x){var d=dest(x[1]);return '<button type="button" class="qb" data-go="'+x[1]+'" style="--c:'+d.c+'"><i></i>'+esc(x[0])+'</button>';}).join('');
+  $('cfDList').innerHTML=DEST.filter(shown).map(function(d){
+    return '<button type="button" class="dbtn'+(d.open?'':' soon')+'" data-go="'+d.id+'" style="--c:'+d.c+'"><b><i></i>'+esc(d.name)+(PREVIEW?'<em class="pill'+(d.open?' open':'')+'">'+(d.open?'Opens first':'Later')+'</em>':'')+'</b><span>'+esc(d.q)+'</span></button>';
+  }).join('');
+  $('cfWeek').innerHTML=WEEK.filter(function(w){return shown(dest(w[1]));}).map(function(w){var d=dest(w[1]);
+    return '<button type="button" class="wk" data-go="'+w[1]+'"><div class="ph">Rachel\'s photo</div><div class="in"><small>'+esc(d.name)+'</small><h3>'+esc(w[0])+'</h3>'+(PREVIEW?'<span class="dtag" style="align-self:flex-start">Answer from Rachel</span>':'')+'</div></button>';}).join('');
+  $('cfLatest').innerHTML=JOURNAL.map(function(j){return '<a class="jr" target="_blank" rel="noopener" href="https://cherryflatsfarm.com/?'+U+'#journal"><b>'+esc(j[0])+'</b><span>'+esc(j[1])+' Read it in the Farm Journal &rarr;</span></a>';}).join('');
+  /* tip of the week rotates by ISO-ish week number */
+  (function(){
+    var now=new Date(), start=new Date(now.getFullYear(),0,1), wk=Math.floor((now-start)/604800000);
+    var monday=new Date(now);monday.setDate(now.getDate()-((now.getDay()+6)%7));
+    $('cfTipWk').textContent="Rachel's Tip of the Week · "+monday.toLocaleDateString('en-US',{month:'long',day:'numeric'});
+    if(TIPS.length){var t=TIPS[wk%TIPS.length];$('cfTip').innerHTML='<h3>'+esc(t.t)+'</h3><p>'+esc(t.b)+'</p>';}
+    else $('cfTip').innerHTML='<h3>A new tip from Rachel every Monday.</h3>'+(PREVIEW?'<div class="draft" style="margin-top:12px"><span class="dtag">Draft · Rachel to supply</span><br>Twelve tips from Rachel\'s own experience, banked before launch so this changes weekly for a full season.</div>':'');
+  })();
+  $('cfLetter').addEventListener('submit',function(e){e.preventDefault();var p=this.parentNode.querySelector('.thanks');if(!p){p=document.createElement('p');p.className='thanks';this.parentNode.appendChild(p);}p.textContent=PREVIEW?'Preview only. This form connects to Rachel\'s Kit list before launch.':'Thanks. Watch your inbox for Rachel\'s first letter.';});
+
+  /* ---------- search ---------- */
+  var INDEX=[];
+  DEST.filter(shown).forEach(function(d){INDEX.push({k:'Farm',t:d.name+': '+d.q,x:(d.name+' '+d.q+' '+d.keys).toLowerCase(),go:d.id});});
+  RECIPES.forEach(function(r){INDEX.push({k:'Recipe',t:r.title,x:(r.title+' '+r.ing.join(' ')+' recipe').toLowerCase(),go:'kitchen',arg:r.id});});
+  PRODUCTS.filter(function(p){return live(p)&&!p.amz;}).forEach(function(p){INDEX.push({k:'Store',t:p.name,x:(p.name+' '+p.blurb+' '+p.s.join(' ')).toLowerCase(),go:'store',arg:p.s[0]});});
+  function search(term){
+    var words=term.toLowerCase().replace(/[^a-z0-9ñ ]/g,' ').split(/\s+/).filter(function(w){return w.length>2&&['how','what','the','and','for','can','make','with','have','do','does','should','about','from','into'].indexOf(w)<0;});
+    var out=$('cfResults');out.classList.remove('hide');
+    if(!words.length){out.innerHTML='<div class="none">Try a word like <b>muffins</b>, <b>garden</b>, <b>canning</b> or <b>road trip</b>.</div>';return;}
+    var hits=INDEX.map(function(it){var s=0;words.forEach(function(w){var stem=w.replace(/(ing|es|s)$/,'');if(it.x.indexOf(stem)>=0)s+=(it.k==='Recipe'?3:it.k==='Farm'?2:1);});return {it:it,s:s};})
+      .filter(function(h){return h.s>0;}).sort(function(a,b){return b.s-a.s;}).slice(0,6);
+    if(!hits.length){
+      out.innerHTML='<div class="none"><b>Rachel hasn\'t answered that one yet.</b> Send her the question and it may become the next answer on the farm: <code>hello@cherryflatsfarm.com</code></div>';return;}
+    out.innerHTML='<div class="rlist">'+hits.map(function(h){return '<button type="button" class="ritem" data-go="'+h.it.go+'"'+(h.it.arg?' data-arg="'+h.it.arg+'"':'')+'><b>'+esc(h.it.t)+'</b><small>'+h.it.k+'</small></button>';}).join('')+'</div>';
+  }
+  $('cfSearch').addEventListener('submit',function(e){e.preventDefault();search($('cfQ').value);});
+
+  /* ---------- product cards ---------- */
+  var FLAB={pdf:'Printable PDF',paper:'Paperback',merch:'Gift'};
+  function card(p){
+    if(p.amz) return '<article class="card amz"><div class="body"><span class="stamp">Sold on Amazon</span><h4>'+esc(p.name)+'</h4>'+draftBox('Draft · Paul to send','Paul picks this on Amazon and sends the link. Shows the name, why Rachel likes it, and a "Check price on Amazon" button. No Amazon photos or prices.')+'</div></article>';
+    var top=p.img?'<div class="img"><img loading="lazy" src="'+IMG+p.img+'" alt="'+esc(p.name)+' cover"></div>':'<div class="img">'+esc(p.ph||'Photo coming')+'</div>';
+    var fm=p.f.map(function(f){
+      var right=f.soon?'<span class="soonnote">'+esc(f.soon)+'</span>':'<a class="btn" target="_blank" rel="noopener" href="'+esc(q(f.url))+'">'+(f.t==='pdf'?'Buy &amp; print':'See it in the shop')+' &rarr;</a>';
+      return '<div class="fmt"><span class="fl"><b>'+FLAB[f.t]+'</b>'+(f.price?'<strong>'+f.price+'</strong>':'')+'</span>'+right+'</div>';
+    }).join('');
+    return '<article class="card'+(p.img?'':' ph')+'">'+top+'<div class="body"><h4>'+esc(p.name)+'</h4><p>'+esc(p.blurb)+'</p>'+(p.draft?draftBox('Draft','Details to confirm before launch.'):'')+fm+'</div></article>';
+  }
+  function related(ids,shelf){
+    var list=PRODUCTS.filter(function(p){return live(p)&&((shelf&&p.s.indexOf(shelf)>=0)||p.d.some(function(x){return ids.indexOf(x)>=0;}));});
+    list.sort(function(a,b){return (a.amz?1:0)-(b.amz?1:0);});
+    return list.slice(0,4);
+  }
+  function supplies(d,list){
+    if(!list.length) return '';
+    return '<section class="supplies"><h3>Useful supplies</h3><p>Optional. Things that help with this, from the General Store.</p><div class="pgrid">'+list.map(card).join('')+'</div></section>';
+  }
+
+  /* ---------- destinations ---------- */
+  var kstate={ing:null,recipe:null};
+  function openDest(id,arg){
+    var d=dest(id); if(!shown(d)){go('map');return;}
+    if(id==='store'){go('store');return;}
+    var bar='<div class="bar"><button type="button" class="lnk" data-go="map">&larr; Back to the Farm</button><button type="button" class="btn ghost" data-go="store">Shop All &rarr;</button></div>';
+    var host=d.say?'<div class="host"><div class="av">'+CHERRY+'</div><p class="say">&ldquo;'+esc(d.say)+'&rdquo;<small>Proposed line · Rachel to approve</small></p></div>':'';
+    var body='', rel=related([d.id],d.shelf);
+    if(id==='kitchen') body='<div id="cfKitchen"></div>';
+    else if(id==='garden') body=gardenHTML();
+    else if(id==='stand') body=standHTML();
+    else if(id==='river') body=riverHTML();
+    else body='<div class="block"><h3>Coming to this part of the farm</h3><ul class="plain">'+(d.plan||[]).map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul></div>'+draftBox('Draft · hidden when live','This stop stays off the public map until Rachel\'s content for it is ready.');
+    views.dest.innerHTML=bar+'<div class="dhead" style="--c:'+d.c+'"><p class="kick">Cherry Flats Farm</p><h2>'+esc(d.name)+'</h2><p class="q">'+esc(d.q)+'</p></div>'+host+body+supplies(d,rel)+'<div class="bar" style="margin-top:24px">'+bar.slice(17);
+    show('dest');top();
+    if(id==='kitchen'){kstate.ing=null;kstate.recipe=null;if(arg){var r=recipe(arg);if(r){kstate.ing=r.ing[0]||null;kstate.recipe=r.id;}}renderKitchen();}
+  }
+  var openDestFromSearch=openDest;
+  /* search results pass an arg through go(); route it here */
+  var _go=go; go=function(w,a){if(dest(w)&&w!=='store'){openDest(w,a);}else _go(w,a);};
+
+  function gardenHTML(){
+    return '<div class="block"><h3>Growing on Horse Creek</h3><p>Every guide says where and how it was grown, so you can match it to your own garden.</p>'+
+      draftBox('Draft · Rachel to supply','Growing conditions behind the advice: location, elevation, frost dates, soil, and the 30 × 70 ft covered garden.')+'</div>'+
+      '<div class="block"><h3>Growing guides</h3><div class="cols">'+
+      ['What to plant this month','A crop Rachel grows every year','Covered-garden lessons'].map(function(t){return '<div class="areacard"><h4>'+t+'</h4>'+draftBox('Draft · Rachel to supply','Steps, timing, and what she learned growing it.')+'</div>';}).join('')+'</div></div>';
+  }
+  function standHTML(){
+    return '<div class="cols block">'+
+      '<div class="areacard"><h4>What\'s in Season?</h4><p>Harvest updates from the farm and easy ways to use what\'s fresh.</p>'+draftBox('Draft · Rachel to supply','This week\'s harvest and two or three ways to use it.')+'</div>'+
+      '<div class="areacard"><h4>Save the Harvest</h4><p>Freezing, drying, pickling, and canning. Every method follows a tested source, named on the page.</p>'+draftBox('Draft · sources','Methods and processing times come from the USDA Complete Guide to Home Canning and the National Center for Home Food Preservation. No improvised times.')+'</div>'+
+      '<div class="areacard"><h4>From the Farm Stand</h4><p>Baked fresh on the farm. Local pickup only; ordering isn\'t open yet.</p>'+
+        [['Pumpkin streusel muffins',''],['Sugar heart cookies',''],['Cheddar-jalapeño bagels',''],['Chocolate chip cookies','']].map(function(x){return '<div class="standitem"><span>'+x[0]+'</span><em>At the stand</em></div>';}).join('')+
+        draftBox('Draft · Rachel to confirm','What\'s available each week, and whether pickup orders open here.')+'</div>'+
+      '</div>';
+  }
+  function riverHTML(){
+    return '<div class="cols block">'+
+      '<div class="areacard"><h4>The outing checklist</h4><p>What to pack for a day at the river or on the road.</p>'+draftBox('Draft · Rachel to supply','Rachel\'s own checklist, printable.')+'</div>'+
+      '<div class="areacard"><h4>Nature activities</h4><p>Things to look for and do outside, for kids and grown-ups.</p>'+draftBox('Draft · Rachel to supply','Activities from the riverbank.')+'</div>'+
+      '<div class="areacard"><h4>Free road-trip scavenger hunt</h4><p>A free printable hunt from Cherry Flats Farm. Sign up on Rachel\'s site and it comes by email.</p><a class="btn ghost" target="_blank" rel="noopener" href="https://cherryflatsfarm.com/?'+U+'#gift" style="align-self:flex-start">Get the free hunt &rarr;</a></div>'+
+      '</div>';
+  }
+
+  /* ---------- kitchen finder ---------- */
+  function recipe(id){for(var i=0;i<RECIPES.length;i++) if(RECIPES[i].id===id) return RECIPES[i]; return null;}
+  function ingList(){
+    var m={};RECIPES.forEach(function(r){r.ing.forEach(function(i){m[i]=(m[i]||0)+1;});});
+    var out=Object.keys(m).sort().map(function(k){return {n:k,c:m[k]};});
+    if(PREVIEW) TARGET_INGS.forEach(function(t){if(!m[t]) out.push({n:t,c:0});});
+    return out.filter(function(x){return PREVIEW||x.c>=MIN_RECIPES;});
+  }
+  function renderKitchen(){
+    var box=$('cfKitchen'); if(!box) return;
+    var ings=ingList();
+    var h='<section class="finder"><h3>What have you got?</h3><p class="lead">Pick something from your kitchen. Rachel will show you what to make with it.</p><div class="ings" role="group" aria-label="Choose an ingredient">'+
+      ings.map(function(x){return '<button type="button" class="ing'+(x.c?'':' empty')+'" data-ing="'+esc(x.n)+'" aria-pressed="'+(kstate.ing===x.n)+'">'+esc(x.n)+(x.c?'<sup>'+x.c+'</sup>':'')+'</button>';}).join('')+
+      (PREVIEW?'<button type="button" class="ing" data-ing="__all" aria-pressed="'+(kstate.ing==='__all')+'">Show every recipe</button>':'')+'</div>';
+    if(PREVIEW) h+='<p style="font-size:13px;color:var(--muted);margin-top:10px">Solid buttons have a recipe title already. Dashed ones are launch targets waiting on Rachel\'s recipes. When live, an ingredient only appears once it has '+MIN_RECIPES+' recipes, so nobody hits a dead end.</p>';
+    if(kstate.ing){
+      var list=RECIPES.filter(function(r){return kstate.ing==='__all'||r.ing.indexOf(kstate.ing)>=0;});
+      h+='<div class="rgrid">'+list.map(function(r){return '<button type="button" class="rcard" data-rec="'+r.id+'"><div class="ph">Rachel\'s photo</div><div class="in"><b>'+esc(r.title)+'</b><span>'+(r.occ?esc(r.occ)+' · ':'')+'From the '+esc(r.src)+'</span></div></button>';}).join('');
+      for(var i=list.length;i<3;i++) h+='<div class="rcard slot"><div class="in"><b>Recipe slot</b>'+draftBox('Draft · Rachel to supply','Another '+esc(kstate.ing==='__all'?'':kstate.ing.toLowerCase()+' ')+'recipe from Rachel.')+'</div></div>';
+      h+='</div>';
+    }
+    var r=kstate.recipe&&recipe(kstate.recipe);
+    if(r){
+      h+='<article class="recipe" id="cfRecipe"><p class="kick">From the '+esc(r.src)+'</p><h3>'+esc(r.title)+'</h3>'+
+        '<div class="meta"><div><small>Prep</small><b>Rachel</b></div><div><small>Cook</small><b>Rachel</b></div><div><small>Makes</small><b>Rachel</b></div>'+(r.occ?'<div><small>Good for</small><b>'+esc(r.occ)+'</b></div>':'')+'</div>'+
+        '<div class="rtwo"><div><h4>Ingredients</h4>'+draftBox('Draft · Rachel to supply','Each ingredient with its quantity.')+'</div><div><h4>Steps</h4>'+draftBox('Draft · Rachel to supply','Numbered steps in her words, with timing.')+'</div></div>'+
+        '<div class="rnote"><small>Rachel\'s tip</small>'+(PREVIEW?'One line in her own voice about how she makes it and why.':'')+'</div>'+
+        '<div class="rbtns"><span class="pill">Print-friendly recipe card on the live site</span><button type="button" class="lnk" data-recback="1">&larr; Back to recipes</button></div></article>';
+    }
+    h+='</section>';
+    box.innerHTML=h;
+    if(r){var el=$('cfRecipe');if(el)top(el);}
+  }
+  views.dest.addEventListener('click',function(e){
+    var b=e.target.closest('[data-ing]');
+    if(b){var v=b.getAttribute('data-ing');kstate.ing=(kstate.ing===v?null:v);kstate.recipe=null;renderKitchen();return;}
+    b=e.target.closest('[data-rec]');
+    if(b){kstate.recipe=b.getAttribute('data-rec');renderKitchen();return;}
+    if(e.target.closest('[data-recback]')){kstate.recipe=null;renderKitchen();}
+  });
+
+  /* ---------- store ---------- */
+  var shelf='all', fmt='';
+  function hasFmt(p,f){if(f==='amz')return !!p.amz;if(p.amz)return false;return p.f.some(function(x){return x.t===f;});}
+  function vis(sh,f){return PRODUCTS.filter(function(p){return live(p)&&(sh==='all'||p.s.indexOf(sh)>=0)&&(!f||hasFmt(p,f));});}
+  function renderStore(arg){
+    if(arg){shelf=arg;fmt='';}
+    if(!vis(shelf,fmt).length){fmt='';} if(!vis(shelf,'').length) shelf='all';
+    $('cfTabs').innerHTML=[['all','Everything']].concat(SHELVES).filter(function(s){return vis(s[0],fmt).length;}).map(function(s){return '<button type="button" class="tab" data-shelf="'+s[0]+'" aria-pressed="'+(shelf===s[0])+'">'+esc(s[1])+'</button>';}).join('');
+    $('cfChips').innerHTML='<span class="chiplab">Format</span>'+FMTS.filter(function(f){return vis(shelf,f[0]).length;}).map(function(f){return '<button type="button" class="chip" data-fmt="'+f[0]+'" aria-pressed="'+(fmt===f[0])+'">'+esc(f[1])+'</button>';}).join('');
+    var list=vis(shelf,fmt).slice().sort(function(a,b){return (a.amz?1:0)-(b.amz?1:0)||(a.draft?1:0)-(b.draft?1:0);});
+    $('cfPGrid').innerHTML=list.map(card).join('');
+  }
+  $('cfTabs').addEventListener('click',function(e){var b=e.target.closest('[data-shelf]');if(!b)return;shelf=b.getAttribute('data-shelf');renderStore();});
+  $('cfChips').addEventListener('click',function(e){var b=e.target.closest('[data-fmt]');if(!b)return;var v=b.getAttribute('data-fmt');fmt=(fmt===v?'':v);renderStore();});
+
+  window.__cffd={DEST:DEST,PRODUCTS:PRODUCTS,vis:vis,SHELVES:SHELVES,FMTS:FMTS,go:function(w,a){go(w,a);}};
+})();
+</script>
