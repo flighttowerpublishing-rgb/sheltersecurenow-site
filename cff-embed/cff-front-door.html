@@ -236,7 +236,8 @@
 #cffd .fmt .soonnote{font:700 12px/1.3 var(--body);color:var(--green)}
 #cffd .card.amz{border-style:dashed;background:#fffaf0}
 #cffd .card.amz .stamp{font:700 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
-#cffd .card.ph .img{display:grid;place-items:center;background:repeating-linear-gradient(135deg,#efe6d3 0 10px,#f6efe2 10px 20px);font:700 11px/1.3 var(--body);letter-spacing:.1em;text-transform:uppercase;color:#a08c70;text-align:center;padding:14px}
+#cffd .card .img.err::after{content:'Cover photo shows on the live site'}
+#cffd .card .img.err,#cffd .card.noimg .img{display:grid;place-items:center;background:repeating-linear-gradient(135deg,#efe6d3 0 10px,#f6efe2 10px 20px);font:700 11px/1.3 var(--body);letter-spacing:.1em;text-transform:uppercase;color:#a08c70;text-align:center;padding:14px}
 #cffd .supplies{margin-top:28px;padding-top:20px;border-top:2px solid var(--line)}
 #cffd .supplies h3{font-size:22px;margin-bottom:4px}
 #cffd .supplies>p{color:var(--muted);font-size:15px;margin-bottom:14px}
@@ -718,12 +719,12 @@
   var FLAB={pdf:'Printable PDF',paper:'Paperback',merch:'Gift'};
   function card(p){
     if(p.amz) return '<article class="card amz"><div class="body"><span class="stamp">Sold on Amazon</span><h4>'+esc(p.name)+'</h4>'+draftBox('Draft · Paul to send','Paul picks this on Amazon and sends the link. Shows the name, why Rachel likes it, and a "Check price on Amazon" button. No Amazon photos or prices.')+'</div></article>';
-    var top=p.img?'<div class="img"><img loading="lazy" src="'+IMG+p.img+'" alt="'+esc(p.name)+' cover"></div>':'<div class="img">'+esc(p.ph||'Photo coming')+'</div>';
+    var top=p.img?'<div class="img"><img loading="lazy" src="'+IMG+p.img+'" alt="'+esc(p.name)+' cover" onerror="this.parentNode.classList.add(\'err\');this.remove()"></div>':'<div class="img">'+esc(p.ph||'Photo coming')+'</div>';
     var fm=p.f.map(function(f){
       var right=f.soon?'<span class="soonnote">'+esc(f.soon)+'</span>':'<a class="btn" target="_blank" rel="noopener" href="'+esc(q(f.url))+'">'+(f.t==='pdf'?'Buy &amp; print':'See it in the shop')+' &rarr;</a>';
       return '<div class="fmt"><span class="fl"><b>'+FLAB[f.t]+'</b>'+(f.price?'<strong>'+f.price+'</strong>':'')+'</span>'+right+'</div>';
     }).join('');
-    return '<article class="card'+(p.img?'':' ph')+'">'+top+'<div class="body"><h4>'+esc(p.name)+'</h4><p>'+esc(p.blurb)+'</p>'+(p.draft?draftBox('Draft','Details to confirm before launch.'):'')+fm+'</div></article>';
+    return '<article class="card'+(p.img?'':' noimg')+'">'+top+'<div class="body"><h4>'+esc(p.name)+'</h4><p>'+esc(p.blurb)+'</p>'+(p.draft?draftBox('Draft','Details to confirm before launch.'):'')+fm+'</div></article>';
   }
   function related(ids,shelf){
     var list=PRODUCTS.filter(function(p){return live(p)&&((shelf&&p.s.indexOf(shelf)>=0)||p.d.some(function(x){return ids.indexOf(x)>=0;}));});
