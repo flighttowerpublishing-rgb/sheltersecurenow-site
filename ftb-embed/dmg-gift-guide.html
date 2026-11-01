@@ -144,7 +144,7 @@
   background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.06) 0 2px,transparent 2px 14px),repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 2px,transparent 2px 28px)}
 #dmgg .bld:before{content:'';position:absolute;left:12%;top:-14px;width:14px;height:14px;background:var(--ink);border-radius:2px 2px 0 0;display:var(--chim,none)}
 #dmgg .sign{display:grid;place-items:center;min-height:64px;background:#fffaf0;border:3px solid var(--ink);border-radius:6px;padding:8px 6px;box-shadow:3px 3px 0 var(--ink);
-  font:700 17px/1.12 Georgia,serif;color:var(--ink);text-wrap:balance;transition:transform .2s}
+  font:700 19px/1.12 Georgia,serif;color:var(--ink);text-wrap:balance;transition:transform .2s}
 #dmgg .shop:hover .sign{transform:translateY(-2px) rotate(-1deg)}
 #dmgg .cat{display:block;font:700 10.5px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin:8px 0 0;text-shadow:0 1px 0 rgba(0,0,0,.35)}
 #dmgg .awn{position:relative;height:16px;margin:8px -10px 0;background:repeating-linear-gradient(90deg,#fff 0 14px,var(--aw,#c8202f) 14px 28px);border-top:3px solid var(--ink)}
@@ -159,9 +159,9 @@
 #dmgg .door b{position:absolute;left:50%;top:22%;transform:translateX(-50%);font:700 7px/1 Arial,sans-serif;letter-spacing:.08em;color:var(--ink);background:#fff;padding:2px 3px;border-radius:2px}
 #dmgg .shop:hover .door{transform:rotateY(-28deg)}
 #dmgg .shop.opening .door{transform:rotateY(-82deg)}
-#dmgg .guide{position:absolute;right:22px;bottom:0;width:26px;height:46px;opacity:0;pointer-events:none;z-index:3}
+#dmgg .guide{position:absolute;right:20px;bottom:0;width:32px;height:56px;opacity:0;pointer-events:none;z-index:3}
 #dmgg .guide svg{width:100%;height:100%;overflow:visible}
-#dmgg .shop.opening .guide{animation:dmWalkIn .85s .2s ease-in forwards}
+#dmgg .shop.opening .guide{animation:dmWalkIn 1s .3s ease-in forwards}
 #dmgg .shop.opening .guide .lg1{animation:dmLeg .22s linear infinite alternate}
 #dmgg .shop.opening .guide .lg2{animation:dmLeg .22s linear infinite alternate-reverse}
 #dmgg .guide .lg1,#dmgg .guide .lg2{transform-box:fill-box;transform-origin:top center}
@@ -193,12 +193,44 @@
 #dmgg .ped .lg2,#dmgg .dog .lg2,#dmgg .xdm .lg2{animation-direction:alternate-reverse}
 #dmgg .dog .lg1,#dmgg .dog .lg2{animation-duration:.16s}
 #dmgg .xdm{top:-4px;animation:dmCross 19s linear infinite}
-#dmgg .cones{position:absolute;top:31px;display:flex;align-items:flex-end;gap:6px}
+#dmgg .cones{position:absolute;top:60px;display:flex;align-items:flex-end;gap:6px}
 #dmgg .rw{font:700 8px/1.1 Arial,sans-serif;color:var(--ink);background:#f2b134;border:2px solid var(--ink);padding:3px 5px;border-radius:3px;text-align:center;margin-left:4px}
 @keyframes dmDrive{from{left:-140px}to{left:105%}}
 @keyframes dmDriveL{from{left:105%;transform:scaleX(-1)}to{left:-140px;transform:scaleX(-1)}}
 @keyframes dmCross{0%,62%{transform:translateY(0);opacity:0}63%{opacity:1;transform:translateY(0)}80%{transform:translateY(56px);opacity:1}81%,100%{transform:translateY(56px);opacity:0}}
 #dmgg .citybar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin:6px 0 4px}
+#dmgg .cityfind{display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;margin:0 0 20px}
+#dmgg .cityfind .fq{margin:0 0 4px}
+#dmgg .cityfind .fintro{margin:0}
+#dmgg .btn.huge{font-size:20px;padding:18px 28px;box-shadow:4px 4px 0 var(--ink)}
+#dmgg .dir{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 14px}
+#dmgg .dirlab{font:700 11px/1 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:#2f6b45;border-radius:3px;padding:7px 9px;margin-right:2px}
+#dmgg .dirb{font:700 13px/1 Arial,sans-serif;padding:9px 12px;border-radius:999px;border:2px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer}
+#dmgg .dirb:hover,#dmgg .dirb:focus-visible{background:var(--ink);color:#fff;outline:none}
+#dmgg .street{position:relative}
+#dmgg .sky{position:absolute;left:0;right:0;top:0;height:120px;pointer-events:none;z-index:0}
+#dmgg .row,#dmgg .sthead{position:relative;z-index:1}
+#dmgg .cloud{position:absolute;top:var(--y);animation:dmCloud var(--d) linear infinite;animation-delay:var(--dl);opacity:.9}
+@keyframes dmCloud{from{left:-120px}to{left:105%}}
+#dmgg .skyplane{position:absolute;top:18px;animation:dmPlane 22s linear infinite;animation-delay:-5s}
+@keyframes dmPlane{0%{left:-60px;transform:translateY(0)}50%{transform:translateY(-10px)}100%{left:105%;transform:translateY(4px)}}
+#dmgg .flash{display:block;margin:6px auto 0;width:max-content;font:700 9px/1 Arial,sans-serif;letter-spacing:.14em;color:#ffd84d;background:#1d1b19;border:2px solid #ffd84d;border-radius:3px;padding:4px 6px}
+#dmgg .ant{position:absolute;right:18%;top:-26px;width:3px;height:26px;background:var(--ink)}
+#dmgg .ant:after{content:'';position:absolute;left:-3px;top:-6px;width:9px;height:9px;border-radius:50%;background:#c8202f;animation:dmNeon 1s steps(1) infinite}
+#dmgg .pigeon{position:absolute;top:-13px;left:58%;font-size:0}
+#dmgg .lamp{position:absolute;top:4px;width:3px;height:24px;background:var(--ink)}
+#dmgg .lamp:before{content:'';position:absolute;left:-6px;top:-4px;width:15px;height:8px;border-radius:8px 8px 2px 2px;background:var(--ink)}
+#dmgg .lamp:after{content:'';position:absolute;left:-3px;top:4px;width:9px;height:5px;border-radius:0 0 6px 6px;background:#ffe9a8;box-shadow:0 0 8px #ffd84d}
+#dmgg .hyd{position:absolute;top:10px}
+#dmgg .chase{top:0;animation:dmDrive 13s linear infinite;animation-delay:-5.2s}
+#dmgg .hey{position:absolute;top:-2px;left:14px;font:700 8px/1 Arial,sans-serif;background:#fff;border:1.5px solid var(--ink);border-radius:6px;padding:2px 3px;white-space:nowrap}
+#dmgg .worker{position:absolute;top:56px}
+#dmgg .xdm2{animation-duration:23s;animation-delay:-8s}
+#dmgg .hint{display:none;font:12px/1.3 Arial,sans-serif;color:var(--muted);padding:6px 14px 0}
+#dmgg .row.entering .shop:not(.opening){opacity:.45;transition:opacity .3s}
+@media(max-width:760px){#dmgg .hint{display:block}#dmgg .cityfind{padding:18px 16px}#dmgg .btn.huge{width:100%;text-align:center;font-size:18px;padding:16px 20px}#dmgg .dirb{font-size:12px;padding:8px 10px;flex:none}#dmgg .dir{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:-16px;padding-right:16px}#dmgg .dir::-webkit-scrollbar{display:none}#dmgg .dirlab{flex:none}}
+@media(prefers-reduced-motion:reduce){#dmgg .cloud,#dmgg .skyplane,#dmgg .ant:after,#dmgg .flash{animation:none!important}#dmgg .cloud{left:30%}#dmgg .skyplane{display:none}#dmgg .chase{left:46%}}
+
 /* inside a shop */
 #dmgg .shopbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin:0 0 16px}
 #dmgg .shopbar.bot{margin:22px 0 0}
@@ -214,7 +246,7 @@
   #dmgg .row{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:0}
   #dmgg .row::-webkit-scrollbar{display:none}
   #dmgg .shop{flex:0 0 calc(50% - 6px);scroll-snap-align:start}
-  #dmgg .sign{font-size:15px;min-height:58px}
+  #dmgg .sign{font-size:16px;min-height:62px}
   #dmgg .front{grid-template-columns:1fr 42px}
   #dmgg .guide{right:16px}
   #dmgg .win{height:80px}#dmgg .frame{height:88px}
@@ -234,7 +266,7 @@
   <div class="top hero">
     <div class="herotext">
       <p class="kick">The D-Minus Genius Gift Guide · Holiday 2026</p>
-      <h2>Welcome to D-Minus&rsquo;s Bright Idea <span class="dm">District</span></h2>
+      <h2>Welcome to the <span style="white-space:nowrap">D-Minus</span> <span class="dm">Genius</span> Bright Idea District</h2>
       <p class="sub">Great intentions. Questionable directions. Gifts you should have thought of first.</p>
     </div>
     <div class="dancer" role="img" aria-label="D-Minus Genius in a Santa hat, dancing">
@@ -267,10 +299,15 @@
 
 
   <section class="city" id="dmggCity" aria-label="D-Minus's Bright Idea District">
-    <p class="cityintro"><b>Pick a storefront.</b> D-Minus will walk you in. (He knows a shortcut. It&rsquo;s longer.)</p>
+    <div class="finder cityfind">
+      <div><h3 class="fq">Not sure what to get?</h3><p class="fintro">Tell D-Minus a little about them. Three quick questions, three gift ideas.</p></div>
+      <button type="button" class="btn big huge" data-go="finder">Help Me Find a Gift &rarr;</button>
+    </div>
+    <p class="cityintro"><b>Or pick a storefront.</b> D-Minus will walk you in. (He knows a shortcut. It&rsquo;s longer.)</p>
+    <nav class="dir" id="dmggDir" aria-label="City directory"><span class="dirlab">Directory</span></nav>
     <div id="dmggStreets"></div>
     <div class="citybar"><button type="button" class="btn big" data-go="store">Shop All Gifts &rarr;</button>
-      <button type="button" class="flink" data-go="finder">Not sure which shop? Help Me Find Their Gift &rarr;</button></div>
+      <button type="button" class="btn big ghost" data-go="finder">Help Me Find a Gift &rarr;</button></div>
   </section>
 
   <div id="dmggShopView" class="hide" aria-live="polite">
@@ -491,7 +528,7 @@
   $('dmggAgain').onclick=function(){ans={};step=0;ask();};
 
   /* ===== BRIGHT IDEA DISTRICT ===== */
-  var K='#1d1b19';
+  var K='#1d1b19', RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   function F(x,y,o){ o=o||{}; var a=o.a||[[-9,-18],[9,-18]], c='';
     c+='<path d="M'+x+' '+(y-27)+' L'+x+' '+(y-13)+'"/>';
     c+='<path class="lg1" d="M'+x+' '+(y-13)+' L'+(x-5)+' '+y+'"/><path class="lg2" d="M'+x+' '+(y-13)+' L'+(x+5)+' '+y+'"/>';
@@ -542,24 +579,42 @@
   function pedSvg(col){return '<svg width="16" height="30" viewBox="0 0 16 30"><g stroke="'+K+'" stroke-width="1.8" stroke-linecap="round" fill="none"><circle cx="8" cy="5" r="4" fill="#fff"/><path d="M8 9 V19" stroke="'+col+'" stroke-width="3.4"/><path d="M8 12 L3 17 M8 12 L13 16"/><path class="lg1" d="M8 19 L5 29"/><path class="lg2" d="M8 19 L11 29"/></g></svg>';}
   function dogSvg(){return '<svg width="40" height="20" viewBox="0 0 40 20"><g stroke="'+K+'" stroke-width="1.6" stroke-linecap="round"><path d="M4 9 Q2 4 6 3" fill="none"/><rect x="5" y="6" width="18" height="7" rx="3.5" fill="#b07a45"/><circle cx="26" cy="6" r="4.5" fill="#b07a45"/><path d="M26 2 l2 -2" /><path class="lg1" d="M9 13 L8 19" fill="none"/><path class="lg2" d="M19 13 L20 19" fill="none"/><rect x="29" y="5" width="10" height="5" rx="1.5" fill="#e9b949"/><path d="M29 7.5 H39" stroke="#4f7136" stroke-width="1.4"/></g></svg>';}
   function xdmSvg(){return '<svg width="18" height="32" viewBox="0 0 18 32"><g stroke="'+K+'" stroke-width="1.9" stroke-linecap="round" fill="none"><circle cx="9" cy="6" r="4.5" fill="#fff"/><path d="M4.5 3.5 Q9 -2.5 13.5 3.5 Z" fill="#c8202f" stroke-width="1.2"/><path d="M9 10.5 V20 M9 13 L3 9 M9 13 L15 9"/><path class="lg1" d="M9 20 L6 31"/><path class="lg2" d="M9 20 L12 31"/></g></svg>';}
+  function cloudSvg(w){return '<svg width="'+w+'" height="'+(w*.45)+'" viewBox="0 0 80 36"><path d="M10 30 Q2 30 4 22 Q6 14 16 16 Q18 6 30 8 Q38 0 48 8 Q60 4 62 16 Q76 14 76 24 Q76 30 68 30 Z" fill="#fff" stroke="#e1d6c2" stroke-width="2"/></svg>';}
+  function skyHTML(){return '<div class="sky" aria-hidden="true"><div class="cloud" style="--y:8px;--d:60s;--dl:-10s">'+cloudSvg(80)+'</div><div class="cloud" style="--y:30px;--d:85s;--dl:-50s">'+cloudSvg(56)+'</div>'+
+    '<div class="skyplane"><svg width="30" height="16" viewBox="0 0 30 16"><path d="M29 6 L1 1 L9 8 Z" fill="#fff" stroke="'+K+'" stroke-width="1.4" stroke-linejoin="round"/><path d="M29 6 L9 8 L7 15 Z" fill="#e3e9ee" stroke="'+K+'" stroke-width="1.4" stroke-linejoin="round"/></svg></div></div>';}
+  var hydSvg='<svg width="12" height="16" viewBox="0 0 12 16"><rect x="3" y="3" width="6" height="12" rx="2" fill="#c8202f" stroke="'+K+'" stroke-width="1.2"/><rect x="1" y="7" width="10" height="3" fill="#c8202f" stroke="'+K+'" stroke-width="1"/><circle cx="6" cy="3" r="2.5" fill="#c8202f" stroke="'+K+'" stroke-width="1"/></svg>';
+  var workerSvg='<svg width="22" height="30" viewBox="0 0 22 30"><g stroke="'+K+'" stroke-width="1.8" stroke-linecap="round" fill="none"><circle cx="8" cy="6" r="4" fill="#fff"/><path d="M4 4 Q8 -1 12 4 Z" fill="#f2b134" stroke-width="1.2"/><path d="M8 10 V20" stroke="#f28a2e" stroke-width="3.6"/><path d="M8 13 L16 18 M8 13 L14 9"/><path d="M8 20 L5 29 M8 20 L11 29"/><path d="M16 6 L16 26 M13 26 H19" stroke="#7a5230" stroke-width="2"/></g></svg>';
   function streetHTML(st,ix){
     var shops=st[1].map(function(id){var d=SH[id];
       return '<button type="button" class="shop" data-shop="'+id+'" style="--c:'+d.c+';--aw:'+d.aw+';--top:'+d.top+';--chim:'+(d.chim||'none')+'" aria-label="'+esc(d.name)+': '+esc(d.cat)+'">'+
-        '<div class="bld"><span class="sign">'+esc(d.name)+'</span><span class="cat'+(id==='electronics'?' neon':'')+'">'+esc(d.cat)+' &rarr;</span>'+
-        '<div class="awn"></div><div class="front"><div class="win">'+d.v+'</div><div class="frame"><div class="door"><b>OPEN</b></div></div></div></div>'+
+        '<div class="bld">'+(id==='electronics'?'<span class="ant"></span>':'')+'<span class="sign">'+esc(d.name)+'</span><span class="cat'+(id==='electronics'?' neon':'')+'">'+esc(d.cat)+' &rarr;</span>'+
+        (id==='terminal'?'<span class="flash blink">NOW BOARDING</span>':'')+(id==='grill'?'<span class="flash blink">GRILL\'S ON</span>':'')+(id==='books'?'<span class="flash blink">OPEN LATE</span>':'')+
+        '<div class="awn"></div><div class="front"><div class="win">'+d.v+'</div><div class="frame"><div class="door"><b'+(id==='hardware'||id==='couples'?' class="blink"':'')+'>OPEN</b></div></div></div></div>'+
         '<span class="guide">'+GUIDE+'</span></button>';}).join('');
     var road= ix===0
       ? '<div class="xwalk" style="left:12%"></div><span class="xsign" style="left:12%">CROSS HERE</span>'+
-        '<div class="mover bus">'+busSvg()+'</div><div class="mover dog">'+dogSvg()+'</div><div class="mover ped">'+pedSvg('#3d6b88')+'</div>'+
+        '<span class="lamp" style="left:34%"></span><span class="lamp" style="left:86%"></span><span class="hyd" style="left:48%">'+hydSvg+'</span>'+
+        '<div class="mover bus">'+busSvg()+'</div><div class="mover car" style="animation-delay:-2s">'+carSvg()+'</div>'+
+        '<div class="mover dog">'+dogSvg()+'</div><div class="mover chase">'+pedSvg('#e9b949')+'<span class="hey">HEY! MY LUNCH!</span></div>'+
+        '<div class="mover ped">'+pedSvg('#3d6b88')+'</div><div class="mover ped" style="animation-duration:33s;animation-delay:-20s">'+pedSvg('#c8202f')+'</div>'+
         '<div class="mover xdm" style="left:63%">'+xdmSvg()+'</div>'
-      : '<div class="cones" style="left:58%"><svg width="14" height="20" viewBox="0 0 14 20"><path d="M7 1 L13 19 H1 Z" fill="#f28a2e" stroke="'+K+'" stroke-width="1.4"/><path d="M4 12 H10" stroke="#fff" stroke-width="2"/></svg><svg width="14" height="20" viewBox="0 0 14 20"><path d="M7 1 L13 19 H1 Z" fill="#f28a2e" stroke="'+K+'" stroke-width="1.4"/><path d="M4 12 H10" stroke="#fff" stroke-width="2"/></svg><span class="rw">ROAD WORK<br>PROBABLY</span></div>'+
-        '<div class="mover car">'+carSvg()+'</div><div class="mover ped ped2">'+pedSvg('#a8506f')+'</div><div class="mover ped" style="animation-duration:21s;animation-delay:-3s">'+pedSvg('#4f7136')+'</div>';
-    return '<div class="street"><div class="sthead"><span class="stname">'+st[0]+'</span><span class="sarrs"><button type="button" class="sarr" data-dir="-1" aria-label="Previous shops on '+st[0]+'">&lsaquo;</button><button type="button" class="sarr" data-dir="1" aria-label="More shops on '+st[0]+'">&rsaquo;</button></span></div>'+
+      : '<span class="lamp" style="left:22%"></span><span class="lamp" style="left:72%"></span><span class="worker" style="left:calc(58% - 26px)">'+workerSvg+'</span>'+
+        '<div class="mover xdm xdm2" style="left:30%">'+xdmSvg()+'</div><div class="mover bus" style="top:30px;animation-delay:-11s;animation-duration:21s">'+busSvg()+'</div>'+
+        '<div class="cones" style="left:58%"><svg width="14" height="20" viewBox="0 0 14 20"><path d="M7 1 L13 19 H1 Z" fill="#f28a2e" stroke="'+K+'" stroke-width="1.4"/><path d="M4 12 H10" stroke="#fff" stroke-width="2"/></svg><svg width="14" height="20" viewBox="0 0 14 20"><path d="M7 1 L13 19 H1 Z" fill="#f28a2e" stroke="'+K+'" stroke-width="1.4"/><path d="M4 12 H10" stroke="#fff" stroke-width="2"/></svg><span class="rw">ROAD WORK<br>PROBABLY</span></div>'+
+        '<div class="mover ped ped2">'+pedSvg('#a8506f')+'</div><div class="mover ped" style="animation-duration:21s;animation-delay:-3s">'+pedSvg('#4f7136')+'</div>';
+    return '<div class="street">'+skyHTML()+'<div class="sthead"><span class="stname">'+st[0]+'</span><span class="sarrs"><button type="button" class="sarr" data-dir="-1" aria-label="Previous shops on '+st[0]+'">&lsaquo;</button><button type="button" class="sarr" data-dir="1" aria-label="More shops on '+st[0]+'">&rsaquo;</button></span></div>'+
+      '<p class="hint">Swipe or tap &rsaquo; to see more shops on '+st[0]+'.</p>'+
       '<div class="row">'+shops+'</div><div class="road" aria-hidden="true">'+road+'</div></div>';
   }
   $('dmggStreets').innerHTML=STREETS.map(streetHTML).join('');
+  $('dmggDir').insertAdjacentHTML('beforeend',STREETS.map(function(st){return st[1].map(function(id){return '<button type="button" class="dirb" data-jump="'+id+'">'+esc(SH[id].name)+'</button>';}).join('');}).join(''));
+  [].forEach.call(root.querySelectorAll('.dirb'),function(b){b.onclick=function(){
+    var sh=root.querySelector('.shop[data-shop="'+b.getAttribute('data-jump')+'"]'); if(!sh) return;
+    var row=sh.closest('.row'); row.scrollTo({left:sh.offsetLeft-row.offsetLeft-14,behavior:RM?'auto':'smooth'});
+    try{sh.scrollIntoView({block:'center',behavior:RM?'auto':'smooth'});}catch(e){sh.scrollIntoView();}
+    setTimeout(function(){sh.click();},RM?0:550);};});
   [].forEach.call(root.querySelectorAll('.sarr'),function(b){b.onclick=function(){var row=b.closest('.street').querySelector('.row');row.scrollBy({left:(+b.getAttribute('data-dir'))*row.clientWidth,behavior:'smooth'});};});
-  var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches, busy=false;
+  var busy=false;
   function openShop(id){
     var d=SH[id]; if(!d) return;
     $('dmggShopHead').style.setProperty('--c',d.c);
@@ -574,7 +629,8 @@
     var id=b.getAttribute('data-shop');
     if(RM){view('shop',id);return;}
     busy=true; b.classList.add('opening');
-    setTimeout(function(){view('shop',id); b.classList.remove('opening'); busy=false;},1050);
+    var row=b.closest('.row'); if(row) row.classList.add('entering');
+    setTimeout(function(){view('shop',id); b.classList.remove('opening'); if(row) row.classList.remove('entering'); busy=false;},1350);
   });
 
   /* ===== VIEWS: city / shop / finder / store ===== */
