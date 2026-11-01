@@ -4,11 +4,11 @@
      unfinished destinations and empty placeholders hide automatically.
      Edit content in the DEST, RECIPES, TIPS and PRODUCTS lists near the top of the script.
      Built from the DMG Bright Idea District pattern (ftb-embed/dmg-gift-guide.html). -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,600&family=Lato:wght@400;700&family=Rye&family=Caveat:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,500;0,600;0,700;1,500&family=Lato:wght@400;700&display=swap">
 <style>
 /* Layout: one column; header → question + search → Rachel's welcome → farm map (setting) → this week → store behind. */
-#cffd{--cream:#f5eee0;--paper:#fbf8f1;--card:#fffdf8;--cherry:#8f2426;--cherry2:#6e1a1c;--green:#2f5a3c;--brown:#4a3426;--ink:#2a2018;--muted:#6b5d4f;--line:#e2d6c0;--gold:#d39b2e;
-  --disp:"Lora",Georgia,"Times New Roman",serif;--body:"Lato","Helvetica Neue",Arial,sans-serif;--west:"Rye","Lora",Georgia,serif;--hand:"Caveat","Segoe Print","Bradley Hand",cursive;
+#cffd{--cream:#f4efe4;--paper:#fbf9f4;--card:#ffffff;--cherry:#7d1f2c;--cherry2:#5e1620;--green:#3d5a3a;--sage:#dfe3d6;--brown:#4a3426;--ink:#2a2018;--muted:#6b5d4f;--line:#e2d6c0;--gold:#d39b2e;
+  --disp:"Crimson Pro",Georgia,"Times New Roman",serif;--body:"Lato","Helvetica Neue",Arial,sans-serif;
   font:16px/1.6 var(--body);color:var(--ink);background:var(--paper);max-width:1120px;margin:0 auto;box-sizing:border-box;border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative}
 #cffd *{box-sizing:border-box}
 #cffd .wrap{padding:0 32px}
@@ -25,11 +25,11 @@
 #cffd .prevbar b{color:#ffd88a}
 
 /* header */
-#cffd .hdr{display:flex;align-items:center;justify-content:space-between;gap:14px 24px;flex-wrap:wrap;padding:16px 32px;border-bottom:1px solid var(--line);background:var(--cream)}
+#cffd .hdr{display:flex;align-items:center;justify-content:space-between;gap:14px 24px;flex-wrap:wrap;padding:16px 32px;border-bottom:1px solid var(--line);background:#fff}
 #cffd .brand{display:flex;align-items:center;gap:10px;background:none;border:0;padding:0;cursor:pointer;text-align:left}
 #cffd .brand svg{width:40px;height:40px;flex:none}
-#cffd .bname{font:400 22px/1.1 var(--west);color:var(--cherry);letter-spacing:.01em}
-#cffd .btag{display:block;font:700 19px/1 var(--hand);color:var(--green);margin-top:2px}
+#cffd .bname{font:600 28px/1 var(--disp);color:var(--cherry)}
+#cffd .btag{display:block;font:500 15px/1.2 var(--disp);letter-spacing:.14em;color:var(--brown);margin-top:3px}
 #cffd .nav{display:flex;flex-wrap:wrap;gap:6px}
 #cffd .nav button{background:none;border:0;padding:8px 10px;border-radius:6px;font:700 14px/1 var(--body);color:var(--brown);cursor:pointer}
 #cffd .nav button:hover{background:#ebe0ca}
@@ -48,23 +48,22 @@
 /* hero */
 #cffd .hero{padding:34px 32px 8px}
 #cffd .kick{font:700 12px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
-#cffd .herogrid{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:28px;align-items:center}
-#cffd .hero h1{font-size:clamp(26px,3.4vw,38px);line-height:1.1;font-weight:700}
-#cffd .hero h1 .big{display:block;font:400 clamp(44px,7.2vw,82px)/.98 var(--west);color:var(--cherry);text-transform:uppercase;margin:6px 0 4px;text-shadow:3px 3px 0 #ead9b8}
-#cffd .art{margin:0;justify-self:center;width:100%;max-width:290px}
-#cffd .art img{width:100%;height:auto;display:block;filter:drop-shadow(3px 6px 8px rgba(74,52,38,.28));animation:cfSway 7s ease-in-out infinite;transform-origin:50% 60%}
-@keyframes cfSway{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg)}}
+#cffd .hero{text-align:center;padding:38px 32px 28px;background:linear-gradient(#e9eee8,#fbf9f4)}
+#cffd .hero h1{font:700 clamp(34px,5.4vw,60px)/1.02 var(--disp);color:var(--cherry);letter-spacing:-.01em}
+#cffd .hero .tagline{margin:10px auto 0;font:500 21px/1.4 var(--disp);color:var(--ink);font-style:normal}
+#cffd .hero .search{margin:22px auto 0}
+#cffd .hero .search input{border:1px solid #cfc6b6;border-radius:10px;box-shadow:0 3px 10px rgba(42,32,24,.08)}
+#cffd .hero .quick{justify-content:center}
+#cffd .hero .results{margin:16px auto 0;text-align:left}
 #cffd .tagline{font:italic 600 19px/1.45 var(--disp);color:var(--muted);margin-top:12px;max-width:640px}
 #cffd .search{display:flex;gap:8px;margin-top:22px;max-width:680px}
 #cffd .search input{flex:1;min-width:0;font:17px/1.2 var(--body);padding:15px 16px;border:2px solid var(--brown);border-radius:10px;background:#fff;color:var(--ink)}
 #cffd .search input::placeholder{color:#9a8b78}
-#cffd .quick{display:flex;flex-wrap:wrap;gap:10px 8px;margin-top:16px}
-#cffd .qb{position:relative;font:700 13px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;padding:13px 32px 13px 22px;border:0;background:linear-gradient(#e2c08e,#c99a5e);color:#3b2a1f;cursor:pointer;clip-path:polygon(0 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,0 100%);box-shadow:inset 0 -3px 0 rgba(74,52,38,.28),inset 0 2px 0 rgba(255,255,255,.3)}
-#cffd .qb:before{content:'';position:absolute;left:9px;top:50%;width:5px;height:5px;margin-top:-2.5px;border-radius:50%;background:#5b3b28}
-#cffd .qb:hover{background:linear-gradient(#ead0a4,#d5aa70)}
-#cffd .qb[aria-pressed="true"]{background:var(--cherry);color:#fff}
-#cffd .qb[aria-pressed="true"]:before{background:#fff}
-#cffd .qb:focus-visible{outline:none;background:var(--gold);color:#2a2018}
+#cffd .quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+#cffd .qb{display:inline-flex;align-items:center;gap:8px;font:600 17px/1 var(--disp);padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;box-shadow:0 2px 6px rgba(42,32,24,.08)}
+#cffd .qb svg{width:18px;height:18px;flex:none}
+#cffd .qb:hover{border-color:var(--cherry)}
+#cffd .qb[aria-pressed="true"]{background:var(--cherry);border-color:var(--cherry);color:#fff}
 #cffd .results{margin-top:16px;max-width:680px}
 #cffd .rlist{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
 #cffd .ritem{display:flex;gap:12px;align-items:baseline;justify-content:space-between;text-align:left;padding:12px 16px;background:none;border:0;border-top:1px solid var(--line);cursor:pointer;width:100%}
@@ -78,7 +77,7 @@
 /* answers shelf */
 #cffd .shelf{margin-top:24px}
 #cffd .shelfhead{display:flex;justify-content:space-between;align-items:baseline;gap:6px 14px;flex-wrap:wrap;margin-bottom:12px}
-#cffd .shelfhead h2{font:400 26px/1.1 var(--west);color:var(--brown)}
+#cffd .shelfhead h2{font:700 28px/1.1 var(--disp);color:var(--cherry)}
 #cffd .shelfhead p{font-size:14px;color:var(--muted)}
 #cffd .agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
 #cffd .acard{display:flex;flex-direction:column;gap:6px;text-align:left;padding:14px 16px 15px;border-radius:12px;border:1.5px solid var(--line);border-top:5px solid var(--c);background:var(--card);cursor:pointer;min-width:0}
@@ -95,17 +94,31 @@
 #cffd .welcome{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center;margin:30px 32px 0;padding:20px 22px;background:var(--cream);border-radius:16px}
 #cffd .portrait{width:120px;height:120px;border-radius:50%;border:2px dashed var(--cherry);display:grid;place-items:center;text-align:center;font:700 11px/1.3 var(--body);color:var(--cherry);padding:12px;background:var(--card)}
 #cffd .portrait svg{width:34px;height:34px;display:block;margin:0 auto 4px}
-#cffd .bubble{font:700 30px/1.15 var(--hand);color:var(--ink)}
+#cffd .bubble{font:italic 500 26px/1.3 var(--disp);color:var(--ink)}
 #cffd .bubble .dtag{display:inline-block}
 #cffd .bubble>span{display:block;font:15px/1.55 var(--body);font-style:normal;color:var(--muted);margin-top:8px}
 
 /* section heading */
 #cffd .sec{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:38px 32px 14px}
-#cffd .sec h2{font:400 clamp(24px,3vw,32px)/1.1 var(--west);color:var(--brown)}
+#cffd .sec h2{font:700 clamp(26px,3.2vw,38px)/1.1 var(--disp);color:var(--cherry)}
+#cffd .sec.center{justify-content:center;text-align:center}
 #cffd .sec p{font-size:15px;color:var(--muted)}
 
 /* farm map */
-#cffd .mapbox{margin:0 32px;border:2px solid var(--brown);border-radius:16px;overflow:hidden;background:#d7e7e8;position:relative}
+#cffd .mapbox{margin:0;overflow:hidden;background:#cdd6c4;position:relative;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+#cffd .farmphoto{position:relative;min-width:860px}
+#cffd .farmphoto .pano{display:block;width:100%;height:auto}
+#cffd .pin{position:absolute;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:5px;white-space:nowrap;font:600 15px/1 var(--disp);padding:6px 11px 6px 8px;border-radius:7px;border:0;background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.28);cursor:pointer}
+#cffd .pin:after{content:'';position:absolute;left:50%;bottom:-6px;margin-left:-6px;border:6px solid transparent;border-bottom:0;border-top-color:#fff}
+#cffd .pin svg{width:13px;height:13px;flex:none;color:var(--cherry)}
+#cffd .pin:hover,#cffd .pin:focus-visible{background:var(--cherry);color:#fff}
+#cffd .pin:hover svg,#cffd .pin:focus-visible svg{color:#fff}
+#cffd .pin:hover:after,#cffd .pin:focus-visible:after{border-top-color:var(--cherry)}
+#cffd .pin.soon{font-style:italic}
+#cffd .meet{position:absolute;left:1.2%;top:15%;width:21.5%;height:82%;display:flex;flex-direction:column;gap:8px;padding:9px 9px 10px;background:#fff;border:0;border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.3);transform:rotate(-2.5deg);cursor:pointer;text-align:left}
+#cffd .meet .ph{flex:1;aspect-ratio:auto}
+#cffd .meet b{font:600 17px/1 var(--disp);color:var(--ink)}
+#cffd .meet:hover b{color:var(--cherry)}
 #cffd .mapscroll{overflow-x:auto;scrollbar-width:thin}
 #cffd svg.farm{display:block;width:100%;height:auto}
 #cffd .maphint{display:none;font:13px/1.3 var(--body);color:var(--muted);margin:8px 32px 0}
@@ -158,7 +171,8 @@
 #cffd .wk:hover{border-color:var(--cherry)}
 #cffd .ph{aspect-ratio:16/10;max-width:100%;background:repeating-linear-gradient(135deg,#efe6d3 0 10px,#f6efe2 10px 20px);display:grid;place-items:center;font:700 11px/1.3 var(--body);letter-spacing:.1em;text-transform:uppercase;color:#a08c70;text-align:center;padding:10px}
 #cffd .wk .in{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px}
-#cffd .wk h3{font-size:18px;line-height:1.3}
+#cffd .wk h3{font:700 22px/1.25 var(--disp);color:var(--cherry)}
+#cffd .ph.photo{background-size:cover;background-position:center;font-size:0}
 #cffd .wk small{font:700 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
 #cffd .jr{display:flex;flex-direction:column;gap:6px;padding:16px;border-left:3px solid var(--cherry);background:var(--card);border-radius:0 12px 12px 0;text-decoration:none}
 #cffd .jr b{font:700 18px/1.3 var(--disp);color:var(--ink)}
@@ -192,7 +206,7 @@
 #cffd .host{display:flex;gap:14px;align-items:flex-start;margin:0 0 22px}
 #cffd .host .av{width:54px;height:54px;border-radius:50%;flex:none;border:2px dashed var(--cherry);display:grid;place-items:center;background:var(--card)}
 #cffd .host .av svg{width:24px;height:24px}
-#cffd .host .say{background:var(--cream);border-radius:4px 14px 14px 14px;padding:10px 16px 12px;font:700 26px/1.2 var(--hand);flex:1;min-width:0}
+#cffd .host .say{background:var(--cream);border-radius:4px 14px 14px 14px;padding:10px 16px 12px;font:italic 500 22px/1.35 var(--disp);flex:1;min-width:0}
 #cffd .host .say small{display:block;font:700 10px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-style:normal;margin-top:8px}
 #cffd .noprev .host .say small{display:none}
 #cffd .block{margin:0 0 24px}
@@ -233,7 +247,7 @@
 #cffd .meta b{font:700 16px/1.3 var(--body);font-variant-numeric:tabular-nums}
 #cffd .rtwo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px}
 #cffd .rtwo h4{font-size:18px;margin-bottom:8px}
-#cffd .rnote{margin-top:16px;padding:14px 16px;background:var(--cream);border-radius:10px;font:700 23px/1.3 var(--hand)}
+#cffd .rnote{margin-top:16px;padding:14px 16px;background:var(--cream);border-radius:10px;font:italic 500 20px/1.4 var(--disp)}
 #cffd .rnote small{display:block;font:700 10.5px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--cherry);font-style:normal;margin-bottom:6px}
 #cffd .rbtns{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:16px}
 
@@ -267,16 +281,17 @@
 #cffd .supplies>p{color:var(--muted);font-size:15px;margin-bottom:14px}
 
 /* footer */
-#cffd .foot{margin-top:40px;padding:22px 32px 26px;background:var(--brown);color:#e8dcc6;font-size:14px}
-#cffd .foot a{color:#ffd88a}
+#cffd .foot{margin-top:40px;padding:22px 32px 26px;background:var(--sage);color:var(--ink);font-size:14px}
+#cffd .illus{font:italic 500 16px/1.4 var(--disp);text-align:center;color:var(--muted);margin-bottom:12px}
+#cffd .foot a{color:var(--cherry)}
 #cffd .fam{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;margin-bottom:10px}
-#cffd .fam b{font:700 11px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:#cdb998}
-#cffd .disc{font-size:12.5px;color:#cdb998;line-height:1.5}
+#cffd .fam b{font:700 11px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+#cffd .disc{font-size:12.5px;color:var(--muted);line-height:1.5}
 
 @media(max-width:760px){
   #cffd .wrap,#cffd .hero,#cffd .dview{padding-left:16px;padding-right:16px}
   #cffd .hdr,#cffd .prevbar,#cffd .foot{padding-left:16px;padding-right:16px}
-  #cffd .welcome,#cffd .sec,#cffd .mapbox,#cffd .dlist,#cffd .three,#cffd .tiprow{margin-left:16px;margin-right:16px}
+  #cffd .welcome,#cffd .sec,#cffd .dlist,#cffd .three,#cffd .tiprow{margin-left:16px;margin-right:16px}
   #cffd .maphint{display:block;margin-left:16px}
   #cffd svg.farm{width:860px;max-width:none}
   #cffd .three,#cffd .tiprow,#cffd .rtwo,#cffd .herogrid{grid-template-columns:1fr}
@@ -296,266 +311,53 @@
 </style>
 
 <div id="cffd">
-  <div class="gingham" aria-hidden="true"></div>
   <p class="prevbar ifprev"><b>Preview for Rachel. Not published.</b> Dashed boxes marked DRAFT are placeholders for Rachel's own words, recipes and photos. Nothing here is live yet.</p>
 
   <header class="hdr">
-    <button type="button" class="brand" data-go="home" aria-label="Cherry Flats Farm home">
+    <button type="button" class="brand" data-go="home" aria-label="Cherry Flats Farm Wisdom home">
       <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 C22 10 25 13 31 14" stroke="#2f5a3c" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M20 4 C18 11 15 15 11 18" stroke="#2f5a3c" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M22 6 C28 3 33 5 35 9 C30 10 25 9 22 6Z" fill="#4f8a55"/><circle cx="11" cy="25" r="8" fill="#8f2426"/><circle cx="29" cy="25" r="8" fill="#a8302f"/><circle cx="8.5" cy="22.5" r="2" fill="#fff" opacity=".45"/><circle cx="26.5" cy="22.5" r="2" fill="#fff" opacity=".45"/></svg>
-      <span><span class="bname">Cherry Flats Farm</span><span class="btag">Good Things Grow Here</span></span>
+      <span><span class="bname">Cherry Flats Farm Wisdom</span><span class="btag">Good Things Grow Here</span></span>
     </button>
     <nav class="nav" aria-label="Main">
       <button type="button" data-go="answers">Find Answers</button>
       <button type="button" data-go="map">Explore the Farm</button>
-      <button type="button" class="shop" data-go="store">General Store</button>
+      <button type="button" data-go="meet">Meet Rachel</button>
+      <button type="button" class="shop" data-go="store"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px;margin-right:5px"><path d="M3 10h18l-2 10H5zM8 10l4-6 4 6M9 14v3M15 14v3"/></svg>General Store</button>
     </nav>
   </header>
 
   <!-- ===== HOME ===== -->
   <div id="cfHome">
     <section class="hero" id="cfAnswers">
-      <div class="herogrid"><div>
-      <p class="kick">Horse Creek · Klamath River</p>
-      <h1>What do you need <span class="big">a hand with</span> today?</h1>
+      <h1>What do you need a hand with today?</h1>
       <p class="tagline">Practical answers for home, garden, and everyday life, with Rachel.</p>
       <form class="search" id="cfSearch" role="search">
         <label for="cfQ" class="hide">What would you like to know?</label>
         <input id="cfQ" type="search" placeholder="What would you like to know?" autocomplete="off">
-        <button class="btn" type="submit">Search</button>
+        <button class="btn" type="submit">Find Answers &rarr;</button>
       </form>
       <div class="quick" id="cfQuick" role="group" aria-label="Choose a topic"></div>
       <div class="results hide" id="cfResults" aria-live="polite"></div>
-      </div>
-      <figure class="art"><img id="cfHeroArt" width="560" height="560" alt="Illustration of the Cherry Flats Farm red pickup with two farm dogs, heading down a country road"></figure>
-      </div>
-      <div class="shelf" id="cfShelf"><div class="shelfhead"><h2 id="cfShelfT">Rachel's answers</h2><p id="cfShelfN"></p></div><div class="agrid" id="cfAGrid"></div></div>
     </section>
 
-    <section class="welcome" aria-label="Welcome from Rachel">
+    <div class="mapbox" id="cfMapSec"><div class="mapscroll"><div class="farmphoto" id="cfFarm">
+      <img class="pano" id="cfPano" width="1536" height="370" alt="Cherry Flats Farm: the farmhouse kitchen, covered garden, root cellar, bunkhouse, animals, and the farm stand by the river">
+      <button type="button" class="meet" data-go="meet"><span class="ph">Rachel's photo</span><b>Meet Rachel &rarr;</b></button>
+    </div></div></div>
+    <p class="maphint">Swipe the photo sideways to see the whole farm. Tap a sign to visit.</p>
+
+    <div class="sec center"><h2>A little know-how goes a long way.</h2></div>
+    <div class="three" id="cfWeek"></div>
+    <div class="shelf wrap" id="cfShelf"><div class="shelfhead"><h2 id="cfShelfT">Rachel's answers</h2><p id="cfShelfN"></p></div><div class="agrid" id="cfAGrid"></div></div>
+
+    <section class="welcome" id="cfMeet" aria-label="Welcome from Rachel">
       <div class="portrait"><div><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="5" fill="#8f2426"/><circle cx="17" cy="15" r="5" fill="#a8302f"/><path d="M12 3 C13 7 15 9 19 9 M12 3 C11 7 9 9 7 10" stroke="#2f5a3c" stroke-width="1.8" fill="none"/></svg>Rachel's illustration from her photos</div></div>
       <p class="bubble">&ldquo;Come on in. There's room at the table.&rdquo;
         <span><span class="dtag ifprev">Draft · Rachel to write</span> Rachel's short welcome goes here, in her own words: who she is, the farm on Horse Creek, and what visitors can find.</span></p>
     </section>
 
-    <div class="sec" id="cfMapSec"><h2>Explore the farm</h2><p>Tap a building. Each one answers a different question.</p></div>
-    <div class="mapbox"><div class="mapscroll" id="cfMapScroll">
-<svg class="farm" viewBox="0 0 1000 620" role="group" aria-label="Map of Cherry Flats Farm">
-  <defs>
-    <linearGradient id="cfSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d4e6ea"/><stop offset="1" stop-color="#f3ead6"/></linearGradient>
-    <pattern id="cfGrass" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#d2dcab"/><path d="M5 15l2-5 2 5M14 7l1.5-4 1.5 4" stroke="#b7c588" stroke-width="1.3" fill="none"/></pattern>
-    <pattern id="cfAwn" width="14" height="10" patternUnits="userSpaceOnUse"><rect width="7" height="10" fill="#fffaf0"/><rect x="7" width="7" height="10" fill="#8f2426"/></pattern>
-  </defs>
-  <rect width="1000" height="620" fill="url(#cfSky)"/>
-  <g class="cl"><g fill="#fff" opacity=".9"><ellipse cx="0" cy="58" rx="46" ry="15"/><ellipse cx="26" cy="47" rx="28" ry="15"/><ellipse cx="-20" cy="50" rx="20" ry="11"/></g></g>
-  <g class="cl cl2"><g fill="#fff" opacity=".75"><ellipse cx="0" cy="96" rx="34" ry="11"/><ellipse cx="18" cy="88" rx="20" ry="11"/></g></g>
-  <path d="M0 150 Q130 92 260 128 T520 112 T780 118 T1000 100 V220 H0Z" fill="#b5c9a3"/>
-  <path d="M0 176 Q190 138 370 162 T730 156 T1000 146 V240 H0Z" fill="#a1bb8c"/>
-  <path d="M0 196 Q250 174 500 190 T1000 178 V560 H0Z" fill="url(#cfGrass)"/>
-  <!-- road -->
-  <path d="M-10 478 C150 452 270 338 470 326 S820 304 945 256" stroke="#c9b083" stroke-width="32" fill="none" stroke-linecap="round"/>
-  <path d="M-10 478 C150 452 270 338 470 326 S820 304 945 256" stroke="#e7d4a8" stroke-width="26" fill="none" stroke-linecap="round"/>
-  <!-- trees -->
-  <g><rect x="353" y="176" width="7" height="30" fill="#6b4a32"/><circle cx="356" cy="168" r="24" fill="#5c8a4e"/><g fill="#a8302f"><circle cx="344" cy="162" r="3.2"/><circle cx="360" cy="156" r="3.2"/><circle cx="368" cy="172" r="3.2"/><circle cx="350" cy="178" r="3.2"/><circle cx="341" cy="172" r="3"/></g></g>
-  <g><rect x="612" y="160" width="6" height="26" fill="#6b4a32"/><circle cx="615" cy="152" r="19" fill="#4f7d45"/></g>
-  <g><rect x="24" y="300" width="6" height="22" fill="#6b4a32"/><circle cx="27" cy="292" r="17" fill="#4f7d45"/></g>
-  <g><rect x="414" y="440" width="6" height="22" fill="#6b4a32"/><circle cx="417" cy="432" r="17" fill="#5c8a4e"/></g>
-  <g><rect x="955" y="300" width="6" height="24" fill="#6b4a32"/><circle cx="958" cy="292" r="19" fill="#4f7d45"/></g>
-
-  <!-- RIVERBANK & RED PICKUP -->
-  <g class="spot" data-d="river" tabindex="0" role="button" aria-label="The Riverbank and Red Pickup: What should we bring, and do, on our outing?">
-    <path d="M0 520 C200 500 380 545 560 522 S860 500 1000 515 V620 H0Z" fill="#e3cf9f"/>
-    <path d="M0 546 C200 526 380 571 560 548 S860 526 1000 541 V620 H0Z" fill="#6aa2b5"/>
-    <path class="flow" d="M0 578 C220 563 420 598 620 578 S880 563 1000 575" stroke="#d3ebf1" stroke-width="3" fill="none" stroke-dasharray="22 30" stroke-linecap="round"/>
-    <path class="flow flow2" d="M0 604 C240 590 440 616 660 600 S900 588 1000 598" stroke="#bfe0ea" stroke-width="2.5" fill="none" stroke-dasharray="14 38" stroke-linecap="round"/>
-    <g class="lift">
-      <g transform="translate(842 476)">
-        <rect x="70" y="20" width="76" height="20" rx="2" fill="#b8312d" stroke="#2a2018" stroke-width="2"/>
-        <path d="M24 40 V22 L36 4 H70 V40 Z" fill="#c63a33" stroke="#2a2018" stroke-width="2" stroke-linejoin="round"/>
-        <path d="M40 9 H64 V22 H31 Z" fill="#cfe5ec" stroke="#2a2018" stroke-width="1.5"/>
-        <rect x="0" y="24" width="26" height="16" rx="3" fill="#c63a33" stroke="#2a2018" stroke-width="2"/>
-        <rect x="-3" y="34" width="10" height="6" fill="#d9d2c3" stroke="#2a2018" stroke-width="1.5"/>
-        <circle cx="22" cy="42" r="9" fill="#2a2018"/><circle cx="22" cy="42" r="3.5" fill="#cfc8b8"/>
-        <circle cx="118" cy="42" r="9" fill="#2a2018"/><circle cx="118" cy="42" r="3.5" fill="#cfc8b8"/>
-        <g class="pup"><g transform="translate(96 12)"><path d="M-9 -1 l2 -9 6 6z M9 -1 l-2 -9 -6 6z" fill="#1f1a17"/><ellipse cx="0" cy="2" rx="9" ry="8.5" fill="#1f1a17"/><path d="M-1.6 -6.5 h3.2 l2.4 13 h-8z" fill="#fff"/><ellipse cx="0" cy="7" rx="5.2" ry="3.6" fill="#fff"/><circle cx="-4" cy="0" r="1.3" fill="#f2e6d0"/><circle cx="4" cy="0" r="1.3" fill="#f2e6d0"/><circle cx="0" cy="5" r="1.7" fill="#1f1a17"/><path d="M-1.2 9 q1.2 4.5 2.4 0z" fill="#e86a7a"/><ellipse cx="-5" cy="9.5" rx="3" ry="2" fill="#fff" stroke="#1f1a17" stroke-width=".8"/></g></g>
-        <g class="pup pup2"><g transform="translate(122 11)"><ellipse cx="-8.5" cy="3.5" rx="3.6" ry="7.5" fill="#c98a3c"/><ellipse cx="8.5" cy="3.5" rx="3.6" ry="7.5" fill="#c98a3c"/><ellipse cx="0" cy="2" rx="8.5" ry="8.5" fill="#e3ad62"/><ellipse cx="0" cy="7" rx="5.2" ry="3.6" fill="#f1cf94"/><circle cx="-3.5" cy="0" r="1.3" fill="#1f1a17"/><circle cx="3.5" cy="0" r="1.3" fill="#1f1a17"/><circle cx="0" cy="5" r="1.7" fill="#1f1a17"/><path d="M-1.2 9 q1.2 5 2.4 0z" fill="#e86a7a"/><ellipse cx="5" cy="10" rx="3" ry="2" fill="#e3ad62" stroke="#a8743a" stroke-width=".8"/></g></g>
-      </g>
-      <g transform="translate(762 506)"><rect x="0" y="0" width="64" height="22" rx="3" fill="url(#cfAwn)" stroke="#6e1a1c" stroke-width="1.5" transform="skewX(-20)"/></g>
-      <g class="lab" transform="translate(880 576)"><rect x="-96" y="-13" width="192" height="25" rx="5"/><text y="5" text-anchor="middle">Riverbank &amp; Red Pickup</text></g>
-    </g>
-  </g>
-
-  <!-- WORKSHOP -->
-  <g class="spot" data-d="workshop" tabindex="0" role="button" aria-label="The Workshop: How can I fix or make this?">
-    <g class="lift" transform="translate(70 176)">
-      <path d="M-8 34 L75 0 L158 34 Z" fill="#5b3b28" stroke="#2a2018" stroke-width="2.5" stroke-linejoin="round"/>
-      <rect x="0" y="32" width="150" height="80" fill="#8a5a3b" stroke="#2a2018" stroke-width="2.5"/>
-      <rect x="48" y="56" width="54" height="56" fill="#6b4228" stroke="#2a2018" stroke-width="2"/>
-      <path d="M48 56 L102 112 M102 56 L48 112" stroke="#4a2e1c" stroke-width="2.5"/>
-      <rect x="14" y="52" width="22" height="18" fill="#f0dfae" stroke="#2a2018" stroke-width="2"/>
-      <rect x="114" y="52" width="22" height="18" fill="#f0dfae" stroke="#2a2018" stroke-width="2"/>
-      <g class="lab" transform="translate(75 130)"><rect x="-48" y="-13" width="96" height="25" rx="5"/><text y="5" text-anchor="middle">Workshop</text></g>
-    </g>
-  </g>
-
-  <!-- ROOT CELLAR -->
-  <g class="spot" data-d="cellar" tabindex="0" role="button" aria-label="The Root Cellar: How should I prepare and store it?">
-    <g class="lift" transform="translate(262 238)">
-      <path d="M0 62 Q62 -8 124 62 Z" fill="#8aa564" stroke="#2a2018" stroke-width="2.5"/>
-      <path d="M43 62 V40 Q62 20 81 40 V62Z" fill="#b5ab97" stroke="#2a2018" stroke-width="2"/>
-      <path d="M50 62 V42 Q62 30 74 42 V62Z" fill="#6b4a32" stroke="#2a2018" stroke-width="1.5"/>
-      <rect x="92" y="16" width="7" height="20" fill="#7a7368" stroke="#2a2018" stroke-width="1.5"/>
-      <g class="lab" transform="translate(62 82)"><rect x="-55" y="-13" width="110" height="25" rx="5"/><text y="5" text-anchor="middle">Root Cellar</text></g>
-    </g>
-  </g>
-
-  <!-- FARMHOUSE PORCH -->
-  <g class="spot" data-d="porch" tabindex="0" role="button" aria-label="The Farmhouse Porch: How can I make home life easier?">
-    <g class="lift" transform="translate(392 148)">
-      <circle class="smk" cx="130" cy="-10" r="7" fill="#fff"/><circle class="smk smk2" cx="132" cy="-12" r="6" fill="#fff"/><circle class="smk smk3" cx="128" cy="-10" r="5" fill="#fff"/>
-      <rect x="122" y="-4" width="16" height="30" fill="#8b4a3a" stroke="#2a2018" stroke-width="2"/>
-      <path d="M-12 50 L85 0 L182 50 Z" fill="#8f2426" stroke="#2a2018" stroke-width="2.5" stroke-linejoin="round"/>
-      <rect x="0" y="48" width="170" height="92" fill="#f6efe0" stroke="#2a2018" stroke-width="2.5"/>
-      <rect x="18" y="60" width="28" height="26" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/><path d="M32 60 V86 M18 73 H46" stroke="#2a2018" stroke-width="1.5"/>
-      <rect x="124" y="60" width="28" height="26" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/><path d="M138 60 V86 M124 73 H152" stroke="#2a2018" stroke-width="1.5"/>
-      <rect x="72" y="84" width="26" height="56" fill="#6b4a32" stroke="#2a2018" stroke-width="2"/>
-      <path d="M-6 98 H176 L168 88 H2 Z" fill="#6e1a1c" stroke="#2a2018" stroke-width="2" stroke-linejoin="round"/>
-      <path d="M4 98 V140 M60 98 V140 M110 98 V140 M166 98 V140" stroke="#fffaf0" stroke-width="4"/>
-      <rect x="64" y="140" width="42" height="8" fill="#b9a47e" stroke="#2a2018" stroke-width="1.5"/>
-      <g class="lab" transform="translate(85 166)"><rect x="-74" y="-13" width="148" height="25" rx="5"/><text y="5" text-anchor="middle">Farmhouse Porch</text></g>
-    </g>
-  </g>
-
-  <!-- RACHEL'S KITCHEN -->
-  <g class="spot" data-d="kitchen" tabindex="0" role="button" aria-label="Rachel's Kitchen: What can I make with what I have?">
-    <g class="lift" transform="translate(568 178)">
-      <path class="stm" d="M46 66 q-5 -8 0 -16 q5 -8 0 -16" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <path d="M-8 34 L54 0 L116 34 Z" fill="#8f2426" stroke="#2a2018" stroke-width="2.5" stroke-linejoin="round"/>
-      <rect x="0" y="32" width="108" height="82" fill="#f6efe0" stroke="#2a2018" stroke-width="2.5"/>
-      <rect x="14" y="48" width="80" height="38" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/>
-      <path d="M41 48 V86 M67 48 V86" stroke="#2a2018" stroke-width="1.5"/>
-      <rect x="10" y="86" width="88" height="6" fill="#b9a47e" stroke="#2a2018" stroke-width="1.5"/>
-      <path d="M38 86 Q54 74 70 86 Z" fill="#d39b2e" stroke="#6b4a32" stroke-width="1.5"/>
-      <path d="M44 82 L50 78 M54 80 L60 77" stroke="#8a5a1e" stroke-width="1.5"/>
-      <g class="lab" transform="translate(54 132)"><rect x="-70" y="-13" width="140" height="25" rx="5"/><text y="5" text-anchor="middle">Rachel's Kitchen</text></g>
-    </g>
-  </g>
-
-  <!-- COVERED GARDEN -->
-  <g class="spot" data-d="garden" tabindex="0" role="button" aria-label="The Covered Garden: What can I grow, and how?">
-    <g class="lift" transform="translate(694 196)">
-      <path d="M0 72 V30 Q0 0 30 0 H156 Q186 0 186 30 V72 Z" fill="#e9f0e3" stroke="#2a2018" stroke-width="2.5"/>
-      <path d="M12 68 H174 M12 54 H174 M12 40 H174" stroke="#4f8a4a" stroke-width="7" stroke-dasharray="7 6" stroke-linecap="round"/>
-      <path d="M0 72 V30 Q0 0 30 0 H156 Q186 0 186 30 V72 Z" fill="#ffffff" fill-opacity=".38" stroke="none"/>
-      <path d="M38 1 V72 M78 1 V72 M118 1 V72 M154 1 V72" stroke="#b6ab95" stroke-width="2"/>
-      <rect x="80" y="44" width="26" height="28" fill="#fffaf0" fill-opacity=".7" stroke="#2a2018" stroke-width="1.5"/>
-      <g class="lab" transform="translate(93 92)"><rect x="-74" y="-13" width="148" height="25" rx="5"/><text y="5" text-anchor="middle">Covered Garden</text></g>
-    </g>
-  </g>
-
-  <!-- GENERAL STORE -->
-  <g class="spot" data-d="store" tabindex="0" role="button" aria-label="The General Store: Where can I find the supplies?">
-    <g class="lift" transform="translate(884 132)">
-      <rect x="0" y="0" width="104" height="30" fill="#a8783f" stroke="#2a2018" stroke-width="2.5"/>
-      <rect x="8" y="6" width="88" height="18" fill="#fffaf0" stroke="#2a2018" stroke-width="1.5"/>
-      <text x="52" y="19" text-anchor="middle" style="font:700 9.5px Lato,Arial,sans-serif;letter-spacing:.08em;fill:#8f2426">GENERAL STORE</text>
-      <rect x="6" y="30" width="92" height="86" fill="#c9a46b" stroke="#2a2018" stroke-width="2.5"/>
-      <rect x="6" y="38" width="92" height="12" fill="url(#cfAwn)" stroke="#2a2018" stroke-width="1.5"/>
-      <rect x="14" y="58" width="24" height="24" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/>
-      <rect x="66" y="58" width="24" height="24" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/>
-      <rect x="40" y="70" width="24" height="46" fill="#6b4a32" stroke="#2a2018" stroke-width="2"/>
-      <g class="lab" transform="translate(52 134)"><rect x="-60" y="-13" width="120" height="25" rx="5"/><text y="5" text-anchor="middle">General Store</text></g>
-    </g>
-  </g>
-
-  <!-- COWBOY CABIN -->
-  <g class="spot" data-d="cabin" tabindex="0" role="button" aria-label="The Cowboy Cabin: What project can I tackle next?">
-    <g class="lift" transform="translate(56 334)">
-      <rect x="102" y="-8" width="15" height="28" fill="#a39b8c" stroke="#2a2018" stroke-width="2"/>
-      <path d="M-10 30 L66 0 L142 30 Z" fill="#4a3426" stroke="#2a2018" stroke-width="2.5" stroke-linejoin="round"/>
-      <rect x="0" y="28" width="132" height="70" fill="#9b6a43" stroke="#2a2018" stroke-width="2.5"/>
-      <path d="M0 42 H132 M0 56 H132 M0 70 H132 M0 84 H132" stroke="#73492c" stroke-width="2"/>
-      <rect x="54" y="54" width="24" height="44" fill="#5b3b28" stroke="#2a2018" stroke-width="2"/>
-      <rect x="14" y="48" width="22" height="18" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/>
-      <path d="M58 50 Q66 42 74 50 Z M54 50 H78" fill="#3b2a1f" stroke="#3b2a1f" stroke-width="2"/>
-      <g class="lab" transform="translate(66 116)"><rect x="-64" y="-13" width="128" height="25" rx="5"/><text y="5" text-anchor="middle">Cowboy Cabin</text></g>
-    </g>
-  </g>
-
-  <!-- BUNKHOUSE -->
-  <g class="spot" data-d="bunk" tabindex="0" role="button" aria-label="The Bunkhouse: What can we do together?">
-    <g class="lift" transform="translate(226 384)">
-      <path d="M174 26 V-22" stroke="#4a3426" stroke-width="2.5"/>
-      <path class="flag" d="M175 -22 L200 -15 L175 -8 Z" fill="#8f2426"/>
-      <path d="M-8 28 L85 0 L178 28 Z" fill="#2f5a3c" stroke="#2a2018" stroke-width="2.5" stroke-linejoin="round"/>
-      <rect x="0" y="26" width="170" height="64" fill="#e0c48f" stroke="#2a2018" stroke-width="2.5"/>
-      <rect x="14" y="40" width="22" height="18" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/>
-      <rect x="48" y="40" width="22" height="18" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/>
-      <rect x="134" y="40" width="22" height="18" fill="#fde7ab" stroke="#2a2018" stroke-width="2"/>
-      <rect x="92" y="48" width="26" height="42" fill="#6b4a32" stroke="#2a2018" stroke-width="2"/>
-      <g class="lab" transform="translate(85 108)"><rect x="-54" y="-13" width="108" height="25" rx="5"/><text y="5" text-anchor="middle">Bunkhouse</text></g>
-    </g>
-  </g>
-
-  <!-- FARM STAND (old Chevy stepside bed) -->
-  <g class="spot" data-d="stand" tabindex="0" role="button" aria-label="The Farm Stand: How can I use or preserve the harvest?">
-    <g class="lift" transform="translate(452 356)">
-      <path d="M12 12 V56 M120 12 V56" stroke="#6b4a32" stroke-width="5"/>
-      <path d="M-8 14 L66 -6 L140 14 Z" fill="#b8b0a1" stroke="#2a2018" stroke-width="2.5" stroke-linejoin="round"/>
-      <path d="M8 6 L8 12 M24 2 L24 10 M40 -1 L40 8 M92 -1 L92 8 M108 2 L108 10 M124 6 L124 12" stroke="#8f887a" stroke-width="1.5"/>
-      <rect x="38" y="16" width="56" height="15" rx="2" fill="#fffaf0" stroke="#2a2018" stroke-width="1.5"/>
-      <text x="66" y="27" text-anchor="middle" style="font:700 8.5px Lato,Arial,sans-serif;letter-spacing:.08em;fill:#8f2426">FARM STAND</text>
-      <circle cx="30" cy="48" r="8.5" fill="#e0812f" stroke="#7a3f12" stroke-width="1.5"/><circle cx="50" cy="49" r="7" fill="#e88f3a" stroke="#7a3f12" stroke-width="1.5"/>
-      <rect x="66" y="42" width="26" height="14" fill="#b88a55" stroke="#2a2018" stroke-width="1.5"/>
-      <circle cx="73" cy="41" r="3.5" fill="#a8302f"/><circle cx="80" cy="40" r="3.5" fill="#a8302f"/><circle cx="87" cy="41" r="3.5" fill="#a8302f"/>
-      <circle cx="106" cy="49" r="6" fill="#d8c25a" stroke="#6b5d1e" stroke-width="1.5"/>
-      <rect x="4" y="56" width="124" height="26" rx="3" fill="#6c8a66" stroke="#2a2018" stroke-width="2.5"/>
-      <path d="M4 66 H128" stroke="#557050" stroke-width="2"/>
-      <path d="M12 82 a18 15 0 0 1 36 0 Z" fill="#55704f" stroke="#2a2018" stroke-width="2"/>
-      <path d="M84 82 a18 15 0 0 1 36 0 Z" fill="#55704f" stroke="#2a2018" stroke-width="2"/>
-      <circle cx="30" cy="84" r="9" fill="#2a2018"/><circle cx="102" cy="84" r="9" fill="#2a2018"/>
-      <rect x="50" y="76" width="32" height="6" rx="3" fill="#cfc8b8" stroke="#2a2018" stroke-width="1.5"/>
-      <g class="lab" transform="translate(66 112)"><rect x="-52" y="-13" width="104" height="25" rx="5"/><text y="5" text-anchor="middle">Farm Stand</text></g>
-    </g>
-  </g>
-
-  <!-- ANIMAL YARD -->
-  <g class="spot" data-d="animals" tabindex="0" role="button" aria-label="The Animal Yard: What have we learned raising these animals?">
-    <g class="lift" transform="translate(640 336)">
-      <rect x="0" y="0" width="250" height="122" fill="#dbe4b6" stroke="#7a5a3a" stroke-width="3"/>
-      <path d="M0 40 H250 M0 80 H250" stroke="#a07b52" stroke-width="2"/>
-      <path d="M0 0 V122 M50 0 V122 M100 0 V122 M150 0 V122 M200 0 V122 M250 0 V122" stroke="#7a5a3a" stroke-width="3"/>
-      <ellipse cx="208" cy="96" rx="36" ry="14" fill="#8fbfcd" stroke="#5f8f9c" stroke-width="1.5"/>
-      <!-- cow -->
-      <g transform="translate(18 18)">
-        <path class="tail" d="M58 12 q8 10 4 22" stroke="#2a2018" stroke-width="2.5" fill="none"/>
-        <ellipse cx="34" cy="16" rx="26" ry="14" fill="#fffaf0" stroke="#2a2018" stroke-width="2"/>
-        <path d="M24 6 q8 -2 10 8 q-6 6 -12 0Z M42 14 q8 0 8 8 q-8 4 -10 -2Z" fill="#2a2018"/>
-        <rect x="16" y="26" width="5" height="14" fill="#fffaf0" stroke="#2a2018" stroke-width="1.5"/><rect x="44" y="26" width="5" height="14" fill="#fffaf0" stroke="#2a2018" stroke-width="1.5"/>
-        <ellipse cx="6" cy="14" rx="9" ry="8" fill="#fffaf0" stroke="#2a2018" stroke-width="2"/><ellipse cx="1" cy="18" rx="5" ry="3.5" fill="#f2b8b0"/>
-      </g>
-      <!-- sheep -->
-      <g transform="translate(104 20)" fill="#f7f3ea" stroke="#2a2018" stroke-width="1.5">
-        <circle cx="10" cy="14" r="9"/><circle cx="22" cy="10" r="10"/><circle cx="34" cy="14" r="9"/><circle cx="22" cy="20" r="10"/>
-        <ellipse cx="44" cy="12" rx="6" ry="7" fill="#3b2a1f"/><path d="M14 28 v8 M28 28 v8" stroke="#3b2a1f" stroke-width="3"/>
-      </g>
-      <!-- chickens -->
-      <g transform="translate(70 88)"><ellipse cx="10" cy="10" rx="10" ry="8" fill="#c9733b" stroke="#2a2018" stroke-width="1.5"/><g class="peck"><circle cx="20" cy="2" r="5" fill="#c9733b" stroke="#2a2018" stroke-width="1.5"/><path d="M18 -3 l2 -3 2 3" fill="#c62f2f"/><path d="M24 2 l4 1 -4 1" fill="#e0a12f"/></g></g>
-      <g transform="translate(112 96)"><ellipse cx="10" cy="10" rx="10" ry="8" fill="#fffaf0" stroke="#2a2018" stroke-width="1.5"/><g class="peck peck2"><circle cx="20" cy="2" r="5" fill="#fffaf0" stroke="#2a2018" stroke-width="1.5"/><path d="M18 -3 l2 -3 2 3" fill="#c62f2f"/><path d="M24 2 l4 1 -4 1" fill="#e0a12f"/></g></g>
-      <!-- quail -->
-      <g transform="translate(146 104)"><ellipse cx="7" cy="6" rx="8" ry="6" fill="#8a6a4a" stroke="#2a2018" stroke-width="1.2"/><circle cx="14" cy="1" r="3.5" fill="#6b4a32"/><path d="M14 -2 q2 -5 -1 -6" stroke="#2a2018" stroke-width="1.4" fill="none"/></g>
-      <!-- ducks -->
-      <g class="duck" transform="translate(186 84)"><ellipse cx="9" cy="8" rx="10" ry="6" fill="#fff" stroke="#2a2018" stroke-width="1.4"/><circle cx="18" cy="1" r="4.5" fill="#fff" stroke="#2a2018" stroke-width="1.4"/><path d="M22 1 h5 l-5 2z" fill="#e0812f"/></g>
-      <g class="duck" transform="translate(212 96)" style="animation-delay:-3s"><ellipse cx="9" cy="8" rx="10" ry="6" fill="#fff" stroke="#2a2018" stroke-width="1.4"/><circle cx="18" cy="1" r="4.5" fill="#fff" stroke="#2a2018" stroke-width="1.4"/><path d="M22 1 h5 l-5 2z" fill="#e0812f"/></g>
-      <g class="lab" transform="translate(125 142)"><rect x="-58" y="-13" width="116" height="25" rx="5"/><text y="5" text-anchor="middle">Animal Yard</text></g>
-    </g>
-  </g>
-</svg>
-    </div></div>
-    <p class="maphint">Swipe the map sideways to see the whole farm.</p>
+    <div class="sec"><h2>Every stop on the farm</h2><p>Each place answers a different question.</p></div>
     <nav class="dlist" id="cfDList" aria-label="Farm destinations"></nav>
-
-    <div class="sec"><h2>Useful this week</h2><p>Three seasonal questions to try now.</p></div>
-    <div class="three" id="cfWeek"></div>
 
     <div class="tiprow">
       <section class="tip" aria-label="Rachel's Tip of the Week">
@@ -594,6 +396,7 @@
   </div>
 
   <footer class="foot">
+    <p class="illus ifprev">Illustrative concept · Real farm and Rachel photos replace these images before launch.</p>
     <div class="fam"><b>Our family of brands</b><a href="https://cherryflatsfarm.com/?utm_source=cff-front-door&amp;utm_medium=referral&amp;utm_campaign=family" target="_blank" rel="noopener">Cherry Flats Farm</a><a href="https://flighttowerbooks.com/?utm_source=cff-front-door&amp;utm_medium=referral&amp;utm_campaign=family" target="_blank" rel="noopener">Flight Tower Books</a></div>
     <p class="disc">Cherry Flats Farm books and printables are sold through the Flight Tower Books shop and SamCart; paperbacks are printed and shipped by Amazon. Amazon prices change, so check the current price there. As an Amazon Associate, we earn from qualifying purchases. Preservation instructions follow tested sources, which are named on each one.</p>
   </footer>
@@ -633,15 +436,17 @@
      ways = "choose what suits you" options. tested = preservation/storage source note (required for those topics).
      rec = links a Kitchen recipe. rel = extra related answers. ===== */
   var ANSWERS=[
-    {id:'extra-zucchini',cat:'cook',q:'What can I make with extra zucchini?',ways:['Quick meal','Baking','Preserving'],tags:'zucchini squash summer recipe',rel:['freeze-harvest'],draft:1},
+    {id:'extra-zucchini',cat:'cook',img:'topic-zucchini.webp',q:'What can I make with extra zucchini?',ways:['Quick meal','Baking','Preserving'],tags:'zucchini squash summer recipe',rel:['freeze-harvest'],draft:1},
     {id:'last-pumpkins',cat:'cook',q:'What can I make with the last of the pumpkins?',ways:['Quick meal','Baking'],tags:'pumpkin muffins fall recipe',draft:1},
     {id:'bake-crowd',cat:'cook',q:'How do I bake for a crowd?',tags:'muffins baking crowd party potluck pecan',rec:'pecan-muffins',draft:1},
     {id:'before-frost',cat:'grow',q:'What can I still plant before a hard frost?',tags:'plant planting frost fall garlic winter',draft:1},
     {id:'covered-garden',cat:'grow',q:'What grows well in a covered garden?',tags:'greenhouse hoop house covered garden season',draft:1},
     {id:'store-potatoes',cat:'preserve',q:'How do I store potatoes at home?',tags:'potatoes storage root cellar keep',tested:'Storage guidance follows the National Center for Home Food Preservation. Rachel adds what works in her own root cellar.',draft:1},
+    {id:'store-harvest',cat:'preserve',q:'How should I store the harvest?',img:'topic-harvest.webp',tags:'store storage harvest root cellar pantry keep onions squash apples',tested:'Storage guidance follows the National Center for Home Food Preservation. Rachel adds what works in her own root cellar.',rel:['store-potatoes'],draft:1},
     {id:'cure-garlic',cat:'preserve',q:'How do I cure and hang garlic?',tags:'garlic harvest cure hang braid storage',tested:'Curing and storage steps follow a university extension guide, named here once Rachel picks it.',draft:1},
     {id:'freeze-harvest',cat:'preserve',q:'What can I freeze from the garden, and how?',tags:'freeze freezing blanch vegetables harvest zucchini',tested:'Blanching and freezing times come from the National Center for Home Food Preservation. No guessed times.',draft:1},
     {id:'garden-tools',cat:'fix',q:'How do I clean and sharpen garden tools?',tags:'tools sharpen clean rust shovel pruners',draft:1},
+    {id:'together-today',cat:'family',q:'What can we do together today?',img:'topic-together.webp',tags:'kids family activities crafts drawing coloring games together rainy day',draft:1},
     {id:'river-day',cat:'family',q:'What should we pack for a day at the river?',tags:'river picnic pack checklist outing kids',draft:1},
     {id:'long-drive',cat:'family',q:'How do I keep kids happy on a long drive?',tags:'road trip car kids games drive travel',draft:1}
   ];
@@ -662,7 +467,7 @@
   var TIPS=[];
 
   /* ===== THIS WEEK — three seasonal questions; each opens a destination ===== */
-  var WEEK=['last-pumpkins','before-frost','store-potatoes'];   /* answer ids, change weekly */
+  var WEEK=['extra-zucchini','store-harvest','together-today'];   /* answer ids, change weekly */
   var JOURNAL=[
     ['Pecan streusel muffins for a crowd','Baking for a full table.'],
     ['Let the kids garnish','Bringing the little ones into the kitchen.'],
@@ -714,12 +519,13 @@
     if(where==='home'){show('home');top();}
     else if(where==='answers'){show('home');top($('cfAnswers'));setTimeout(function(){$('cfQ').focus({preventScroll:true});},reduce?0:350);}
     else if(where==='map'){show('home');top($('cfMapSec'));}
+    else if(where==='meet'){show('home');top($('cfMeet'));}
     else if(where==='store'){renderStore(arg);show('store');top();}
     else openDest(where);
   }
   root.addEventListener('click',function(e){
     var c=e.target.closest('[data-cat]');
-    if(c&&root.contains(c)){var v=c.getAttribute('data-cat');cat=(cat===v?'':v);if(views.home.classList.contains('hide')){show('home');top($('cfShelf'));}renderShelf();return;}
+    if(c&&root.contains(c)){var v=c.getAttribute('data-cat');cat=(cat===v?'':v);show('home');renderShelf();if(c.closest('#cfQuick'))top($('cfShelf'));return;}
     var a=e.target.closest('[data-ans]');
     if(a&&root.contains(a)){openAnswer(a.getAttribute('data-ans'));}
   });
@@ -752,14 +558,21 @@
     $('cfShelfN').innerHTML=c?'<button type="button" class="lnk" data-cat="">All topics</button> &nbsp;·&nbsp; '+(shown(dest(c[2]))?'<button type="button" class="lnk" data-go="'+c[2]+'">Visit '+esc(dest(c[2]).name)+' &rarr;</button>':''):'Pick a sign above, or search.';
     $('cfAGrid').innerHTML=list.length?list.map(acard).join(''):'<p class="none">Rachel\'s answers for this topic are on the way.</p>';
   }
-  $('cfQuick').innerHTML=CATS.map(function(c){return '<button type="button" class="qb" data-cat="'+c[0]+'" aria-pressed="false">'+esc(c[1])+'</button>';}).join('');
+  var CHIP={cook:['Cook','<path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 2-2 6 0 8v10"/>'],grow:['Grow','<path d="M12 21v-9M12 12c0-4 3-7 8-7 0 5-3 7-8 7zM12 15c0-3-2-6-7-6 0 4 2 6 7 6z"/>'],
+    preserve:['Preserve &amp; Store','<path d="M8 3h8M7 6h10M7 6v13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V6M10 12h4"/>'],fix:['Fix &amp; Make','<path d="M14.5 6.5a4 4 0 0 0 5 5l-9 9a2.1 2.1 0 0 1-3-3l9-9a4 4 0 0 0-2-2z"/>'],
+    family:['Family Fun','<circle cx="8" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3 2-6 5-6s5 3 5 6M13 20c0-2 2-4 4-4s4 2 4 4"/>']};
+  $('cfQuick').innerHTML=CATS.map(function(c){return '<button type="button" class="qb" data-cat="'+c[0]+'" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+CHIP[c[0]][1]+'</svg>'+CHIP[c[0]][0]+'</button>';}).join('');
   renderShelf();
-  $('cfHeroArt').src=ART+'pickup-summer.webp';
+  /* farm photo signs: [destination, label, left %, top %] — positions match the farm photo */
+  var PINS=[['kitchen','The Kitchen',15,6],['garden','The Garden',31.1,10.8],['cellar','The Root Cellar',53.8,8.9],['bunk','The Bunkhouse',70.3,9.5],['stand','The Farm Stand',89.1,33],['animals','The Animal Yard',37,44],['river','The Riverbank',93,9]];
+  var PINI='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg>';
+  $('cfFarm').insertAdjacentHTML('beforeend',PINS.map(function(p){var d=dest(p[0]);if(!shown(d))return '';return '<button type="button" class="pin'+(d.open?'':' soon')+'" data-go="'+p[0]+'" style="left:'+p[2]+'%;top:'+p[3]+'%" aria-label="'+esc(d.name+': '+d.q)+'">'+PINI+esc(p[1])+'</button>';}).join(''));
+  $('cfPano').src=ART+'farm-panorama.webp';
   $('cfDList').innerHTML=DEST.filter(shown).map(function(d){
     return '<button type="button" class="dbtn'+(d.open?'':' soon')+'" data-go="'+d.id+'" style="--c:'+d.c+'"><b><i></i>'+esc(d.name)+(PREVIEW?'<em class="pill'+(d.open?' open':'')+'">'+(d.open?'Opens first':'Later')+'</em>':'')+'</b><span>'+esc(d.q)+'</span></button>';
   }).join('');
   $('cfWeek').innerHTML=WEEK.map(answer).filter(function(a){return a&&liveA(a);}).map(function(a){var c=catOf(a.cat);
-    return '<button type="button" class="wk" data-ans="'+a.id+'"><div class="ph">Rachel\'s photo</div><div class="in"><small style="color:'+c[3]+'">'+esc(c[1])+'</small><h3>'+esc(a.q)+'</h3>'+(PREVIEW?'<span class="dtag" style="align-self:flex-start">Answer from Rachel</span>':'')+'</div></button>';}).join('');
+    return '<button type="button" class="wk" data-ans="'+a.id+'">'+(a.img?'<div class="ph photo" style="background-image:url('+ART+a.img+')"></div>':'<div class="ph">Rachel\'s photo</div>')+'<div class="in">'+(PREVIEW?'<span class="dtag" style="align-self:flex-start">Sample topic · Rachel to answer</span>':'<small style="color:'+c[3]+'">'+esc(c[1])+'</small>')+'<h3>'+esc(a.q)+' <span aria-hidden="true">&rarr;</span></h3></div></button>';}).join('');
   $('cfLatest').innerHTML=JOURNAL.map(function(j){return '<a class="jr" target="_blank" rel="noopener" href="https://cherryflatsfarm.com/?'+U+'#journal"><b>'+esc(j[0])+'</b><span>'+esc(j[1])+' Read it in the Farm Journal &rarr;</span></a>';}).join('');
   /* tip of the week rotates by ISO-ish week number */
   (function(){
