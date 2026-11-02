@@ -471,13 +471,13 @@
   [['all','All gifts']].concat(SHELVES.filter(function(sh){return G.some(function(g){return g.s===sh[0];});})).forEach(function(sh){
     var b=document.createElement('button'); b.type='button'; b.className='tab'; b.textContent=sh[1]; b.setAttribute('data-s',sh[0]);
     b.setAttribute('aria-pressed',sh[0]==='all'?'true':'false');
-    b.onclick=function(){ shelf=sh[0]; [].forEach.call(tabs.children,function(x){x.setAttribute('aria-pressed','false');}); b.setAttribute('aria-pressed','true'); sync(); };
+    b.onclick=function(){ shelf=sh[0]; [].forEach.call(tabs.children,function(x){x.setAttribute('aria-pressed','false');}); b.setAttribute('aria-pressed','true'); sync(); toTop($('dmggStore'),true); };
     tabs.appendChild(b);
   });
   var chips=document.getElementById('dmggChips');
   WHO.filter(function(w){return G.some(function(g){return g.who.indexOf(w)>-1;});}).forEach(function(w){
     var b=document.createElement('button'); b.type='button'; b.className='chip'; b.textContent=w; b.setAttribute('aria-pressed','false');
-    b.onclick=function(){ var on=who!==w; who=on?w:''; [].forEach.call(chips.querySelectorAll('.chip'),function(x){x.setAttribute('aria-pressed','false');}); if(on) b.setAttribute('aria-pressed','true'); sync(); };
+    b.onclick=function(){ var on=who!==w; who=on?w:''; [].forEach.call(chips.querySelectorAll('.chip'),function(x){x.setAttribute('aria-pressed','false');}); if(on) b.setAttribute('aria-pressed','true'); sync(); toTop($('dmggStore'),true); };
     chips.appendChild(b);
   });
 
@@ -498,8 +498,19 @@
   ];
   var ans={}, step=0;
   function $(id){return document.getElementById(id);}
+  /* Bring an element to the top of the screen. Works on the page itself and when Hostinger puts the embed inside a frame. */
+  function toTop(el,onlyIfAbove){
+    if(!el) return;
+    var y=el.getBoundingClientRect().top, fr=null;
+    try{ fr=window.frameElement; if(fr) y+=fr.getBoundingClientRect().top; }catch(e){ fr=null; }
+    if(onlyIfAbove && y>=0) return;
+    var win=window; try{ if(fr) win=window.parent; }catch(e){}
+    try{ win.scrollTo({top:Math.max(0,win.pageYOffset+y-12),behavior:'auto'}); }
+    catch(e){ try{ el.scrollIntoView(true); }catch(e2){} }
+    if(!fr && window.top!==window){ try{ el.scrollIntoView({block:'start'}); }catch(e){} }
+  }
   function showF(which){['dmggStart','dmggStep','dmggRes'].forEach(function(x){$(x).classList.toggle('hide',x!==which);});
-    var f=$('dmggFinder'); if(f.getBoundingClientRect().top<0){ try{f.scrollIntoView({block:'start',behavior:'smooth'});}catch(e){f.scrollIntoView();} } }
+    toTop($('dmggFinder')); }
   function ask(){
     var st=STEPS[step]; showF('dmggStep');
     $('dmggCount').textContent='Question '+(step+1)+' of 3';
@@ -642,7 +653,7 @@
     if(v==='shop') openShop(arg);
     var h= v==='store'?'#store' : v==='shop'?'#shop-'+arg : '';
     try{ history.replaceState(null,'',h||location.pathname+location.search); }catch(e){}
-    if(root.getBoundingClientRect().top<0){ try{root.scrollIntoView({block:'start',behavior:'smooth'});}catch(e){root.scrollIntoView();} }
+    toTop(v==='city'?root:$(VIEWS[v]));
   }
   root.addEventListener('click',function(e){
     var b=e.target.closest&&e.target.closest('[data-go]'); if(!b) return;
