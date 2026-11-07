@@ -1,0 +1,689 @@
+<!-- Flight Tower Books: The D-Minus Genius Gift Guide — ONE page. Front door = D-Minus's Bright Idea District (a city of storefronts, one per gift category). Click a shop: the door opens, D-Minus walks in, the shelf appears. "Shop All Gifts" opens the whole store; "Help Me Find Their Gift" opens the 3-question finder.
+     Paste into the Hostinger Embed Code element on your gift guide page. Edit gifts in the GIFTS list. Amazon links carry tag flighttower-20. -->
+<style>
+#dmgg{--ink:#1d1b19;--paper:#fbf7ef;--card:#ffffff;--red:#c8202f;--red2:#9e1622;--muted:#5f5850;--line:#e6ddcc;--gold:#e9b949;
+  font:16px/1.55 Georgia,"Times New Roman",serif;color:var(--ink);background:var(--paper);border-radius:20px;
+  padding:36px 32px 28px;max-width:1120px;margin:0 auto;box-sizing:border-box;border:1px solid var(--line)}
+#dmgg *{box-sizing:border-box}
+#dmgg{position:relative;overflow:hidden}
+#dmgg>*:not(.trail){position:relative;z-index:2}
+#dmgg .trail{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+#dmgg .dancer{width:124px;height:140px;flex:none;align-self:end;justify-self:end}
+#dmgg .dancer svg{width:100%;height:100%;overflow:visible;display:block}
+#dmgg .dancer g{transform-box:view-box}
+#dmgg .dm-body{animation:dmBounce 2.5s ease-in-out infinite;transform-origin:75px 160px}
+#dmgg .dm-head{animation:dmHead 2.5s ease-in-out infinite;transform-origin:75px 86px}
+#dmgg .dm-hat{animation:dmHat 2.5s ease-in-out infinite;transform-origin:76px 37px}
+#dmgg .dm-uaL{animation:dmUaL 2.5s ease-in-out infinite;transform-origin:75px 96px}
+#dmgg .dm-faL{animation:dmFaL 2.5s ease-in-out infinite;transform-origin:55px 106px}
+#dmgg .dm-uaR{animation:dmUaR 2.5s ease-in-out infinite;transform-origin:75px 96px}
+#dmgg .dm-faR{animation:dmFaR 2.5s ease-in-out infinite;transform-origin:95px 106px}
+#dmgg .dm-thL{animation:dmThL 2.5s ease-in-out infinite;transform-origin:75px 120px}
+#dmgg .dm-shL{animation:dmShL 2.5s ease-in-out infinite;transform-origin:64px 139px}
+#dmgg .dm-thR{animation:dmThR 2.5s ease-in-out infinite;transform-origin:75px 120px}
+#dmgg .dm-shR{animation:dmShR 2.5s ease-in-out infinite;transform-origin:86px 139px}
+@keyframes dmBounce{0%,50%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-11px) rotate(-4deg)}75%{transform:translateY(-11px) rotate(4deg)}}
+@keyframes dmHead{0%,100%{transform:rotate(-9deg)}25%{transform:rotate(4deg)}50%{transform:rotate(10deg)}75%{transform:rotate(-3deg)}}
+@keyframes dmHat{0%,100%{transform:rotate(0)}30%{transform:rotate(-7deg)}60%{transform:rotate(6deg)}}
+@keyframes dmUaL{0%,100%{transform:rotate(25deg)}20%{transform:rotate(-70deg)}45%{transform:rotate(-20deg)}70%{transform:rotate(-95deg)}85%{transform:rotate(10deg)}}
+@keyframes dmFaL{0%,100%{transform:rotate(-15deg)}20%{transform:rotate(-55deg)}45%{transform:rotate(20deg)}70%{transform:rotate(-30deg)}}
+@keyframes dmUaR{0%,100%{transform:rotate(-80deg)}30%{transform:rotate(15deg)}55%{transform:rotate(-40deg)}80%{transform:rotate(30deg)}}
+@keyframes dmFaR{0%,100%{transform:rotate(-40deg)}30%{transform:rotate(25deg)}55%{transform:rotate(-60deg)}80%{transform:rotate(10deg)}}
+@keyframes dmThL{0%,50%,100%{transform:rotate(0)}25%{transform:rotate(55deg)}75%{transform:rotate(-12deg)}}
+@keyframes dmShL{0%,50%,100%{transform:rotate(0)}25%{transform:rotate(-20deg)}75%{transform:rotate(45deg)}}
+@keyframes dmThR{0%,50%,100%{transform:rotate(0)}25%{transform:rotate(12deg)}75%{transform:rotate(-55deg)}}
+@keyframes dmShR{0%,50%,100%{transform:rotate(0)}25%{transform:rotate(-45deg)}75%{transform:rotate(20deg)}}
+@media(prefers-reduced-motion:reduce){#dmgg .dancer g{animation:none!important}}
+#dmgg .top{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:8px}
+#dmgg .kick{font:700 12px/1 Arial,sans-serif;letter-spacing:.18em;color:var(--red);text-transform:uppercase;margin:0 0 10px}
+#dmgg h2{font:700 clamp(32px,5vw,54px)/1.02 Georgia,serif;margin:0;letter-spacing:-.01em;text-wrap:balance}
+#dmgg h2 .dm{color:var(--red)}
+#dmgg .sub{font-style:italic;font-size:18px;color:var(--muted);margin:10px 0 0;max-width:620px}
+#dmgg .note{font:13px/1.5 Arial,sans-serif;color:var(--muted);margin:14px 0 22px}
+#dmgg h3.sec{font:700 13px/1 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin:26px 0 14px;display:flex;align-items:center;gap:12px}
+#dmgg h3.sec:after{content:'';flex:1;height:1px;background:var(--line)}
+#dmgg .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;align-items:start}
+#dmgg .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+#dmgg .img{aspect-ratio:1/1;background:#f2ece0;display:block;max-width:100%}
+#dmgg .img img{width:100%;height:100%;object-fit:cover;display:block}
+#dmgg .body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+#dmgg .lesson{font:700 11px/1.3 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+#dmgg .name{font:700 19px/1.25 Georgia,serif;margin:0}
+#dmgg .joke{font-size:15px;color:var(--muted);margin:0}
+#dmgg .price{font:700 15px/1 Arial,sans-serif}
+#dmgg .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+#dmgg .btn{display:inline-block;padding:10px 16px;border-radius:999px;font:700 14px/1 Arial,sans-serif;text-decoration:none;background:var(--red);color:#fff;border:2px solid var(--red)}
+#dmgg .btn:hover,#dmgg .btn:focus-visible{background:var(--red2);border-color:var(--red2);outline:none}
+#dmgg .btn.ghost{background:transparent;color:var(--red)}
+#dmgg .btn.ghost:hover,#dmgg .btn.ghost:focus-visible{background:var(--red);color:#fff}
+#dmgg .book{display:grid;grid-template-columns:1fr;gap:26px;align-items:center;background:var(--ink);color:#f5efe3;border-radius:16px;padding:24px;margin-top:6px}
+#dmgg .book .lesson{color:var(--gold)}
+#dmgg .book .name{font-size:26px;color:#fff}
+#dmgg .book .joke{color:#d8cfbf;font-size:16px}
+#dmgg .book .btn{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+#dmgg .book .btn.ghost{background:transparent;color:var(--gold)}
+#dmgg .book .btn:hover,#dmgg .book .btn:focus-visible{background:#fff;border-color:#fff;color:var(--ink)}
+#dmgg .disc{font:12px/1.5 Arial,sans-serif;color:var(--muted);margin:22px 0 0;border-top:1px solid var(--line);padding-top:12px}
+#dmgg .hide{display:none}
+@media(max-width:640px){
+  #dmgg{padding:24px 16px 20px;border-radius:14px}
+  #dmgg .top{grid-template-columns:1fr}
+  #dmgg .dancer{width:88px;height:100px;order:-1;justify-self:end;align-self:start;margin-bottom:-8px}
+}
+
+#dmgg .controls{display:flex;flex-direction:column;gap:10px;margin:6px 0 4px}
+#dmgg .tabs,#dmgg .chips{display:flex;flex-wrap:wrap;gap:8px}
+#dmgg .tab{font:700 13px/1 Arial,sans-serif;padding:10px 14px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+#dmgg .tab[aria-pressed="true"]{background:var(--ink);color:#fff}
+#dmgg .chip{font:600 12px/1 Arial,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer}
+#dmgg .chip[aria-pressed="true"]{border-color:var(--red);color:var(--red);background:#fdf0f1}
+#dmgg .tab:focus-visible,#dmgg .chip:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+#dmgg .chiplab{font:700 11px/1 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);align-self:center;margin-right:2px}
+#dmgg .shelfnote{font:13px/1.5 Arial,sans-serif;color:var(--muted);margin:-6px 0 14px}
+#dmgg .moment{background:repeating-linear-gradient(0deg,#fbf7ef 0 21px,#efe6d3 21px 22px);display:flex;flex-direction:column;justify-content:center;padding:14px 56px 14px 16px;position:relative;max-width:100%}
+#dmgg .moment:before{content:'D\2212';position:absolute;top:10px;right:12px;font:700 15px/1 Georgia,serif;color:var(--red);border:2px solid var(--red);border-radius:50%;width:32px;height:32px;display:grid;place-content:center;transform:rotate(-12deg)}
+#dmgg .moment small{font:700 10px/1 Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+#dmgg .moment q{font:italic 15px/1.4 Georgia,serif;color:var(--ink);quotes:"\201C" "\201D"}
+#dmgg .mistake{font-style:italic;color:var(--ink);margin:0}
+#dmgg .src{font:12px/1 Arial,sans-serif;color:var(--muted)}
+#dmgg .empty{font:15px/1.5 Arial,sans-serif;color:var(--muted);padding:20px 0}
+
+#dmgg .hero{align-items:center}
+#dmgg .backbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;font:15px/1.4 Arial,sans-serif;padding:16px 20px;margin-top:18px}
+#dmgg .finder{background:#fff;border:2px solid var(--ink);border-radius:18px;padding:24px;margin:18px 0 6px;box-shadow:6px 6px 0 var(--ink)}
+#dmgg .fq{font:700 clamp(24px,3.2vw,32px)/1.15 Georgia,serif;margin:0 0 8px;text-wrap:balance}
+#dmgg .fintro{font:15px/1.5 Arial,sans-serif;color:var(--muted);margin:0 0 16px}
+#dmgg .fbtns{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:6px}
+#dmgg .btn.big{font-size:18px;padding:16px 26px}
+#dmgg .flink{background:none;border:0;padding:0;font:700 14px/1 Arial,sans-serif;color:var(--red);text-decoration:underline;cursor:pointer}
+#dmgg .fhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+#dmgg .fcount{font:700 12px/1 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+#dmgg .fopts{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin:14px 0 16px}
+#dmgg .fopt{font:700 15px/1.25 Arial,sans-serif;text-align:left;padding:14px 16px;border-radius:12px;border:2px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:border-color .15s,transform .1s}
+#dmgg .fopt:hover{border-color:var(--red);transform:translateY(-1px)}
+#dmgg .fopt:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+#dmgg .fopt small{display:block;font-weight:400;font-size:12px;color:var(--muted);margin-top:3px}
+#dmgg .mishap{display:flex;align-items:center;gap:14px;background:#fdf0f1;border-radius:12px;padding:10px 14px;min-height:76px}
+#dmgg .mprop{width:64px;height:56px;flex:none}
+#dmgg .mprop svg{width:100%;height:100%;display:block;overflow:visible}
+#dmgg .mcap{font:italic 15px/1.4 Georgia,serif;color:var(--ink)}
+#dmgg .fres .grid{margin:6px 0 18px}
+#dmgg .fres .mishap{margin-bottom:16px}
+#dmgg .mk{animation:mkWiggle 1.2s ease-in-out infinite;transform-origin:32px 40px;transform-box:view-box}
+#dmgg .mc{stroke-dasharray:140;animation:mcTangle 2.4s ease-in-out infinite}
+#dmgg .ms{animation:msSmoke 1.8s ease-out infinite;transform-box:view-box}
+#dmgg .ms2{animation-delay:.6s}#dmgg .ms3{animation-delay:1.2s}
+#dmgg .mt{animation:mtTada 1.6s ease-in-out infinite;transform-origin:32px 50px;transform-box:view-box}
+@keyframes mkWiggle{0%,100%{transform:rotate(-10deg) translateY(0)}30%{transform:rotate(14deg) translateY(-6px)}60%{transform:rotate(-6deg) translateY(2px)}}
+@keyframes mcTangle{0%{stroke-dashoffset:140}60%,100%{stroke-dashoffset:0}}
+@keyframes msSmoke{0%{transform:translateY(0);opacity:0}20%{opacity:.8}100%{transform:translateY(-22px);opacity:0}}
+@keyframes mtTada{0%,100%{transform:scale(1) rotate(0)}25%{transform:scale(1.12) rotate(-6deg)}50%{transform:scale(1.12) rotate(6deg)}}
+@media(prefers-reduced-motion:reduce){#dmgg .mk,#dmgg .mc,#dmgg .ms,#dmgg .mt{animation:none!important;stroke-dashoffset:0;opacity:1}}
+@media(max-width:640px){#dmgg .finder{padding:18px 16px;box-shadow:4px 4px 0 var(--ink)}#dmgg .fopts{grid-template-columns:1fr 1fr}}
+#dmgg .ml{margin:0;display:flex;flex-direction:column;gap:3px}
+#dmgg .ml .mistake{font:italic 15px/1.45 Georgia,serif;color:var(--ink)}
+#dmgg .ml .lsn{font:700 15px/1.4 Georgia,serif;color:var(--ink)}
+#dmgg .body .joke{font-size:14px}
+#dmgg .card.amz{position:relative}
+#dmgg .stamp{position:absolute;top:12px;right:12px;width:34px;height:34px;border:2px solid var(--red);border-radius:50%;display:grid;place-content:center;font:700 15px/1 Georgia,serif;color:var(--red);transform:rotate(-12deg);background:#fff}
+#dmgg .card.amz .name{padding-right:40px}
+
+/* ===== BRIGHT IDEA DISTRICT (city front door) ===== */
+#dmgg .city{margin:22px 0 8px}
+#dmgg .cityintro{font:14px/1.5 Arial,sans-serif;color:var(--muted);margin:0 0 14px}
+#dmgg .cityintro b{color:var(--ink)}
+#dmgg .street{margin:0 0 18px;background:linear-gradient(#f4ecdc,#efe4cf);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+#dmgg .sthead{display:flex;align-items:center;justify-content:space-between;padding:10px 14px 0}
+#dmgg .stname{font:700 11px/1 Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:#2f6b45;border:2px solid #fff;outline:2px solid #2f6b45;border-radius:4px;padding:6px 10px}
+#dmgg .sarrs{display:none;gap:6px}
+#dmgg .sarr{width:36px;height:36px;border-radius:50%;border:2px solid var(--ink);background:#fff;font:700 18px/1 Arial,sans-serif;cursor:pointer;color:var(--ink)}
+#dmgg .row{display:flex;gap:12px;padding:14px 14px 0;align-items:flex-end}
+#dmgg .shop{position:relative;flex:1 1 0;min-width:0;background:none;border:0;padding:0;margin:0;cursor:pointer;font:inherit;color:inherit;text-align:center;display:flex;flex-direction:column;justify-content:flex-end;-webkit-tap-highlight-color:transparent}
+#dmgg .shop:focus-visible{outline:3px solid var(--gold);outline-offset:4px;border-radius:8px}
+#dmgg .bld{position:relative;background:var(--c);border:3px solid var(--ink);border-bottom:0;border-radius:8px 8px 0 0;padding:12px 10px 0;margin-top:var(--top,0px);
+  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.06) 0 2px,transparent 2px 14px),repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 2px,transparent 2px 28px)}
+#dmgg .bld:before{content:'';position:absolute;left:12%;top:-14px;width:14px;height:14px;background:var(--ink);border-radius:2px 2px 0 0;display:var(--chim,none)}
+#dmgg .sign{display:grid;place-items:center;min-height:64px;background:#fffaf0;border:3px solid var(--ink);border-radius:6px;padding:8px 6px;box-shadow:3px 3px 0 var(--ink);
+  font:700 19px/1.12 Georgia,serif;color:var(--ink);text-wrap:balance;transition:transform .2s}
+#dmgg .shop:hover .sign{transform:translateY(-2px) rotate(-1deg)}
+#dmgg .cat{display:block;font:700 10.5px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin:8px 0 0;text-shadow:0 1px 0 rgba(0,0,0,.35)}
+#dmgg .awn{position:relative;height:16px;margin:8px -10px 0;background:repeating-linear-gradient(90deg,#fff 0 14px,var(--aw,#c8202f) 14px 28px);border-top:3px solid var(--ink)}
+#dmgg .awn:after{content:'';position:absolute;left:0;right:0;bottom:-7px;height:7px;background:radial-gradient(circle at 7px 0,var(--aw,#c8202f) 6.5px,transparent 7px) 0 0/14px 7px repeat-x}
+#dmgg .front{display:grid;grid-template-columns:1fr 50px;gap:8px;align-items:end;padding-top:14px}
+#dmgg .win{position:relative;height:92px;border:3px solid var(--ink);border-radius:4px;background:linear-gradient(#e3f1f5,#bcd9e3);overflow:hidden;margin-bottom:8px}
+#dmgg .win svg{position:absolute;inset:0;width:100%;height:100%}
+#dmgg .frame{position:relative;height:100px;border:3px solid var(--ink);border-bottom:0;border-radius:6px 6px 0 0;background:radial-gradient(circle at 50% 70%,#fff1c4,#ffcf6b);perspective:240px}
+#dmgg .door{position:absolute;inset:0;background:var(--dc,#3b2a1f);transform-origin:left center;transition:transform .45s cubic-bezier(.3,.7,.3,1);border-radius:3px 3px 0 0;
+  background-image:linear-gradient(transparent 14%,rgba(255,255,255,.18) 14% 40%,transparent 40% 52%,rgba(255,255,255,.12) 52% 86%,transparent 86%)}
+#dmgg .door:after{content:'';position:absolute;right:6px;top:52%;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+#dmgg .door b{position:absolute;left:50%;top:22%;transform:translateX(-50%);font:700 7px/1 Arial,sans-serif;letter-spacing:.08em;color:var(--ink);background:#fff;padding:2px 3px;border-radius:2px}
+#dmgg .shop:hover .door{transform:rotateY(-28deg)}
+#dmgg .shop.opening .door{transform:rotateY(-82deg)}
+#dmgg .guide{position:absolute;right:20px;bottom:0;width:32px;height:56px;opacity:0;pointer-events:none;z-index:3}
+#dmgg .guide svg{width:100%;height:100%;overflow:visible}
+#dmgg .shop.opening .guide{animation:dmWalkIn 1s .3s ease-in forwards}
+#dmgg .shop.opening .guide .lg1{animation:dmLeg .22s linear infinite alternate}
+#dmgg .shop.opening .guide .lg2{animation:dmLeg .22s linear infinite alternate-reverse}
+#dmgg .guide .lg1,#dmgg .guide .lg2{transform-box:fill-box;transform-origin:top center}
+@keyframes dmWalkIn{0%{opacity:1;transform:translateX(-70px)}70%{opacity:1;transform:translateX(0) scale(.95)}100%{opacity:0;transform:translateX(6px) scale(.55)}}
+@keyframes dmLeg{from{transform:rotate(-22deg)}to{transform:rotate(22deg)}}
+#dmgg .neon{animation:dmNeon 2.6s steps(1) infinite}
+@keyframes dmNeon{0%,100%{opacity:1}46%{opacity:.25}50%{opacity:1}54%{opacity:.3}58%{opacity:1}}
+#dmgg .smk{animation:dmSmk 2.4s ease-out infinite;transform-box:fill-box;transform-origin:bottom center}
+#dmgg .smk2{animation-delay:.8s}#dmgg .smk3{animation-delay:1.6s}
+@keyframes dmSmk{0%{opacity:0;transform:translateY(6px) scale(.8)}30%{opacity:.9}100%{opacity:0;transform:translateY(-14px) scale(1.2)}}
+#dmgg .bob{animation:dmBob .5s ease-in-out infinite alternate}
+@keyframes dmBob{from{transform:translateY(0)}to{transform:translateY(-2px)}}
+#dmgg .blink{animation:dmNeon 1.2s steps(1) infinite}
+/* street level */
+#dmgg .road{position:relative;height:84px;background:linear-gradient(#d8cfbd 0 26px,#b5ab98 26px 28px,#4a4744 28px);overflow:hidden}
+#dmgg .road:before{content:'';position:absolute;left:0;right:0;top:55px;height:4px;background:repeating-linear-gradient(90deg,#f2d36b 0 26px,transparent 26px 50px)}
+#dmgg .xwalk{position:absolute;top:28px;bottom:0;width:46px;background:repeating-linear-gradient(90deg,#f5f1e8 0 7px,transparent 7px 13px);opacity:.85}
+#dmgg .xsign{position:absolute;top:6px;font:700 8px/1 Arial,sans-serif;letter-spacing:.06em;color:var(--ink);background:#fff;border:1.5px solid var(--ink);border-radius:2px;padding:2px 4px;white-space:nowrap;margin-left:52px}
+#dmgg .mover{position:absolute;will-change:left,transform}
+#dmgg .mover svg{display:block;overflow:visible}
+#dmgg .bus{top:30px;animation:dmDrive 17s linear infinite}
+#dmgg .car{top:58px;animation:dmDriveL 11s linear infinite;animation-delay:-4s}
+#dmgg .dog{top:7px;animation:dmDrive 13s linear infinite;animation-delay:-6s}
+#dmgg .ped{top:0;animation:dmDriveL 24s linear infinite}
+#dmgg .ped svg{width:14px;height:26px}
+#dmgg .cat.neon{color:#b9a8ff;text-shadow:0 0 6px #7a5cff,0 0 2px #fff}
+#dmgg .ped2{animation-duration:30s;animation-delay:-12s}
+#dmgg .ped .lg1,#dmgg .ped .lg2,#dmgg .dog .lg1,#dmgg .dog .lg2,#dmgg .xdm .lg1,#dmgg .xdm .lg2{transform-box:fill-box;transform-origin:top center;animation:dmLeg .3s linear infinite alternate}
+#dmgg .ped .lg2,#dmgg .dog .lg2,#dmgg .xdm .lg2{animation-direction:alternate-reverse}
+#dmgg .dog .lg1,#dmgg .dog .lg2{animation-duration:.16s}
+#dmgg .xdm{top:-4px;animation:dmCross 19s linear infinite}
+#dmgg .cones{position:absolute;top:60px;display:flex;align-items:flex-end;gap:6px}
+#dmgg .rw{font:700 8px/1.1 Arial,sans-serif;color:var(--ink);background:#f2b134;border:2px solid var(--ink);padding:3px 5px;border-radius:3px;text-align:center;margin-left:4px}
+@keyframes dmDrive{from{left:-140px}to{left:105%}}
+@keyframes dmDriveL{from{left:105%;transform:scaleX(-1)}to{left:-140px;transform:scaleX(-1)}}
+@keyframes dmCross{0%,62%{transform:translateY(0);opacity:0}63%{opacity:1;transform:translateY(0)}80%{transform:translateY(56px);opacity:1}81%,100%{transform:translateY(56px);opacity:0}}
+#dmgg .citybar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin:6px 0 4px}
+#dmgg .cityfind{display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;margin:0 0 20px}
+#dmgg .cityfind .fq{margin:0 0 4px}
+#dmgg .cityfind .fintro{margin:0}
+#dmgg .btn.huge{font-size:20px;padding:18px 28px;box-shadow:4px 4px 0 var(--ink)}
+#dmgg .dir{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 14px}
+#dmgg .dirlab{font:700 11px/1 Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:#2f6b45;border-radius:3px;padding:7px 9px;margin-right:2px}
+#dmgg .dirb{font:700 13px/1 Arial,sans-serif;padding:9px 12px;border-radius:999px;border:2px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer}
+#dmgg .dirb:hover,#dmgg .dirb:focus-visible{background:var(--ink);color:#fff;outline:none}
+#dmgg .street{position:relative}
+#dmgg .sky{position:absolute;left:0;right:0;top:0;height:120px;pointer-events:none;z-index:0}
+#dmgg .row,#dmgg .sthead{position:relative;z-index:1}
+#dmgg .cloud{position:absolute;top:var(--y);animation:dmCloud var(--d) linear infinite;animation-delay:var(--dl);opacity:.9}
+@keyframes dmCloud{from{left:-120px}to{left:105%}}
+#dmgg .skyplane{position:absolute;top:18px;animation:dmPlane 22s linear infinite;animation-delay:-5s}
+@keyframes dmPlane{0%{left:-60px;transform:translateY(0)}50%{transform:translateY(-10px)}100%{left:105%;transform:translateY(4px)}}
+#dmgg .flash{display:block;margin:6px auto 0;width:max-content;font:700 9px/1 Arial,sans-serif;letter-spacing:.14em;color:#ffd84d;background:#1d1b19;border:2px solid #ffd84d;border-radius:3px;padding:4px 6px}
+#dmgg .ant{position:absolute;right:18%;top:-26px;width:3px;height:26px;background:var(--ink)}
+#dmgg .ant:after{content:'';position:absolute;left:-3px;top:-6px;width:9px;height:9px;border-radius:50%;background:#c8202f;animation:dmNeon 1s steps(1) infinite}
+#dmgg .pigeon{position:absolute;top:-13px;left:58%;font-size:0}
+#dmgg .lamp{position:absolute;top:4px;width:3px;height:24px;background:var(--ink)}
+#dmgg .lamp:before{content:'';position:absolute;left:-6px;top:-4px;width:15px;height:8px;border-radius:8px 8px 2px 2px;background:var(--ink)}
+#dmgg .lamp:after{content:'';position:absolute;left:-3px;top:4px;width:9px;height:5px;border-radius:0 0 6px 6px;background:#ffe9a8;box-shadow:0 0 8px #ffd84d}
+#dmgg .hyd{position:absolute;top:10px}
+#dmgg .chase{top:0;animation:dmDrive 13s linear infinite;animation-delay:-5.2s}
+#dmgg .hey{position:absolute;top:-2px;left:14px;font:700 8px/1 Arial,sans-serif;background:#fff;border:1.5px solid var(--ink);border-radius:6px;padding:2px 3px;white-space:nowrap}
+#dmgg .worker{position:absolute;top:56px}
+#dmgg .xdm2{animation-duration:23s;animation-delay:-8s}
+#dmgg .hint{display:none;font:12px/1.3 Arial,sans-serif;color:var(--muted);padding:6px 14px 0}
+#dmgg .row.entering .shop:not(.opening){opacity:.45;transition:opacity .3s}
+@media(max-width:760px){#dmgg .hint{display:block}#dmgg .cityfind{padding:18px 16px}#dmgg .btn.huge{width:100%;text-align:center;font-size:18px;padding:16px 20px}#dmgg .dirb{font-size:12px;padding:8px 10px;flex:none}#dmgg .dir{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:-16px;padding-right:16px}#dmgg .dir::-webkit-scrollbar{display:none}#dmgg .dirlab{flex:none}}
+@media(prefers-reduced-motion:reduce){#dmgg .cloud,#dmgg .skyplane,#dmgg .ant:after,#dmgg .flash{animation:none!important}#dmgg .cloud{left:30%}#dmgg .skyplane{display:none}#dmgg .chase{left:46%}}
+
+/* inside a shop */
+#dmgg .shopbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin:0 0 16px}
+#dmgg .shopbar.bot{margin:22px 0 0}
+#dmgg .shophead{background:var(--c);border:3px solid var(--ink);border-radius:12px;padding:16px 18px 18px;margin:0 0 18px;box-shadow:5px 5px 0 var(--ink);
+  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.06) 0 2px,transparent 2px 14px)}
+#dmgg .shophead .kick{color:#fff;opacity:.85;margin-bottom:8px}
+#dmgg .shopname{display:inline-block;margin:0;background:#fffaf0;border:3px solid var(--ink);border-radius:6px;padding:8px 14px;box-shadow:3px 3px 0 var(--ink);font:700 clamp(22px,3.4vw,32px)/1.1 Georgia,serif}
+#dmgg .shopjoke{margin:12px 0 0;color:#fff;font:italic 16px/1.45 Georgia,serif;max-width:720px;text-shadow:0 1px 0 rgba(0,0,0,.3)}
+#dmgg .shelfin .card{animation:dmShelf .45s ease-out both}
+@keyframes dmShelf{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media(max-width:760px){
+  #dmgg .sarrs{display:flex}
+  #dmgg .row{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:0}
+  #dmgg .row::-webkit-scrollbar{display:none}
+  #dmgg .shop{flex:0 0 calc(50% - 6px);scroll-snap-align:start}
+  #dmgg .sign{font-size:16px;min-height:62px}
+  #dmgg .front{grid-template-columns:1fr 42px}
+  #dmgg .guide{right:16px}
+  #dmgg .win{height:80px}#dmgg .frame{height:88px}
+}
+@media(prefers-reduced-motion:reduce){
+  #dmgg .mover,#dmgg .neon,#dmgg .smk,#dmgg .bob,#dmgg .blink,#dmgg .shelfin .card,#dmgg .mover *{animation:none!important}
+  #dmgg .bus{left:8%}#dmgg .car{left:62%}#dmgg .dog{left:40%}#dmgg .ped{left:78%}#dmgg .ped2{left:24%}#dmgg .xdm{display:none}
+  #dmgg .door{transition:none}
+}
+</style>
+
+<div id="dmgg">
+  <svg class="trail" aria-hidden="true"><defs><filter id="dmgSh" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="1.5" dy="3" stdDeviation="1.6" flood-color="#000" flood-opacity=".3"/></filter></defs>
+    <path id="dmgPath" fill="none" stroke="#c8202f" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round" opacity=".35"/>
+    <g id="dmgPlane" filter="url(#dmgSh)" style="opacity:0"><path d="M30 0 L-3 -10 L9 1 Z" fill="#1f3346" stroke="#c6343a" stroke-width="1.3" stroke-linejoin="round"/><path d="M30 0 L9 1 L4 12 Z" fill="#ffffff" stroke="#c6343a" stroke-width="1.3" stroke-linejoin="round"/><path d="M30 0 L9 1 L12 7 Z" fill="#e3e9ee"/><path d="M14 1 L8 1.3 L6 8 Z" fill="#0d1a26"/></g>
+  </svg>
+  <div class="top hero">
+    <div class="herotext">
+      <p class="kick">The D-Minus Genius Gift Guide · Holiday 2026</p>
+      <h2>Welcome to the <span style="white-space:nowrap">D-Minus</span> <span class="dm">Genius</span> Bright Idea District</h2>
+      <p class="sub">Great intentions. Questionable directions. Gifts you should have thought of first.</p>
+    </div>
+    <div class="dancer" role="img" aria-label="D-Minus Genius in a Santa hat, dancing">
+      <svg viewBox="0 0 150 170" fill="none" stroke="#1d1b19" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <g class="dm-body">
+          <g class="dm-thL"><path d="M75 120 L64 139"/><g class="dm-shL"><path d="M64 139 L60 158 L50 160"/></g></g>
+          <g class="dm-thR"><path d="M75 120 L86 139"/><g class="dm-shR"><path d="M86 139 L90 158 L100 160"/></g></g>
+          <path d="M75 86 L75 120"/>
+          <g class="dm-uaL"><path d="M75 96 L55 106"/><g class="dm-faL"><path d="M55 106 L38 100"/><circle cx="37" cy="100" r="3" fill="#1d1b19"/></g></g>
+          <g class="dm-uaR"><path d="M75 96 L95 106"/><g class="dm-faR"><path d="M95 106 L112 100"/><circle cx="113" cy="100" r="3" fill="#1d1b19"/></g></g>
+          <g class="dm-head">
+            <circle cx="75" cy="62" r="25" fill="#fff" stroke-width="4.5"/>
+            <ellipse cx="66" cy="58" rx="8" ry="10" fill="#fff" stroke-width="3.5"/>
+            <ellipse cx="84" cy="58" rx="8" ry="10" fill="#fff" stroke-width="3.5"/>
+            <circle cx="69" cy="54.5" r="3.8" fill="#1d1b19" stroke="none"/>
+            <circle cx="87" cy="54.5" r="3.8" fill="#1d1b19" stroke="none"/>
+            <path d="M56 70 Q75 94 94 69 Q75 76 56 70 Z" fill="#c8202f" stroke-width="3.5"/>
+            <path d="M68 80 Q75 85 82 79" stroke="#f3a3a3" stroke-width="3"/>
+            <g class="dm-hat"><g transform="translate(0 -9)">
+              <path d="M52 44 Q66 10 92 8 Q110 10 116 30 L104 34 Q99 22 90 22 Q96 32 98 42 Z" fill="#c8202f" stroke-width="4"/>
+              <circle cx="114" cy="34" r="7" fill="#fff" stroke-width="3.5"/>
+              <rect x="47" y="38" width="56" height="13" rx="6.5" fill="#fff" stroke-width="3.5"/>
+              <text x="75" y="48.5" fill="#c8202f" stroke="none" font-family="Arial,sans-serif" font-weight="700" font-size="12" text-anchor="middle">D-</text>
+            </g></g>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+
+  <section class="city" id="dmggCity" aria-label="D-Minus's Bright Idea District">
+    <div class="finder cityfind">
+      <div><h3 class="fq">Not sure what to get?</h3><p class="fintro">Tell D-Minus a little about them. Three quick questions, three gift ideas.</p></div>
+      <button type="button" class="btn big huge" data-go="finder">Help Me Find a Gift &rarr;</button>
+    </div>
+    <p class="cityintro"><b>Or pick a storefront.</b> D-Minus will walk you in. (He knows a shortcut. It&rsquo;s longer.)</p>
+    <nav class="dir" id="dmggDir" aria-label="City directory"><span class="dirlab">Directory</span></nav>
+    <div id="dmggStreets"></div>
+    <div class="citybar"><button type="button" class="btn big" data-go="store">Shop All Gifts &rarr;</button>
+      <button type="button" class="btn big ghost" data-go="finder">Help Me Find a Gift &rarr;</button></div>
+  </section>
+
+  <div id="dmggShopView" class="hide" aria-live="polite">
+    <div class="shopbar"><button type="button" class="flink" data-go="city">&larr; Back to the City</button><button type="button" class="btn" data-go="store">Shop All Gifts &rarr;</button></div>
+    <div class="shophead" id="dmggShopHead"></div>
+    <div class="grid" id="dmggShopGrid"></div>
+    <div class="shopbar bot"><button type="button" class="flink" data-go="city">&larr; Back to the City</button><button type="button" class="btn" data-go="store">Shop All Gifts &rarr;</button></div>
+  </div>
+
+  <section class="finder hide" id="dmggFinder" data-view="front" aria-live="polite">
+    <div class="fstart" id="dmggStart">
+      <h3 class="fq">Who are you shopping for?</h3>
+      <p class="fintro">Tell D-Minus a little about them. Find something they&rsquo;ll love. Three quick questions.</p>
+      <div class="fbtns"><button type="button" class="btn big" id="dmggGo">Help Me Find Their Gift &rarr;</button>
+      <button type="button" class="flink" data-go="store">or browse the whole store &rarr;</button></div>
+    </div>
+    <div class="fstep hide" id="dmggStep">
+      <div class="fhead"><span class="fcount" id="dmggCount"></span><button type="button" class="flink" id="dmggBack">&larr; Back</button></div>
+      <h3 class="fq" id="dmggQ"></h3>
+      <div class="fopts" id="dmggOpts"></div>
+      <div class="mishap"><span class="mprop" id="dmggProp" aria-hidden="true"></span><span class="mcap" id="dmggCap"></span></div>
+    </div>
+    <div class="fres hide" id="dmggRes">
+      <div class="mishap"><span class="mprop" id="dmggPropR" aria-hidden="true"></span><span class="mcap" id="dmggCapR"></span></div>
+      <h3 class="fq" id="dmggResT">Three gifts D-Minus picked</h3>
+      <p class="fintro" id="dmggResNote"></p>
+      <div class="grid" id="dmggResGrid"></div>
+      <div class="fbtns"><button type="button" class="btn ghost" id="dmggAgain">Change my answers</button><button type="button" class="flink" data-go="store">Shop All Gifts &rarr;</button><button type="button" class="flink" data-go="city">&larr; Back to the City</button></div>
+    </div>
+  </section>
+
+  <div id="dmggStoreView" class="hide">
+    <div class="shopbar"><button type="button" class="flink" data-go="city">&larr; Back to the City</button></div>
+    <div class="finder backbar"><span>Not sure what to get? <b>Tell D-Minus a little about them.</b> Three quick questions.</span><button type="button" class="btn" data-go="finder">Help Me Find Their Gift &rarr;</button></div>
+  <h3 class="sec" id="dmggStore">The whole store</h3>
+  <p class="shelfnote">D-Minus makes the mistake. The gift is the fix. D-Minus originals first on every shelf.</p>
+  <div class="controls">
+    <div class="tabs" role="group" aria-label="Choose a shelf" id="dmggTabs"></div>
+    <div class="chips" role="group" aria-label="Shop for someone" id="dmggChips"><span class="chiplab">Shop for</span></div>
+  </div>
+  <div id="dmggList"></div>
+  </div>
+  <p class="disc">D-Minus originals and Flight Tower books ship from the Flight Tower Books shop. Amazon prices change, so check the current price there. As an Amazon Associate, Flight Tower Books earns from qualifying purchases.</p>
+</div>
+
+<script>
+(function(){
+  var root=document.getElementById('dmgg'); if(!root) return;
+  var SHOP='https://shop.flighttowerbooks.com/products/', IMG='https://shop.flighttowerbooks.com/cdn/shop/files/', AMZ='https://www.amazon.com/', T='tag=flighttower-20';
+  var SHELVES=[
+    ['laugh','Good for a Laugh','Gifts with a clear joke, straight from D-Minus himself.'],
+    ['wish','Wish I\'d Thought of That','Clever fixes for the everyday annoyances D-Minus keeps running into.'],
+    ['them','That\'s So Them','Gifts for one specific interest. You know exactly who.'],
+    ['tech','Tech & Gadgets','The newest tech toys and clever little machines, for the person who likes buttons.'],
+    ['flight','Cleared for Takeoff','For the traveler. Flight Tower picks that make the trip easier, from the curb to the gate.'],
+    ['kids','Kids & Family Fun','Activity books that turn screen time into something to do together.'],
+    ['together','A Little Fun Together','Gifts for two. Date nights, shared hobbies, and something to laugh about together.']
+  ];
+  var WHO=['Outdoor Optimist','Road-Tripper','Grill Boss','Gardener','Homesteader','Musician','Reader','Sports Fan','Kids & Family','Couples','Frequent Flyer','Gadget Lover','Has Everything'];
+  /* ===== GIFTS — edit here.
+     own:true = Flight Tower shop item [handle, price, image]; own:false = Amazon (url, no price, no photo).
+     Each card: lesson, the D-Minus mistake, the fix. Keep every story true to what the product does. ===== */
+  var G=[
+    {s:'laugh',own:1,who:['Has Everything'],p:19.99,i:['everything'],r:['laugh'],name:'D-Minus Genius Christmas 2026 Ornament',lesson:'Know when to put the fork down.',mistake:'Just one more plate.',fix:'Double-sided ceramic: the mistake on the front, "Stuffed like the turkey" on the back.',price:'$19.99',h:'d-minus-genius-christmas-2026-ornament',img:'17374467230662539272_2048_800x.jpg'},
+    {s:'laugh',own:1,who:['Has Everything'],p:19.99,i:['everything'],r:['laugh'],name:'D-Minus Genius Funny Christmas Snow Globe',lesson:'Check the forecast before you shake things up.',mistake:'He ordered a peaceful winter scene.',fix:'He got a blizzard with his name on it. A two-sided snow globe for the desk or shelf.',price:'$19.99',h:'d-minus-genius-funny-christmas-snow-globe-the-globe-was-festive-the-blizzard-personal',img:'1392701047376987738_2048_800x.jpg'},
+    {s:'laugh',own:1,who:['Outdoor Optimist','Has Everything'],p:27.99,i:['outdoors', 'everything'],r:['laugh', 'me'],name:'D-Minus Genius Pocket T-Shirt',lesson:'A solid plan needs a landing too.',mistake:'The plan was solid.',fix:'The landing, not so much. A white pocket tee, sizes S to 6XL.',price:'$27.99',h:'d-minus-genius-pocket-t-shirt-the-plan-was-solid-the-landing-not-so-much',img:'3245806149320397933_2048_800x.jpg'},
+    {s:'laugh',own:1,who:['Outdoor Optimist','Has Everything'],p:29.99,i:['outdoors','everything'],r:['laugh','me'],name:'D-Minus Genius Mountain Cap',lesson:'Dress for the mountain, not the parking lot.',mistake:'Headed uphill with total confidence.',fix:'A soft cotton cap with a small alpine skier. Pairs with the D-Minus tee. One size, adjustable.',price:'$29.99',h:'mountain-adventure-baseball-cap-alpine-skiing-outdoor-lifestyle-hat',img:'6300688255357752300_2048_800x.jpg'},
+    {s:'laugh',own:1,who:['Grill Boss','Has Everything'],p:29.99,i:['grill','everything'],r:['laugh'],name:'D-Minus Genius Funny BBQ Apron',lesson:'Dress for the mess, not the photo.',mistake:'I wore my good shirt.',fix:'A full-length apron with two front pockets and an adjustable neck strap, so the good shirt survives the barbecue.',price:'$29.99',h:'d-minus-genius-funny-bbq-apron-i-wore-my-good-shirt',img:'20261030234754-1f1d4bc5-3a5a-63fc-9869-3e9ea7ca10f6.png?v=1793448474'},
+    {s:'laugh',own:1,who:['Has Everything'],p:11.99,i:['everything'],r:['laugh'],name:'D-Minus Genius Face Mask',lesson:'Think before you volunteer.',mistake:'Had a genius idea. Said it out loud. Got put in charge of it.',fix:'A soft cotton-lined mask with the D-Minus zipped grin and the line HOLDING BACK A GENIUS IDEA.',price:'$11.99',h:'d-minus-genius-face-mask-holding-back-a-genius-idea',img:'3267884262891824911_2048_600x600.jpg?v=1793464878'},
+    {s:'laugh',own:1,who:['Reader','Has Everything'],p:12.99,i:['books', 'everything'],r:['laugh'],name:'Life Lessons: The D-Minus Genius Guide',lesson:'Read the manual before life tests you on it.',mistake:'Nobody handed him an owner\'s manual for life.',fix:'So he learned it the hard way: spotting a liar, asking for what you want, making hard decisions.',price:'$12.99',h:'d-minus-genius',img:'D-MGFrontCover_c336f895-18f5-4662-aa54-7e09ece73f53_800x.png'},
+
+    {s:'tech',own:0,who:['Road-Tripper','Has Everything','Gadget Lover'],p:25,i:['road', 'fix', 'everything','tech'],r:['clever'],name:'Tile Mate Bluetooth Tracker (Life360)',lesson:'Put a tracker on anything you lose twice.',mistake:'Searched the house for 40 minutes. The keys were in the truck.',fix:'Ring your keys from your phone, or see where they were last.',url:AMZ+'dp/B0D635KHVH?'+T},
+    {s:'wish',own:0,who:['Road-Tripper','Has Everything'],p:24.99,i:['road','everything'],r:['laugh','clever'],name:'Drop Stop Car Seat Gap Filler (2-pack)',lesson:'Close the gap before it eats your phone.',mistake:'Dropped his phone between the seat and the console. Drove 40 miles listening to it ring.',fix:'The Shark Tank original. Two neoprene fillers seal the gap by the seat belt catch and move with the seat. Fits most cars and trucks.',url:AMZ+'dp/B00BYH6C1E?'+T},
+    {s:'wish',own:0,who:['Has Everything'],p:24.99,i:['everything'],r:['clever','me'],name:'seenlast Candle Warmer Lamp with Timer',lesson:'Warm the candle. Skip the flame.',mistake:'Lit the candle, left the room, and came back to the smoke alarm.',fix:'A dimmable lamp that melts the candle from the top, so the scent fills the room with no open flame. Has a timer and an adjustable height.',url:AMZ+'dp/B0CDRDK6MR?'+T},
+    {s:'wish',own:0,who:['Has Everything','Homesteader'],p:39.99,i:['everything'],r:['laugh','clever'],name:'Woodenhouse 10-Piece Teak Cooking Utensil Set',lesson:'Use wood on the good pans.',mistake:'Stirred the nonstick pan with a metal fork. Now it is a stick pan.',fix:'Ten teak spoons, spatulas, a ladle and a pasta server. Heat-resistant, safe on nonstick, and nicer looking than the drawer of mismatched plastic.',url:AMZ+'dp/B0BBGQ2GLZ?'+T},
+    {s:'tech',own:0,who:['Road-Tripper','Outdoor Optimist','Gadget Lover'],p:20,i:['road', 'outdoors','tech'],r:['clever'],name:'Anker Zolo Power Bank, Built-In USB-C Cable',lesson:'Charge up before you head out.',mistake:'Phone died at 2%, halfway through the directions.',fix:'A pocket battery with its own cable attached, so there is no cable to forget.',url:AMZ+'s?k=Anker+Zolo+A1688&'+T},
+    {s:'tech',own:0,who:['Grill Boss','Gadget Lover'],p:40,i:['grill','tech'],r:['clever'],name:'ThermoPro Lightning Instant-Read Thermometer',lesson:'Check it. Don\'t guess it.',mistake:'He said it was probably done. It was not done.',fix:'An instant-read meat thermometer. A real answer in seconds, before the guests notice.',url:AMZ+'dp/B0BBR2RL6X?'+T},
+    {s:'tech',own:0,who:['Gadget Lover','Has Everything'],p:21.99,i:['tech','everything'],r:['clever','me'],name:'Ouotoo 3-in-1 MagSafe Charging Stand',lesson:'Bedtime shouldn\'t come with a charging schedule.',mistake:'Three devices. One outlet. Took turns charging them. All three lost.',fix:'Charges an iPhone, Apple Watch and AirPods at once on one magnetic stand, with a soft night light. For iPhone 12 and newer.',url:AMZ+'dp/B0CNTH3F7P?'+T},
+    {s:'tech',own:0,who:['Gadget Lover','Musician','Has Everything'],p:24.99,i:['tech','music','everything'],r:['clever','laugh'],name:'BolaButty Waterproof Bluetooth Speaker',lesson:'Keep the music out of the water.',mistake:'Propped his phone on the soap dish for music. The phone went for a swim.',fix:'A splash-proof 20W speaker with lights and up to 24 hours of play. Shower, kitchen, garage or campsite.',url:AMZ+'dp/B0BRKPVZB4?'+T},
+    {s:'flight',own:0,who:['Kids & Family','Frequent Flyer','Has Everything'],p:6.99,i:['kids','road','everything'],r:['laugh','me'],name:'Creativity for Kids Paper Airplane Squadron',lesson:'Fold the good paper.',mistake:'Folded a paper airplane out of the electric bill. It flew great. The bill was still due.',fix:'Paper, stickers and step-by-step folds for 20 mini planes. Ages 6 and up, and every grown-up who still throws one in the office.',url:AMZ+'dp/B00A3H81LK?'+T},
+    {s:'flight',own:0,who:['Frequent Flyer','Gadget Lover','Road-Tripper','Has Everything'],p:9.99,i:['tech','road','everything'],r:['clever','laugh'],name:'travel inspira Digital Luggage Scale',lesson:'Weigh it at home, not at the counter.',mistake:'Guessed the bag was under 50 pounds. The airline guessed $100.',fix:'Hook it on the suitcase handle, lift, and read the weight on a backlit screen. Holds up to 110 lb. Battery included.',url:AMZ+'dp/B07QFTGGYF?'+T},
+    {s:'flight',own:0,who:['Frequent Flyer','Gadget Lover','Has Everything'],p:16.99,i:['tech','road','everything'],r:['clever','laugh'],name:'LISEN Airplane Phone Holder',lesson:'Let the tray table hold it.',mistake:'Watched a two-hour movie holding his phone up. His arm fell asleep before he did.',fix:'A folding magnetic phone stand that clips to the seatback tray or sits on a desk. Hands-free movies at 30,000 feet. For MagSafe phones and magnetic cases.',url:AMZ+'dp/B0CKN1N2YH?'+T},
+    {s:'flight',own:0,who:['Frequent Flyer','Road-Tripper','Has Everything'],p:21.99,i:['road','everything'],r:['laugh','clever'],name:'napfun Memory Foam Travel Neck Pillow',lesson:'Bring your own pillow.',mistake:'Slept the whole flight on a stranger\'s shoulder. He was not a fan.',fix:'Memory foam that holds your head upright, with a washable cover, adjustable clasp and a roll-up carry bag.',url:AMZ+'dp/B07SRRQS5B?'+T},
+    {s:'flight',own:0,who:['Frequent Flyer','Gadget Lover','Has Everything'],p:34.95,i:['tech','road','everything'],r:['clever','me'],name:'Twelve South AirFly SE Bluetooth Transmitter',lesson:'Bring the earbuds and the adapter.',mistake:'Brought his wireless earbuds on the plane. The movie screen only had a headphone jack.',fix:'Plugs into any headphone jack, on a plane, at the gym or in the car, and sends the sound to wireless earbuds or headphones. 20+ hour battery.',url:AMZ+'dp/B0BQZBMXD4?'+T},
+    {s:'tech',own:0,who:['Gadget Lover','Kids & Family','Road-Tripper','Has Everything'],p:23.99,i:['tech','kids','road','everything'],r:['clever','me'],name:'EUCOS 62" Phone Tripod & Selfie Stick with Remote',lesson:'The photographer belongs in the picture too.',mistake:'Took the family photo. Again. He\'s in none of them.',fix:'Extends from selfie stick to a 62-inch tripod, with a wireless remote. Works with iPhone and Android.',url:AMZ+'dp/B09XHZ8F7F?'+T},
+    {s:'tech',own:0,who:['Gadget Lover','Kids & Family','Has Everything'],p:29.97,i:['tech','kids','everything'],r:['laugh','me'],name:'HEX BOTS Glow-in-the-Dark Wall Crawler Gecko',lesson:'Some surprises should stay on the wall.',mistake:'Hid a rubber lizard in his wife\'s slipper. Slept on the couch.',fix:'A remote-control gecko that climbs walls and glows in the dark. Rechargeable, easy remote, and built for harmless pranks. Ages 4 and up.',url:AMZ+'dp/B0F1DP1GYG?'+T},
+    {s:'tech',own:0,who:['Gadget Lover','Kids & Family'],p:39.99,i:['tech','kids'],r:['me','laugh'],name:'Bitzee Aquarium Interactive Digital Fish Tank',lesson:'Start with a fish that runs on batteries.',mistake:'Won a goldfish at the fair. Named it. Lost it by Tuesday.',fix:'A screen-free digital aquarium with 30 virtual fish that react to touch. Hatch, feed and grow them. Ages 5 and up.',url:AMZ+'dp/B0GGTJCVR5?'+T},
+    {s:'wish',own:0,who:['Grill Boss'],p:24.99,i:['grill'],r:['clever'],name:'GRILLART Bristle-Free Grill Brush and Scraper',lesson:'Use the right brush for a hot grill.',mistake:'Cleaned the grill with a wadded-up paper towel. The towel caught fire.',fix:'An 18-inch stainless brush and scraper with no wire bristles to break off into the burgers.',url:AMZ+'dp/B07F731D86?'+T},
+    {s:'wish',own:0,who:['Grill Boss'],p:9.99,i:['grill'],r:['clever','laugh'],name:'Comsmart Heat-Resistant BBQ Gloves',lesson:'Use the right gloves for the hot stuff.',mistake:'Flipped the burger with his fingers. Once.',fix:'Silicone-grip grilling gloves rated to 1472\u00b0F, long enough to cover the wrists.',url:AMZ+'dp/B07YTVMRV4?'+T},
+    {s:'wish',own:0,who:['Homesteader','Has Everything'],p:38.99,i:['fix','everything'],r:['clever'],name:'DEWALT Right-Angle Drill Attachment',lesson:'When the drill won\'t fit, make it turn the corner.',mistake:'Tried to reach the screw behind the cabinet. The drill did not fit. Neither did his arm.',fix:'A 4-in-1 right-angle and flexible-shaft adapter. It reaches screws in tight spots any drill can\'t.',url:AMZ+'dp/B08K9C5MCD?'+T},
+    {s:'wish',own:0,who:['Homesteader','Has Everything'],p:19.99,i:['fix','everything'],r:['laugh','clever'],name:'RAK Magnetic Wristband',lesson:'Keep the small parts on your wrist, not in your teeth.',mistake:'Held the screws in his mouth. Sneezed.',fix:'Ten strong magnets in a ballistic-nylon strap hold screws, nails, bolts and drill bits right where his hand already is.',url:AMZ+'dp/B01HRCU3SW?'+T},
+    {s:'wish',own:0,who:['Homesteader','Has Everything','Gadget Lover'],p:29.99,i:['fix','everything','tech'],r:['clever','laugh'],name:'HOTO 25-Piece Electric Screwdriver Kit',lesson:'The kitchen drawer is not a toolbox.',mistake:'Built the bookshelf with a butter knife. It leans a little. To the left.',fix:'A rechargeable pocket screwdriver with 25 bits, three torque settings and an LED, all in a magnetic case.',url:AMZ+'dp/B0BLMQ8BXB?'+T},
+    {s:'wish',own:0,who:['Homesteader','Has Everything'],p:9.99,i:['fix','everything'],r:['laugh','clever'],name:'JOREST 40-in-1 Precision Screwdriver Set',lesson:'Tiny screws deserve the right tools.',mistake:'Tried tightening his glasses with a kitchen knife. Now he needed glasses and a bandage.',fix:'Tiny Phillips, Torx and specialty bits plus pry tools for glasses, phones, laptops, game controllers and the doorbell.',url:AMZ+'dp/B09FFCGLHK?'+T},
+    {s:'wish',own:0,who:['Gardener','Homesteader'],p:19.99,i:['garden'],r:['laugh','clever'],name:'Gorilla Grip Extra-Thick Kneeling Pad',lesson:'Give your knees a cushion before they file a complaint.',mistake:'Weeded the whole bed on bare knees. Stood up in three stages.',fix:'A thick, water-resistant foam pad with a carry handle. Goes from the garden to the garage to bath time.',url:AMZ+'dp/B07L6QQD8R?'+T},
+    {s:'wish',own:0,who:['Gardener','Homesteader'],p:29.95,i:['garden'],r:['clever','me'],name:'Gardeners Basics Survival Seed Vault (35 varieties)',lesson:'Buy the seeds before you need the garden.',mistake:'Waited until spring to buy seeds. So did everyone else.',fix:'16,000+ heirloom, non-GMO vegetable seeds in 35 labeled packets, with plant markers. Save seeds and replant every year.',url:AMZ+'dp/B08S7S98L2?'+T},
+    {s:'wish',own:0,who:['Homesteader','Gadget Lover'],p:21.99,i:['fix','tech'],r:['clever','laugh'],name:'JAXWQ 5-in-1 Stud Finder',lesson:'Find the stud before you hang anything heavy.',mistake:'Hung the shelf on drywall alone. The shelf and the drywall left together.',fix:'Finds the center and edges of wood and metal studs, and flags live AC wire and pipe before you drill.',url:AMZ+'dp/B0GL2X68F8?'+T},
+    {s:'wish',own:0,who:['Outdoor Optimist','Homesteader'],p:9.99,i:['fix','outdoors'],r:['clever','laugh'],name:'ZOMETUO Zipper Repair Kit (252 pcs)',lesson:'Check what broke before replacing the whole jacket.',mistake:'Packed for cold weather. His zipper chose ventilation.',fix:'Replacement sliders, pulls, stops and pliers in one case. Fits jackets, boots, backpacks and tents.',url:AMZ+'dp/B0FVDLDWX2?'+T},
+    {s:'wish',own:0,who:['Outdoor Optimist','Gadget Lover'],p:20,i:['outdoors', 'fix','tech'],r:['clever'],name:'Rechargeable Motion-Sensor Headlamp',lesson:'Bring a light. The sun keeps its own schedule.',mistake:'Started the quick hike at 4:30 in November.',fix:'A rechargeable headlamp you switch on with a wave of your hand. Both hands stay free.',url:AMZ+'dp/B0B4KK73NB?'+T},
+    {s:'wish',own:0,who:['Outdoor Optimist','Homesteader','Has Everything'],p:19.99,i:['outdoors','everything'],r:['clever'],name:'LifeStraw Personal Water Filter',lesson:'Carry the fix, not the risk.',mistake:'Forgot the water bottle. Found a creek. Thought about it too long.',fix:'Drink straight from a stream or lake. Filters bacteria and parasites with no batteries or chemicals. Light enough for any pack or glove box.',url:AMZ+'dp/B006QF3TW4?'+T},
+    {s:'wish',own:0,who:['Outdoor Optimist','Sports Fan','Gardener'],p:25,i:['outdoors', 'garden'],r:['clever'],name:'OCOOPA Rechargeable Hand Warmers',lesson:'Dress for the weather you get, not the one you hoped for.',mistake:'Dressed for the forecast, not the weather.',fix:'Pocket-size hand warmers that charge by USB. Heat on demand, no disposable packets.',url:AMZ+'dp/B0FHWCNXML?'+T},
+
+    {s:'them',own:0,who:['Musician'],p:15,i:['music'],r:['me','clever'],name:'Fender Premium Picks Sampler, 12 Pack',lesson:'Always carry a spare.',mistake:'Dropped his only pick inside the guitar. Shook it for an hour.',fix:'Twelve Fender picks in thin, medium and heavy, so there is always one in the pocket.',url:AMZ+'dp/B07ZRYKNGS?'+T},
+    {s:'them',own:0,who:['Musician'],p:19,i:['music'],r:['clever','me'],name:'CAHAYA Folding Sheet Music Stand',lesson:'Give the music a proper place to stand.',mistake:'Balanced the sheet music on a lampshade. The lampshade won.',fix:'A folding stand that sets up in seconds and packs into its own carrying bag.',url:AMZ+'dp/B0872TGQQT?'+T},
+    {s:'them',own:0,who:['Musician','Reader','Gadget Lover'],p:25.99,i:['music','books','tech'],r:['clever'],name:'Vekkia Rechargeable Music Stand Light',lesson:'Light the page, not your face.',mistake:'Read the sheet music by the light of his phone. Missed every third note.',fix:'A rechargeable clip-on light wide enough for the whole page. No cord to trip over.',url:AMZ+'dp/B0DPH9CBBQ?'+T},
+    {s:'them',own:0,who:['Sports Fan','Has Everything'],p:38.99,i:['outdoors','everything'],r:['clever','laugh'],name:'SPORT BEATS Padded Stadium Seat',lesson:'Bring your own seat.',mistake:'Sat on a frozen bleacher for four quarters. Felt it for three days.',fix:'A thick padded bleacher seat with back support, hooks that clip onto the bench, a zip pocket and a shoulder strap.',url:AMZ+'dp/B09GS5LVTJ?'+T},
+    {s:'them',own:0,who:['Reader','Has Everything'],p:14,i:['books','everything'],r:['laugh','me'],name:'Lavley "Shhh... I\'m Reading" Book Socks',lesson:'Let your feet tell them you\'re busy.',mistake:'Got interrupted mid-chapter. Four times. In one page.',fix:'Soft cotton-blend socks that say SHHH... I\'M READING on the soles. One size fits most.',url:AMZ+'dp/B0CB6VD9Y2?'+T},
+    {s:'them',own:0,who:['Gardener','Has Everything'],p:11.99,i:['garden','everything'],r:['me','laugh'],name:'Marbrasse Cat Propagation Station',lesson:'Grow the next one from the last one.',mistake:'Bought a new plant every time he killed the old one.',fix:'A glass bulb in a wire cat stand. Drop in a cutting, watch the roots grow, and plant it when it is ready.',url:AMZ+'dp/B07RBPH57Z?'+T},
+    {s:'them',own:1,who:['Gardener','Homesteader'],p:14.99,i:['garden', 'books'],r:['me'],name:'WWII Victory Garden Hacks',lesson:'Plant what you\'ll actually eat.',mistake:'Planted 40 zucchini plants. For two people.',fix:'Wartime garden tricks for a backyard that actually feeds the family.',price:'$14.99',h:'wwii-victory-garden-hacks',img:'VGH_A2_Rt_Cover_800x.png'},
+    {s:'them',own:1,who:['Road-Tripper','Outdoor Optimist'],p:9.99,i:['road', 'outdoors', 'books'],r:['me'],name:'The Hidden Northern California',lesson:'The good stuff starts past where everyone stops.',mistake:'Drove 300 miles and only saw the freeway.',fix:'A guide to the places 300 miles past the point where most people stop.',price:'$9.99',h:'the-hidden-northern-california',img:'ChatGPTImageJul7_2026_06_46_08PM_800x.png'},
+
+    {s:'kids',own:1,who:['Kids & Family'],p:14.99,i:['kids'],r:['laugh', 'me'],name:'Finish the Outfit: Cherry Flats Farm',lesson:'The best gifts get used together.',mistake:'Gave the kids a tablet. Got a very quiet winter.',fix:'Color, cut and dress three cowgirls on a real Northern California farm. Screen-free.',price:'$14.99',h:'finish-the-outfit-cherry-flats-farm',img:'FCFTO4_800x.png'},
+    {s:'kids',own:1,who:['Has Everything','Kids & Family'],p:14.99,i:['everything', 'kids'],r:['me'],name:'Finish the Scene: Mandala Farm Coloring Book',lesson:'Slow down on purpose.',mistake:'Tried to relax by checking his phone 80 times.',fix:'Mandala farm scenes to color on a quiet evening, alone or side by side.',price:'$14.99',h:'finish-the-scene-mandala-farm-coloring-book',img:'digital_cover_1600x2560_a67e2927-7f68-48fa-8913-0ec00c1fb1fe_800x.png'},
+    {s:'kids',own:1,who:['Kids & Family'],p:12.99,i:['kids', 'outdoors'],r:['laugh'],name:'Bigfoot Your BIG Friend: Search and Rescue',lesson:'When you\'re lost, stay put and call for help.',mistake:'Got lost on a trail he knew "by heart."',fix:'A search-and-rescue coloring and activity book for ages 4 to 8.',price:'$12.99',h:'bigfoot-your-big-friend-search-rescue',img:'BF_Cover4_1224x1584_99a7d275-af11-41ea-b816-cad6fcd7553e_800x.png'},
+    {s:'kids',own:1,who:['Kids & Family'],p:19.99,i:['kids', 'everything'],r:['laugh'],name:'Christmas Creative Collection: 3 Printable Activity Books',lesson:'Plan the snow day before it snows.',mistake:'Snow day. Zero plans. Three bored kids.',fix:'Three printable Christmas activity books. Print as many copies as the day needs.',price:'$19.99',h:'christmas-creative-collection',img:'ChristmasCreativeActivityBookBundle_f28a9680-1ded-4661-b9b0-0b9a27ca967c_800x.png'},
+    {s:'kids',own:1,who:['Kids & Family','Road-Tripper'],p:9.99,i:['kids','road'],r:['laugh','me'],name:'Cherry Flats Farm Road Trip Adventure Book',lesson:'Pack something for the backseat besides snacks.',mistake:'Asked "Are we there yet?" 47 times. And that was the driver.',fix:'Road games, mazes, coloring, silly stories and kindness activities from Cherry Flats Farm. Print a copy for every kid in the car.',price:'$9.99',h:'cherry-flats-farm-road-trip-adventure-book',img:'CFFActivitybookcover2.png?v=1793455432'},
+    {s:'together',own:0,who:['Couples','Has Everything'],p:23.59,i:['everything'],r:['me','laugh'],name:'Date Night Ideas: 35 Scratch-Off Dates',lesson:'Let the card decide.',mistake:'Asked "Where do you want to eat?" Forty minutes later, cereal.',fix:'A deck of 35 scratch-off date challenges, so neither of you knows the plan until you scratch it. Stocking-stuffer size.',url:AMZ+'dp/B08YWP5QRF?'+T},
+    {s:'together',own:0,who:['Couples','Has Everything'],p:19.99,i:['everything'],r:['laugh','me'],name:'Unsolved Case Files: Who Killed Harmony Ashcroft?',lesson:'Stop watching the detectives. Be the detectives.',mistake:'Binged three seasons of true crime. Still can\'t find the TV remote.',fix:'A real cold-case file to solve together: suspect photos, witness statements and evidence across three mysteries. For ages 14 and up.',url:AMZ+'dp/B07MPCMXGR?'+T},
+    {s:'together',own:0,who:['Couples','Kids & Family','Has Everything'],p:29.99,i:['kids','everything'],r:['laugh','me'],name:'Nostalgia Electric S\'mores Maker',lesson:'Keep the fire on the table, not the ceiling.',mistake:'Made s\'mores on the gas stove. The smoke alarm joined the party.',fix:'A flameless tabletop heater with two roasting forks and four trays for crackers, chocolate and marshmallows. Movie night, any season.',url:AMZ+'dp/B00PY05VMS?'+T}
+  ];
+  /* p = price for the budget step. Amazon items are estimates as of Oct 30, 2026: check and adjust. i = interests, r = reactions (laugh / clever / me). */
+  /* ===== end gifts ===== */
+
+  var shelf='all', who='';
+  function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+  function card(g){
+    var top=g.own
+      ? '<div class="img"><img loading="lazy" src="'+(g.src||IMG+g.img)+'" alt="'+esc(g.name)+'"></div>'
+      : '<span class="stamp" aria-hidden="true">D&minus;</span>';
+    var btn=g.own
+      ? '<a class="btn" target="_blank" rel="noopener" href="'+(g.link||SHOP+g.h)+'">See it in the shop &rarr;</a>'
+      : '<a class="btn ghost" target="_blank" rel="sponsored nofollow noopener" href="'+g.url+'">Check price on Amazon &rarr;</a>';
+    return '<article class="card'+(g.own?'':' amz')+'"><div>'+top+'</div><div class="body"><h4 class="name">'+esc(g.name)+'</h4>'+
+      '<p class="ml"><span class="lesson">Mistake</span><span class="mistake">&ldquo;'+esc(g.mistake)+'&rdquo;</span></p>'+
+      '<p class="ml"><span class="lesson">Lesson</span><span class="lsn">'+esc(g.lesson)+'</span></p>'+
+      '<p class="joke">'+esc(g.fix)+'</p>'+(g.own?'<span class="price">'+g.price+'</span>':'<span class="src">Sold on Amazon</span>')+
+      '<div class="btns">'+btn+'</div></div></article>';
+  }
+  function render(){
+    var html='';
+    SHELVES.forEach(function(sh){
+      if(shelf!=='all'&&shelf!==sh[0]) return;
+      var items=G.filter(function(g){return g.s===sh[0]&&(!who||g.who.indexOf(who)>-1);});
+      items.sort(function(a,b){return b.own-a.own;});
+      if(!items.length) return;
+      html+='<h3 class="sec">'+sh[1]+'</h3><p class="shelfnote">'+sh[2]+'</p><div class="grid">'+items.map(card).join('')+'</div>';
+    });
+    document.getElementById('dmggList').innerHTML=html||'<p class="empty">Nothing on this shelf for that person yet. Try another shelf or "All gifts."</p>';
+  }
+  function has(sh,w){return G.some(function(g){return (sh==='all'||g.s===sh)&&(!w||g.who.indexOf(w)>-1);});}
+  function sync(){
+    [].forEach.call(document.querySelectorAll('#dmggChips .chip'),function(b){
+      var ok=has(shelf,b.textContent); b.style.display=ok?'':'none';
+      if(!ok&&who===b.textContent){who='';b.setAttribute('aria-pressed','false');}
+    });
+    [].forEach.call(document.querySelectorAll('#dmggTabs .tab'),function(b){
+      b.style.display=has(b.getAttribute('data-s'),who)?'':'none';
+    });
+    render();
+  }
+  var tabs=document.getElementById('dmggTabs');
+  [['all','All gifts']].concat(SHELVES.filter(function(sh){return G.some(function(g){return g.s===sh[0];});})).forEach(function(sh){
+    var b=document.createElement('button'); b.type='button'; b.className='tab'; b.textContent=sh[1]; b.setAttribute('data-s',sh[0]);
+    b.setAttribute('aria-pressed',sh[0]==='all'?'true':'false');
+    b.onclick=function(){ shelf=sh[0]; [].forEach.call(tabs.children,function(x){x.setAttribute('aria-pressed','false');}); b.setAttribute('aria-pressed','true'); sync(); toTop($('dmggStore'),true); };
+    tabs.appendChild(b);
+  });
+  var chips=document.getElementById('dmggChips');
+  WHO.filter(function(w){return G.some(function(g){return g.who.indexOf(w)>-1;});}).forEach(function(w){
+    var b=document.createElement('button'); b.type='button'; b.className='chip'; b.textContent=w; b.setAttribute('aria-pressed','false');
+    b.onclick=function(){ var on=who!==w; who=on?w:''; [].forEach.call(chips.querySelectorAll('.chip'),function(x){x.setAttribute('aria-pressed','false');}); if(on) b.setAttribute('aria-pressed','true'); sync(); toTop($('dmggStore'),true); };
+    chips.appendChild(b);
+  });
+
+  /* ===== GIFT FINDER ===== */
+  var PROPS={
+    cords:'<svg viewBox="0 0 64 56" fill="none" stroke-linecap="round"><rect x="4" y="16" width="14" height="24" rx="3" fill="#fff" stroke="#1d1b19" stroke-width="2.5"/><path class="mc" d="M18 28 C30 4,40 50,28 34 S50 10,46 30 S28 52,60 44" stroke="#1d1b19" stroke-width="3"/><path class="mc" d="M18 34 C34 52,24 10,44 22 S38 50,58 18" stroke="#c8202f" stroke-width="3" style="animation-delay:.4s"/></svg>',
+    keys:'<svg viewBox="0 0 64 56" fill="none"><g class="mk"><circle cx="22" cy="22" r="10" stroke="#1d1b19" stroke-width="3" fill="#fff"/><path d="M30 28 L50 44 M42 37 L46 33 M46 41 L50 37" stroke="#1d1b19" stroke-width="3" stroke-linecap="round"/><circle cx="22" cy="22" r="3.5" fill="#c8202f"/></g><text x="50" y="16" font-family="Georgia,serif" font-weight="700" font-size="18" fill="#c8202f">?</text></svg>',
+    burger:'<svg viewBox="0 0 64 56" fill="none"><path class="ms" d="M24 18 q-4 -6 0 -12" stroke="#7a7068" stroke-width="3" stroke-linecap="round"/><path class="ms ms2" d="M34 18 q4 -6 0 -12" stroke="#7a7068" stroke-width="3" stroke-linecap="round"/><path class="ms ms3" d="M44 18 q-4 -6 0 -12" stroke="#7a7068" stroke-width="3" stroke-linecap="round"/><path d="M12 32 Q34 14 56 32 Z" fill="#c98a3c" stroke="#1d1b19" stroke-width="2.5"/><rect x="10" y="32" width="48" height="8" rx="3" fill="#2b1d16" stroke="#1d1b19" stroke-width="2.5"/><path d="M12 40 H56 Q56 48 46 48 H22 Q12 48 12 40 Z" fill="#c98a3c" stroke="#1d1b19" stroke-width="2.5"/></svg>',
+    tada:'<svg viewBox="0 0 64 56" fill="none"><g class="mt"><rect x="16" y="22" width="32" height="28" rx="3" fill="#c8202f" stroke="#1d1b19" stroke-width="2.5"/><rect x="12" y="16" width="40" height="9" rx="2" fill="#c8202f" stroke="#1d1b19" stroke-width="2.5"/><path d="M32 16 V50" stroke="#e9b949" stroke-width="4"/><path d="M32 16 C24 4,14 10,22 16 M32 16 C40 4,50 10,42 16" stroke="#e9b949" stroke-width="3.5"/></g></svg>'
+  };
+  var STEPS=[
+    {key:'int',q:'What are they into?',prop:'cords',cap:'D-Minus is untangling his charging cords. One of them is plugged into the toaster.',
+     opts:[['outdoors','Outdoors','Hikes, camping, cold mornings'],['garden','Gardening','Seeds, soil, too much zucchini'],['fix','Fixing things','Tools, projects, the house'],['books','Books','Readers and learners'],['music','Music','Players and listeners'],['road','Road trips','Maps, snacks, long drives'],['grill','Grilling','Fire, meat, confidence'],['kids','Kids &amp; family','Something to do together'],['tech','Tech &amp; gadgets','The newest tech toys and gadgets'],['everything','They already have everything','The hard one']]},
+    {key:'bud',q:'What\'s your budget?',prop:'keys',cap:'D-Minus checks his wallet. And his pockets. Where did he put his keys?',
+     opts:[['15','Under $15',''],['25','Under $25',''],['40','Under $40',''],['all','Show me everything','']]},
+    {key:'rx',q:'What reaction are you after?',prop:'burger',cap:'D-Minus is grilling while you decide. Very confidently.',
+     opts:[['laugh','A good laugh','They\'ll read it twice'],['clever','"That\'s clever"','They\'ll use it every week'],['me','"That\'s so me"','It fits them exactly']]}
+  ];
+  var ans={}, step=0;
+  function $(id){return document.getElementById(id);}
+  /* Bring an element to the top of the screen. Works on the page itself and when Hostinger puts the embed inside a frame. */
+  function toTop(el,onlyIfAbove){
+    if(!el) return;
+    var y=el.getBoundingClientRect().top, fr=null;
+    try{ fr=window.frameElement; if(fr) y+=fr.getBoundingClientRect().top; }catch(e){ fr=null; }
+    if(onlyIfAbove && y>=0) return;
+    var win=window; try{ if(fr) win=window.parent; }catch(e){}
+    try{ win.scrollTo({top:Math.max(0,win.pageYOffset+y-12),behavior:'auto'}); }
+    catch(e){ try{ el.scrollIntoView(true); }catch(e2){} }
+    if(!fr && window.top!==window){ try{ el.scrollIntoView({block:'start'}); }catch(e){} }
+  }
+  function showF(which){['dmggStart','dmggStep','dmggRes'].forEach(function(x){$(x).classList.toggle('hide',x!==which);});
+    toTop($('dmggFinder')); }
+  function ask(){
+    var st=STEPS[step]; showF('dmggStep');
+    $('dmggCount').textContent='Question '+(step+1)+' of 3';
+    $('dmggQ').textContent=st.q; $('dmggProp').innerHTML=PROPS[st.prop]; $('dmggCap').textContent=st.cap;
+    $('dmggBack').style.visibility='visible';
+    $('dmggOpts').innerHTML=st.opts.map(function(o){return '<button type="button" class="fopt" data-v="'+o[0]+'">'+o[1]+(o[2]?'<small>'+o[2]+'</small>':'')+'</button>';}).join('');
+    [].forEach.call($('dmggOpts').querySelectorAll('.fopt'),function(b){b.onclick=function(){ans[st.key]=b.getAttribute('data-v'); if(step<2){step++;ask();}else results();};});
+    var f=$('dmggOpts').querySelector('.fopt'); if(f) f.focus({preventScroll:true});
+  }
+  function results(){
+    var lim=ans.bud==='all'?1e9:+ans.bud;
+    var pool=G.filter(function(g){return g.p<=lim;});
+    pool.forEach(function(g){g._sc=(g.i.indexOf(ans.int)>-1?10:0)+(g.r.indexOf(ans.rx)>-1?5:0)+(g.own?1:0);});
+    pool.sort(function(a,b){return b._sc-a._sc;});
+    var pick=pool.slice(0,3), matched=pick.filter(function(g){return g._sc>=10;}).length;
+    var labels={}; STEPS[0].opts.forEach(function(o){labels[o[0]]=o[1].replace('&amp;','&');});
+    $('dmggResNote').textContent = matched===3 ? 'Each one comes with the D-Minus mistake it fixes.' :
+      matched===0 ? 'D-Minus is still stocking the '+labels[ans.int].toLowerCase()+' shelf. These are his best picks for your budget and the reaction you want.' :
+      'D-Minus found '+matched+' for '+labels[ans.int].toLowerCase()+'. The rest fit your budget and the reaction you want.';
+    $('dmggResGrid').innerHTML=pick.map(card).join('');
+    $('dmggPropR').innerHTML=PROPS.tada; $('dmggCapR').textContent='D-Minus found three. He is very proud of himself.';
+    showF('dmggRes');
+  }
+  $('dmggGo').onclick=function(){ans={};step=0;ask();};
+  $('dmggBack').onclick=function(){ if(step>0){step--;ask();} else view('city'); };
+  $('dmggAgain').onclick=function(){ans={};step=0;ask();};
+
+  /* ===== BRIGHT IDEA DISTRICT ===== */
+  var K='#1d1b19', RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function F(x,y,o){ o=o||{}; var a=o.a||[[-9,-18],[9,-18]], c='';
+    c+='<path d="M'+x+' '+(y-27)+' L'+x+' '+(y-13)+'"/>';
+    c+='<path class="lg1" d="M'+x+' '+(y-13)+' L'+(x-5)+' '+y+'"/><path class="lg2" d="M'+x+' '+(y-13)+' L'+(x+5)+' '+y+'"/>';
+    c+='<path d="M'+(x+a[0][0])+' '+(y+a[0][1])+' L'+x+' '+(y-24)+' L'+(x+a[1][0])+' '+(y+a[1][1])+'"/>';
+    c+='<circle cx="'+x+'" cy="'+(y-33)+'" r="6" fill="#fff"/><circle cx="'+(x-2)+'" cy="'+(y-34)+'" r="1.1" fill="'+K+'" stroke="none"/><circle cx="'+(x+2.4)+'" cy="'+(y-34)+'" r="1.1" fill="'+K+'" stroke="none"/>';
+    if(!o.nohat) c+='<path d="M'+(x-6.5)+' '+(y-37)+' Q'+x+' '+(y-46)+' '+(x+6.5)+' '+(y-37)+' Z" fill="#c8202f" stroke-width="1.6"/>';
+    if(o.bun) c+='<circle cx="'+(x+1)+'" cy="'+(y-41)+'" r="3" fill="'+K+'"/>';
+    return '<g stroke="'+K+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">'+c+'</g>'; }
+  function V(inner){return '<svg viewBox="0 0 120 80" preserveAspectRatio="xMidYMax meet" aria-hidden="true">'+inner+'</svg>';}
+  var SH={
+    hardware:{name:'Probably Fixed It Hardware',cat:'Fixing Things',c:'#3d6b88',aw:'#e9b949',top:'10px',
+      joke:'D-Minus is holding the instructions upside down. Everything in here comes right side up.',
+      f:function(g){return g.i.indexOf('fix')>-1;},
+      v:V('<rect x="22" y="22" width="30" height="20" fill="#fff" stroke="'+K+'" stroke-width="1.6" transform="rotate(8 37 32)"/><path d="M37 38 V27 M33 31 L37 27 L41 31" stroke="#c8202f" stroke-width="2" fill="none" transform="rotate(188 37 32)"/>'+F(36,76,{a:[[-12,-36],[12,-36]]})+'<path d="M80 30 H112 M80 50 H112" stroke="'+K+'" stroke-width="2"/><path d="M86 28 V18 M83 18 H92" stroke="#7a5230" stroke-width="3"/><path d="M100 28 l6 -10" stroke="#8a8f94" stroke-width="3"/><rect x="84" y="40" width="10" height="9" fill="#c8202f" stroke="'+K+'" stroke-width="1.2"/><rect x="98" y="42" width="10" height="7" fill="#e9b949" stroke="'+K+'" stroke-width="1.2"/>')},
+    electronics:{name:'Bright Idea Electronics',cat:'Tech & Gadgets',c:'#2c2747',aw:'#7a5cff',top:'0px',chim:'block',
+      joke:'A delivery robot has been chasing D-Minus since Tuesday. It just wants him to sign for the package.',
+      f:function(g){return g.s==='tech';},
+      v:V('<g class="bob"><rect x="14" y="48" width="22" height="18" rx="3" fill="#cfd6dd" stroke="'+K+'" stroke-width="1.8"/><rect x="18" y="52" width="14" height="6" rx="2" fill="#2c2747"/><circle cx="22" cy="55" r="1.4" fill="#6ff"/><circle cx="28" cy="55" r="1.4" fill="#6ff"/><path d="M25 48 V41" stroke="'+K+'" stroke-width="1.6"/><circle class="blink" cx="25" cy="40" r="2.4" fill="#c8202f"/><circle cx="19" cy="69" r="4" fill="'+K+'"/><circle cx="31" cy="69" r="4" fill="'+K+'"/></g><path d="M44 54 H52 M42 60 H50" stroke="'+K+'" stroke-width="1.4" opacity=".6"/>'+F(80,76,{a:[[-10,-38],[10,-38]]})+'<text x="96" y="28" font-family="Arial" font-weight="700" font-size="9" fill="#c8202f">!!</text>')},
+    grill:{name:'Medium-Rare Decisions',cat:'Grilling',c:'#8b3a25',aw:'#1d1b19',top:'18px',
+      joke:'Smoke is rising from one suspicious burger. D-Minus says that is "the flavor."',
+      f:function(g){return g.i.indexOf('grill')>-1;},
+      v:V('<path class="smk" d="M40 34 q-4 -6 0 -12" stroke="#6b6560" stroke-width="2.4" fill="none" stroke-linecap="round"/><path class="smk smk2" d="M47 34 q4 -6 0 -12" stroke="#6b6560" stroke-width="2.4" fill="none" stroke-linecap="round"/><path class="smk smk3" d="M54 34 q-4 -6 0 -12" stroke="#6b6560" stroke-width="2.4" fill="none" stroke-linecap="round"/><ellipse cx="40" cy="42" rx="7" ry="3" fill="#7a4a2a"/><ellipse cx="54" cy="42" rx="7" ry="3" fill="#1d1b19"/><path d="M26 45 H68 Q66 62 47 62 Q28 62 26 45 Z" fill="#1d1b19"/><path d="M34 60 L30 76 M60 60 L64 76 M47 62 V76" stroke="'+K+'" stroke-width="2"/>'+F(92,76,{a:[[-14,-26],[10,-18]]})+'<path d="M78 50 L70 44 M68 42 l-4 -3 l3 -4 l4 3 Z" stroke="#8a8f94" stroke-width="2" fill="#8a8f94"/>')},
+    originals:{name:'D-Minus Originals',cat:'Our own D-Minus gear',c:'#c8202f',aw:'#1d1b19',top:'4px',
+      joke:'His hat is stuck in the revolving door again. Everything in here is designed by D-Minus himself, and sold only here.',
+      f:function(g){return !!g.own;},
+      v:V('<ellipse cx="44" cy="74" rx="26" ry="4" fill="#9fb9c2"/><path d="M20 74 V26 Q44 18 68 26 V74" fill="#e8f4f7" stroke="'+K+'" stroke-width="1.8"/><path d="M44 22 V74 M30 24 L36 74 M58 24 L52 74" stroke="'+K+'" stroke-width="1.6"/><g transform="rotate(-24 44 40)"><path d="M36 42 Q44 30 52 42 Z" fill="#c8202f" stroke="'+K+'" stroke-width="1.4"/><rect x="34" y="41" width="20" height="5" rx="2.5" fill="#fff" stroke="'+K+'" stroke-width="1.2"/><text x="44" y="45.3" font-family="Arial" font-weight="700" font-size="4.4" text-anchor="middle" fill="#c8202f">D-</text></g>'+F(92,76,{nohat:1,a:[[-16,-30],[8,-16]]})+'<path d="M90 40 q2 -5 4 0" stroke="'+K+'" stroke-width="1.4" fill="none"/>')},
+    terminal:{name:'The Last-Minute Terminal',cat:'Cleared for Takeoff',c:'#2a6377',aw:'#e9b949',top:'6px',chim:'block',
+      joke:'D-Minus made his flight. His socks are still on the way. Everything here makes the trip easier, from the curb to the gate.',
+      f:function(g){return g.s==='flight';},
+      v:V('<path d="M88 16 L112 10 L98 22 Z" fill="#fff" stroke="'+K+'" stroke-width="1.4"/><path d="M98 22 L95 15" stroke="'+K+'" stroke-width="1.2"/><rect x="8" y="58" width="26" height="16" rx="2" fill="#7a4a2a" stroke="'+K+'" stroke-width="1.6"/><path d="M8 58 L14 44 L38 48 L34 58" fill="#a0673e" stroke="'+K+'" stroke-width="1.6"/><path d="M40 72 q3 -6 6 0 v3 h-6 Z" fill="#c8202f"/><path d="M54 68 h10 l2 6 h-14 Z" fill="#e9b949" stroke="'+K+'" stroke-width="1"/><path d="M70 73 q3 -5 6 0" stroke="#3d6b88" stroke-width="3" fill="none"/>'+F(96,76,{a:[[10,-26],[-12,-16]]}))},
+    scenic:{name:'The Scenic Detour',cat:'Outdoors',c:'#4f7136',aw:'#f4ecdc',top:'14px',
+      joke:'Both trail signs say "This way." D-Minus is going the third way. Gear for every direction is inside.',
+      f:function(g){return g.i.indexOf('outdoors')>-1;},
+      v:V('<path d="M12 70 L22 44 L32 70 Z M90 70 L102 38 L114 70 Z" fill="#3c5c2a" stroke="'+K+'" stroke-width="1.4"/><path d="M58 76 V24" stroke="#7a5230" stroke-width="3"/><path d="M58 28 H80 L86 33 L80 38 H58 Z" fill="#e9b949" stroke="'+K+'" stroke-width="1.4"/><path d="M58 42 H36 L30 47 L36 52 H58 Z" fill="#e9b949" stroke="'+K+'" stroke-width="1.4"/><text x="68" y="35.6" font-family="Arial" font-weight="700" font-size="5.4" text-anchor="middle" fill="'+K+'">TRAIL</text><text x="45" y="49.4" font-family="Arial" font-weight="700" font-size="5.4" text-anchor="middle" fill="'+K+'">TRAIL</text>'+F(76,76,{a:[[-6,-38],[10,-18]]})+'<text x="84" y="40" font-family="Georgia" font-weight="700" font-size="9" fill="#c8202f">?</text>')},
+    books:{name:'One More Chapter',cat:'Books & Reading',c:'#6a4a2e',aw:'#c8202f',top:'0px',
+      joke:'The stack is taller than the doorway. D-Minus says he will finish it by Friday.',
+      f:function(g){return g.i.indexOf('books')>-1;},
+      v:V('<g stroke="'+K+'" stroke-width="1.2"><rect x="18" y="68" width="34" height="7" fill="#c8202f"/><rect x="21" y="61" width="30" height="7" fill="#3d6b88"/><rect x="17" y="54" width="33" height="7" fill="#e9b949"/><rect x="22" y="47" width="28" height="7" fill="#4f7136"/><rect x="19" y="40" width="32" height="7" fill="#fff"/><rect x="23" y="33" width="27" height="7" fill="#c8202f"/><rect x="18" y="26" width="31" height="7" fill="#2c2747"/><rect x="22" y="19" width="28" height="7" fill="#e9b949"/><rect x="20" y="12" width="30" height="7" fill="#3d6b88"/><rect x="24" y="5" width="26" height="7" fill="#fff"/><rect x="21" y="-2" width="29" height="7" fill="#c8202f"/></g>'+F(84,76,{a:[[-10,-30],[10,-30]]})+'<path d="M74 44 l10 -4 l10 4 v8 l-10 -4 l-10 4 Z" fill="#fff" stroke="'+K+'" stroke-width="1.4"/>')},
+    couples:{name:'Two Can Play',cat:'Couples',c:'#a8506f',aw:'#fff',top:'12px',
+      joke:'D-Minus is still reading the rules. His partner already won. Twice. Gifts for two are inside.',
+      f:function(g){return g.s==='together';},
+      v:V('<rect x="36" y="56" width="48" height="5" fill="#7a4a2a" stroke="'+K+'" stroke-width="1.4"/><path d="M42 61 V76 M78 61 V76" stroke="'+K+'" stroke-width="2"/><rect x="46" y="51" width="18" height="5" fill="#fff" stroke="'+K+'" stroke-width="1"/><rect x="66" y="52" width="6" height="4" fill="#c8202f"/>'+F(24,76,{a:[[-4,-38],[10,-22]]})+'<rect x="28" y="34" width="9" height="6" fill="#fff" stroke="'+K+'" stroke-width="1" transform="rotate(-12 32 37)"/>'+F(98,76,{nohat:1,bun:1,a:[[-10,-42],[10,-42]]})+'<path d="M84 22 l2 -4 M98 16 v-4 M112 22 l-2 -4" stroke="#e9b949" stroke-width="2"/><path d="M104 30 c-2 -3 -6 -1 -4 2 l4 3 l4 -3 c2 -3 -2 -5 -4 -2" fill="#c8202f" stroke="none"/>')}
+  };
+  var STREETS=[['Main Street',['hardware','electronics','grill','originals']],['Detour Avenue',['terminal','scenic','books','couples']]];
+  var GUIDE='<svg viewBox="0 0 26 46" aria-hidden="true"><g stroke="'+K+'" stroke-width="2.4" stroke-linecap="round" fill="none"><circle cx="13" cy="9" r="6.5" fill="#fff"/><circle cx="11" cy="8" r="1.2" fill="'+K+'" stroke="none"/><circle cx="15.5" cy="8" r="1.2" fill="'+K+'" stroke="none"/><path d="M6 5 Q13 -4 20 5 Z" fill="#c8202f" stroke-width="1.6"/><path d="M13 16 V31 M13 20 L5 27 M13 20 L21 26"/><path class="lg1" d="M13 31 L8 45"/><path class="lg2" d="M13 31 L18 45"/></g></svg>';
+  function busSvg(){return '<svg width="96" height="26" viewBox="0 0 96 26"><rect x="1" y="1" width="92" height="19" rx="4" fill="#e9b949" stroke="'+K+'" stroke-width="2"/><rect x="8" y="5" width="12" height="7" fill="#cfe6ee" stroke="'+K+'" stroke-width="1.2"/><rect x="24" y="5" width="12" height="7" fill="#cfe6ee" stroke="'+K+'" stroke-width="1.2"/><rect x="40" y="5" width="12" height="7" fill="#cfe6ee" stroke="'+K+'" stroke-width="1.2"/><rect x="56" y="5" width="12" height="7" fill="#cfe6ee" stroke="'+K+'" stroke-width="1.2"/><rect x="74" y="5" width="15" height="11" fill="#cfe6ee" stroke="'+K+'" stroke-width="1.2"/><text x="36" y="18" font-family="Arial" font-weight="700" font-size="5" fill="'+K+'">BRIGHT IDEA TRANSIT</text><circle cx="20" cy="21" r="4.5" fill="'+K+'"/><circle cx="74" cy="21" r="4.5" fill="'+K+'"/></svg>';}
+  function carSvg(){return '<svg width="52" height="24" viewBox="0 0 52 24"><path d="M2 16 L6 8 Q8 4 14 4 H32 Q37 4 40 9 L46 11 Q50 12 50 16 V18 H2 Z" fill="#3d6b88" stroke="'+K+'" stroke-width="2"/><path d="M14 7 H22 V12 H11 Z M25 7 H32 L36 12 H25 Z" fill="#cfe6ee"/><circle cx="14" cy="19" r="4" fill="'+K+'"/><circle cx="39" cy="19" r="4" fill="'+K+'"/></svg>';}
+  function pedSvg(col){return '<svg width="16" height="30" viewBox="0 0 16 30"><g stroke="'+K+'" stroke-width="1.8" stroke-linecap="round" fill="none"><circle cx="8" cy="5" r="4" fill="#fff"/><path d="M8 9 V19" stroke="'+col+'" stroke-width="3.4"/><path d="M8 12 L3 17 M8 12 L13 16"/><path class="lg1" d="M8 19 L5 29"/><path class="lg2" d="M8 19 L11 29"/></g></svg>';}
+  function dogSvg(){return '<svg width="40" height="20" viewBox="0 0 40 20"><g stroke="'+K+'" stroke-width="1.6" stroke-linecap="round"><path d="M4 9 Q2 4 6 3" fill="none"/><rect x="5" y="6" width="18" height="7" rx="3.5" fill="#b07a45"/><circle cx="26" cy="6" r="4.5" fill="#b07a45"/><path d="M26 2 l2 -2" /><path class="lg1" d="M9 13 L8 19" fill="none"/><path class="lg2" d="M19 13 L20 19" fill="none"/><rect x="29" y="5" width="10" height="5" rx="1.5" fill="#e9b949"/><path d="M29 7.5 H39" stroke="#4f7136" stroke-width="1.4"/></g></svg>';}
+  function xdmSvg(){return '<svg width="18" height="32" viewBox="0 0 18 32"><g stroke="'+K+'" stroke-width="1.9" stroke-linecap="round" fill="none"><circle cx="9" cy="6" r="4.5" fill="#fff"/><path d="M4.5 3.5 Q9 -2.5 13.5 3.5 Z" fill="#c8202f" stroke-width="1.2"/><path d="M9 10.5 V20 M9 13 L3 9 M9 13 L15 9"/><path class="lg1" d="M9 20 L6 31"/><path class="lg2" d="M9 20 L12 31"/></g></svg>';}
+  function cloudSvg(w){return '<svg width="'+w+'" height="'+(w*.45)+'" viewBox="0 0 80 36"><path d="M10 30 Q2 30 4 22 Q6 14 16 16 Q18 6 30 8 Q38 0 48 8 Q60 4 62 16 Q76 14 76 24 Q76 30 68 30 Z" fill="#fff" stroke="#e1d6c2" stroke-width="2"/></svg>';}
+  function skyHTML(){return '<div class="sky" aria-hidden="true"><div class="cloud" style="--y:8px;--d:60s;--dl:-10s">'+cloudSvg(80)+'</div><div class="cloud" style="--y:30px;--d:85s;--dl:-50s">'+cloudSvg(56)+'</div>'+
+    '<div class="skyplane"><svg width="30" height="16" viewBox="0 0 30 16"><path d="M29 6 L1 1 L9 8 Z" fill="#fff" stroke="'+K+'" stroke-width="1.4" stroke-linejoin="round"/><path d="M29 6 L9 8 L7 15 Z" fill="#e3e9ee" stroke="'+K+'" stroke-width="1.4" stroke-linejoin="round"/></svg></div></div>';}
+  var hydSvg='<svg width="12" height="16" viewBox="0 0 12 16"><rect x="3" y="3" width="6" height="12" rx="2" fill="#c8202f" stroke="'+K+'" stroke-width="1.2"/><rect x="1" y="7" width="10" height="3" fill="#c8202f" stroke="'+K+'" stroke-width="1"/><circle cx="6" cy="3" r="2.5" fill="#c8202f" stroke="'+K+'" stroke-width="1"/></svg>';
+  var workerSvg='<svg width="22" height="30" viewBox="0 0 22 30"><g stroke="'+K+'" stroke-width="1.8" stroke-linecap="round" fill="none"><circle cx="8" cy="6" r="4" fill="#fff"/><path d="M4 4 Q8 -1 12 4 Z" fill="#f2b134" stroke-width="1.2"/><path d="M8 10 V20" stroke="#f28a2e" stroke-width="3.6"/><path d="M8 13 L16 18 M8 13 L14 9"/><path d="M8 20 L5 29 M8 20 L11 29"/><path d="M16 6 L16 26 M13 26 H19" stroke="#7a5230" stroke-width="2"/></g></svg>';
+  function streetHTML(st,ix){
+    var shops=st[1].map(function(id){var d=SH[id];
+      return '<button type="button" class="shop" data-shop="'+id+'" style="--c:'+d.c+';--aw:'+d.aw+';--top:'+d.top+';--chim:'+(d.chim||'none')+'" aria-label="'+esc(d.name)+': '+esc(d.cat)+'">'+
+        '<div class="bld">'+(id==='electronics'?'<span class="ant"></span>':'')+'<span class="sign">'+esc(d.name)+'</span><span class="cat'+(id==='electronics'?' neon':'')+'">'+esc(d.cat)+' &rarr;</span>'+
+        (id==='terminal'?'<span class="flash blink">NOW BOARDING</span>':'')+(id==='grill'?'<span class="flash blink">GRILL\'S ON</span>':'')+(id==='books'?'<span class="flash blink">OPEN LATE</span>':'')+
+        '<div class="awn"></div><div class="front"><div class="win">'+d.v+'</div><div class="frame"><div class="door"><b'+(id==='hardware'||id==='couples'?' class="blink"':'')+'>OPEN</b></div></div></div></div>'+
+        '<span class="guide">'+GUIDE+'</span></button>';}).join('');
+    var road= ix===0
+      ? '<div class="xwalk" style="left:12%"></div><span class="xsign" style="left:12%">CROSS HERE</span>'+
+        '<span class="lamp" style="left:34%"></span><span class="lamp" style="left:86%"></span><span class="hyd" style="left:48%">'+hydSvg+'</span>'+
+        '<div class="mover bus">'+busSvg()+'</div><div class="mover car" style="animation-delay:-2s">'+carSvg()+'</div>'+
+        '<div class="mover dog">'+dogSvg()+'</div><div class="mover chase">'+pedSvg('#e9b949')+'<span class="hey">HEY! MY LUNCH!</span></div>'+
+        '<div class="mover ped">'+pedSvg('#3d6b88')+'</div><div class="mover ped" style="animation-duration:33s;animation-delay:-20s">'+pedSvg('#c8202f')+'</div>'+
+        '<div class="mover xdm" style="left:63%">'+xdmSvg()+'</div>'
+      : '<span class="lamp" style="left:22%"></span><span class="lamp" style="left:72%"></span><span class="worker" style="left:calc(58% - 26px)">'+workerSvg+'</span>'+
+        '<div class="mover xdm xdm2" style="left:30%">'+xdmSvg()+'</div><div class="mover bus" style="top:30px;animation-delay:-11s;animation-duration:21s">'+busSvg()+'</div>'+
+        '<div class="cones" style="left:58%"><svg width="14" height="20" viewBox="0 0 14 20"><path d="M7 1 L13 19 H1 Z" fill="#f28a2e" stroke="'+K+'" stroke-width="1.4"/><path d="M4 12 H10" stroke="#fff" stroke-width="2"/></svg><svg width="14" height="20" viewBox="0 0 14 20"><path d="M7 1 L13 19 H1 Z" fill="#f28a2e" stroke="'+K+'" stroke-width="1.4"/><path d="M4 12 H10" stroke="#fff" stroke-width="2"/></svg><span class="rw">ROAD WORK<br>PROBABLY</span></div>'+
+        '<div class="mover ped ped2">'+pedSvg('#a8506f')+'</div><div class="mover ped" style="animation-duration:21s;animation-delay:-3s">'+pedSvg('#4f7136')+'</div>';
+    return '<div class="street">'+skyHTML()+'<div class="sthead"><span class="stname">'+st[0]+'</span><span class="sarrs"><button type="button" class="sarr" data-dir="-1" aria-label="Previous shops on '+st[0]+'">&lsaquo;</button><button type="button" class="sarr" data-dir="1" aria-label="More shops on '+st[0]+'">&rsaquo;</button></span></div>'+
+      '<p class="hint">Swipe or tap &rsaquo; to see more shops on '+st[0]+'.</p>'+
+      '<div class="row">'+shops+'</div><div class="road" aria-hidden="true">'+road+'</div></div>';
+  }
+  $('dmggStreets').innerHTML=STREETS.map(streetHTML).join('');
+  $('dmggDir').insertAdjacentHTML('beforeend',STREETS.map(function(st){return st[1].map(function(id){return '<button type="button" class="dirb" data-jump="'+id+'">'+esc(SH[id].name)+'</button>';}).join('');}).join(''));
+  [].forEach.call(root.querySelectorAll('.dirb'),function(b){b.onclick=function(){
+    var sh=root.querySelector('.shop[data-shop="'+b.getAttribute('data-jump')+'"]'); if(!sh) return;
+    var row=sh.closest('.row'); row.scrollTo({left:sh.offsetLeft-row.offsetLeft-14,behavior:RM?'auto':'smooth'});
+    try{sh.scrollIntoView({block:'center',behavior:RM?'auto':'smooth'});}catch(e){sh.scrollIntoView();}
+    setTimeout(function(){sh.click();},RM?0:550);};});
+  [].forEach.call(root.querySelectorAll('.sarr'),function(b){b.onclick=function(){var row=b.closest('.street').querySelector('.row');row.scrollBy({left:(+b.getAttribute('data-dir'))*row.clientWidth,behavior:'smooth'});};});
+  var busy=false;
+  function openShop(id){
+    var d=SH[id]; if(!d) return;
+    $('dmggShopHead').style.setProperty('--c',d.c);
+    $('dmggShopHead').innerHTML='<p class="kick">Now inside &middot; '+esc(d.cat)+'</p><h3 class="shopname">'+esc(d.name)+'</h3><p class="shopjoke">'+esc(d.joke)+'</p>';
+    var items=G.filter(d.f).slice().sort(function(a,b){return b.own-a.own;});
+    var gr=$('dmggShopGrid'); gr.classList.remove('shelfin'); gr.innerHTML=items.map(card).join('');
+    [].forEach.call(gr.children,function(c,i){c.style.animationDelay=Math.min(i*60,600)+'ms';});
+    void gr.offsetWidth; gr.classList.add('shelfin');
+  }
+  root.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.shop'); if(!b||busy) return;
+    var id=b.getAttribute('data-shop');
+    if(RM){view('shop',id);return;}
+    busy=true; b.classList.add('opening');
+    var row=b.closest('.row'); if(row) row.classList.add('entering');
+    setTimeout(function(){view('shop',id); b.classList.remove('opening'); if(row) row.classList.remove('entering'); busy=false;},1350);
+  });
+
+  /* ===== VIEWS: city / shop / finder / store ===== */
+  var VIEWS={city:'dmggCity',shop:'dmggShopView',finder:'dmggFinder',store:'dmggStoreView'};
+  function view(v,arg){
+    if(!VIEWS[v]) v='city';
+    Object.keys(VIEWS).forEach(function(k){$(VIEWS[k]).classList.toggle('hide',k!==v);});
+    if(v==='finder'){ans={};step=0;ask();}
+    if(v==='shop') openShop(arg);
+    var h= v==='store'?'#store' : v==='shop'?'#shop-'+arg : '';
+    try{ history.replaceState(null,'',h||location.pathname+location.search); }catch(e){}
+    toTop(v==='city'?root:$(VIEWS[v]));
+  }
+  root.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('[data-go]'); if(!b) return;
+    e.preventDefault(); var g=b.getAttribute('data-go'); view(g==='front'?'city':g);
+  });
+  if(location.hash==='#store') view('store');
+  else if(/^#shop-/.test(location.hash)&&SH[location.hash.slice(6)]) view('shop',location.hash.slice(6));
+  render();
+})();
+</script>
+<script>
+(function(){
+  var sec=document.getElementById('dmgg'); if(!sec) return;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var svg=sec.querySelector('.trail'), path=document.getElementById('dmgPath'), plane=document.getElementById('dmgPlane');
+  var P=[[.98,.03],[.80,.07],[.55,.05],[.30,.12],[.08,.22],[.20,.38],[.55,.45],[.85,.55],[.70,.70],[.35,.78],[.10,.90],[.45,.98]];
+  var len=0,t0=null,dur=26000,started=false;
+  function build(){var w=sec.clientWidth,h=sec.clientHeight;if(!w||!h)return false;svg.setAttribute('viewBox','0 0 '+w+' '+h);
+    var pts=P.map(function(p){return [p[0]*w,p[1]*h];}),d='M'+pts[0][0]+' '+pts[0][1];
+    for(var i=0;i<pts.length-1;i++){var p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
+      d+=' C'+(p1[0]+(p2[0]-p0[0])/6)+' '+(p1[1]+(p2[1]-p0[1])/6)+','+(p2[0]-(p3[0]-p1[0])/6)+' '+(p2[1]-(p3[1]-p1[1])/6)+','+p2[0]+' '+p2[1];}
+    path.setAttribute('d',d);len=path.getTotalLength();return true;}
+  function frame(ts){if(!t0)t0=ts;var f=Math.min(1,(ts-t0)/dur),at=Math.max(0,Math.min(f*len,len-2));
+    var a=path.getPointAtLength(at),b=path.getPointAtLength(Math.min(len,at+2));
+    plane.setAttribute('transform','translate('+a.x+' '+a.y+') rotate('+(Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI)+') translate(-15 0)');
+    if((ts-t0)<dur)requestAnimationFrame(frame);}
+  function go(){if(started)return;if(!build()){setTimeout(go,300);return;}started=true;plane.style.opacity=1;requestAnimationFrame(frame);}
+  if('ResizeObserver' in window){new ResizeObserver(function(){build();}).observe(sec);}
+  window.addEventListener('resize',build);
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();go();}},{threshold:.15});io.observe(sec);}else go();
+  setTimeout(go,4000);
+})();
+</script>
